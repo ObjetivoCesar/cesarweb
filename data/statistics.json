@@ -1,0 +1,62 @@
+{
+  "totalVisitas": 244,
+  "visitasHoy": 244,
+  "articulosPublicados": 0,
+  "suscriptoresNewsletter": 0,
+  "ultimasVisitas": [
+    {
+      "fecha": "2025-05-27",
+      "pagina": "/maspacientes/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-05-27",
+      "pagina": "/mensajeria/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-05-27",
+      "pagina": "/admin/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-05-27",
+      "pagina": "/blog/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-05-27",
+      "pagina": "/blog/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-05-27",
+      "pagina": "/maspacientes/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-05-27",
+      "pagina": "/maspacientes/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-05-27",
+      "pagina": "/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-05-27",
+      "pagina": "/mensajeria/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-05-27",
+      "pagina": "/mensajeria/",
+      "visitas": 1
+    }
+  ],
+  "visitasPorDia": {
+    "2025-05-27": 244
+  },
+  "aperturasEmail": {}
+}
