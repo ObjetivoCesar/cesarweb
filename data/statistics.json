@@ -1,62 +1,63 @@
 {
-  "totalVisitas": 244,
-  "visitasHoy": 244,
+  "totalVisitas": 257,
+  "visitasHoy": 257,
   "articulosPublicados": 0,
   "suscriptoresNewsletter": 0,
   "ultimasVisitas": [
     {
-      "fecha": "2025-05-27",
-      "pagina": "/maspacientes/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-05-27",
+      "fecha": "2025-05-28",
       "pagina": "/mensajeria/",
       "visitas": 1
     },
     {
-      "fecha": "2025-05-27",
-      "pagina": "/admin/",
+      "fecha": "2025-05-28",
+      "pagina": "/mensajeria/",
       "visitas": 1
     },
     {
-      "fecha": "2025-05-27",
-      "pagina": "/blog/",
+      "fecha": "2025-05-28",
+      "pagina": "/mensajeria/",
       "visitas": 1
     },
     {
-      "fecha": "2025-05-27",
-      "pagina": "/blog/",
+      "fecha": "2025-05-28",
+      "pagina": "/mensajeria/",
       "visitas": 1
     },
     {
-      "fecha": "2025-05-27",
+      "fecha": "2025-05-28",
+      "pagina": "/mensajeria/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-05-28",
+      "pagina": "/mensajeria/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-05-28",
       "pagina": "/maspacientes/",
       "visitas": 1
     },
     {
-      "fecha": "2025-05-27",
-      "pagina": "/maspacientes/",
+      "fecha": "2025-05-28",
+      "pagina": "/mensajeria/",
       "visitas": 1
     },
     {
-      "fecha": "2025-05-27",
+      "fecha": "2025-05-28",
       "pagina": "/",
       "visitas": 1
     },
     {
-      "fecha": "2025-05-27",
-      "pagina": "/mensajeria/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-05-27",
+      "fecha": "2025-05-28",
       "pagina": "/mensajeria/",
       "visitas": 1
     }
   ],
   "visitasPorDia": {
-    "2025-05-27": 244
+    "2025-05-27": 246,
+    "2025-05-28": 11
   },
   "aperturasEmail": {}
 }

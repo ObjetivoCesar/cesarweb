@@ -38,6 +38,31 @@ export default function MensajeriaPage() {
         .faq-button .icon-minus { display: none; }
         .faq-button.open .icon-plus { display: none; }
         .faq-button.open .icon-minus { display: inline-block; }
+        /* Carrousel slide para cards en móvil */
+        .cards-carousel {
+          display: grid;
+          grid-auto-flow: column;
+          grid-auto-columns: 80%;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          gap: 1.5rem;
+          padding-bottom: 1rem;
+        }
+        .cards-carousel > * {
+          scroll-snap-align: start;
+        }
+        @media (min-width: 768px) {
+          .cards-carousel {
+            display: grid;
+            grid-auto-flow: initial;
+            grid-auto-columns: initial;
+            grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+            overflow-x: unset;
+            scroll-snap-type: none;
+            gap: 2rem;
+            padding-bottom: 0;
+          }
+        }
       `}</style>
 
       <main className="bg-gray-50 font-sans text-gray-800">
@@ -53,81 +78,116 @@ export default function MensajeriaPage() {
               className="w-full h-full object-cover"
             ></iframe>
           </div>
-          {/* Overlay negro con 40% de opacidad */}
-          <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.4)' }}></div>
-          <div className="container mx-auto px-6 h-full flex flex-col justify-center items-center text-center relative z-10">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight text-gray-900 drop-shadow-lg">
+        </section>
+
+        {/* Nueva Sección de Alerta */}
+        <section className="w-full min-h-[700px] bg-[#e78c24] py-16 flex items-center">
+          <div className="container mx-auto px-6">
+            <div className="max-w-4xl mx-auto text-center flex flex-col justify-center h-full">
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-8">
               ¡Alerta PYME! Cada Empleado te Cuesta $1,945 USD Anuales en Tareas Repetitivas
             </h1>
-            <div className="space-y-4">
+              <p className="text-xl text-white mb-8">
+                ¿Sabías que tu equipo pierde más de 2 horas al día en correos, WhatsApp y búsquedas ineficientes? Nuestro Sistema de Mensajería Objetivo con IA te devuelve ese tiempo y multiplica tus ganancias.
+              </p>
               <a
                 href="#cta-final"
-                className="inline-flex items-center bg-white hover:bg-yellow-200 text-yellow-600 font-bold text-lg py-4 px-10 rounded-lg shadow-xl transform hover:scale-105 transition-all duration-150 ease-in-out animate-pulse border-2 border-yellow-400"
+                className="inline-flex items-center justify-center bg-white hover:bg-[#ffe0b2] text-black font-bold text-lg py-4 px-10 rounded-lg shadow-xl transform hover:scale-105 transition-all duration-150 ease-in-out animate-pulse border-2 border-[#e78c24] mb-8"
+                style={{ minWidth: '320px' }}
               >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 mr-3 text-yellow-500">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 mr-3 text-[#e78c24]">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.82m5.84-2.56a12.028 12.028 0 00-5.84 7.38H6.18M15.59 14.37A12.021 12.021 0 0118 10.18H9.98M15.59 14.37A6 6 0 0018 10.18v-4.82m-2.41 9.01L18 10.18M3.75 3.75L18 10.18m-14.25 0A12.015 12.015 0 0118 10.18M3.75 3.75c0-1.02.738-1.875 1.75-1.875h12.75c1.013 0 1.75.855 1.75 1.875v10.5A12.02 12.02 0 0118 10.18M3.75 3.75H2.25m15.75 0H18m-2.41 9.01L18 10.18m0 0A12.015 12.015 0 013.75 3.75m14.25 0c0 .26-.02.516-.057.764L3.75 3.75m14.25 0L3.75 3.75" />
                 </svg>
-                Agenda una Llamada de Demostración Gratuita
+                <span className="flex-1 text-center">Agenda una Llamada de Demostración Gratuita</span>
               </a>
-              <p className="text-gray-900 text-lg opacity-90 drop-shadow-lg">
+              <p className="text-white text-lg">
                 Descubre en 15 minutos cómo convertir tiempo perdido en ventas concretas.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Problem Section */}
-        <section id="problema" className="py-16 md:py-24 bg-white">
+        {/* Nueva sección H1 y cards */}
+        <section className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-6">
             <div className="text-center mb-12">
               <h3 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-                El Costo Oculto de la Ineficiencia: ¿Cuánto Estás Perdiendo REALMENTE?
+                ¿Y Si Pudieras Hacer Más con Menos Tiempo?
               </h3>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                En tu PYME, como profesional independiente o artesano, cada minuto cuenta. Pero la realidad es que tu equipo, sin saberlo, está perdiendo horas valiosas en un laberinto de tareas repetitivas y distracciones digitales.
+                Tu tiempo es tu recurso más valioso. Sin embargo, en el día a día de una PYME, de un profesional independiente o de un artesano, hay factores invisibles que lo drenan sin que lo notes.
               </p>
             </div>
+            <div className="cards-carousel">
+              {/* Card 1 */}
+              <div className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col h-full">
+                <img src="/images/mensajeria/comentarios.webp" alt="Mensajes y comentarios" className="w-full h-40 object-cover" />
+                <div className="p-6 flex flex-col flex-1">
+                  <h4 className="text-xl font-semibold text-gray-800 mb-2">Mensajes y comentarios sin fin</h4>
+                  <p className="text-gray-600 flex-1">Gran parte de tu jornada se va respondiendo comunicaciones que no siempre se traducen en oportunidades reales de negocio.</p>
+                </div>
+              </div>
+              {/* Card 2 */}
+              <div className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col h-full">
+                <img src="/images/mensajeria/información.webp" alt="Búsqueda de información" className="w-full h-40 object-cover" />
+                <div className="p-6 flex flex-col flex-1">
+                  <h4 className="text-xl font-semibold text-gray-800 mb-2">Búsqueda constante de información</h4>
+                  <p className="text-gray-600 flex-1">Archivos, datos de clientes, historial de pedidos... ¿Cuánto tiempo pierdes localizando información que debería estar al alcance de un clic?</p>
+                </div>
+              </div>
+              {/* Card 3 */}
+              <div className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col h-full">
+                <img src="/images/mensajeria/oportunidades.webp" alt="Oportunidades perdidas" className="w-full h-40 object-cover" />
+                <div className="p-6 flex flex-col flex-1">
+                  <h4 className="text-xl font-semibold text-gray-800 mb-2">Correos con oportunidades perdidas</h4>
+                  <p className="text-gray-600 flex-1">Promociones, alianzas o solicitudes importantes que nunca se leyeron a tiempo o se enterraron en la bandeja de entrada.</p>
+                </div>
+              </div>
+              {/* Card 4 */}
+              <div className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col h-full">
+                <img src="/images/mensajeria/olvidados.webp" alt="Recordatorios olvidados" className="w-full h-40 object-cover" />
+                <div className="p-6 flex flex-col flex-1">
+                  <h4 className="text-xl font-semibold text-gray-800 mb-2">Recordatorios olvidados, citas perdidas</h4>
+                  <p className="text-gray-600 flex-1">Una respuesta tardía puede significar un cliente menos. Y muchas veces, eso ocurre simplemente por no tener un sistema de gestión eficiente.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-            <div className="grid md:grid-cols-2 gap-8 items-center mb-16">
-              <div>
-                <h4 className="text-2xl font-semibold text-gray-700 mb-4">El Problema:</h4>
-                <ul className="space-y-3 text-gray-600">
-                  <li className="flex items-start">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-red-500 mr-3 mt-1 flex-shrink-0"><path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
-                    <span><strong className="text-gray-700">Mensajes y correos sin fin:</strong> Atendiendo comunicaciones que no siempre llevan a una venta.</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-red-500 mr-3 mt-1 flex-shrink-0"><path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
-                    <span><strong className="text-gray-700">Búsqueda constante:</strong> Perdiendo el tiempo buscando información crucial para tu operación.</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-red-500 mr-3 mt-1 flex-shrink-0"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                    <span><strong className="text-gray-700">Falta de enfoque:</strong> Las interrupciones constantes rompen la concentración, afectando la productividad real.</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-red-500 mr-3 mt-1 flex-shrink-0"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
-                    <span><strong className="text-gray-700">Oportunidades perdidas:</strong> Clientes que se van a la competencia por una respuesta tardía.</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-red-50 p-4 rounded-lg shadow text-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-10 h-10 text-red-400 mx-auto mb-2"><path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
-                  <p className="text-sm text-red-700">Bandeja de entrada saturada</p>
-                </div>
-                <div className="bg-red-50 p-4 rounded-lg shadow text-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-10 h-10 text-red-400 mx-auto mb-2"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                  <p className="text-sm text-red-700">Tiempo perdido</p>
-                </div>
-                <div className="bg-red-50 p-4 rounded-lg shadow text-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-10 h-10 text-red-400 mx-auto mb-2"><path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
-                  <p className="text-sm text-red-700">Búsqueda de datos</p>
-                </div>
-                <div className="bg-red-50 p-4 rounded-lg shadow text-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-10 h-10 text-red-400 mx-auto mb-2"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
-                  <p className="text-sm text-red-700">Signo de dólar tachado</p>
-                </div>
-              </div>
+        {/* Banner motivacional antes del segundo video */}
+        <section className="py-8">
+          <div className="max-w-6xl mx-auto rounded-2xl bg-gradient-to-br from-[#e78c24] to-yellow-400 flex flex-col md:flex-row items-center justify-between p-10 gap-8 shadow-lg h-[340px] min-h-[340px]">
+            <div className="flex-1 text-white flex flex-col justify-center h-full">
+              <h3 className="text-3xl font-bold mb-4">Valora tu tiempo y el de tus clientes,</h3>
+              <p className="text-lg mb-6">"Si entendiéramos que las cosas que compramos las pagamos con el tiempo de vida que tuvimos que gastar para ganar el dinero, seríamos más inteligentes en nuestras decisiones."</p>
+              <a href="#cta-final" className="inline-flex items-center bg-white text-[#e78c24] font-bold text-lg py-3 px-8 rounded shadow hover:bg-yellow-100 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 mr-2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.82m5.84-2.56a12.028 12.028 0 00-5.84 7.38H6.18M15.59 14.37A12.021 12.021 0 0118 10.18H9.98M15.59 14.37A6 6 0 0018 10.18v-4.82m-2.41 9.01L18 10.18M3.75 3.75L18 10.18m-14.25 0A12.015 12.015 0 0118 10.18M3.75 3.75c0-1.02.738-1.875 1.75-1.875h12.75c1.013 0 1.75.855 1.75 1.875v10.5A12.02 12.02 0 0118 10.18M3.75 3.75H2.25m15.75 0H18m-2.41 9.01L18 10.18m0 0A12.015 12.015 0 013.75 3.75m14.25 0c0 .26-.02.516-.057.764L3.75 3.75m14.25 0L3.75 3.75" />
+                </svg>
+                Agenda tu Demo Gratuita
+              </a>
+            </div>
+            <div className="flex-1 flex justify-center items-center h-full">
+              <img src="/images/mensajeria/hombreCelular.jpeg" alt="Hombre con celular" className="rounded-xl object-cover w-full max-w-xs shadow-2xl h-[220px] md:h-[260px] h-full" />
+            </div>
+          </div>
+        </section>
+
+        {/* SECCIÓN NUEVA: Video y cards de números */}
+        <section className="py-12">
+          <div className="flex justify-center">
+            <div className="w-full max-w-5xl aspect-video rounded-2xl overflow-hidden shadow-lg">
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/CBGQILBQSew"
+                title="YouTube video"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+              ></iframe>
             </div>
           </div>
         </section>
@@ -143,8 +203,7 @@ export default function MensajeriaPage() {
                 Nuestro Sistema de Mensajería Objetivo con IA filtra, organiza y prioriza tus comunicaciones, permitiéndote enfocarte en lo que realmente importa: hacer crecer tu negocio.
               </p>
             </div>
-
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <div className="cards-carousel mb-16">
               <div className="bg-white p-6 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-primary">
@@ -224,8 +283,7 @@ export default function MensajeriaPage() {
                 Descubre cómo nuestro Sistema de Mensajería Objetivo puede revolucionar la forma en que tu equipo maneja las comunicaciones.
               </p>
             </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <div className="cards-carousel mb-16">
               <div className="bg-gray-50 p-6 rounded-xl">
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
@@ -432,8 +490,7 @@ export default function MensajeriaPage() {
                 Descubre cómo otras PYMES han transformado su productividad con nuestro Sistema de Mensajería Objetivo.
               </p>
             </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="cards-carousel">
               <div className="bg-gray-50 p-6 rounded-xl">
                 <div className="flex items-center mb-4">
                   <img 
@@ -513,43 +570,250 @@ export default function MensajeriaPage() {
         <section id="faq" className="py-16 md:py-24 bg-gray-50">
           <div className="text-center mb-12">
             <h3 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Preguntas Frecuentes
+              Preguntas Frecuentes: Resuelve Tus Dudas y Potencia Tu Decisión
             </h3>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Resolvemos tus dudas sobre nuestro Sistema de Mensajería Objetivo.
+              Aquí abordamos las inquietudes más comunes sobre la <b>automatización de la comunicación</b>, la <b>gestión de leads</b> y el <b>ahorro de tiempo</b> para PYMES, profesionales independientes y artesanos.
             </p>
           </div>
           <div className="max-w-3xl mx-auto space-y-4">
-            {faqs.map((faq, idx) => (
-              <div key={idx} className="bg-white rounded-xl shadow-lg">
-                <button
-                  className={`w-full text-left p-6 flex justify-between items-center transition-colors ${openFaqs.includes(idx) ? 'bg-gray-100' : ''}`}
-                  onClick={() => toggleFaq(idx)}
-                  aria-expanded={openFaqs.includes(idx)}
-                >
-                  <span className="text-lg font-semibold text-gray-800">{faq.question}</span>
-                  <span>
-                    {openFaqs.includes(idx) ? (
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-primary">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12h-15" />
+            {/* Pregunta 1 */}
+            <div className="bg-white rounded-xl shadow-lg">
+              <button
+                className={`w-full text-left p-6 flex justify-between items-center transition-colors faq-button ${openFaqs.includes(0) ? 'open bg-gray-100' : ''}`}
+                onClick={() => toggleFaq(0)}
+                aria-expanded={openFaqs.includes(0)}
+              >
+                <span className="text-lg font-semibold text-gray-800 flex items-center">
+                  <span className="mr-3">
+                    {openFaqs.includes(0) ? (
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-6 h-6 text-primary">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                       </svg>
                     ) : (
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-primary">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-6 h-6 text-primary">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none" />
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4m0 4h.01" />
                       </svg>
                     )}
                   </span>
-                </button>
-                <div
-                  className={`px-6 pb-6 overflow-hidden transition-all duration-300 ${openFaqs.includes(idx) ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}
-                  style={{ transitionProperty: 'max-height, opacity' }}
-                >
-                  {openFaqs.includes(idx) && (
-                    <p className="text-gray-600 mt-2">{faq.answer}</p>
-                  )}
-                </div>
+                  ¿Cómo puede un asistente multicanal de IA ayudar a mi PYME a ahorrar tiempo y dinero?
+                </span>
+              </button>
+              <div
+                className={`px-6 pb-6 overflow-hidden transition-all duration-300 ${openFaqs.includes(0) ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}
+                style={{ transitionProperty: 'max-height, opacity' }}
+              >
+                {openFaqs.includes(0) && (
+                  <p className="text-gray-600 mt-2">Nuestro <b>asistente multicanal con IA</b> centraliza y automatiza la gestión de todas tus comunicaciones: <b>WhatsApp, Facebook, Instagram, TikTok, tu web e incluso tus emails</b>. Al <b>filtrar y clasificar</b> los mensajes, tu equipo se enfoca solo en leads calificados. Esto significa <b>menos horas en tareas repetitivas y más tiempo en ventas y producción</b>, lo que se traduce directamente en <b>ahorros significativos</b> y un <b>aumento de la productividad</b>.</p>
+                )}
               </div>
-            ))}
+            </div>
+            {/* Pregunta 2 */}
+            <div className="bg-white rounded-xl shadow-lg">
+              <button
+                className={`w-full text-left p-6 flex justify-between items-center transition-colors faq-button ${openFaqs.includes(1) ? 'open bg-gray-100' : ''}`}
+                onClick={() => toggleFaq(1)}
+                aria-expanded={openFaqs.includes(1)}
+              >
+                <span className="text-lg font-semibold text-gray-800 flex items-center">
+                  <span className="mr-3">
+                    {openFaqs.includes(1) ? (
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-6 h-6 text-primary">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    ) : (
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-6 h-6 text-primary">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none" />
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4m0 4h.01" />
+                      </svg>
+                    )}
+                  </span>
+                  ¿Es complicado integrar este sistema de mensajería objetivo con mis plataformas actuales (WhatsApp Business, Facebook, Instagram, etc.)?
+                </span>
+              </button>
+              <div
+                className={`px-6 pb-6 overflow-hidden transition-all duration-300 ${openFaqs.includes(1) ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}
+                style={{ transitionProperty: 'max-height, opacity' }}
+              >
+                {openFaqs.includes(1) && (
+                  <p className="text-gray-600 mt-2">¡Para nada! Nos encargamos de toda la <b>integración y configuración</b> con tus cuentas de <b>WhatsApp Business, Facebook Messenger, Instagram DMs, TikTok y tu sitio web</b>. Nuestro objetivo es que la implementación sea <b>sencilla y sin estrés</b> para ti, garantizando que el <b>flujo de comunicación</b> sea ininterrumpido desde el primer día.</p>
+                )}
+              </div>
+            </div>
+            {/* Pregunta 3 */}
+            <div className="bg-white rounded-xl shadow-lg">
+              <button
+                className={`w-full text-left p-6 flex justify-between items-center transition-colors faq-button ${openFaqs.includes(2) ? 'open bg-gray-100' : ''}`}
+                onClick={() => toggleFaq(2)}
+                aria-expanded={openFaqs.includes(2)}
+              >
+                <span className="text-lg font-semibold text-gray-800 flex items-center">
+                  <span className="mr-3">
+                    {openFaqs.includes(2) ? (
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-6 h-6 text-primary">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    ) : (
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-6 h-6 text-primary">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none" />
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4m0 4h.01" />
+                      </svg>
+                    )}
+                  </span>
+                  Mi negocio depende mucho del contacto personal. ¿Un chatbot o sistema de IA no restará cercanía a mis clientes?
+                </span>
+              </button>
+              <div
+                className={`px-6 pb-6 overflow-hidden transition-all duration-300 ${openFaqs.includes(2) ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}
+                style={{ transitionProperty: 'max-height, opacity' }}
+              >
+                {openFaqs.includes(2) && (
+                  <p className="text-gray-600 mt-2">¡Al contrario! Nuestro sistema híbrido está diseñado para <b>potenciar la empatía humana</b>. La <b>IA se encarga de las tareas repetitivas y de calificar al cliente</b>, liberando a tu equipo para tener <b>interacciones más personalizadas y significativas</b> con los leads que realmente importan. Así, tu contacto personal se vuelve <b>más valioso y enfocado</b>, aumentando la <b>satisfacción del cliente</b> y la <b>tasa de conversión</b>.</p>
+                )}
+              </div>
+            </div>
+            {/* Pregunta 4 */}
+            <div className="bg-white rounded-xl shadow-lg">
+              <button
+                className={`w-full text-left p-6 flex justify-between items-center transition-colors faq-button ${openFaqs.includes(3) ? 'open bg-gray-100' : ''}`}
+                onClick={() => toggleFaq(3)}
+                aria-expanded={openFaqs.includes(3)}
+              >
+                <span className="text-lg font-semibold text-gray-800 flex items-center">
+                  <span className="mr-3">
+                    {openFaqs.includes(3) ? (
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-6 h-6 text-primary">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    ) : (
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-6 h-6 text-primary">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none" />
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4m0 4h.01" />
+                      </svg>
+                    )}
+                  </span>
+                  ¿Cómo puedo saber si este sistema de automatización es una buena inversión para mi negocio?
+                </span>
+              </button>
+              <div
+                className={`px-6 pb-6 overflow-hidden transition-all duration-300 ${openFaqs.includes(3) ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}
+                style={{ transitionProperty: 'max-height, opacity' }}
+              >
+                {openFaqs.includes(3) && (
+                  <p className="text-gray-600 mt-2">La mejor manera es ver los <b>resultados proyectados</b>. Calcula cuánto tiempo pierde tu equipo diariamente en mensajes y emails. Con nuestro sistema, puedes <b>recuperar miles de dólares anuales por empleado</b>. Te invitamos a <b>agendar una demostración sin costo</b>, donde analizaremos tu caso específico y te mostraremos cómo el <b>Sistema de Mensajería Objetivo</b> se convierte en una <b>inversión rentable</b> que impulsa tu crecimiento.</p>
+                )}
+              </div>
+            </div>
+            {/* Pregunta 5 */}
+            <div className="bg-white rounded-xl shadow-lg">
+              <button
+                className={`w-full text-left p-6 flex justify-between items-center transition-colors faq-button ${openFaqs.includes(4) ? 'open bg-gray-100' : ''}`}
+                onClick={() => toggleFaq(4)}
+                aria-expanded={openFaqs.includes(4)}
+              >
+                <span className="text-lg font-semibold text-gray-800 flex items-center">
+                  <span className="mr-3">
+                    {openFaqs.includes(4) ? (
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-6 h-6 text-primary">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    ) : (
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-6 h-6 text-primary">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none" />
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4m0 4h.01" />
+                      </svg>
+                    )}
+                  </span>
+                  ¿El sistema incluye soporte técnico y actualizaciones continuas?
+                </span>
+              </button>
+              <div
+                className={`px-6 pb-6 overflow-hidden transition-all duration-300 ${openFaqs.includes(4) ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}
+                style={{ transitionProperty: 'max-height, opacity' }}
+              >
+                {openFaqs.includes(4) && (
+                  <p className="text-gray-600 mt-2">¡Sí! Nos encargamos del <b>mantenimiento y las mejoras continuas del sistema</b>. Al elegir nuestro servicio, obtienes acceso a las últimas funcionalidades y mejoras sin costo adicional (en planes mensuales/anuales). Nuestro equipo de soporte está siempre disponible para asegurar que tu <b>automatización de comunicación</b> funcione sin problemas.</p>
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Sección: Planes de Inversión */}
+        <section className="py-20 bg-gray-50">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-12">
+              <h3 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                Elige el Plan que Impulsará tu Crecimiento y Liberará tu Tiempo
+              </h3>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                No es un gasto, es una <span className="font-bold text-[#e78c24]">inversión inteligente</span> que se traduce en <span className="font-bold text-[#e78c24]">más clientes y más eficiencia</span> desde el día uno. Nuestros planes se adaptan a tus necesidades de tráfico y crecimiento.
+              </p>
+            </div>
+            <div className="cards-carousel mb-10">
+              {/* Plan JR */}
+              <div className="bg-white rounded-2xl shadow-lg p-8 flex flex-col border border-gray-200">
+                <h4 className="text-2xl font-bold text-gray-800 mb-2">Plan JR</h4>
+                <div className="text-4xl font-extrabold mb-2">$50 <span className="text-base font-normal">USD/mes</span></div>
+                <p className="text-gray-600 mb-4">1 Red Social o Solo WhatsApp. Detección Inteligente de Mensajes, Respuestas Consistentes, App Web para Recordatorios. Ideal para empezar tu automatización.</p>
+                <ul className="text-gray-800 text-left mb-6 space-y-2">
+                  <li className="flex items-center"><span className="text-teal-500 mr-2">✔</span>1 Canal (Red Social o WhatsApp)</li>
+                  <li className="flex items-center"><span className="text-teal-500 mr-2">✔</span>Detección Inteligente de Mensajes</li>
+                  <li className="flex items-center"><span className="text-teal-500 mr-2">✔</span>Respuestas Consistentes</li>
+                  <li className="flex items-center"><span className="text-teal-500 mr-2">✔</span>App Web para Recordatorios</li>
+                </ul>
+                <button className="mt-auto w-full bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 rounded-lg transition">Empezar con JR</button>
+              </div>
+              {/* Plan Mensual */}
+              <div className="bg-white rounded-2xl shadow-lg p-8 flex flex-col border border-gray-200">
+                <h4 className="text-2xl font-bold text-gray-800 mb-2">Plan Mensual</h4>
+                <div className="text-4xl font-extrabold mb-2">$150 <span className="text-base font-normal">USD/mes</span></div>
+                <p className="text-gray-600 mb-4">Sistema de Mensajería Objetivo Completo: Todas las plataformas (WhatsApp, FB, IG, TikTok, Web), Revisión y Clasificación de Emails, Detección Inteligente, Calificación Profunda, Dirección Estratégica, Reportes Instantáneos, App Web Móvil (Recordatorios, Citas), Operación 100% Automática.</p>
+                <ul className="text-gray-800 text-left mb-6 space-y-2">
+                  <li className="flex items-center"><span className="text-teal-500 mr-2">✔</span>Todas las Plataformas (WhatsApp, FB, IG, TikTok, Web)</li>
+                  <li className="flex items-center"><span className="text-teal-500 mr-2">✔</span>Revisión y Clasificación de Emails</li>
+                  <li className="flex items-center"><span className="text-teal-500 mr-2">✔</span>Detección Inteligente Avanzada</li>
+                  <li className="flex items-center"><span className="text-teal-500 mr-2">✔</span>Calificación Profunda de Leads</li>
+                  <li className="flex items-center"><span className="text-teal-500 mr-2">✔</span>Dirección Estratégica</li>
+                  <li className="flex items-center"><span className="text-teal-500 mr-2">✔</span>Reportes Instantáneos</li>
+                  <li className="flex items-center"><span className="text-teal-500 mr-2">✔</span>App Web Móvil Completa</li>
+                  <li className="flex items-center"><span className="text-teal-500 mr-2">✔</span>Operación 100% Automática</li>
+                </ul>
+                <button className="mt-auto w-full bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 rounded-lg transition">Elegir Plan Mensual</button>
+              </div>
+              {/* Plan Anual */}
+              <div className="relative rounded-2xl shadow-2xl p-8 flex flex-col border-2 border-[#009688] bg-[#009688] text-white">
+                <span className="absolute -top-5 left-1/2 -translate-x-1/2 bg-yellow-400 text-gray-900 text-xs font-bold px-4 py-1 rounded-full shadow">El más Popular</span>
+                <h4 className="text-2xl font-bold mb-2">Plan Anual</h4>
+                <div className="text-4xl font-extrabold mb-2">$1500 <span className="text-base font-normal">USD/año</span></div>
+                <p className="mb-4">¡El más Popular! Todo lo del Plan Mensual, con un ahorro significativo de $300 USD y soporte prioritario. La opción más rentable para tu crecimiento.</p>
+                <ul className="text-left mb-6 space-y-2">
+                  <li className="flex items-center"><span className="text-yellow-300 mr-2">✔</span>Todo lo del Plan Mensual</li>
+                  <li className="flex items-center"><span className="text-yellow-300 mr-2">✔</span>Ahorro de $300 USD vs Mensual</li>
+                  <li className="flex items-center"><span className="text-yellow-300 mr-2">✔</span>Soporte Prioritario</li>
+                  <li className="flex items-center"><span className="text-yellow-300 mr-2">✔</span>Máxima Rentabilidad</li>
+                </ul>
+                <button className="mt-auto w-full bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold py-3 rounded-lg transition">Obtener Plan Anual</button>
+              </div>
+              {/* Compra del Sistema */}
+              <div className="rounded-2xl shadow-2xl p-8 flex flex-col border-2 border-[#1a2236] bg-[#1a2236] text-white">
+                <h4 className="text-2xl font-bold mb-2">Compra del Sistema</h4>
+                <div className="text-4xl font-extrabold mb-2">$990 <span className="text-base font-normal">USD (Pago Único)</span></div>
+                <p className="mb-4">¡Tu propiedad para siempre! Incluye todas las funcionalidades actuales, futuras actualizaciones principales y soporte continuo. Control total para la máxima escalabilidad.</p>
+                <ul className="text-left mb-6 space-y-2">
+                  <li className="flex items-center"><span className="text-yellow-400 mr-2">✔</span>Propiedad Vitalicia del Sistema</li>
+                  <li className="flex items-center"><span className="text-yellow-400 mr-2">✔</span>Todas las Funcionalidades Actuales</li>
+                  <li className="flex items-center"><span className="text-yellow-400 mr-2">✔</span>Futuras Actualizaciones Principales Incluidas</li>
+                  <li className="flex items-center"><span className="text-yellow-400 mr-2">✔</span>Soporte Continuo Dedicado</li>
+                  <li className="flex items-center"><span className="text-yellow-400 mr-2">✔</span>Máxima Escalabilidad y Control</li>
+                </ul>
+                <button className="mt-auto w-full bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold py-3 rounded-lg transition">Adquirir Sistema</button>
+              </div>
+            </div>
+            <p className="text-center text-gray-500 max-w-2xl mx-auto mt-8 text-sm">
+              <span className="font-semibold text-[#e78c24]">Recomendación:</span> Para maximizar resultados, combina tu Sistema de Mensajería Objetivo con campañas estratégicas en Google Ads o Facebook Ads para optimizar tu tráfico y asegurar un flujo constante de leads.
+            </p>
           </div>
         </section>
 
