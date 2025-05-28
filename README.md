@@ -1,135 +1,81 @@
-# César Reyes Jaramillo - Sitio Web Profesional
+# Landing Mensajería Objetivo – César Reyes
 
-## 📋 Descripción General
-Sitio web profesional desarrollado con Next.js 15.3.1, que incluye blog, newsletter, panel de administración y funcionalidades SEO optimizadas.
+## Descripción
+Landing page profesional para la solución de Mensajería Objetivo con IA, diseñada para PYMES, profesionales independientes y artesanos. El sitio está construido con Next.js y Tailwind CSS, y cuenta con una estructura moderna, visual atractiva y experiencia 100% responsiva.
 
-## 🚀 Tecnologías Principales
-- **Framework**: Next.js 15.3.1
-- **Lenguaje**: TypeScript
-- **Estilos**: Tailwind CSS
-- **Base de Datos**: Sistema de archivos JSON
-- **Autenticación**: NextAuth.js
-- **Envío de Emails**: Nodemailer
+---
 
-## 📁 Estructura del Proyecto
+## Avances y Características
 
-```
-├── app/
-│   ├── api/                    # Endpoints de la API
-│   │   ├── admin-articles/     # Gestión de artículos
-│   │   ├── newsletter/         # Suscripciones al newsletter
-│   │   ├── send-newsletter/    # Envío de newsletters
-│   │   └── sitemap/           # Generación de sitemap
-│   ├── admin/                 # Panel de administración
-│   ├── blog/                  # Sección del blog
-│   ├── contacto/              # Página de contacto
-│   └── layout.tsx             # Layout principal
-├── components/                # Componentes reutilizables
-├── data/                      # Datos del sitio
-│   └── subscribers.json       # Lista de suscriptores
-├── lib/                       # Utilidades y configuraciones
-├── public/                    # Archivos estáticos
-│   ├── images/               # Imágenes del sitio
-│   └── uploads/              # Imágenes subidas
-└── styles/                    # Estilos globales
-```
+### 1. **Despliegue y Estructura**
+- Proyecto Next.js 15.x listo para desarrollo y producción.
+- Estructura modular y limpia.
+- Instalación de dependencias y configuración inicial documentada.
 
-## 🔑 Funcionalidades Principales
+### 2. **Secciones Principales**
+- **Hero con video embebido** (YouTube, autoplay, sin controles).
+- **Alerta PYME**: sección destacada con CTA y fondo anaranjado.
+- **Cards de Problemas**: 4 cards visuales, ahora tipo carrousel slide en móvil.
+- **Banner motivacional**: con imagen y texto inspirador.
+- **Video secundario**: presentación de la solución.
+- **Cards de Solución**: 3 cards, carrousel en móvil.
+- **Beneficios**: 6 cards, carrousel en móvil.
+- **Cómo funciona**: pasos visuales y bloque de ayuda.
+- **Testimonios**: 3 cards, carrousel en móvil.
+- **Planes de Inversión**: 4 cards, carrousel en móvil, con prioridad visual al plan de compra del sistema.
+- **Preguntas Frecuentes (FAQ)**: acordeón SEO con íconos animados.
+- **CTA final**: llamado a la acción destacado.
 
-### 1. Blog
-- Sistema de artículos con categorías
-- Soporte para imágenes destacadas
-- URLs amigables para SEO
-- Sistema de metadatos por artículo
+### 3. **Responsividad y UX**
+- **Carrousel horizontal** en todas las secciones de cards para móvil (scroll-x + snap).
+- **Grid** en desktop para máxima claridad visual.
+- Experiencia touch-friendly y moderna.
 
-### 2. Newsletter
-- Formulario de suscripción
-- Almacenamiento de suscriptores en JSON
-- Sistema de envío de newsletters
-- Panel de administración para gestionar envíos
+### 4. **Personalizaciones Visuales**
+- Colores corporativos y acentos personalizados (#e78c24, verde, azul oscuro, amarillo).
+- Botones y bullets visuales.
+- Cards con sombra, bordes y diseño atractivo.
+- Imágenes y textos adaptados a la marca y público objetivo.
 
-### 3. Panel de Administración
-- Gestión de artículos (crear, editar, eliminar)
-- Envío de newsletters
-- Vista de suscriptores
-- Protección con autenticación
+### 5. **SEO y Copywriting**
+- Títulos y textos optimizados para captar leads y mejorar posicionamiento.
+- FAQ orientado a resolver objeciones reales del cliente ideal.
 
-### 4. SEO y Optimización
-- Meta etiquetas dinámicas
-- Open Graph para redes sociales
-- Sitemap.xml automático
-- Robots.txt configurado
-- URLs amigables
-- Imágenes optimizadas
+---
 
-## ⚙️ Configuración
+## Instalación y Uso
 
-### Variables de Entorno (.env)
-```
-NEXT_PUBLIC_SITE_URL=http://localhost:3000
-EMAIL_SERVER_USER=tu_email@gmail.com
-EMAIL_SERVER_PASSWORD=tu_contraseña
-EMAIL_SERVER_HOST=smtp.gmail.com
-EMAIL_SERVER_PORT=587
-NEXTAUTH_SECRET=tu_secreto
-NEXTAUTH_URL=http://localhost:3000
-```
+1. **Clona el repositorio:**
+   ```bash
+   git clone <repo-url>
+   cd <carpeta-del-proyecto>
+   ```
+2. **Instala dependencias:**
+   ```bash
+   npm install --legacy-peer-deps
+   ```
+3. **Inicia el servidor de desarrollo:**
+   ```bash
+   npm run dev
+   ```
+4. **Abre en tu navegador:**
+   [http://localhost:3000](http://localhost:3000)
 
-### Configuración de Imágenes
-- Soporte para formatos WebP
-- Optimización automática
-- Lazy loading
-- Tamaños responsivos
+---
 
-## 📊 Estructura de Datos
+## Estructura de Archivos Relevantes
+- `app/mensajeria/page.tsx`: Página principal y todas las secciones.
+- `public/images/mensajeria/`: Imágenes de cards y banners.
+- `tailwind.config.js`: Configuración de estilos.
 
-### Artículos (data/articles.json)
-```json
-{
-  "slug": "titulo-del-articulo",
-  "title": "Título del Artículo",
-  "content": "Contenido en Markdown",
-  "category": "categoria",
-  "date": "2024-03-20",
-  "image": "/images/articulo.webp"
-}
-```
+---
 
-### Suscriptores (data/subscribers.json)
-```json
-[
-  "email@ejemplo.com"
-]
-```
+## Notas y Siguientes Pasos
+- Todas las cards son slide en móvil para evitar scroll vertical excesivo.
+- Los textos, imágenes y estilos pueden seguir personalizándose según feedback.
+- Si necesitas agregar nuevas secciones, solo sigue el patrón de carrousel para cards.
 
-## 🔒 Seguridad
-- Autenticación con NextAuth.js
-- Protección de rutas administrativas
-- Validación de formularios
-- Sanitización de datos
+---
 
-## 🚀 Despliegue
-1. Clonar el repositorio
-2. Instalar dependencias: `npm install`
-3. Configurar variables de entorno
-4. Ejecutar en desarrollo: `npm run dev`
-5. Construir para producción: `npm run build`
-6. Iniciar en producción: `npm start`
-
-## 📝 Notas de Mantenimiento
-- Los artículos se almacenan en formato Markdown
-- Las imágenes se optimizan automáticamente
-- El sitemap se genera dinámicamente
-- Los suscriptores se guardan en JSON
-
-## 🔄 Actualizaciones Pendientes
-- [ ] Migrar a Metadata API de Next.js
-- [ ] Implementar sistema de caché
-- [ ] Agregar estadísticas de visitas
-- [ ] Mejorar sistema de búsqueda
-
-## 📞 Soporte
-Para reportar problemas o sugerir mejoras, por favor crear un issue en el repositorio.
-
-## 📄 Licencia
-Todos los derechos reservados © César Reyes Jaramillo 
+## Créditos
+Desarrollado junto a IA y feedback de César Reyes. 
