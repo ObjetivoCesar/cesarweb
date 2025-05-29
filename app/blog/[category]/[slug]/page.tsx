@@ -244,7 +244,7 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata(props: { params: { category: string; slug: string } }) {
-  const params = await props.params;
+  const params = props.params;
   const post = await getArticle(params.category, params.slug);
   if (!post) {
     return {
@@ -263,7 +263,7 @@ export async function generateMetadata(props: { params: { category: string; slug
 }
 
 export default async function ArticlePage(props: { params: { category: string; slug: string } }) {
-  const params = await props.params;
+  const params = props.params;
   const post = await getArticle(params.category, params.slug);
 
   if (!post) {
