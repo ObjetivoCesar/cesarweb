@@ -1,11 +1,16 @@
 {
-  "totalVisitas": 264,
-  "visitasHoy": 264,
+  "totalVisitas": 265,
+  "visitasHoy": 265,
   "articulosPublicados": 0,
   "suscriptoresNewsletter": 0,
   "ultimasVisitas": [
     {
       "fecha": "2025-05-29",
+      "pagina": "/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-05-29",
       "pagina": "/mensajeria/",
       "visitas": 1
     },
@@ -37,11 +42,6 @@
     {
       "fecha": "2025-05-29",
       "pagina": "/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-05-28",
-      "pagina": "/mensajeria/",
       "visitas": 1
     },
     {
@@ -58,7 +58,7 @@
   "visitasPorDia": {
     "2025-05-27": 246,
     "2025-05-28": 11,
-    "2025-05-29": 7
+    "2025-05-29": 8
   },
   "aperturasEmail": {}
 }

@@ -102,14 +102,28 @@ export default function MensajeriaPage() {
         {/* Hero Section */}
         <section id="hero" className="relative h-screen w-full overflow-hidden">
           <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
-            <iframe
-              src="https://www.youtube.com/embed/Q8Vl6_kcd84?autoplay=1&mute=1&loop=1&playlist=Q8Vl6_kcd84&controls=0&showinfo=0&modestbranding=1&rel=0"
-              title="Video Hero Mensajería"
-              frameBorder="0"
-              allow="autoplay; encrypted-media"
-              allowFullScreen
-              className="w-full h-full object-cover"
-            ></iframe>
+            {/* Video para escritorio */}
+            <div className="hidden md:block w-full h-full">
+              <iframe
+                src="https://www.youtube.com/embed/XimtHCr7lSE?autoplay=1&mute=1&loop=1&playlist=XimtHCr7lSE"
+                title="Video Mensajería Escritorio"
+                frameBorder="0"
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+                className="w-full h-full object-cover"
+              ></iframe>
+            </div>
+            {/* Video para móvil */}
+            <div className="block md:hidden w-full h-full">
+              <iframe
+                src="https://www.youtube.com/embed/TYCbBWxj3aM?autoplay=1&mute=1&loop=1&playlist=TYCbBWxj3aM"
+                title="Video Mensajería Celular"
+                frameBorder="0"
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+                className="w-full h-full object-cover"
+              ></iframe>
+            </div>
           </div>
         </section>
 
