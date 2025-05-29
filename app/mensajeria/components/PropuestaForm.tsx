@@ -3,9 +3,33 @@
 import { useState } from 'react';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 
+const sectores = [
+  "Comercio minorista",
+  "Servicios profesionales",
+  "Salud y bienestar",
+  "Educación",
+  "Tecnología y software",
+  "Manufactura",
+  "Construcción",
+  "Alimentos y bebidas",
+  "Turismo y hotelería",
+  "Finanzas y seguros",
+  "Marketing y publicidad",
+  "Consultoría empresarial",
+  "Servicios legales",
+  "Servicios inmobiliarios",
+  "Servicios de transporte",
+  "Servicios de entretenimiento",
+  "Servicios de belleza y estética",
+  "Servicios de limpieza",
+  "Servicios de mantenimiento",
+  "Otro"
+];
+
 export default function PropuestaForm() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState({ text: '', type: '' });
+  const [showOtherSector, setShowOtherSector] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -25,7 +49,15 @@ export default function PropuestaForm() {
           } else if (['tasa_conversion_actual', 'costo_hora', 'objetivo_conversion'].includes(key)) {
             data[key] = parseFloat(value as string) || 0;
           } else {
-            data[key] = value;
+            if (key === 'sector') {
+              if (value === 'Otro') {
+                data[key] = formData.get('otherSector');
+              } else {
+                data[key] = value.toString();
+              }
+            } else {
+              data[key] = value;
+            }
           }
         }
       }
@@ -108,23 +140,45 @@ export default function PropuestaForm() {
 
                 <div>
                   <label htmlFor="sector" className="block text-sm font-medium text-gray-700 mb-1">
-                    Sector <span className="text-red-500">*</span>
+                    Sector de tu negocio <span className="text-red-500">*</span>
                   </label>
                   <select
                     id="sector"
                     name="sector"
                     required
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
+                    onChange={(e) => {
+                      if (e.target.value === "Otro") {
+                        setShowOtherSector(true);
+                      } else {
+                        setShowOtherSector(false);
+                      }
+                    }}
                   >
-                    <option value="">Selecciona tu sector</option>
-                    <option value="Boutique de moda">Boutique de moda</option>
-                    <option value="Restaurante">Restaurante</option>
-                    <option value="Gimnasio">Gimnasio</option>
-                    <option value="Tienda online">Tienda online</option>
-                    <option value="Servicios profesionales">Servicios profesionales</option>
-                    <option value="Otro">Otro</option>
+                    <option value="">Selecciona un sector</option>
+                    {sectores.map((sector) => (
+                      <option key={sector} value={sector}>
+                        {sector}
+                      </option>
+                    ))}
                   </select>
                 </div>
+
+                {showOtherSector && (
+                  <div>
+                    <label htmlFor="otherSector" className="block text-sm font-medium text-gray-700 mb-1">
+                      Especifica tu sector <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="otherSector"
+                      name="otherSector"
+                      required
+                      placeholder="Escribe tu sector"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
+                    />
+                  </div>
+                )}
 
                 <div>
                   <label htmlFor="nombre_contacto" className="block text-sm font-medium text-gray-700 mb-1">
