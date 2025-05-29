@@ -240,7 +240,7 @@ export function generateStaticParams() {
   return blogPosts.map((post) => ({
     category: post.categoryId,
     slug: post.slug,
-  }))
+  }));
 }
 
 export async function generateMetadata({ params }: { params: { category: string; slug: string } }) {
