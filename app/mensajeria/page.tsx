@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import PropuestaForm from './components/PropuestaForm';
 
 export default function MensajeriaPage() {
   const [openFaqs, setOpenFaqs] = useState<number[]>([]);
@@ -47,20 +48,52 @@ export default function MensajeriaPage() {
           scroll-snap-type: x mandatory;
           gap: 1.5rem;
           padding-bottom: 1rem;
+          justify-items: center;
         }
         .cards-carousel > * {
           scroll-snap-align: start;
         }
         @media (min-width: 768px) {
-          .cards-carousel {
+          /* Para planes: 2 filas de 2 cards */
+          .cards-carousel.planes {
             display: grid;
-            grid-auto-flow: initial;
-            grid-auto-columns: initial;
-            grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            grid-auto-flow: unset;
+            grid-auto-columns: unset;
             overflow-x: unset;
             scroll-snap-type: none;
             gap: 2rem;
             padding-bottom: 0;
+            justify-items: center;
+            align-items: stretch;
+          }
+          /* Para beneficios: 2 filas de 3 cards */
+          .cards-carousel.beneficios {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            grid-auto-flow: unset;
+            grid-auto-columns: unset;
+            overflow-x: unset;
+            scroll-snap-type: none;
+            gap: 2rem;
+            padding-bottom: 0;
+            justify-items: center;
+            align-items: stretch;
+          }
+          /* Para las secciones solicitadas: grid en escritorio, slide solo en móvil */
+          .cards-carousel.no-slide {
+            display: grid;
+            grid-auto-flow: unset;
+            grid-auto-columns: unset;
+            overflow-x: unset;
+            scroll-snap-type: none;
+            gap: 2rem;
+            padding-bottom: 0;
+            justify-items: center;
+            align-items: stretch;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
           }
         }
       `}</style>
@@ -118,7 +151,7 @@ export default function MensajeriaPage() {
                 Tu tiempo es tu recurso más valioso. Sin embargo, en el día a día de una PYME, de un profesional independiente o de un artesano, hay factores invisibles que lo drenan sin que lo notes.
               </p>
             </div>
-            <div className="cards-carousel">
+            <div className="cards-carousel no-slide">
               {/* Card 1 */}
               <div className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col h-full">
                 <img src="/images/mensajeria/comentarios.webp" alt="Mensajes y comentarios" className="w-full h-40 object-cover" />
@@ -203,7 +236,7 @@ export default function MensajeriaPage() {
                 Nuestro Sistema de Mensajería Objetivo con IA filtra, organiza y prioriza tus comunicaciones, permitiéndote enfocarte en lo que realmente importa: hacer crecer tu negocio.
               </p>
             </div>
-            <div className="cards-carousel mb-16">
+            <div className="cards-carousel no-slide mb-16">
               <div className="bg-white p-6 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-primary">
@@ -283,7 +316,7 @@ export default function MensajeriaPage() {
                 Descubre cómo nuestro Sistema de Mensajería Objetivo puede revolucionar la forma en que tu equipo maneja las comunicaciones.
               </p>
             </div>
-            <div className="cards-carousel mb-16">
+            <div className="cards-carousel beneficios mb-16">
               <div className="bg-gray-50 p-6 rounded-xl">
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
@@ -490,7 +523,7 @@ export default function MensajeriaPage() {
                 Descubre cómo otras PYMES han transformado su productividad con nuestro Sistema de Mensajería Objetivo.
               </p>
             </div>
-            <div className="cards-carousel">
+            <div className="cards-carousel no-slide">
               <div className="bg-gray-50 p-6 rounded-xl">
                 <div className="flex items-center mb-4">
                   <img 
@@ -751,7 +784,7 @@ export default function MensajeriaPage() {
                 No es un gasto, es una <span className="font-bold text-[#e78c24]">inversión inteligente</span> que se traduce en <span className="font-bold text-[#e78c24]">más clientes y más eficiencia</span> desde el día uno. Nuestros planes se adaptan a tus necesidades de tráfico y crecimiento.
               </p>
             </div>
-            <div className="cards-carousel mb-10">
+            <div className="cards-carousel planes mb-10">
               {/* Plan JR */}
               <div className="bg-white rounded-2xl shadow-lg p-8 flex flex-col border border-gray-200">
                 <h4 className="text-2xl font-bold text-gray-800 mb-2">Plan JR</h4>
@@ -816,6 +849,9 @@ export default function MensajeriaPage() {
             </p>
           </div>
         </section>
+
+        {/* Formulario de Propuesta */}
+        <PropuestaForm />
 
         {/* CTA Final Section */}
         <section id="cta-final" className="py-16 md:py-24 bg-gradient-to-br from-primary to-yellow-500 text-white">
