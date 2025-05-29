@@ -105,7 +105,7 @@ export default function MensajeriaPage() {
             {/* Video para escritorio */}
             <div className="hidden md:block w-full h-full">
               <iframe
-                src="https://www.youtube.com/embed/XimtHCr7lSE?autoplay=1&mute=1&loop=1&playlist=XimtHCr7lSE"
+                src="https://www.youtube.com/embed/XimtHCr7lSE"
                 title="Video Mensajería Escritorio"
                 frameBorder="0"
                 allow="autoplay; encrypted-media"
@@ -116,7 +116,7 @@ export default function MensajeriaPage() {
             {/* Video para móvil */}
             <div className="block md:hidden w-full h-full">
               <iframe
-                src="https://www.youtube.com/embed/TYCbBWxj3aM?autoplay=1&mute=1&loop=1&playlist=TYCbBWxj3aM"
+                src="https://www.youtube.com/embed/TYCbBWxj3aM"
                 title="Video Mensajería Celular"
                 frameBorder="0"
                 allow="autoplay; encrypted-media"
