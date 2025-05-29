@@ -20,7 +20,7 @@ export default function PropuestaForm() {
       for (let [key, value] of formData.entries()) {
         if (key !== 'plataformas_actuales') {
           // Convertir números
-          if (['numero_empleados', 'mensajes_diarios'].includes(key)) {
+          if (['numero_empleados', 'mensajes_diarios', 'tiempo_chat'].includes(key)) {
             data[key] = parseInt(value as string) || 0;
           } else if (['tasa_conversion_actual', 'costo_hora', 'objetivo_conversion'].includes(key)) {
             data[key] = parseFloat(value as string) || 0;
@@ -236,6 +236,21 @@ export default function PropuestaForm() {
                     max="100"
                     step="0.1"
                     required
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="tiempo_chat" className="block text-sm font-medium text-gray-700 mb-1">
+                    Tiempo promedio de atención por cliente (minutos) <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="number"
+                    id="tiempo_chat"
+                    name="tiempo_chat"
+                    min="1"
+                    required
+                    placeholder="¿cuánto tiempo dedicas por cliente en promedio?"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
                   />
                 </div>
