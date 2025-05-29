@@ -100,30 +100,28 @@ export default function MensajeriaPage() {
 
       <main className="bg-gray-50 font-sans text-gray-800">
         {/* Hero Section */}
-        <section id="hero" className="relative h-screen w-full overflow-hidden">
-          <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
-            {/* Video para escritorio */}
-            <div className="hidden md:block w-full h-full">
-              <iframe
-                src="https://www.youtube.com/embed/XimtHCr7lSE?autoplay=1&mute=1&loop=1&playlist=XimtHCr7lSE"
-                title="Video Mensajería Escritorio"
-                frameBorder="0"
-                allow="autoplay; encrypted-media"
-                allowFullScreen
-                className="w-full h-full object-cover"
-              ></iframe>
-            </div>
-            {/* Video para móvil */}
-            <div className="block md:hidden w-full h-full">
-              <iframe
-                src="https://www.youtube.com/embed/TYCbBWxj3aM?autoplay=1&mute=1&loop=1&playlist=TYCbBWxj3aM"
-                title="Video Mensajería Celular"
-                frameBorder="0"
-                allow="autoplay; encrypted-media"
-                allowFullScreen
-                className="w-full h-full object-cover"
-              ></iframe>
-            </div>
+        <section id="hero" className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+          {/* Video para escritorio */}
+          <div className="hidden md:block absolute inset-0 w-full h-full z-0 overflow-hidden">
+            <iframe
+              src="https://www.youtube.com/embed/XimtHCr7lSE?autoplay=1&mute=1&loop=1&playlist=XimtHCr7lSE&controls=0&showinfo=0&modestbranding=1&rel=0"
+              title="Video Hero Mensajería Escritorio"
+              frameBorder="0"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+              className="w-full h-full object-cover"
+            ></iframe>
+          </div>
+          {/* Video para móvil */}
+          <div className="block md:hidden absolute inset-0 w-full h-full z-0 overflow-hidden">
+            <iframe
+              src="https://www.youtube.com/embed/TYCbBWxj3aM?autoplay=1&mute=1&loop=1&playlist=TYCbBWxj3aM&controls=0&showinfo=0&modestbranding=1&rel=0"
+              title="Video Hero Mensajería Celular"
+              frameBorder="0"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+              className="w-full h-full object-cover"
+            ></iframe>
           </div>
         </section>
 
