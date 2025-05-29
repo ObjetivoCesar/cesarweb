@@ -2,7 +2,7 @@ import Link from "next/link"
 import BlogCard from "@/components/blog-card"
 import SearchBar from "@/components/search-bar"
 import { notFound } from "next/navigation"
-import { getArticlesByCategory } from "@/lib/utils"
+import { getArticlesByCategory } from "@/lib/utils-node"
 import Image from "next/image"
 
 // Datos de categorías actualizados

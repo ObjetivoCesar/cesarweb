@@ -1,4 +1,4 @@
-import { getAllArticles } from "@/lib/utils";
+import { getAllArticles } from "@/lib/utils-node";
 import Link from "next/link";
 import BlogCard from "@/components/blog-card"
 import Image from "next/image";

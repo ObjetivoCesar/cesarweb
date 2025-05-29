@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { notFound } from "next/navigation"
-import { getArticle } from "@/lib/utils"
+import { getArticle } from "@/lib/utils-node"
 import { marked } from "marked"
 
 // Datos de categorías
