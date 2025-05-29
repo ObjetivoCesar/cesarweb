@@ -243,8 +243,7 @@ export function generateStaticParams() {
   }))
 }
 
-export async function generateMetadata(props: { params: { category: string; slug: string } }) {
-  const params = props.params;
+export async function generateMetadata({ params }: { params: { category: string; slug: string } }) {
   const post = await getArticle(params.category, params.slug);
   if (!post) {
     return {
@@ -262,8 +261,7 @@ export async function generateMetadata(props: { params: { category: string; slug
   };
 }
 
-export default async function ArticlePage(props: { params: { category: string; slug: string } }) {
-  const params = props.params;
+export default async function ArticlePage({ params }: { params: { category: string; slug: string } }) {
   const post = await getArticle(params.category, params.slug);
 
   if (!post) {
