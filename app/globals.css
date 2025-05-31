@@ -10,6 +10,21 @@ Solución integral para restaurar márgenes, centrados y visibilidad del hero:
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --font-poiret-one: 'Poiret One', cursive;
+    --font-montserrat: 'Montserrat', sans-serif;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-poiret-one);
+  }
+
+  p, span, a, button {
+    font-family: var(--font-montserrat);
+  }
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-rgb: 255, 255, 255;

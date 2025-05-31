@@ -93,34 +93,47 @@ export default function MensajeriaPage() {
             padding-bottom: 0;
             justify-items: center;
             align-items: stretch;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
+          }
+          @media (max-width: 767px) {
+            .cards-carousel.no-slide {
+              display: grid;
+              grid-auto-flow: column;
+              grid-auto-columns: 80%;
+              overflow-x: auto;
+              scroll-snap-type: x mandatory;
+              gap: 1.5rem;
+              padding-bottom: 1rem;
+              justify-items: center;
+              align-items: stretch;
+              grid-template-columns: unset;
+            }
+          }
+          /* Ocultar barra de scroll en escritorio */
+          @media (min-width: 768px) {
+            .cards-carousel.no-slide {
+              scrollbar-width: none;
+              -ms-overflow-style: none;
+            }
+            .cards-carousel.no-slide::-webkit-scrollbar {
+              display: none;
+            }
           }
         }
       `}</style>
 
       <main className="bg-gray-50 font-sans text-gray-800">
         {/* Hero Section */}
-        <section id="hero" className="relative h-screen w-full overflow-hidden flex items-center justify-center">
-          {/* Video para escritorio */}
-          <div className="hidden md:block absolute inset-0 w-full h-full z-0 overflow-hidden">
+        <section id="hero" className="relative h-screen w-full overflow-hidden">
+          <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
             <iframe
               src="https://www.youtube.com/embed/XimtHCr7lSE?autoplay=1&mute=1&loop=1&playlist=XimtHCr7lSE&controls=0&showinfo=0&modestbranding=1&rel=0"
-              title="Video Hero Mensajería Escritorio"
+              title="Video Hero Mensajería"
               frameBorder="0"
               allow="autoplay; encrypted-media"
               allowFullScreen
-              className="w-full h-full object-cover"
-            ></iframe>
-          </div>
-          {/* Video para móvil */}
-          <div className="block md:hidden absolute inset-0 w-full h-full z-0 overflow-hidden">
-            <iframe
-              src="https://www.youtube.com/embed/TYCbBWxj3aM?autoplay=1&mute=1&loop=1&playlist=TYCbBWxj3aM&controls=0&showinfo=0&modestbranding=1&rel=0"
-              title="Video Hero Mensajería Celular"
-              frameBorder="0"
-              allow="autoplay; encrypted-media"
-              allowFullScreen
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover min-h-[300px] md:min-h-[600px] md:h-full"
+              style={{ minHeight: '300px', height: '100%', width: '100%' }}
             ></iframe>
           </div>
         </section>
@@ -137,7 +150,7 @@ export default function MensajeriaPage() {
               </p>
               <a
                 href="#cta-final"
-                className="inline-flex items-center justify-center bg-white hover:bg-[#ffe0b2] text-black font-bold text-lg py-4 px-10 rounded-lg shadow-xl transform hover:scale-105 transition-all duration-150 ease-in-out animate-pulse border-2 border-[#e78c24] mb-8"
+                className="inline-flex items-center justify-center bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 hover:from-pink-600 hover:via-red-600 hover:to-yellow-600 text-white font-bold text-lg py-4 px-10 rounded-lg shadow-2xl transform hover:scale-110 transition-all duration-200 ease-in-out border-4 border-white mb-8 ring-4 ring-pink-200/40 animate-pulse"
                 style={{ minWidth: '320px' }}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 mr-3 text-[#e78c24]">
@@ -163,7 +176,8 @@ export default function MensajeriaPage() {
                 Tu tiempo es tu recurso más valioso. Sin embargo, en el día a día de una PYME, de un profesional independiente o de un artesano, hay factores invisibles que lo drenan sin que lo notes.
               </p>
             </div>
-            <div className="cards-carousel no-slide">
+            {/* Cards: ¿Y Si Pudieras Hacer Más con Menos Tiempo? */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
               {/* Card 1 */}
               <div className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col h-full">
                 <img src="/images/mensajeria/comentarios.webp" alt="Mensajes y comentarios" className="w-full h-40 object-cover" />
@@ -196,25 +210,6 @@ export default function MensajeriaPage() {
                   <p className="text-gray-600 flex-1">Una respuesta tardía puede significar un cliente menos. Y muchas veces, eso ocurre simplemente por no tener un sistema de gestión eficiente.</p>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Banner motivacional antes del segundo video */}
-        <section className="py-8">
-          <div className="max-w-6xl mx-auto rounded-2xl bg-gradient-to-br from-[#e78c24] to-yellow-400 flex flex-col md:flex-row items-center justify-between p-10 gap-8 shadow-lg h-[340px] min-h-[340px]">
-            <div className="flex-1 text-white flex flex-col justify-center h-full">
-              <h3 className="text-3xl font-bold mb-4">Valora tu tiempo y el de tus clientes,</h3>
-              <p className="text-lg mb-6">"Si entendiéramos que las cosas que compramos las pagamos con el tiempo de vida que tuvimos que gastar para ganar el dinero, seríamos más inteligentes en nuestras decisiones."</p>
-              <a href="#cta-final" className="inline-flex items-center bg-white text-[#e78c24] font-bold text-lg py-3 px-8 rounded shadow hover:bg-yellow-100 transition">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 mr-2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.82m5.84-2.56a12.028 12.028 0 00-5.84 7.38H6.18M15.59 14.37A12.021 12.021 0 0118 10.18H9.98M15.59 14.37A6 6 0 0018 10.18v-4.82m-2.41 9.01L18 10.18M3.75 3.75L18 10.18m-14.25 0A12.015 12.015 0 0118 10.18M3.75 3.75c0-1.02.738-1.875 1.75-1.875h12.75c1.013 0 1.75.855 1.75 1.875v10.5A12.02 12.02 0 0118 10.18M3.75 3.75H2.25m15.75 0H18m-2.41 9.01L18 10.18m0 0A12.015 12.015 0 013.75 3.75m14.25 0c0 .26-.02.516-.057.764L3.75 3.75m14.25 0L3.75 3.75" />
-                </svg>
-                Agenda tu Demo Gratuita
-              </a>
-            </div>
-            <div className="flex-1 flex justify-center items-center h-full">
-              <img src="/images/mensajeria/hombreCelular.jpeg" alt="Hombre con celular" className="rounded-xl object-cover w-full max-w-xs shadow-2xl h-[220px] md:h-[260px] h-full" />
             </div>
           </div>
         </section>

@@ -1,56 +1,56 @@
 {
-  "totalVisitas": 265,
-  "visitasHoy": 265,
+  "totalVisitas": 295,
+  "visitasHoy": 295,
   "articulosPublicados": 0,
   "suscriptoresNewsletter": 0,
   "ultimasVisitas": [
     {
-      "fecha": "2025-05-29",
+      "fecha": "2025-05-31",
       "pagina": "/",
       "visitas": 1
     },
     {
-      "fecha": "2025-05-29",
-      "pagina": "/mensajeria/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-05-29",
+      "fecha": "2025-05-31",
       "pagina": "/",
       "visitas": 1
     },
     {
-      "fecha": "2025-05-29",
-      "pagina": "/mensajeria/",
+      "fecha": "2025-05-31",
+      "pagina": "/contacto/",
       "visitas": 1
     },
     {
-      "fecha": "2025-05-29",
-      "pagina": "/mensajeria/",
+      "fecha": "2025-05-31",
+      "pagina": "/contacto/",
       "visitas": 1
     },
     {
-      "fecha": "2025-05-29",
-      "pagina": "/mensajeria/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-05-29",
-      "pagina": "/mensajeria/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-05-29",
+      "fecha": "2025-05-31",
       "pagina": "/",
       "visitas": 1
     },
     {
-      "fecha": "2025-05-28",
+      "fecha": "2025-05-30",
       "pagina": "/mensajeria/",
       "visitas": 1
     },
     {
-      "fecha": "2025-05-28",
+      "fecha": "2025-05-30",
+      "pagina": "/mensajeria/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-05-30",
+      "pagina": "/mensajeria/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-05-30",
+      "pagina": "/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-05-30",
       "pagina": "/mensajeria/",
       "visitas": 1
     }
@@ -58,7 +58,9 @@
   "visitasPorDia": {
     "2025-05-27": 246,
     "2025-05-28": 11,
-    "2025-05-29": 8
+    "2025-05-29": 8,
+    "2025-05-30": 25,
+    "2025-05-31": 5
   },
   "aperturasEmail": {}
 }

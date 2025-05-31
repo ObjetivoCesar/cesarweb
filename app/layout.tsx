@@ -1,8 +1,8 @@
 import type React from "react"
 import "./globals.css"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import Header from "@/components/header"
+import { Inter, Poiret_One, Montserrat } from "next/font/google"
+import TransparentHeader from "@/components/transparent-header"
 import Footer from "@/components/footer"
 import ChatWidget from "@/components/chat-widget"
 import Head from "next/head"
@@ -11,6 +11,18 @@ import VisitTracker from '@/components/VisitTracker'
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+})
+
+const poiretOne = Poiret_One({
+  weight: '400',
+  subsets: ["latin"],
+  variable: "--font-poiret-one",
+})
+
+const montserrat = Montserrat({
+  weight: '400',
+  subsets: ["latin"],
+  variable: "--font-montserrat",
 })
 
 export const metadata: Metadata = {
@@ -39,9 +51,9 @@ export default function RootLayout({
         <meta name="twitter:description" content="Tu Socio Estratégico para el Éxito Empresarial. Servicios de consultoría en automatización, diseño web, SEO y asesoría de negocios." />
         <meta name="twitter:image" content="/images/banb.webp" />
       </Head>
-      <body className={`${inter.variable} font-sans`}>
+      <body className={`${inter.variable} ${poiretOne.variable} ${montserrat.variable} font-sans`}>
         <VisitTracker />
-        <Header />
+        <TransparentHeader />
         <main>{children}</main>
         <Footer />
         <ChatWidget />

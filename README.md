@@ -32,10 +32,18 @@ Landing page profesional para la solución de Mensajería Objetivo con IA, dise�
 - Experiencia touch-friendly y moderna.
 
 ### 4. **Personalizaciones Visuales**
-- Colores corporativos y acentos personalizados (#e78c24, verde, azul oscuro, amarillo).
-- Botones y bullets visuales.
-- Cards con sombra, bordes y diseño atractivo.
-- Imágenes y textos adaptados a la marca y público objetivo.
+- **Paleta de Colores**:
+  - **Principal**: Blanco, Negro y Grises para una apariencia elegante y profesional
+  - **Acentos**: Color primario (#e78c24) reservado exclusivamente para CTAs y elementos de acción
+  - **Grises**:
+    - Gris muy oscuro: #333333
+    - Gris medio: #666666
+    - Gris claro: #999999
+    - Gris muy claro: #f5f5f5
+- **Elementos Visuales**:
+  - Botones y bullets visuales
+  - Cards con sombra y bordes sutiles
+  - Imágenes y textos adaptados a la marca y público objetivo
 
 ### 5. **SEO y Copywriting**
 - Títulos y textos optimizados para captar leads y mejorar posicionamiento.
@@ -78,4 +86,42 @@ Landing page profesional para la solución de Mensajería Objetivo con IA, dise�
 ---
 
 ## Créditos
-Desarrollado junto a IA y feedback de César Reyes. 
+Desarrollado junto a IA y feedback de César Reyes.
+
+## Componentes de Header
+
+El sitio implementa dos tipos de headers para diferentes secciones:
+
+### 1. Header Transparente (`TransparentHeader`)
+- **Ubicación**: `components/transparent-header.tsx`
+- **Características**:
+  - Barra superior fija con mensaje "Te ayudo a crear tu plan de acción"
+  - Header transparente con texto en blanco
+  - Botón "Contáctame" en blanco con texto naranja
+  - Menú móvil con fondo semi-transparente y efecto blur
+  - Posicionamiento absoluto para no afectar el layout
+- **Uso**: Implementado en el layout principal para páginas con hero sections
+
+### 2. Header Estándar (`Header`)
+- **Ubicación**: `components/header.tsx`
+- **Características**:
+  - Header fijo con fondo blanco
+  - Sombra suave
+  - Texto en color oscuro
+  - Botón "Contáctame" en naranja
+- **Uso**: Para páginas internas o secciones sin hero
+
+## Implementación
+
+Los headers se implementan en el layout principal (`app/layout.tsx`) y se pueden alternar según la necesidad de cada página. La decisión de tener dos componentes separados permite:
+
+1. **Reutilización**: Diferentes variantes del header según la página
+2. **Mantenibilidad**: Código modular y fácil de actualizar
+3. **Consistencia**: Asegura que el header se vea igual en todas las páginas
+4. **Flexibilidad**: Diferentes configuraciones según la ruta o estado de la página
+
+## Estilos
+
+Los headers utilizan Tailwind CSS para los estilos y son completamente responsivos:
+- **Escritorio**: Navegación horizontal con botón de contacto
+- **Móvil**: Menú hamburguesa con navegación vertical 

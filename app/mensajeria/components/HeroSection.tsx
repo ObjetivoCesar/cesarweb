@@ -94,12 +94,13 @@ const HeroSection = () => {
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent"></div>
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
         <iframe
-          src="https://www.youtube.com/embed/Q8Vl6_kcd84?autoplay=1&mute=1&loop=1&playlist=Q8Vl6_kcd84&controls=0&showinfo=0&modestbranding=1&rel=0"
+          src="https://www.youtube.com/embed/XimtHCr7lSE?autoplay=1&mute=1&loop=1&playlist=XimtHCr7lSE&controls=0&showinfo=0&modestbranding=1&rel=0"
           title="Video Hero Mensajería"
           frameBorder="0"
           allow="autoplay; encrypted-media"
           allowFullScreen
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover min-h-[300px] md:min-h-[600px] md:h-full"
+          style={{ minHeight: '300px', height: '100%', width: '100%' }}
         ></iframe>
         <div className="absolute inset-0 bg-black/40"></div>
       </div>

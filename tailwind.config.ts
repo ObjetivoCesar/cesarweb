@@ -1,19 +1,33 @@
 import type { Config } from "tailwindcss"
 
-const config: Config = {
+const config = {
   darkMode: ["class"],
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "*.{js,ts,jsx,tsx,mdx}",
+    './pages/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx}',
+    './src/**/*.{ts,tsx}',
   ],
+  prefix: "",
   theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
     extend: {
       colors: {
-        primary: "#E78C23", // Orange color from the screenshot
-        secondary: "#1A1A1A", // Dark color from the screenshot
-        light: "#F5F5F5",
+        // Color primario (solo para CTAs)
+        primary: "#e78c24",
+        // Nueva paleta principal
+        dark: "#1a1a1a",      // Negro puro
+        "dark-gray": "#333333", // Gris muy oscuro
+        "medium-gray": "#666666", // Gris medio
+        "light-gray": "#999999", // Gris claro
+        "lighter-gray": "#f5f5f5", // Gris muy claro
+        white: "#ffffff",      // Blanco puro
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
@@ -64,20 +78,12 @@ const config: Config = {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
       animation: {
@@ -89,6 +95,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
-}
+  plugins: [require("tailwindcss-animate")],
+} satisfies Config
+
 export default config
