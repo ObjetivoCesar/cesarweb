@@ -2,11 +2,14 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Search } from "lucide-react"
+import { usePathname } from "next/navigation"
 
 // Componente separado para la barra superior
 function TopBar() {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
+  const [searchQuery, setSearchQuery] = useState("")
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,6 +21,12 @@ function TopBar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault()
+    // Aquí implementaremos la lógica de búsqueda
+    console.log("Buscando:", searchQuery)
+  }
+
   return (
     <div 
       className={`fixed top-0 left-0 right-0 text-center py-2 text-sm font-bold z-50 transition-colors duration-300 ${
@@ -26,7 +35,43 @@ function TopBar() {
           : 'bg-dark text-white'
       }`}
     >
-      Te ayudo a crear tu plan de acción
+      <div className="container mx-auto flex items-center justify-between px-4">
+        <div className="flex-1 text-center">
+          Te ayudo a crear tu plan de acción
+        </div>
+        
+        {/* Buscador */}
+        <div className="relative">
+          <button 
+            onClick={() => setIsSearchOpen(!isSearchOpen)}
+            className="text-current hover:opacity-80 transition-opacity"
+            aria-label="Buscar"
+          >
+            <Search size={20} />
+          </button>
+          
+          {/* Panel de búsqueda */}
+          {isSearchOpen && (
+            <div className="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-lg p-4">
+              <form onSubmit={handleSearch} className="flex flex-col gap-2">
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Buscar artículos..."
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                />
+                <button
+                  type="submit"
+                  className="bg-primary text-white px-4 py-2 rounded-md hover:bg-primary/90 transition-colors"
+                >
+                  Buscar
+                </button>
+              </form>
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   )
 }
@@ -36,14 +81,15 @@ function NavigationHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
+  const pathname = usePathname()
 
   useEffect(() => {
     const controlNavbar = () => {
       const currentScrollY = window.scrollY
       
-      if (currentScrollY > lastScrollY) { // Si estamos scrolleando hacia abajo
+      if (currentScrollY > lastScrollY) {
         setIsVisible(false)
-      } else { // Si estamos scrolleando hacia arriba
+      } else {
         setIsVisible(true)
       }
       
@@ -68,12 +114,14 @@ function NavigationHeader() {
           <span className="text-white">César Reyes</span>
         </Link>
 
-        {/* Navegación de escritorio y botón */}
+        {/* Navegación de escritorio */}
         <div className="hidden md:flex items-center space-x-8">
           <nav className="flex space-x-8">
-            <Link href="/" className="font-medium text-white hover:text-gray-200">
-              Inicio
-            </Link>
+            {pathname !== '/' && (
+              <Link href="/" className="font-medium text-white hover:text-gray-200">
+                Inicio
+              </Link>
+            )}
             <Link href="/blog" className="font-medium text-white hover:text-gray-200">
               Blog
             </Link>
@@ -81,38 +129,12 @@ function NavigationHeader() {
               Contacto
             </Link>
           </nav>
-
-          <button
-            className="px-4 py-2 rounded bg-white text-primary font-semibold text-sm shadow hover:bg-gray-100 focus:outline-none"
-            onClick={() => {
-              if (typeof window !== "undefined") {
-                const widgetBtn = document.getElementById("cafrilosa-chatbot-button")
-                if (widgetBtn) widgetBtn.click()
-              }
-            }}
-            aria-label="Contáctame"
-          >
-            Contáctame
-          </button>
         </div>
 
-        {/* Versión móvil: botón y menú */}
-        <div className="md:hidden flex items-center space-x-4">
-          <button
-            className="px-4 py-2 rounded bg-white text-primary font-semibold text-sm shadow hover:bg-gray-100 focus:outline-none"
-            onClick={() => {
-              if (typeof window !== "undefined") {
-                const widgetBtn = document.getElementById("cafrilosa-chatbot-button")
-                if (widgetBtn) widgetBtn.click()
-              }
-            }}
-            aria-label="Contáctame"
-          >
-            Contáctame
-          </button>
-
+        {/* Versión móvil: menú */}
+        <div className="md:hidden">
           <button 
-            className="ml-4 text-white" 
+            className="text-white" 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
           >
@@ -125,13 +147,15 @@ function NavigationHeader() {
       <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'}`}>
         <nav className="bg-white/95 backdrop-blur-sm border-t py-4">
           <div className="container space-y-4">
-            <Link 
-              href="/" 
-              className="block font-medium hover:text-primary text-center"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Inicio
-            </Link>
+            {pathname !== '/' && (
+              <Link 
+                href="/" 
+                className="block font-medium hover:text-primary text-center"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Inicio
+              </Link>
+            )}
             <Link 
               href="/blog" 
               className="block font-medium hover:text-primary text-center"
