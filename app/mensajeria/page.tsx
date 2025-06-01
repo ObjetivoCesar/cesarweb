@@ -124,18 +124,43 @@ export default function MensajeriaPage() {
 
       <main className="bg-gray-50 font-sans text-gray-800">
         {/* Hero Section */}
-        <section id="hero" className="relative h-screen w-full overflow-hidden">
-          <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
-            <iframe
-              src="https://www.youtube.com/embed/XimtHCr7lSE?autoplay=1&mute=1&loop=1&playlist=XimtHCr7lSE&controls=0&showinfo=0&modestbranding=1&rel=0"
-              title="Video Hero Mensajería"
-              frameBorder="0"
-              allow="autoplay; encrypted-media"
-              allowFullScreen
-              className="w-full h-full object-cover min-h-[300px] md:min-h-[600px] md:h-full"
-              style={{ minHeight: '300px', height: '100%', width: '100%' }}
-            ></iframe>
+        <section id="hero" className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-black">
+          <img
+            src="/images/portada_cesarbn.jpg"
+            alt="César Reyes portada"
+            className="absolute inset-0 w-full h-full object-cover z-0"
+            style={{ minHeight: '300px', height: '100%', width: '100%' }}
+          />
+          <div className="absolute inset-0 bg-black/60 z-10"></div>
+          <div className="relative z-20 flex flex-col items-center justify-center text-center w-full px-4">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">Sistema de Mensajería Objetivo</h1>
+            <p className="text-xl md:text-2xl text-white mb-8 max-w-2xl mx-auto drop-shadow">
+              Centraliza y automatiza todas tus comunicaciones en una sola plataforma. Optimiza tu tiempo y mejora la atención a tus clientes.
+            </p>
+            <button className="bg-white text-black px-10 py-4 rounded-lg font-bold shadow-lg hover:bg-light-gray hover:shadow-2xl transition-all duration-200 text-lg">
+              Comienza Gratis
+            </button>
           </div>
+        </section>
+
+        {/* Banner de newsletter de ancho completo */}
+        <section className="w-full bg-lighter-gray py-12 flex items-center justify-center">
+          <form className="bg-white rounded-xl shadow-lg p-8 flex flex-col md:flex-row items-center gap-4 w-full max-w-2xl mx-auto">
+            <label htmlFor="newsletter-email" className="sr-only">Correo electrónico</label>
+            <input
+              type="email"
+              id="newsletter-email"
+              required
+              placeholder="Tu correo electrónico"
+              className="flex-1 px-4 py-3 rounded-md border border-light-gray focus:outline-none focus:ring-2 focus:ring-dark text-black bg-lighter-gray"
+            />
+            <button
+              type="submit"
+              className="bg-white text-black font-bold px-8 py-3 rounded-md border border-dark shadow hover:bg-light-gray hover:shadow-xl transition-all duration-200"
+            >
+              Suscribirme
+            </button>
+          </form>
         </section>
 
         {/* Nueva Sección de Alerta */}

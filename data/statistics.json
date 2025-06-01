@@ -1,12 +1,32 @@
 {
-  "totalVisitas": 297,
-  "visitasHoy": 297,
+  "totalVisitas": 312,
+  "visitasHoy": 312,
   "articulosPublicados": 0,
   "suscriptoresNewsletter": 0,
   "ultimasVisitas": [
     {
+      "fecha": "2025-06-01",
+      "pagina": "/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-06-01",
+      "pagina": "/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-06-01",
+      "pagina": "/",
+      "visitas": 1
+    },
+    {
       "fecha": "2025-05-31",
-      "pagina": "/mensajeria/",
+      "pagina": "/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-05-31",
+      "pagina": "/",
       "visitas": 1
     },
     {
@@ -26,32 +46,12 @@
     },
     {
       "fecha": "2025-05-31",
-      "pagina": "/contacto/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-05-31",
-      "pagina": "/contacto/",
+      "pagina": "/",
       "visitas": 1
     },
     {
       "fecha": "2025-05-31",
       "pagina": "/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-05-30",
-      "pagina": "/mensajeria/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-05-30",
-      "pagina": "/mensajeria/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-05-30",
-      "pagina": "/mensajeria/",
       "visitas": 1
     }
   ],
@@ -60,7 +60,8 @@
     "2025-05-28": 11,
     "2025-05-29": 8,
     "2025-05-30": 25,
-    "2025-05-31": 7
+    "2025-05-31": 19,
+    "2025-06-01": 3
   },
   "aperturasEmail": {}
 }

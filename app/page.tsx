@@ -3,80 +3,51 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import MobileSlider from "@/components/mobile-slider"
 import ExpandableCard from "@/components/expandable-card"
+import NewsletterForm from "@/components/newsletter-form"
 
 export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative w-full min-h-[calc(100vh-100px)] md:min-h-screen">
-        {/* Background Images */}
+      <section className="relative w-full h-screen min-h-[500px] flex items-center justify-center">
+        {/* Background Image */}
         <div className="absolute inset-0">
-          {/* Desktop Image */}
-          <div className="relative w-full h-full hidden md:block">
-            <Image
-              src="/images/portada.jpg"
-              alt="Hero background desktop"
-              fill
-              priority
-              quality={100}
-              sizes="100vw"
-              className="object-cover"
-            />
-          </div>
-          {/* Mobile Image */}
-          <div className="relative w-full h-full block md:hidden">
-            <Image
-              src="/images/bn.webp"
-              alt="Hero background mobile"
-              fill
-              priority
-              quality={100}
-              sizes="100vw"
-              className="object-cover"
-            />
-          </div>
+          <Image
+            src="/images/portada_cesarbn.png"
+            alt="César Reyes fondo"
+            fill
+            priority
+            quality={100}
+            sizes="100vw"
+            className="object-cover"
+          />
         </div>
-
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/40 z-10"></div>
-
+        <div className="absolute inset-0 bg-black/50 z-10"></div>
         {/* Content */}
-        <div className="relative h-screen z-20 container mx-auto px-4 flex items-end md:items-center pb-16 md:pb-0">
-          <div className="max-w-2xl text-white">
-            {/* Mobile: Nuevo h1 y h2 */}
-            <h1 className="text-3xl font-bold mb-2 md:hidden">
-              Tus Clientes No se Van
+        <div className="relative z-20 container mx-auto px-4 flex flex-col items-center justify-center h-full">
+          <div className="w-full flex flex-col items-center justify-mt-72 md:mt-96">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-center text-white" style={{ fontFamily: 'var(--font-poiret-one)', fontWeight: 900 }}>
+              Cada venta que no cierras lo hace otro
             </h1>
-            <h2 className="text-2xl font-semibold mb-4 md:hidden">
-              Se los Lleva tu Competencia
-            </h2>
-            
-            {/* Desktop: original h1 y h2 */}
-            <h1 className="hidden md:block text-5xl font-bold mb-4">
-              Tus Clientes No se Van
-            </h1>
-            <h2 className="hidden md:block text-3xl font-semibold mb-4">
-              Se los Lleva tu Competencia
-            </h2>
-            
-            {/* Desktop: texto */}
-            <div className="hidden md:block">
-              <p className="text-xl mb-8">
-                Cada venta que no cierras, otro sí lo hace. Yo te doy el plan exacto para cambiar eso.
-              </p>
-            </div>
-            
-            <Link href="/contacto" className="inline-block bg-orange-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors">
-              Quiero mi hoja de Ruta
-            </Link>
-            
-            <h2 className="mt-8 text-base md:text-xl font-semibold">
-              Atraer clientes no es suerte. Es tener un buen plan.
-            </h2>
+            <p className="text-lg md:text-2xl text-white text-center max-w-2xl mx-auto font-normal" style={{ fontFamily: 'var(--font-montserrat)' }}>
+              El 50% de las ventas se las lleva quien responde primero a la consulta del cliente. (InsideSales.com)
+            </p>
           </div>
         </div>
       </section>
 
+      {/* Nueva sección de introducción tipo cita */}
+      <section className="w-full bg-white py-12 flex flex-col items-center justify-center border-b border-light-gray min-h-[220px] md:min-h-[260px] flex items-center justify-center">
+        <blockquote className="max-w-4xl mx-auto text-center text-dark text-lg md:text-xl font-normal italic leading-relaxed" style={{ fontFamily: 'var(--font-montserrat)' }}>
+          "Publicar sin un plan es caminar sin rumbo, y lo más grave, es poner en riesgo el sustento de tu familia y tu propio futuro. Mi misión en 'Objetivo' es eliminar ese riesgo, investigando a fondo tu competencia y los verdaderos deseos de tus clientes, descubriendo el punto exacto donde tu oferta y su demanda hablan el mismo idioma. Orquesto esa conexión en tu página web para que sea un espacio estratégico: un lugar donde tu negocio ofrece exactamente lo que tu cliente anhela, generando ventas y dándole sentido y seguridad a cada paso que das."
+        </blockquote>
+        <div className="w-full max-w-4xl mx-auto text-right mt-4 pr-2 text-dark font-semibold" style={{ fontFamily: 'var(--font-montserrat)' }}>
+          César Reyes - Objetivo
+        </div>
+      </section>
+
+      
       {/* Sección 1 - El Costo de No Tener un Diagnóstico */}
       <section className="section bg-white">
         <div className="container">
