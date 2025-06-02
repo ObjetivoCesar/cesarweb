@@ -11,6 +11,85 @@ import React from "react"
 import TestimonialSlider from "@/components/testimonial-slider"
 import ContactPhotoSlider from "@/components/contact-photo-slider"
 
+// Componente para el slider de cards móviles con dots
+function CardsMobileSlider() {
+  const cards = [
+    {
+      title: "¿Tu Negocio en Riesgo? ¡75% Fracasan!",
+      text: "El 75% de las empresas cierran antes de los 2 años por no tener estrategias de ventas claras, ¡sin un estudio de mercado, estás jugando a la ruleta! No dejes que la intuición te cueste tu sueño. Un diagnóstico profundo te ahorra tiempo, dinero y muchísimos dolores de cabeza.",
+    },
+    {
+      title: "El Secreto de los que Crecen",
+      text: "Las empresas que usan estudios de mercado crecen casi un 28% más y ¡son 8.9% más rentables! ¿Imaginas ese salto en tu negocio? Deja de adivinar y empieza a construir sobre bases sólidas y datos reales.",
+    },
+    {
+      title: "¿Eres del 70.5% que Aún No Investiga?",
+      text: "En Guayaquil, más del 70% de las PYMES nunca hicieron un estudio de mercado, ¡pero el 98% cree que los datos mejoran la competitividad! No es solo una 'gran empresa'; es una necesidad. Tus clientes están cambiando y ¡necesitas conocerlos para adelantarte!",
+    },
+    {
+      title: "¿Qué Tienen en Común Coca-Cola y Marvel? ¡Datos!",
+      text: "Grandes como Coca-Cola y Marvel usan el análisis de datos para entender a sus clientes y ¡multiplicar sus ventas y éxitos! No necesitas ser un gigante para pensar como uno. Aprende de los mejores y adapta la inteligencia a tu escala.",
+    },
+  ];
+  const [current, setCurrent] = React.useState(0);
+  const sliderRef = React.useRef<HTMLDivElement>(null);
+
+  // Scroll handler para actualizar el índice
+  const handleScroll = () => {
+    if (!sliderRef.current) return;
+    const scrollLeft = sliderRef.current.scrollLeft;
+    const width = sliderRef.current.offsetWidth;
+    const idx = Math.round(scrollLeft / width);
+    setCurrent(idx);
+  };
+
+  // Scroll a la card seleccionada al hacer click en un dot
+  const scrollToCard = (idx: number) => {
+    if (!sliderRef.current) return;
+    const width = sliderRef.current.offsetWidth;
+    sliderRef.current.scrollTo({ left: idx * width, behavior: 'smooth' });
+  };
+
+  return (
+    <>
+      <div
+        ref={sliderRef}
+        className="flex gap-6 min-w-max px-2 overflow-x-auto scroll-smooth"
+        onScroll={handleScroll}
+        style={{ scrollSnapType: 'x mandatory' }}
+      >
+        {cards.map((card, idx) => (
+          <div
+            key={idx}
+            className="bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between h-full min-w-[85vw] max-w-xs transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
+            style={{ scrollSnapAlign: 'center' }}
+          >
+            <div>
+              <h3 className="text-xl font-bold mb-3 text-black">{card.title}</h3>
+              <p className="text-gray-700 mb-6">{card.text}</p>
+            </div>
+            <a href="#" className="text-primary font-semibold flex items-center gap-2 group hover:underline transition-colors">
+              Leer artículo <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
+            </a>
+          </div>
+        ))}
+      </div>
+      {/* Dots de navegación fijos debajo del slider */}
+      <div className="flex justify-center mt-3 gap-2">
+        {cards.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => scrollToCard(idx)}
+            className={`h-2.5 w-2.5 rounded-full border transition-colors duration-200 ${idx === current ? 'bg-primary border-primary' : 'bg-gray-300 bg-opacity-60 border-gray-300'}`}
+            style={{ display: 'inline-block' }}
+            aria-label={`Ir a la card ${idx + 1}`}
+          />
+        ))}
+      </div>
+    </>
+  );
+}
+
 export default function Home() {
   // Imágenes del slide
   const slideImages = [
@@ -115,8 +194,22 @@ export default function Home() {
           <div className="mb-8">
             <MobileSlider>
               {slideImages.map((img, idx) => (
-                <div key={img.src} onClick={() => openLightbox(idx)} className="cursor-pointer w-full h-full flex items-center justify-center">
-                  <Image src={img.src} alt={img.alt} width={900} height={900} className="rounded-xl object-cover w-full h-full aspect-square shadow-[0_0_32px_8px_rgba(255,255,255,0.25)] transition-all duration-500" style={{ maxWidth: '70%', maxHeight: '70%' }} />
+                <div
+                  key={img.src}
+                  onClick={() => {
+                    if (typeof window !== 'undefined' && window.innerWidth > 768) {
+                      openLightbox(idx);
+                    }
+                  }}
+                  className="cursor-pointer w-full h-full flex items-center justify-center"
+                >
+                  <Image 
+                    src={img.src} 
+                    alt={img.alt} 
+                    width={900} 
+                    height={900} 
+                    className="rounded-xl object-cover max-w-[80vw] md:max-w-[70%] w-full h-auto aspect-square shadow-[0_0_32px_8px_rgba(255,255,255,0.25)] transition-all duration-500 mx-auto" 
+                  />
                 </div>
               ))}
             </MobileSlider>
@@ -193,49 +286,8 @@ export default function Home() {
             </div>
           </div>
           {/* Mobile slider */}
-          <div className="md:hidden w-full overflow-x-auto py-2">
-            <div className="flex gap-6 min-w-max px-2">
-              {/* Card 1 */}
-              <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between h-full min-w-[85vw] max-w-xs transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
-                <div>
-                  <h3 className="text-xl font-bold mb-3 text-black">¿Tu Negocio en Riesgo? ¡75% Fracasan!</h3>
-                  <p className="text-gray-700 mb-6">El 75% de las empresas cierran antes de los 2 años por no tener estrategias de ventas claras, ¡sin un estudio de mercado, estás jugando a la ruleta! No dejes que la intuición te cueste tu sueño. Un diagnóstico profundo te ahorra tiempo, dinero y muchísimos dolores de cabeza.</p>
-                </div>
-                <a href="#" className="text-primary font-semibold flex items-center gap-2 group hover:underline transition-colors">
-                  Leer artículo <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
-                </a>
-              </div>
-              {/* Card 2 */}
-              <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between h-full min-w-[85vw] max-w-xs transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
-                <div>
-                  <h3 className="text-xl font-bold mb-3 text-black">El Secreto de los que Crecen</h3>
-                  <p className="text-gray-700 mb-6">Las empresas que usan estudios de mercado crecen casi un 28% más y ¡son 8.9% más rentables! ¿Imaginas ese salto en tu negocio? Deja de adivinar y empieza a construir sobre bases sólidas y datos reales.</p>
-                </div>
-                <a href="#" className="text-primary font-semibold flex items-center gap-2 group hover:underline transition-colors">
-                  Leer artículo <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
-                </a>
-              </div>
-              {/* Card 3 */}
-              <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between h-full min-w-[85vw] max-w-xs transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
-                <div>
-                  <h3 className="text-xl font-bold mb-3 text-black">¿Eres del 70.5% que Aún No Investiga?</h3>
-                  <p className="text-gray-700 mb-6">En Guayaquil, más del 70% de las PYMES nunca hicieron un estudio de mercado, ¡pero el 98% cree que los datos mejoran la competitividad! No es solo una "gran empresa"; es una necesidad. Tus clientes están cambiando y ¡necesitas conocerlos para adelantarte!</p>
-                </div>
-                <a href="#" className="text-primary font-semibold flex items-center gap-2 group hover:underline transition-colors">
-                  Leer artículo <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
-                </a>
-              </div>
-              {/* Card 4 */}
-              <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between h-full min-w-[85vw] max-w-xs transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
-                <div>
-                  <h3 className="text-xl font-bold mb-3 text-black">¿Qué Tienen en Común Coca-Cola y Marvel? ¡Datos!</h3>
-                  <p className="text-gray-700 mb-6">Grandes como Coca-Cola y Marvel usan el análisis de datos para entender a sus clientes y ¡multiplicar sus ventas y éxitos! No necesitas ser un gigante para pensar como uno. Aprende de los mejores y adapta la inteligencia a tu escala.</p>
-                </div>
-                <a href="#" className="text-primary font-semibold flex items-center gap-2 group hover:underline transition-colors">
-                  Leer artículo <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
-                </a>
-              </div>
-            </div>
+          <div className="md:hidden w-full overflow-x-auto py-2 relative">
+            <CardsMobileSlider />
           </div>
         </div>
       </section>
