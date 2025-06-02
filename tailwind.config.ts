@@ -20,7 +20,7 @@ const config = {
     extend: {
       colors: {
         // Color primario (solo para CTAs)
-        primary: "#e78c24",
+        primary: "#121212",
         // Nueva paleta principal
         dark: "#1a1a1a",      // Negro puro
         "dark-gray": "#333333", // Gris muy oscuro

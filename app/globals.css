@@ -101,18 +101,18 @@ body {
 
 /* Secciones oscuras y variantes */
 .dark-section {
-  background-color: #23272f;
+  background-color: #121212;
   color: #fff;
 }
 .dark-section h2,
 .dark-section h3 {
-  color: #e78c23;
+  color: #fff;
 }
 .dark-section .bg-white {
-  background-color: #1f2937;
+  background-color: #232323;
 }
 .dark-section .bg-light {
-  background-color: #374151;
+  background-color: #232323;
   color: #fff;
 }
 

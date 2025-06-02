@@ -12,6 +12,7 @@ export default function MobileSlider({ children, className = "" }: MobileSliderP
   const [currentSlide, setCurrentSlide] = useState(0)
   const totalSlides = children.length
   const sliderRef = useRef<HTMLDivElement>(null)
+  const touchStartX = useRef<number | null>(null)
 
   // Automatic sliding (opcional, solo en móvil)
   useEffect(() => {
@@ -26,40 +27,37 @@ export default function MobileSlider({ children, className = "" }: MobileSliderP
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % totalSlides)
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides)
 
+  // Soporte para touch/swipe
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX
+  }
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return
+    const deltaX = e.changedTouches[0].clientX - touchStartX.current
+    if (deltaX > 50) prevSlide()
+    else if (deltaX < -50) nextSlide()
+    touchStartX.current = null
+  }
+
   return (
-    <div className={`relative overflow-x-hidden ${className} pb-8`}> {/* Espacio para los dots */}
+    <div className={`relative overflow-x-hidden ${className} pb-8`}>
       <div
         ref={sliderRef}
         className="flex transition-transform duration-300 ease-in-out"
         style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
       >
         {children.map((child, index) => (
           <div
             key={index}
             className="min-w-full flex-shrink-0 px-2 flex flex-col justify-center items-center h-full"
           >
-            <div className="flex flex-col h-full w-full max-w-xs mx-auto bg-gray-800 rounded-lg shadow-lg p-4 text-center break-words overflow-hidden">
+            <div className="flex flex-col h-full w-full max-w-4xl aspect-square mx-auto bg-transparent rounded-lg shadow-lg p-4 text-center break-words overflow-hidden">
               {child}
             </div>
           </div>
         ))}
-      </div>
-      {/* Botones de navegación más grandes y visibles solo en móvil */}
-      <div className="absolute bottom-16 left-0 right-0 flex justify-between px-4 md:hidden">
-        <button
-          onClick={prevSlide}
-          className="bg-white/80 p-3 rounded-full shadow-lg border border-gray-200"
-          aria-label="Anterior"
-        >
-          <ChevronLeft className="h-6 w-6 text-primary" />
-        </button>
-        <button
-          onClick={nextSlide}
-          className="bg-white/80 p-3 rounded-full shadow-lg border border-gray-200"
-          aria-label="Siguiente"
-        >
-          <ChevronRight className="h-6 w-6 text-primary" />
-        </button>
       </div>
       {/* Dots de navegación */}
       <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">

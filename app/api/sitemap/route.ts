@@ -5,7 +5,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 export async function GET(req: NextRequest) {
   // Rutas estáticas principales
-  const staticRoutes = ["/", "/blog", "/contacto", "/admin"];
+  const staticRoutes = ["/", "/blog", "/admin"];
   // Artículos del blog
   const articles = getAllArticles();
   const blogRoutes = articles.map((a: any) => `/blog/${a.category}/${a.slug}`);

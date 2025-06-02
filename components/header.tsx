@@ -27,23 +27,7 @@ export default function Header() {
               <Link href="/blog" className="font-medium hover:text-primary">
                 Blog
               </Link>
-              <Link href="/contacto" className="font-medium hover:text-primary">
-                Contacto
-              </Link>
             </nav>
-
-            <button
-              className="px-4 py-2 rounded bg-primary text-white font-semibold text-sm shadow hover:bg-primary/90 focus:outline-none"
-              onClick={() => {
-                if (typeof window !== "undefined") {
-                  const widgetBtn = document.getElementById("cafrilosa-chatbot-button")
-                  if (widgetBtn) widgetBtn.click()
-                }
-              }}
-              aria-label="Contáctame"
-            >
-              Contáctame
-            </button>
           </div>
 
           {/* Versión móvil: botón y menú */}
@@ -88,13 +72,6 @@ export default function Header() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Blog
-              </Link>
-              <Link 
-                href="/contacto" 
-                className="block font-medium hover:text-primary text-center"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Contacto
               </Link>
             </div>
           </nav>

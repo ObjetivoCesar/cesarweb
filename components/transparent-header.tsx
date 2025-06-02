@@ -125,9 +125,6 @@ function NavigationHeader() {
             <Link href="/blog" className="font-medium text-white hover:text-gray-200">
               Blog
             </Link>
-            <Link href="/contacto" className="font-medium text-white hover:text-gray-200">
-              Contacto
-            </Link>
           </nav>
         </div>
 
@@ -162,13 +159,6 @@ function NavigationHeader() {
               onClick={() => setIsMenuOpen(false)}
             >
               Blog
-            </Link>
-            <Link 
-              href="/contacto" 
-              className="block font-medium hover:text-primary text-center"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Contacto
             </Link>
           </div>
         </nav>

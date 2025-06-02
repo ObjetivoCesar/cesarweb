@@ -1,11 +1,60 @@
+"use client"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import MobileSlider from "@/components/mobile-slider"
 import ExpandableCard from "@/components/expandable-card"
 import NewsletterForm from "@/components/newsletter-form"
+import { Dialog, DialogTrigger, DialogContent, DialogTitle } from "@/components/ui/dialog"
+import { useState } from "react"
+import React from "react"
+import TestimonialSlider from "@/components/testimonial-slider"
+import ContactPhotoSlider from "@/components/contact-photo-slider"
 
 export default function Home() {
+  // Imágenes del slide
+  const slideImages = [
+    { src: "/images/diagnostico_objetivo.webp", alt: "Diagnósitico Inicial" },
+    { src: "/images/investigacion_de_mercado_objetivo.webp", alt: "Estudio de Mercado" },
+    { src: "/images/recoleccion_de_informacion_objetivo.webp", alt: "Recolección de Información" },
+    { src: "/images/informes_resultados_objetivo.webp", alt: "Resultados" },
+    { src: "/images/posicionamiento_slide_seo_objetivo.webp", alt: "Posicionamiento_SEO" },
+  ];
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+
+  const openLightbox = (idx: number) => {
+    setLightboxIndex(idx);
+    setLightboxOpen(true);
+  };
+  const closeLightbox = () => setLightboxOpen(false);
+  const nextLightbox = () => setLightboxIndex((prev) => (prev + 1) % slideImages.length);
+  const prevLightbox = () => setLightboxIndex((prev) => (prev - 1 + slideImages.length) % slideImages.length);
+
+  // Swipe para lightbox
+  let touchStartX: number | null = null;
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX = e.touches[0].clientX;
+  };
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX === null) return;
+    const deltaX = e.changedTouches[0].clientX - touchStartX;
+    if (deltaX > 50) prevLightbox();
+    else if (deltaX < -50) nextLightbox();
+    touchStartX = null;
+  };
+  // Keyboard navigation
+  React.useEffect(() => {
+    if (!lightboxOpen) return;
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") nextLightbox();
+      if (e.key === "ArrowLeft") prevLightbox();
+      if (e.key === "Escape") closeLightbox();
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [lightboxOpen]);
+
   return (
     <>
       {/* Hero Section */}
@@ -13,7 +62,7 @@ export default function Home() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/portada_cesarbn.png"
+            src="/images/portada_cesarbn.webp"
             alt="César Reyes fondo"
             fill
             priority
@@ -26,19 +75,21 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/50 z-10"></div>
         {/* Content */}
         <div className="relative z-20 container mx-auto px-4 flex flex-col items-center justify-center h-full">
-          <div className="w-full flex flex-col items-center justify-mt-72 md:mt-96">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-center text-white" style={{ fontFamily: 'var(--font-poiret-one)', fontWeight: 900 }}>
+          {/* ...eliminar el texto aquí... */}
+        </div>
+        {/* Texto en la parte baja del hero */}
+        <div className="absolute bottom-10 left-0 w-full flex flex-col items-center z-30 px-4">
+          <h1 className="text-3xl md:text-5xl font-bold text-center text-white drop-shadow-lg mb-2" style={{ fontFamily: 'var(--font-poiret-one)', fontWeight: 900 }}>
               Cada venta que no cierras lo hace otro
             </h1>
-            <p className="text-lg md:text-2xl text-white text-center max-w-2xl mx-auto font-normal" style={{ fontFamily: 'var(--font-montserrat)' }}>
+          <p className="text-lg md:text-2xl text-white text-center max-w-2xl mx-auto font-normal drop-shadow-lg" style={{ fontFamily: 'var(--font-montserrat)' }}>
               El 50% de las ventas se las lleva quien responde primero a la consulta del cliente. (InsideSales.com)
             </p>
-          </div>
         </div>
       </section>
 
       {/* Nueva sección de introducción tipo cita */}
-      <section className="w-full bg-white py-12 flex flex-col items-center justify-center border-b border-light-gray min-h-[220px] md:min-h-[260px] flex items-center justify-center">
+      <section className="w-full bg-white py-12 flex flex-col items-center justify-center min-h-[420px] md:min-h-[460px] flex items-center justify-center">
         <blockquote className="max-w-4xl mx-auto text-center text-dark text-lg md:text-xl font-normal italic leading-relaxed" style={{ fontFamily: 'var(--font-montserrat)' }}>
           "Publicar sin un plan es caminar sin rumbo, y lo más grave, es poner en riesgo el sustento de tu familia y tu propio futuro. Mi misión en 'Objetivo' es eliminar ese riesgo, investigando a fondo tu competencia y los verdaderos deseos de tus clientes, descubriendo el punto exacto donde tu oferta y su demanda hablan el mismo idioma. Orquesto esa conexión en tu página web para que sea un espacio estratégico: un lugar donde tu negocio ofrece exactamente lo que tu cliente anhela, generando ventas y dándole sentido y seguridad a cada paso que das."
         </blockquote>
@@ -47,434 +98,144 @@ export default function Home() {
         </div>
       </section>
 
-      
-      {/* Sección 1 - El Costo de No Tener un Diagnóstico */}
-      <section className="section bg-white">
-        <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            {/* Video first on mobile, second on desktop */}
-            <div className="md:order-last order-first aspect-video relative rounded-lg overflow-hidden shadow-xl">
-              <iframe
-                width="100%"
-                height="100%"
-                src="https://www.youtube.com/embed/zMiqzJTXIZU"
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="absolute inset-0"
-              ></iframe>
-            </div>
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Estás Tomando Decisiones sin Ver el Mapa Completo</h2>
-              <p className="text-lg mb-6">
-                Actuar sin antes haber planeado es como manejar con los ojos vendados. Sin una visión clara, cada acción
-                es una apuesta… y cada error cuesta.
-              </p>
-              <h3 className="text-xl font-semibold mb-6">
-                Tu intuición es valiosa, pero tu estrategia necesita datos.
-              </h3>
-              <Link href="/contacto" className="inline-block bg-orange-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors">
-                Quiero Mejorar mis decisiones
-              </Link>
-            </div>
-          </div>
+      {/* Slide de testimonios antes de 'Empieza a Tomar Decisiones con Estrategia' */}
+      <section className="w-full bg-[#121212] py-24 mt-12">
+        <div className="container mx-auto">
+          <TestimonialSlider />
         </div>
       </section>
 
       {/* Sección 2 - ¿Qué pasa si sigues sin claridad? */}
       <section className="section dark-section">
         <div className="container">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">¡Tomemos Decisiones Estratégicas Juntos!</h2>
-          <h3 className="text-xl md:text-2xl mb-8 text-center">Cada desafío tiene su solución. Pero no a ciegas. Analicemos a fondo lo que necesitas y diseñemos el camino perfecto para ti. Así es como lo hacemos:</h3>
-
-          {/* Desktop grid */}
-          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            {/* Card 1 */}
-            <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-              <div className="text-3xl mb-4">🔍</div>
-              <h3 className="text-xl font-bold mb-3 text-primary">Clientes que no te conocen</h3>
-              <p>
-                ¿Clientes que buscan tus servicios pero no pueden encontrarte? Entonces, simplemente encuentran a otro.
-              </p>
-            </div>
-
-            {/* Card 2 */}
-            <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-              <div className="text-3xl mb-4">😕</div>
-              <h3 className="text-xl font-bold mb-3 text-primary">Inviertes en Redes Sociales, pero no te contratan</h3>
-              <p>Si solo atraes curiosos y no compradores, es hora de revisar tu mensaje y tu estrategia.</p>
-            </div>
-
-            {/* Card 3 */}
-            <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-              <div className="text-3xl mb-4">🌀</div>
-              <h3 className="text-xl font-bold mb-3 text-primary">Tienes un gran potencial, pero nadie lo sabe</h3>
-              <p>
-                Alrededor de 4000 nuevos post diarios en Redes sociales. El problema no es tu esfuerzo. Es la falta de
-                un plan.
-              </p>
-            </div>
-
-            {/* Card 4 */}
-            <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-              <div className="text-3xl mb-4">📉</div>
-              <h3 className="text-xl font-bold mb-3 text-primary">Tus ingresos no reflejan tu talento</h3>
-              <p>El saber comunicar es el santo grial en la era de la IA, la pregunta es ¿Sabes cómo usarla?.</p>
-            </div>
-          </div>
-
-          {/* Mobile slider */}
-          <div className="md:hidden mb-12">
+          {/* Mover estos textos antes del slider */}
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center text-white">!Esto haremos con mi equipo por ti!</h2>
+          <h3 className="text-xl md:text-2xl mb-8 text-center text-white">Cada desafío tiene su solución. Pero no a ciegas. Analicemos a fondo lo que necesitas y diseñemos el camino perfecto para ti. Así es como lo hacemos:</h3>
+          {/* Slider de imágenes agregado */}
+          <div className="mb-8">
             <MobileSlider>
-              {/* Card 1 */}
-              <div className="bg-gray-800 p-6 rounded-lg shadow-lg m-3 h-full">
-                <div className="text-3xl mb-4">🔍</div>
-                <h3 className="text-xl font-bold mb-3 text-primary">Clientes que no te conocen</h3>
-                <p>
-                  ¿Clientes que buscan tus servicios pero no pueden encontrarte? Entonces, simplemente encuentran a
-                  otro.
-                </p>
-              </div>
-
-              {/* Card 2 */}
-              <div className="bg-gray-800 p-6 rounded-lg shadow-lg m-3 h-full">
-                <div className="text-3xl mb-4">😕</div>
-                <h3 className="text-xl font-bold mb-3 text-primary">
-                  Inviertes en Redes Sociales, pero no te contratan
-                </h3>
-                <p>Si solo atraes curiosos y no compradores, es hora de revisar tu mensaje y tu estrategia.</p>
-              </div>
-
-              {/* Card 3 */}
-              <div className="bg-gray-800 p-6 rounded-lg shadow-lg m-3 h-full">
-                <div className="text-3xl mb-4">🌀</div>
-                <h3 className="text-xl font-bold mb-3 text-primary">Tienes un gran potencial, pero nadie lo sabe</h3>
-                <p>
-                  Alrededor de 4000 nuevos post diarios en Redes sociales. El problema no es tu esfuerzo. Es la falta de
-                  un plan.
-                </p>
-              </div>
-
-              {/* Card 4 */}
-              <div className="bg-gray-800 p-6 rounded-lg shadow-lg m-3 h-full">
-                <div className="text-3xl mb-4">📉</div>
-                <h3 className="text-xl font-bold mb-3 text-primary">Tus ingresos no reflejan tu talento</h3>
-                <p>El saber comunicar es el santo grial en la era de la IA, la pregunta es ¿Sabes cómo usarla?.</p>
-              </div>
+              {slideImages.map((img, idx) => (
+                <div key={img.src} onClick={() => openLightbox(idx)} className="cursor-pointer w-full h-full flex items-center justify-center">
+                  <Image src={img.src} alt={img.alt} width={900} height={900} className="rounded-xl object-cover w-full h-full aspect-square shadow-[0_0_32px_8px_rgba(255,255,255,0.25)] transition-all duration-500" style={{ maxWidth: '70%', maxHeight: '70%' }} />
+                </div>
+              ))}
             </MobileSlider>
+            {/* Lightbox personalizado */}
+            {lightboxOpen && (
+              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90" onClick={closeLightbox}>
+                <button onClick={closeLightbox} className="absolute top-6 right-6 text-white text-4xl font-bold z-50 bg-black/60 rounded-full w-12 h-12 flex items-center justify-center hover:bg-black/90 transition-all" aria-label="Cerrar">×</button>
+                <button onClick={e => { e.stopPropagation(); prevLightbox(); }} className="absolute left-4 top-1/2 -translate-y-1/2 text-white text-4xl z-50 bg-black/60 rounded-full w-12 h-12 flex items-center justify-center hover:bg-black/90 transition-all" aria-label="Anterior">❮</button>
+                <button onClick={e => { e.stopPropagation(); nextLightbox(); }} className="absolute right-4 top-1/2 -translate-y-1/2 text-white text-4xl z-50 bg-black/60 rounded-full w-12 h-12 flex items-center justify-center hover:bg-black/90 transition-all" aria-label="Siguiente">❯</button>
+                <div className="max-w-full w-full flex items-center justify-center p-4 sm:p-8" onClick={e => e.stopPropagation()} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+                  <div className="w-full max-w-2xl sm:max-w-3xl aspect-square flex items-center justify-center">
+                    <Image
+                      src={slideImages[lightboxIndex].src}
+                      alt={slideImages[lightboxIndex].alt}
+                      width={1200}
+                      height={1200}
+                      className="rounded-xl object-contain w-full h-full bg-black"
+                      style={{ maxHeight: '80vh', maxWidth: '100vw' }}
+                      onError={(e) => { e.currentTarget.src = '/images/fallback.webp'; }}
+                    />
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
-
-          <h3 className="text-xl font-semibold text-center">
-            Ignorar estos puntos no solo afecta tu negocio. También desgasta tu energía y mina tu motivación.
-          </h3>
         </div>
       </section>
 
-      {/* Imagen de scroll horizontal */}
-      <div className="relative h-[650px] w-full overflow-hidden">
-        <Image
-          src="/images/aje.webp"
-          alt="Imagen de scroll horizontal"
-          fill
-          priority
-          quality={100}
-          sizes="100vw"
-          className="object-cover"
-          style={{ transform: 'none' }}
-        />
-      </div>
-
-      {/* Sección 3 - Aquí es donde entra "Objetivo" */}
-      <section className="section dark-section">
-        <div className="container">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">Empieza a Tomar Decisiones con Estrategia</h2>
-          <h3 className="text-xl font-semibold mb-12 text-center">
-            Cada problema que enfrentas tiene solución. Pero no cualquier solución. Una que parte de un diagnóstico
-            real, con acciones pensadas para ti. Así es como lo hago:
-          </h3>
-
-          {/* Desktop grid */}
-          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            {/* Card 1 */}
-            <div className="bg-gray-700 p-6 rounded-lg shadow-lg">
-              <div className="text-3xl mb-4">🔍</div>
-              <h3 className="text-xl font-bold mb-3 text-primary">Quiero que te encuentren, no que te busquen</h3>
-              <p>
-                Analizo cómo te buscan tus clientes en Google y diseño un plan para que aparezcas en el momento justo.
-                Así dejas de perder oportunidades que ya existen.
-              </p>
-            </div>
-
-            {/* Card 2 */}
-            <div className="bg-gray-700 p-6 rounded-lg shadow-lg">
-              <div className="text-3xl mb-4">😕</div>
-              <h3 className="text-xl font-bold mb-3 text-primary">Transforma tus redes en una máquina de confianza</h3>
-              <p>
-                Reviso tu mensaje y te ayudo a conectar con quienes sí están listos para comprar. Porque la clave no es
-                estar en redes... es saber qué decir.
-              </p>
-            </div>
-
-            {/* Card 3 */}
-            <div className="bg-gray-700 p-6 rounded-lg shadow-lg">
-              <div className="text-3xl mb-4">🌀</div>
-              <h3 className="text-xl font-bold mb-3 text-primary">Destaca sin gritar en medio del ruido digital</h3>
-              <p>
-                Creo contigo una estrategia clara, que convierta tu experiencia en contenido de valor y posicionamiento
-                real. Que no te tape la multitud.
-              </p>
-            </div>
-
-            {/* Card 4 */}
-            <div className="bg-gray-700 p-6 rounded-lg shadow-lg">
-              <div className="text-3xl mb-4">📉</div>
-              <h3 className="text-xl font-bold mb-3 text-primary">Usa la IA con propósito, no por moda</h3>
-              <p>
-                Te enseño a comunicar tu valor con herramientas inteligentes. Así, tus ingresos reflejan tu talento… y
-                tu mensaje lo amplifica.
-              </p>
-            </div>
-          </div>
-
-          {/* Mobile slider */}
-          <div className="md:hidden mb-12">
-            <MobileSlider>
-              {/* Card 1 */}
-              <div className="bg-gray-700 p-6 rounded-lg shadow-lg m-3 h-full">
-                <div className="text-3xl mb-4">🔍</div>
-                <h3 className="text-xl font-bold mb-3 text-primary">Quiero que te encuentren, no que te busquen</h3>
-                <p>
-                  Analizo cómo te buscan tus clientes en Google y diseño un plan para que aparezcas en el momento justo.
-                  Así dejas de perder oportunidades que ya existen.
-                </p>
-              </div>
-
-              {/* Card 2 */}
-              <div className="bg-gray-700 p-6 rounded-lg shadow-lg m-3 h-full">
-                <div className="text-3xl mb-4">😕</div>
-                <h3 className="text-xl font-bold mb-3 text-primary">
-                  Transforma tus redes en una máquina de confianza
-                </h3>
-                <p>
-                  Reviso tu mensaje y te ayudo a conectar con quienes sí están listos para comprar. Porque la clave no
-                  es estar en redes... es saber qué decir.
-                </p>
-              </div>
-
-              {/* Card 3 */}
-              <div className="bg-gray-700 p-6 rounded-lg shadow-lg m-3 h-full">
-                <div className="text-3xl mb-4">🌀</div>
-                <h3 className="text-xl font-bold mb-3 text-primary">Destaca sin gritar en medio del ruido digital</h3>
-                <p>
-                  Creo contigo una estrategia clara, que convierta tu experiencia en contenido de valor y
-                  posicionamiento real. Que no te tape la multitud.
-                </p>
-              </div>
-
-              {/* Card 4 */}
-              <div className="bg-gray-700 p-6 rounded-lg shadow-lg m-3 h-full">
-                <div className="text-3xl mb-4">📉</div>
-                <h3 className="text-xl font-bold mb-3 text-primary">Usa la IA con propósito, no por moda</h3>
-                <p>
-                  Te enseño a comunicar tu valor con herramientas inteligentes. Así, tus ingresos reflejan tu talento… y
-                  tu mensaje lo amplifica.
-                </p>
-              </div>
-            </MobileSlider>
-          </div>
-
-          <h3 className="text-xl font-semibold text-center">
-            El plan existe. La diferencia es que tú lo tendrás por escrito, adaptado a tu realidad, y listo para poner
-            en marcha.
-          </h3>
-        </div>
-      </section>
-
-      {/* Imagen de Separación */}
-      <div className="relative h-[750px] w-full overflow-hidden">
-        <Image
-          src="/images/banb.webp"
-          alt="Imagen de separación"
-          fill
-          priority
-          quality={100}
-          sizes="100vw"
-          className="object-cover"
-          style={{ transform: 'none' }}
-        />
-      </div>
-
-      {/* Sección de Portafolio */}
-      <section className="section bg-light py-16">
+      {/* Cards informativas antes del formulario de contacto */}
+      <section className="w-full bg-white py-8 mb-16">
         <div className="container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">📂 Nuestro Portafolio de Éxitos</h2>
-          <h3 className="text-xl font-semibold mb-12 text-center">
-            Explora nuestros proyectos destacados donde hemos transformado la presencia online de médicos.
-          </h3>
-
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-black mt-12">Es increíble de lo que nos perdemos por no leer</h2>
           {/* Desktop grid */}
-          <div className="hidden md:grid md:grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Card 1 */}
-            <div className="bg-white rounded-lg overflow-hidden shadow-lg">
-              <div className="relative h-72">
-                <Image
-                  src="https://topdentcuenca.com/wp-content/uploads/2025/02/DSC09751-1.png.webp"
-                  alt="TopdentCuenca"
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover object-top"
-                />
+            <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between h-full transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
+              <div>
+                <h3 className="text-xl font-bold mb-3 text-black">¿Tu Negocio en Riesgo? ¡75% Fracasan!</h3>
+                <p className="text-gray-700 mb-6">El 75% de las empresas cierran antes de los 2 años por no tener estrategias de ventas claras, ¡sin un estudio de mercado, estás jugando a la ruleta! No dejes que la intuición te cueste tu sueño. Un diagnóstico profundo te ahorra tiempo, dinero y muchísimos dolores de cabeza.</p>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">TopdentCuenca</h3>
-                <h4 className="text-lg font-semibold mb-3">Web Empresarial</h4>
-                <p className="mb-4">Web Empresarial para clínica dental</p>
-                <a
-                  href="https://topdentcuenca.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary font-medium hover:underline flex items-center"
-                >
-                  Ver proyecto <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
-              </div>
+              <a href="#" className="text-primary font-semibold flex items-center gap-2 group hover:underline transition-colors">
+                Leer artículo <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
+              </a>
             </div>
-
             {/* Card 2 */}
-            <div className="bg-white rounded-lg overflow-hidden shadow-lg">
-              <div className="relative h-72">
-                <Image
-                  src="https://drguidodiazortega.com/imagenes/fotodeperfilguidodiaz.jpg"
-                  alt="Dr. Guido Díaz Ortega"
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover object-top"
-                />
+            <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between h-full transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
+              <div>
+                <h3 className="text-xl font-bold mb-3 text-black">El Secreto de los que Crecen</h3>
+                <p className="text-gray-700 mb-6">Las empresas que usan estudios de mercado crecen casi un 28% más y ¡son 8.9% más rentables! ¿Imaginas ese salto en tu negocio? Deja de adivinar y empieza a construir sobre bases sólidas y datos reales.</p>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">Dr. Guido Díaz Ortega</h3>
-                <h4 className="text-lg font-semibold mb-3">Web Pro Go</h4>
-                <p className="mb-4">Sitio web profesional para médico especialista</p>
-                <a
-                  href="https://drguidodiazortega.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary font-medium hover:underline flex items-center"
-                >
-                  Ver proyecto <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
-              </div>
+              <a href="#" className="text-primary font-semibold flex items-center gap-2 group hover:underline transition-colors">
+                Leer artículo <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
+              </a>
             </div>
-
             {/* Card 3 */}
-            <div className="bg-white rounded-lg overflow-hidden shadow-lg">
-              <div className="relative h-72">
-                <Image
-                  src="https://automatizotunegocio.net/wp-content/uploads/2025/03/Imagen-de-WhatsApp-2025-02-06-a-las-09.53.41_e131afce.jpg"
-                  alt="Dr. Patricio Reyes Pólit"
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover object-top"
-                />
+            <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between h-full transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
+              <div>
+                <h3 className="text-xl font-bold mb-3 text-black">¿Eres del 70.5% que Aún No Investiga?</h3>
+                <p className="text-gray-700 mb-6">En Guayaquil, más del 70% de las PYMES nunca hicieron un estudio de mercado, ¡pero el 98% cree que los datos mejoran la competitividad! No es solo una "gran empresa"; es una necesidad. Tus clientes están cambiando y ¡necesitas conocerlos para adelantarte!</p>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">Dr. Patricio Reyes Pólit</h3>
-                <h4 className="text-lg font-semibold mb-3">Tarjetas Digitales</h4>
-                <p className="mb-4">Tarjeta digital profesional para intensivista</p>
-                <a
-                  href="https://automatizotunegocio.net/pulmocor/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary font-medium hover:underline flex items-center"
-                >
-                  Ver proyecto <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
+              <a href="#" className="text-primary font-semibold flex items-center gap-2 group hover:underline transition-colors">
+                Leer artículo <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
+              </a>
+            </div>
+            {/* Card 4 */}
+            <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between h-full transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
+              <div>
+                <h3 className="text-xl font-bold mb-3 text-black">¿Qué Tienen en Común Coca-Cola y Marvel? ¡Datos!</h3>
+                <p className="text-gray-700 mb-6">Grandes como Coca-Cola y Marvel usan el análisis de datos para entender a sus clientes y ¡multiplicar sus ventas y éxitos! No necesitas ser un gigante para pensar como uno. Aprende de los mejores y adapta la inteligencia a tu escala.</p>
               </div>
+              <a href="#" className="text-primary font-semibold flex items-center gap-2 group hover:underline transition-colors">
+                Leer artículo <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
+              </a>
             </div>
           </div>
-
           {/* Mobile slider */}
-          <div className="md:hidden mb-12">
-            <MobileSlider>
+          <div className="md:hidden w-full overflow-x-auto py-2">
+            <div className="flex gap-6 min-w-max px-2">
               {/* Card 1 */}
-              <div className="bg-white rounded-lg overflow-hidden shadow-lg m-3">
-                <div className="relative h-64">
-                  <Image
-                    src="https://topdentcuenca.com/wp-content/uploads/2025/02/DSC09751-1.png.webp"
-                    alt="TopdentCuenca"
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover object-top"
-                  />
+              <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between h-full min-w-[85vw] max-w-xs transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                <div>
+                  <h3 className="text-xl font-bold mb-3 text-black">¿Tu Negocio en Riesgo? ¡75% Fracasan!</h3>
+                  <p className="text-gray-700 mb-6">El 75% de las empresas cierran antes de los 2 años por no tener estrategias de ventas claras, ¡sin un estudio de mercado, estás jugando a la ruleta! No dejes que la intuición te cueste tu sueño. Un diagnóstico profundo te ahorra tiempo, dinero y muchísimos dolores de cabeza.</p>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2">TopdentCuenca</h3>
-                  <h4 className="text-lg font-semibold mb-3">Web Empresarial</h4>
-                  <p className="mb-4">Web Empresarial para clínica dental</p>
-                  <a
-                    href="https://topdentcuenca.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary font-medium hover:underline flex items-center"
-                  >
-                    Ver proyecto <ArrowRight className="ml-2 h-4 w-4" />
-                  </a>
-                </div>
+                <a href="#" className="text-primary font-semibold flex items-center gap-2 group hover:underline transition-colors">
+                  Leer artículo <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
+                </a>
               </div>
-
               {/* Card 2 */}
-              <div className="bg-white rounded-lg overflow-hidden shadow-lg m-3">
-                <div className="relative h-64">
-                  <Image
-                    src="https://drguidodiazortega.com/imagenes/fotodeperfilguidodiaz.jpg"
-                    alt="Dr. Guido Díaz Ortega"
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover object-top"
-                  />
+              <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between h-full min-w-[85vw] max-w-xs transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                <div>
+                  <h3 className="text-xl font-bold mb-3 text-black">El Secreto de los que Crecen</h3>
+                  <p className="text-gray-700 mb-6">Las empresas que usan estudios de mercado crecen casi un 28% más y ¡son 8.9% más rentables! ¿Imaginas ese salto en tu negocio? Deja de adivinar y empieza a construir sobre bases sólidas y datos reales.</p>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2">Dr. Guido Díaz Ortega</h3>
-                  <h4 className="text-lg font-semibold mb-3">Web Pro Go</h4>
-                  <p className="mb-4">Sitio web profesional para médico especialista</p>
-                  <a
-                    href="https://drguidodiazortega.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary font-medium hover:underline flex items-center"
-                  >
-                    Ver proyecto <ArrowRight className="ml-2 h-4 w-4" />
-                  </a>
-                </div>
+                <a href="#" className="text-primary font-semibold flex items-center gap-2 group hover:underline transition-colors">
+                  Leer artículo <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
+                </a>
               </div>
-
               {/* Card 3 */}
-              <div className="bg-white rounded-lg overflow-hidden shadow-lg m-3">
-                <div className="relative h-64">
-                  <Image
-                    src="https://automatizotunegocio.net/wp-content/uploads/2025/03/Imagen-de-WhatsApp-2025-02-06-a-las-09.53.41_e131afce.jpg"
-                    alt="Dr. Patricio Reyes Pólit"
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover object-top"
-                  />
+              <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between h-full min-w-[85vw] max-w-xs transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                <div>
+                  <h3 className="text-xl font-bold mb-3 text-black">¿Eres del 70.5% que Aún No Investiga?</h3>
+                  <p className="text-gray-700 mb-6">En Guayaquil, más del 70% de las PYMES nunca hicieron un estudio de mercado, ¡pero el 98% cree que los datos mejoran la competitividad! No es solo una "gran empresa"; es una necesidad. Tus clientes están cambiando y ¡necesitas conocerlos para adelantarte!</p>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2">Dr. Patricio Reyes Pólit</h3>
-                  <h4 className="text-lg font-semibold mb-3">Tarjetas Digitales</h4>
-                  <p className="mb-4">Tarjeta digital profesional para intensivista</p>
-                  <a
-                    href="https://automatizotunegocio.net/pulmocor/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary font-medium hover:underline flex items-center"
-                  >
-                    Ver proyecto <ArrowRight className="ml-2 h-4 w-4" />
-                  </a>
-                </div>
+                <a href="#" className="text-primary font-semibold flex items-center gap-2 group hover:underline transition-colors">
+                  Leer artículo <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
+                </a>
               </div>
-            </MobileSlider>
+              {/* Card 4 */}
+              <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between h-full min-w-[85vw] max-w-xs transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                <div>
+                  <h3 className="text-xl font-bold mb-3 text-black">¿Qué Tienen en Común Coca-Cola y Marvel? ¡Datos!</h3>
+                  <p className="text-gray-700 mb-6">Grandes como Coca-Cola y Marvel usan el análisis de datos para entender a sus clientes y ¡multiplicar sus ventas y éxitos! No necesitas ser un gigante para pensar como uno. Aprende de los mejores y adapta la inteligencia a tu escala.</p>
+                </div>
+                <a href="#" className="text-primary font-semibold flex items-center gap-2 group hover:underline transition-colors">
+                  Leer artículo <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -482,7 +243,7 @@ export default function Home() {
       {/* Nueva sección Objetivo con banners horizontales */}
       <section className="section bg-white">
         <div className="container">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center flex items-center justify-center gap-2">🎯 Objetivo</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center flex items-center justify-center gap-2">Mi Blog</h2>
           <h3 className="text-xl font-semibold mb-12 text-center">
             Despierta tu potencial: Explora las estrategias que marcarán la diferencia en tu camino al éxito.
           </h3>
@@ -525,6 +286,91 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Sección de logos después de 'Mi Blog' */}
+      <section className="w-full bg-[#121212] py-12">
+        <div className="container mx-auto">
+          {/* Grid en escritorio, slider en móvil */}
+          <div className="hidden md:grid grid-cols-4 gap-8 items-center justify-items-center">
+            <img src="/images/logos/cami.png" alt="Logo CAMI" className="h-20 w-auto object-contain" />
+            <img src="/images/logos/crecer.png" alt="Logo Crecer" className="h-20 w-auto object-contain" />
+            <img src="/images/logos/energym.png" alt="Logo Energym" className="h-20 w-auto object-contain" />
+            <img src="/images/logos/grafimundo.png" alt="Logo Grafimundo" className="h-20 w-auto object-contain" />
+            <img src="/images/logos/Guido_Diaz.png" alt="Logo Guido Díaz" className="h-20 w-auto object-contain" />
+            <img src="/images/logos/Optica_loja.png" alt="Logo Óptica Loja" className="h-20 w-auto object-contain" />
+            <img src="/images/logos/San_Gabriel.png" alt="Logo San Gabriel" className="h-20 w-auto object-contain" />
+            <img src="/images/logos/Top_dent.png" alt="Logo Top Dente" className="h-20 w-auto object-contain" />
+          </div>
+          {/* Slider horizontal en móvil */}
+          <div className="md:hidden w-full overflow-x-auto py-2">
+            <div className="flex gap-6 min-w-max px-2">
+              <img src="/images/logos/cami.png" alt="Logo CAMI" className="h-16 w-auto object-contain" />
+              <img src="/images/logos/crecer.png" alt="Logo Crecer" className="h-16 w-auto object-contain" />
+              <img src="/images/logos/energym.png" alt="Logo Energym" className="h-16 w-auto object-contain" />
+              <img src="/images/logos/grafimundo.png" alt="Logo Grafimundo" className="h-16 w-auto object-contain" />
+              <img src="/images/logos/Guido-diaz.png" alt="Logo Guido Díaz" className="h-16 w-auto object-contain" />
+              <img src="/images/logos/Optica_loja.png" alt="Logo Óptica Loja" className="h-16 w-auto object-contain" />
+              <img src="/images/logos/San_Gabriel.png" alt="Logo San Gabriel" className="h-16 w-auto object-contain" />
+              <img src="/images/logos/Top_dente.png" alt="Logo Top Dente" className="h-16 w-auto object-contain" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Sección de contacto (Agenda una Llamada) justo antes del newsletter y footer */}
+      <section className="w-full bg-[#121212] py-16 border-b border-light-gray">
+        <div className="container mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-2 text-white text-center">Agenda una Llamada</h2>
+          <p className="mb-10 text-lg text-gray-200 text-center">Cuéntame por email tu caso y me pondré en contacto pronto</p>
+          <div className="flex flex-col md:flex-row gap-12 items-center justify-center min-h-[600px]">
+            {/* Slide de fotos cuadradas más grande y centrado */}
+            <div className="flex-1 max-w-xl w-full flex items-center justify-center">
+              <ContactPhotoSlider large />
+            </div>
+            {/* Formulario */}
+            <form className="flex-1 max-w-xl space-y-6 flex flex-col justify-center">
+              <div>
+                <label className="block font-semibold mb-1 text-white" htmlFor="nombre">Nombre *</label>
+                <input id="nombre" name="nombre" type="text" required className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary bg-[#18191b] text-white placeholder-gray-400" />
+              </div>
+              <div>
+                <label className="block font-semibold mb-1 text-white" htmlFor="email">Correo electrónico *</label>
+                <input id="email" name="email" type="email" required className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary bg-[#18191b] text-white placeholder-gray-400" />
+              </div>
+              <div>
+                <label className="block font-semibold mb-1 text-white" htmlFor="telefono">Teléfono</label>
+                <input id="telefono" name="telefono" type="tel" className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary bg-[#18191b] text-white placeholder-gray-400" />
+              </div>
+              <div>
+                <label className="block font-semibold mb-1 text-white" htmlFor="mensaje">Mensaje *</label>
+                <textarea id="mensaje" name="mensaje" required className="w-full border border-gray-300 rounded px-4 py-2 min-h-[120px] focus:outline-none focus:ring-2 focus:ring-primary bg-[#18191b] text-white placeholder-gray-400"></textarea>
+              </div>
+              <button type="submit" className="mt-2 px-8 py-2 bg-white text-black rounded-full font-semibold hover:bg-gray-200 transition">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter minimalista horizontal */}
+      <section className="w-full bg-[#121212] py-8 border-t border-neutral-800">
+        <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+          <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-0">Suscríbete a mi Newsletter</h3>
+          <form className="flex flex-col md:flex-row items-center gap-3 w-full md:w-auto">
+            <input type="email" required placeholder="Tu correo electrónico" className="px-4 py-2 rounded bg-[#232323] text-white border border-neutral-700 focus:outline-none focus:ring-2 focus:ring-primary placeholder-gray-400 w-full md:w-64" />
+            <div className="flex items-center gap-2">
+              <input type="checkbox" id="privacidad" required className="accent-primary" />
+              <label htmlFor="privacidad" className="text-xs text-gray-300">Acepto la política de privacidad</label>
+            </div>
+            <button type="submit" className="px-6 py-2 bg-primary text-white rounded-full font-semibold hover:bg-primary/80 transition text-sm">Suscribirme</button>
+          </form>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="w-full bg-[#121212] text-white py-8">
+        <div className="container mx-auto text-center">
+        </div>
+      </footer>
     </>
   )
 }
