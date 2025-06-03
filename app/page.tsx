@@ -147,7 +147,8 @@ export default function Home() {
             priority
             quality={100}
             sizes="100vw"
-            className="object-cover"
+            className="object-cover object-center"
+            style={{ objectPosition: 'center center' }}
           />
         </div>
         {/* Overlay */}
