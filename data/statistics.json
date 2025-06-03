@@ -1,9 +1,29 @@
 {
-  "totalVisitas": 373,
-  "visitasHoy": 373,
+  "totalVisitas": 377,
+  "visitasHoy": 377,
   "articulosPublicados": 0,
   "suscriptoresNewsletter": 0,
   "ultimasVisitas": [
+    {
+      "fecha": "2025-06-03",
+      "pagina": "/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-06-03",
+      "pagina": "/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-06-03",
+      "pagina": "/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-06-03",
+      "pagina": "/",
+      "visitas": 1
+    },
     {
       "fecha": "2025-06-03",
       "pagina": "/blog/",
@@ -33,26 +53,6 @@
       "fecha": "2025-06-02",
       "pagina": "/",
       "visitas": 1
-    },
-    {
-      "fecha": "2025-06-02",
-      "pagina": "/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-06-02",
-      "pagina": "/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-06-02",
-      "pagina": "/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-06-02",
-      "pagina": "/",
-      "visitas": 1
     }
   ],
   "visitasPorDia": {
@@ -63,7 +63,7 @@
     "2025-05-31": 19,
     "2025-06-01": 27,
     "2025-06-02": 32,
-    "2025-06-03": 5
+    "2025-06-03": 9
   },
   "aperturasEmail": {}
 }

@@ -137,7 +137,7 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative w-full h-screen min-h-[500px] flex items-center justify-center">
+      <section className="relative w-full h-screen min-h-[475px] md:min-h-[500px] flex items-center justify-center">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
@@ -158,7 +158,7 @@ export default function Home() {
           {/* ...eliminar el texto aquí... */}
         </div>
         {/* Texto en la parte baja del hero */}
-        <div className="absolute bottom-10 left-0 w-full flex flex-col items-center z-30 px-4">
+        <div className="absolute bottom-32 left-0 w-full flex flex-col items-center z-30 px-4">
           <h1 className="text-3xl md:text-5xl font-bold text-center text-white drop-shadow-lg mb-2" style={{ fontFamily: 'var(--font-poiret-one)', fontWeight: 900 }}>
               Cada venta que no cierras lo hace otro
             </h1>
