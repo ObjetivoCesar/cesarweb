@@ -169,10 +169,10 @@ export default function Home() {
 
       {/* Nueva sección de introducción tipo cita */}
       <section className="w-full bg-white py-12 flex flex-col items-center justify-center min-h-[420px] md:min-h-[460px] flex items-center justify-center">
-        <blockquote className="max-w-4xl mx-auto text-center text-dark text-lg md:text-xl font-normal italic leading-relaxed" style={{ fontFamily: 'var(--font-montserrat)' }}>
+        <blockquote className="max-w-4xl mx-auto text-center text-dark text-lg md:text-xl font-normal italic leading-relaxed px-4 md:px-8" style={{ fontFamily: 'var(--font-montserrat)' }}>
           "Publicar sin un plan es caminar sin rumbo, y lo más grave, es poner en riesgo el sustento de tu familia y tu propio futuro. Mi misión en 'Objetivo' es eliminar ese riesgo, investigando a fondo tu competencia y los verdaderos deseos de tus clientes, descubriendo el punto exacto donde tu oferta y su demanda hablan el mismo idioma. Orquesto esa conexión en tu página web para que sea un espacio estratégico: un lugar donde tu negocio ofrece exactamente lo que tu cliente anhela, generando ventas y dándole sentido y seguridad a cada paso que das."
         </blockquote>
-        <div className="w-full max-w-4xl mx-auto text-right mt-4 pr-2 text-dark font-semibold" style={{ fontFamily: 'var(--font-montserrat)' }}>
+        <div className="w-full max-w-4xl mx-auto text-right mt-4 pr-4 md:pr-8 text-dark font-semibold" style={{ fontFamily: 'var(--font-montserrat)' }}>
           César Reyes - Objetivo
         </div>
       </section>
