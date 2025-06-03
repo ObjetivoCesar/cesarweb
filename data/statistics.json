@@ -1,52 +1,52 @@
 {
-  "totalVisitas": 368,
-  "visitasHoy": 368,
+  "totalVisitas": 373,
+  "visitasHoy": 373,
   "articulosPublicados": 0,
   "suscriptoresNewsletter": 0,
   "ultimasVisitas": [
     {
-      "fecha": "2025-06-02",
-      "pagina": "/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-06-02",
-      "pagina": "/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-06-02",
-      "pagina": "/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-06-02",
-      "pagina": "/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-06-02",
-      "pagina": "/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-06-02",
-      "pagina": "/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-06-02",
+      "fecha": "2025-06-03",
       "pagina": "/blog/",
       "visitas": 1
     },
     {
+      "fecha": "2025-06-03",
+      "pagina": "/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-06-03",
+      "pagina": "/servicios/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-06-03",
+      "pagina": "/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-06-03",
+      "pagina": "/",
+      "visitas": 1
+    },
+    {
       "fecha": "2025-06-02",
       "pagina": "/",
       "visitas": 1
     },
     {
       "fecha": "2025-06-02",
-      "pagina": "/servicios/",
+      "pagina": "/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-06-02",
+      "pagina": "/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-06-02",
+      "pagina": "/",
       "visitas": 1
     },
     {
@@ -62,7 +62,8 @@
     "2025-05-30": 25,
     "2025-05-31": 19,
     "2025-06-01": 27,
-    "2025-06-02": 32
+    "2025-06-02": 32,
+    "2025-06-03": 5
   },
   "aperturasEmail": {}
 }

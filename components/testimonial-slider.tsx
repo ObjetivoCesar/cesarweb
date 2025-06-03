@@ -2,29 +2,29 @@ import React, { useState, useEffect } from "react"
 
 const testimonials = [
   {
-    img: "/images/testimonios/test1.jpg",
-    name: "Ana Martínez",
-    text: "Gracias a su asesoría, mi negocio digitalizó procesos y ahora vendo el doble sin estrés.",
+    img: "/images/testimonios/Patricio_Reyes_Polit.png",
+    name: "Patricio Reyes Polit",
+    text: "Excelente. Te asesora y permite mejorar tus productos",
   },
   {
-    img: "/images/testimonios/test2.jpg",
-    name: "Carlos Pérez",
-    text: "El diagnóstico fue tan claro que por fin entendí qué necesitaba mi web para atraer clientes reales.",
+    img: "/images/testimonios/dr_guifo_diaz_ortega.png",
+    name: "Dr. Guido Días Ortega",
+    text: "Excelente empresa para publicidad , les recomiendo",
   },
   {
-    img: "/images/testimonios/test3.jpg",
-    name: "Lucía Gómez",
-    text: "No solo mejoré mi presencia online, sino que ahora recibo consultas todos los días.",
+    img: "/images/testimonios/camila-reyes.png",
+    name: "Arq. Camila Reyes",
+    text: "Servicio recomendadisimo para eficiencia en el tiempo, me sirvió para mis respuestas inmediatas",
   },
   {
-    img: "/images/testimonios/test4.jpg",
-    name: "Jorge Ramírez",
-    text: "El equipo me acompañó en cada paso, la estrategia fue personalizada y efectiva.",
+    img: "/images/testimonios/piedra_luna.png",
+    name: "Spa Piedra Luna",
+    text: "Empresa seria con mucho profesionalismo, el trabajo muy bien realizado, me gustó bastante y sobre todo muy útil para nuestros negocios. Recomendado!",
   },
   {
-    img: "/images/testimonios/test5.jpg",
-    name: "María Fernanda",
-    text: "Recomiendo totalmente, el cambio en mi negocio fue inmediato y notorio.",
+    img: "/images/testimonios/viviana_novillo.png",
+    name: "TopDent Cuenca",
+    text: "Lindo trabajo y su atención siempre amable, recomendados!",
   },
 ]
 

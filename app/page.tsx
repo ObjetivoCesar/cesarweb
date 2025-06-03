@@ -377,7 +377,13 @@ export default function Home() {
           <div className="flex flex-col md:flex-row gap-12 items-center justify-center min-h-[600px]">
             {/* Slide de fotos cuadradas más grande y centrado */}
             <div className="flex-1 max-w-xl w-full flex items-center justify-center">
-              <ContactPhotoSlider large />
+              <Image 
+                src="/images/cesar_reyes_bn.png"
+                alt="César Reyes"
+                width={500}
+                height={600}
+                className="object-contain w-full h-auto max-h-[500px]"
+              />
             </div>
             {/* Formulario */}
             <form className="flex-1 max-w-xl space-y-6 flex flex-col justify-center">
