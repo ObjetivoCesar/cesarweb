@@ -3,7 +3,7 @@ import "./globals.css"
 import type { Metadata } from "next"
 import { Inter, Poiret_One, Montserrat } from "next/font/google"
 import TransparentHeader from "@/components/transparent-header"
-import Footer from "@/components/Footer"
+import Footer from "@/components/footer"
 import Head from "next/head"
 import VisitTracker from '@/components/VisitTracker'
 
