@@ -185,4 +185,8 @@ Puedes reutilizar el componente `EmbeddedChat` en cualquier otra página o compo
 
 Asegúrate de ajustar los estilos según sea necesario para que se adapte al diseño de la página donde lo estás utilizando.
 
+### Mejoras Recientes (Manejo de Mensajes de Estado)
+
+El componente ha sido actualizado para manejar de forma más eficiente los mensajes de estado del backend (ej. "Conectado y esperando respuesta..."). Ahora, en lugar de añadir mensajes repetitivos, el componente actualiza el mensaje de estado existente en la interfaz del chat, evitando la acumulación de mensajes duplicados y mejorando la experiencia del usuario.
+
 --- 

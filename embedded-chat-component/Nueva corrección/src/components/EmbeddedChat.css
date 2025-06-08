@@ -6,7 +6,8 @@
   --embedded-chat-bg-color: #222;
   --embedded-chat-border-color: #fff;
   --embedded-chat-user-message-bg: #555;
-  --embedded-chat-bot-message-bg: #f0f0f0;
+  --embedded-chat-bot-message-bg: #333;
+  --embedded-chat-bot-message-text: #fff; /* Añadido para controlar específicamente el color del texto del bot */
   --embedded-chat-status-message-bg: #444;
   --embedded-chat-error-message-bg: #5a1c1c;
   --embedded-chat-input-bg: #333;
@@ -57,11 +58,10 @@
   padding: 2px 6px;
   border-radius: 10px;
   opacity: 0.8;
-  color: #000;
 }
 
 .embedded-chat-connection-status.online {
-  background-color: #fff;
+  background-color: #27ae60;
 }
 
 .embedded-chat-connection-status.connecting {
@@ -90,7 +90,6 @@
   border-radius: 12px;
   word-wrap: break-word;
   line-height: 1.4;
-  color: var(--embedded-chat-text-color);
 }
 
 .embedded-chat-message.user-message {
@@ -103,7 +102,7 @@
   align-self: flex-start;
   background-color: var(--embedded-chat-bot-message-bg);
   border-bottom-left-radius: 4px;
-  color: #000;
+  color: var(--embedded-chat-bot-message-text); /* Asegura que el texto del bot use el color definido */
 }
 
 .embedded-chat-message.status-message {
@@ -126,6 +125,11 @@
 
 .embedded-chat-audio-icon {
   margin-right: 6px;
+}
+
+/* Contenido del mensaje */
+.embedded-chat-message-content {
+  color: inherit; /* Hereda el color del contenedor padre */
 }
 
 /* Indicador de escritura */
