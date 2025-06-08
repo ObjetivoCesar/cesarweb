@@ -10,6 +10,7 @@ import { useState } from "react"
 import React from "react"
 import TestimonialSlider from "@/components/testimonial-slider"
 import ContactPhotoSlider from "@/components/contact-photo-slider"
+import EmbeddedChat from '../embedded-chat-component/src/components/EmbeddedChat'
 
 // Componente para el slider de cards móviles con dots
 function CardsMobileSlider() {
@@ -185,7 +186,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Sección 2 - ¿Qué pasa si sigues sin claridad? */}
+      {/* Nueva sección de entrada de mensaje tipo ChatGPT */}
       <section className="section dark-section">
         <div className="container">
           {/* Mover estos textos antes del slider */}
@@ -293,90 +294,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Nueva sección Objetivo con banners horizontales */}
-      <section className="section bg-white">
-        <div className="container">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center flex items-center justify-center gap-2">Mi Blog</h2>
-          <h3 className="text-xl font-semibold mb-12 text-center">
-            Despierta tu potencial: Explora las estrategias que marcarán la diferencia en tu camino al éxito.
-          </h3>
-
-          <div className="contenedor-de-cards">
-            <ExpandableCard
-              title="IA y Negocios en Latam"
-              content="La inteligencia artificial dejará de ser una tendencia lejana para convertirse en el motor de crecimiento en Latinoamérica. Aquellos negocios que la adopten estratégicamente para optimizar procesos, entender a sus clientes y crear ofertas innovadoras, tomarán una ventaja competitiva significativa en los próximos años."
-              backgroundImage="/images/negocioslatam.webp"
-              link="/blog/ia-y-negocios-en-latam"
-            />
-
-            <ExpandableCard
-              title="Pensamiento Estratégico y Adaptación"
-              content="Visualiza el arte de anticipar los movimientos del mercado, como un ajedrecista experto que planea varios pasos adelante. Observamos las tendencias, analizamos los desafíos y, con una mente ágil, diseñamos estrategias que no solo responden al presente, sino que se adaptan con inteligencia a los cambios que vendrán. Es la capacidad de leer entre líneas y estar siempre un paso adelante."
-              backgroundImage="/images/pensamiento1.jpg"
-              link="/blog/pensamiento-estrategico-y-adaptacion"
-            />
-
-            <ExpandableCard
-              title="Propósito/Autoconocimiento/Liderazgo"
-              content="Siente la comprensión profunda de cómo suceden realmente las cosas: una venta nace de una conexión genuina, un equipo se une en torno a un ideal compartido, un negocio florece cuando su esencia resuena con sus clientes. Encontrarle sentido a lo que hacemos, porque lo hacemos, para quien lo hacemos y cómo beneficiamos a nuestro cliente es despertar conciencia, ese entendimiento tácito de las dinámicas humanas y del mercado."
-              backgroundImage="/images/autoconocimiento1.jpg"
-              link="/blog/proposito-autoconocimiento-liderazgo"
-            />
-
-            <ExpandableCard
-              title="Productividad"
-              content="Piensa en cada tarea como un engranaje dentro de una maquinaria compleja. Nuestro enfoque se centra en estudiar cada pieza, en identificar los procesos que pueden fluir con mayor eficiencia, liberando energía y recursos para lo que realmente impulsa tu crecimiento. Buscamos incluir herramientas con Inteligencia Artificial para reducir tus costos y aumentar tus ingresos, es la dedicación a refinar cada acción para lograr el máximo impacto."
-              backgroundImage="/images/crecimiento.jpg"
-              link="/blog/productividad"
-            />
-
-            <ExpandableCard
-              title="Crecimiento en Latam"
-              content="Considera que tu familia es el motor que hace funcionar a ti y tu empresa, así el conjunto de empresas de una ciudad, una provincia o un estado hacen funcionar a un país, y todos ellos mueven a esa tierra que no tiene fronteras pero que es nuestro hogar Latinoamérica. Estudiamos sus particularidades, cultura y aspectos económicos, para diseñar estrategias de crecimiento que realmente resuenen con su gente y su mercado."
-              backgroundImage="/images/crecimiento-latam.webp"
-              link="/blog/crecimiento-en-latam"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Sección de logos después de 'Mi Blog' */}
-      <section className="w-full bg-[#121212] py-12">
-        <div className="container mx-auto">
-          {/* Grid en escritorio, slider en móvil */}
-          <div className="hidden md:grid grid-cols-4 gap-8 items-center justify-items-center">
-            <img src="/images/logos/cami.png" alt="Logo CAMI" className="h-20 w-auto object-contain" />
-            <img src="/images/logos/crecer.png" alt="Logo Crecer" className="h-20 w-auto object-contain" />
-            <img src="/images/logos/energym.png" alt="Logo Energym" className="h-20 w-auto object-contain" />
-            <img src="/images/logos/grafimundo.png" alt="Logo Grafimundo" className="h-20 w-auto object-contain" />
-            <img src="/images/logos/Guido_Diaz.png" alt="Logo Guido Díaz" className="h-20 w-auto object-contain" />
-            <img src="/images/logos/Optica_loja.png" alt="Logo Óptica Loja" className="h-20 w-auto object-contain" />
-            <img src="/images/logos/San_Gabriel.png" alt="Logo San Gabriel" className="h-20 w-auto object-contain" />
-            <img src="/images/logos/Top_dent.png" alt="Logo Top Dente" className="h-20 w-auto object-contain" />
-          </div>
-          {/* Slider horizontal en móvil */}
-          <div className="md:hidden w-full overflow-x-auto py-2">
-            <div className="flex gap-6 min-w-max px-2">
-              <img src="/images/logos/cami.png" alt="Logo CAMI" className="h-16 w-auto object-contain" />
-              <img src="/images/logos/crecer.png" alt="Logo Crecer" className="h-16 w-auto object-contain" />
-              <img src="/images/logos/energym.png" alt="Logo Energym" className="h-16 w-auto object-contain" />
-              <img src="/images/logos/grafimundo.png" alt="Logo Grafimundo" className="h-16 w-auto object-contain" />
-              <img src="/images/logos/Guido-diaz.png" alt="Logo Guido Díaz" className="h-16 w-auto object-contain" />
-              <img src="/images/logos/Optica_loja.png" alt="Logo Óptica Loja" className="h-16 w-auto object-contain" />
-              <img src="/images/logos/San_Gabriel.png" alt="Logo San Gabriel" className="h-16 w-auto object-contain" />
-              <img src="/images/logos/Top_dente.png" alt="Logo Top Dente" className="h-16 w-auto object-contain" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Sección de contacto (Agenda una Llamada) justo antes del newsletter y footer */}
+      {/* Nueva sección de contacto (Agenda una Llamada) con foto y chat */}
       <section className="w-full bg-[#121212] py-16 border-b border-light-gray">
         <div className="container mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold mb-2 text-white text-center">Agenda una Llamada</h2>
           <p className="mb-10 text-lg text-gray-200 text-center">Cuéntame por email tu caso y me pondré en contacto pronto</p>
           <div className="flex flex-col md:flex-row gap-12 items-center justify-center min-h-[600px]">
-            {/* Slide de fotos cuadradas más grande y centrado */}
+            {/* Columna de la foto */}
             <div className="flex-1 max-w-xl w-full flex items-center justify-center">
               <Image 
                 src="/images/cesar_reyes_bn.png"
@@ -386,26 +310,10 @@ export default function Home() {
                 className="object-contain w-full h-auto max-h-[500px]"
               />
             </div>
-            {/* Formulario */}
-            <form className="flex-1 max-w-xl space-y-6 flex flex-col justify-center">
-              <div>
-                <label className="block font-semibold mb-1 text-white" htmlFor="nombre">Nombre *</label>
-                <input id="nombre" name="nombre" type="text" required className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary bg-[#18191b] text-white placeholder-gray-400" />
-              </div>
-              <div>
-                <label className="block font-semibold mb-1 text-white" htmlFor="email">Correo electrónico *</label>
-                <input id="email" name="email" type="email" required className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary bg-[#18191b] text-white placeholder-gray-400" />
-              </div>
-              <div>
-                <label className="block font-semibold mb-1 text-white" htmlFor="telefono">Teléfono</label>
-                <input id="telefono" name="telefono" type="tel" className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary bg-[#18191b] text-white placeholder-gray-400" />
-              </div>
-              <div>
-                <label className="block font-semibold mb-1 text-white" htmlFor="mensaje">Mensaje *</label>
-                <textarea id="mensaje" name="mensaje" required className="w-full border border-gray-300 rounded px-4 py-2 min-h-[120px] focus:outline-none focus:ring-2 focus:ring-primary bg-[#18191b] text-white placeholder-gray-400"></textarea>
-              </div>
-              <button type="submit" className="mt-2 px-8 py-2 bg-white text-black rounded-full font-semibold hover:bg-gray-200 transition">Enviar</button>
-            </form>
+            {/* Columna del componente de chat */}
+            <div className="flex-1 max-w-xl space-y-6 flex flex-col justify-center">
+              <EmbeddedChat />
+            </div>
           </div>
         </div>
       </section>

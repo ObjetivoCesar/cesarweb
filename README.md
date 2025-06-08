@@ -124,4 +124,65 @@ Los headers se implementan en el layout principal (`app/layout.tsx`) y se pueden
 
 Los headers utilizan Tailwind CSS para los estilos y son completamente responsivos:
 - **Escritorio**: Navegación horizontal con botón de contacto
-- **Móvil**: Menú hamburguesa con navegación vertical 
+- **Móvil**: Menú hamburguesa con navegación vertical
+
+---
+
+## Componente de Chat Embebido (`EmbeddedChat`)
+
+Hemos integrado un nuevo componente de chat embebido para reemplazar el widget flotante antiguo.
+
+- **Ubicación**: `components/embedded-chat/EmbeddedChat.tsx`
+- **Descripción**: Este componente muestra la interfaz de chat directamente en la página, en lugar de como un elemento flotante.
+
+### Implementación en la Página Principal (`app/page.tsx`)
+
+El componente `EmbeddedChat` fue añadido en la sección de contacto de la página principal (`app/page.tsx`). Se importa al inicio del archivo y se renderiza en el JSX dentro de la estructura de la página.
+
+```typescript
+// ... otras importaciones ...
+import EmbeddedChat from '@/components/embedded-chat/EmbeddedChat';
+// ... existing code ...
+
+export default function Home() {
+  return (
+    <>
+      {/* ... otras secciones ... */}
+      <section id="contact" className="py-12 md:py-24 lg:py-32 bg-gray-100">
+        {/* ... otros elementos de la sección de contacto ... */}
+        <EmbeddedChat />
+        {/* ... otros elementos de la sección de contacto ... */}
+      </section>
+      {/* ... otras secciones ... */}
+    </>
+  );
+}
+```
+
+### Reutilización del Componente
+
+Puedes reutilizar el componente `EmbeddedChat` en cualquier otra página o componente de tu sitio web. Por ejemplo, para añadirlo a un artículo de blog:
+
+1.  **Importa** el componente al inicio del archivo donde deseas usarlo:
+
+    ```typescript
+    import EmbeddedChat from '@/components/embedded-chat/EmbeddedChat';
+    ```
+
+2.  **Renderiza** el componente en el lugar deseado dentro del JSX:
+
+    ```typescript
+    export default function BlogPost() {
+      return (
+        <div>
+          {/* ... contenido del artículo del blog ... */}
+          <EmbeddedChat />
+          {/* ... más contenido o final del artículo ... */}
+        </div>
+      );
+    }
+    ```
+
+Asegúrate de ajustar los estilos según sea necesario para que se adapte al diseño de la página donde lo estás utilizando.
+
+--- 

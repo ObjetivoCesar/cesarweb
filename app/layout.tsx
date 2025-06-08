@@ -3,8 +3,7 @@ import "./globals.css"
 import type { Metadata } from "next"
 import { Inter, Poiret_One, Montserrat } from "next/font/google"
 import TransparentHeader from "@/components/transparent-header"
-import Footer from "@/components/footer"
-import ChatWidget from "@/components/chat-widget"
+import Footer from "@/components/Footer"
 import Head from "next/head"
 import VisitTracker from '@/components/VisitTracker'
 
@@ -56,7 +55,6 @@ export default function RootLayout({
         <TransparentHeader />
         <main>{children}</main>
         <Footer />
-        <ChatWidget />
       </body>
     </html>
   )
