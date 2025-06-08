@@ -303,8 +303,8 @@ export default function Home() {
             {/* Columna de la foto */}
             <div className="flex-1 max-w-xl w-full flex items-center justify-center">
               <Image 
-                src="/images/cesar_reyes_bn.png"
-                alt="César Reyes"
+                src="/images/cesar_trabajando.png"
+                alt="César Reyes trabajando bn"
                 width={500}
                 height={600}
                 className="object-contain w-full h-auto max-h-[500px]"
@@ -319,7 +319,7 @@ export default function Home() {
       </section>
 
       {/* Newsletter minimalista horizontal */}
-      <section className="w-full bg-[#121212] py-8 border-t border-neutral-800">
+      <section className="w-full bg-[#121212] py-10 border-t border-neutral-800">
         <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-0">Suscríbete a mi Newsletter</h3>
           <form className="flex flex-col md:flex-row items-center gap-3 w-full md:w-auto">
@@ -332,12 +332,6 @@ export default function Home() {
           </form>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="w-full bg-[#121212] text-white py-8">
-        <div className="container mx-auto text-center">
-        </div>
-      </footer>
     </>
   )
 }
