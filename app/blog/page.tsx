@@ -60,9 +60,9 @@ export default function BlogPage() {
   return (
     <>
       {/* Hero principal */}
-      <section className="relative w-full min-h-[calc(100vh-100px)] md:h-[400px] flex items-center justify-center mb-8">
+      <section className="relative w-full h-screen flex items-center justify-center mb-8">
         <Image
-          src="/images/pensamiento.webp"
+          src="/images/blog_cesar_bn.webp"
           alt="Blog Hero"
           fill
           sizes="100vw"
