@@ -191,7 +191,7 @@ export default function Home() {
         <div className="container">
           {/* Mover estos textos antes del slider */}
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center text-white">!Esto haremos con mi equipo por ti!</h2>
-          <h3 className="text-xl md:text-2xl mb-8 text-center text-white">Cada desafío tiene su solución. Pero no a ciegas. Analicemos a fondo lo que necesitas y diseñemos el camino perfecto para ti. Así es como lo hacemos:</h3>
+          <h3 className="text-xl md:text-2xl mb-8 text-center text-white">Cada desafío tiene su solución. Pero no a ciegas. Analicemos juntos lo que necesitas y diseñemos el camino perfecto para tí</h3>
           {/* Slider de imágenes agregado */}
           <div className="mb-8">
             <MobileSlider>
