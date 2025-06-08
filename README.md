@@ -13,23 +13,32 @@ Landing page profesional para la solución de Mensajería Objetivo con IA, dise�
 - Instalación de dependencias y configuración inicial documentada.
 
 ### 2. **Secciones Principales**
-- **Hero con video embebido** (YouTube, autoplay, sin controles).
+- **Hero con video embebido** (YouTube, autoplay, sin controles), con imagen de fondo y texto sobrepuesto ajustado.
+- **Nueva sección de introducción tipo cita**: Cita testimonial de César Reyes.
+- **Slide de testimonios**: Carrousel de testimonios antes de "Empieza a Tomar Decisiones con Estrategia".
 - **Alerta PYME**: sección destacada con CTA y fondo anaranjado.
-- **Cards de Problemas**: 4 cards visuales, ahora tipo carrousel slide en móvil.
+- **Cards de Problemas**: 4 cards visuales, ahora tipo carrousel slide en móvil con navegación por puntos (dots).
 - **Banner motivacional**: con imagen y texto inspirador.
 - **Video secundario**: presentación de la solución.
 - **Cards de Solución**: 3 cards, carrousel en móvil.
 - **Beneficios**: 6 cards, carrousel en móvil.
 - **Cómo funciona**: pasos visuales y bloque de ayuda.
-- **Testimonios**: 3 cards, carrousel en móvil.
+- **Slider de imágenes "Esto haremos con mi equipo por ti!"**: Con navegación por puntos, lightbox solo en escritorio, y ajuste de tamaño de imagen para móvil.
 - **Planes de Inversión**: 4 cards, carrousel en móvil, con prioridad visual al plan de compra del sistema.
 - **Preguntas Frecuentes (FAQ)**: acordeón SEO con íconos animados.
+- **Sección de contacto "Agenda una Llamada"**: Reemplazada por una única imagen estática y un componente de chat fijo (`EmbeddedChat`).
+- **Newsletter minimalista horizontal**: Integrado en el footer con espaciado ajustado.
+- **Footer rediseñado**: Con enlaces a páginas, categorías del blog, contactos, redes sociales (íconos SVG con enlaces que abren en nueva pestaña) y copyright.
 - **CTA final**: llamado a la acción destacado.
 
 ### 3. **Responsividad y UX**
-- **Carrousel horizontal** en todas las secciones de cards para móvil (scroll-x + snap).
+- **Carrousel horizontal** en todas las secciones de cards para móvil (scroll-x + snap) con navegación por puntos (dots).
 - **Grid** en desktop para máxima claridad visual.
 - Experiencia touch-friendly y moderna.
+- Ajustes de márgenes en la sección de citas para móvil.
+- Foto del hero centrada en móvil (`object-center`).
+- Altura del hero reducida en móvil (`min-h-[475px]`).
+- Texto del hero posicionado más arriba (`bottom-32`).
 
 ### 4. **Personalizaciones Visuales**
 - **Paleta de Colores**:
@@ -48,6 +57,50 @@ Landing page profesional para la solución de Mensajería Objetivo con IA, dise�
 ### 5. **SEO y Copywriting**
 - Títulos y textos optimizados para captar leads y mejorar posicionamiento.
 - FAQ orientado a resolver objeciones reales del cliente ideal.
+
+### Mejoras Recientes (Manejo de Mensajes de Estado)
+
+El componente ha sido actualizado para manejar de forma más eficiente los mensajes de estado del backend (ej. "Conectado y esperando respuesta..."). Ahora, en lugar de añadir mensajes repetitivos, el componente actualiza el mensaje de estado existente en la interfaz del chat, evitando la acumulación de mensajes duplicados y mejorando la experiencia del usuario.
+
+### Historial de Cambios Recientes
+
+Para un registro detallado de las actualizaciones y mejoras realizadas en el proyecto:
+
+1.  **Ajustes al Slider de Imágenes "Esto haremos con mi equipo por ti!"**:
+    *   Implementación de navegación por puntos en el slider.
+    *   Lightbox funcional solo en escritorio; desactivado en móvil.
+    *   Ajuste de tamaño de la imagen en móvil (`max-w-[80vw]`).
+    *   Corrección de la ruta de la imagen estática `/images/cesar_trabajando.webp` a `/images/cesar_trabajando.png`.
+
+2.  **Mejoras en el Slider de Cards Móviles**:
+    *   Implementación de navegación por puntos (dots) para el componente `CardsMobileSlider` en `app/page.tsx`.
+
+3.  **Sección "Agenda una Llamada" Modificada**:
+    *   Reemplazo del `ContactPhotoSlider` por una única imagen estática (`cesar_reyes_bn.png`).
+    *   El formulario de contacto fue sustituido por el componente de chat fijo `EmbeddedChat`.
+
+4.  **Optimización de Diseño Responsivo**:
+    *   **Sección de la Cita**: Se agregaron márgenes laterales en modo celular (`px-4 md:px-8` al `blockquote` y `pr-4 md:pr-8` al div del autor).
+    *   **Hero Section**:
+        *   Foto del hero centrada en modo celular (`object-center` y `objectPosition: 'center center'`).
+        *   Altura de la pantalla del hero reducida en modo celular (`min-h-[475px]`).
+        *   Texto del hero subido para mejor posicionamiento visual (`bottom-32`).
+
+5.  **Rediseño Completo del Footer**:
+    *   Integración del newsletter existente.
+    *   Inclusión de enlaces a páginas clave (`Mensajería`, `Maspacientes`, `Blog`), categorías del blog, contactos y redes sociales.
+    *   Sustitución de siglas de redes sociales por íconos SVG con enlaces que abren en una nueva pestaña.
+    *   Diseño de varias columnas para escritorio y dos columnas para móvil.
+    *   Aseguramiento del copyright al final.
+    *   Apertura de enlaces de navegación (`Inicio`, `Blog`, `Maspacientes`, `Mensajería`) en una nueva pestaña (`target="_blank"` y `rel="noopener noreferrer"`).
+
+6.  **Componente de Chat Embebido (`EmbeddedChat`)**:
+    *   Reemplazó el formulario de contacto.
+    *   Se corrigió el color de la letra del bot en `EmbeddedChat.css` (de `#fff` a `#000`).
+    *   Se implementó una corrección para evitar mensajes de estado duplicados (ej. "Conectado y esperando respuesta...") utilizando `useRef` y una función `updateStatusMessage` en `EmbeddedChat.tsx`.
+
+7.  **Ajuste del Espaciado del Newsletter**:
+    *   Modificación del padding de la sección del newsletter en `app/page.tsx` de `pt-12 pb-8` a `py-10` para armonizar el espaciado vertical.
 
 ---
 
