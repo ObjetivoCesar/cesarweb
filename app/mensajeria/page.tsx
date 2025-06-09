@@ -123,28 +123,44 @@ export default function MensajeriaPage() {
       `}</style>
 
       <main className="bg-gray-50 font-sans text-gray-800">
+        {/* Video Section */}
+        <section className="relative w-full h-screen overflow-hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/videos/Sistema de Mensajería Objetivo.mp4" type="video/mp4" media="(min-width: 768px)" />
+            <source src="/videos/mensajería vertical.mp4" type="video/mp4" media="(max-width: 767px)" />
+            Tu navegador no soporta el elemento de video.
+          </video>
+          <div className="absolute inset-0 bg-[#2B4C7E]/30 z-10"></div>
+        </section>
+
         {/* Hero Section */}
-        <section id="hero" className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-black">
+        <section id="hero" className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#2B4C7E]">
           <img
             src="/images/portada_cesarbn.jpg"
             alt="César Reyes portada"
             className="absolute inset-0 w-full h-full object-cover z-0"
             style={{ minHeight: '300px', height: '100%', width: '100%' }}
           />
-          <div className="absolute inset-0 bg-black/60 z-10"></div>
+          <div className="absolute inset-0 bg-[#2B4C7E]/80 z-10"></div>
           <div className="relative z-20 flex flex-col items-center justify-center text-center w-full px-4">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">Sistema de Mensajería Objetivo</h1>
             <p className="text-xl md:text-2xl text-white mb-8 max-w-2xl mx-auto drop-shadow">
-              Centraliza y automatiza todas tus comunicaciones en una sola plataforma. Optimiza tu tiempo y mejora la atención a tus clientes.
+              Centraliza y automatiza todas tus comunicaciones en una sola plataforma. Optimiza tu tiempo y mejora la atención a tus pacientes.
             </p>
-            <button className="bg-white text-black px-10 py-4 rounded-lg font-bold shadow-lg hover:bg-light-gray hover:shadow-2xl transition-all duration-200 text-lg">
+            <button className="bg-[#4A90E2] text-white px-10 py-4 rounded-lg font-bold shadow-lg hover:bg-[#1A365D] hover:shadow-2xl transition-all duration-200 text-lg">
               Comienza Gratis
             </button>
           </div>
         </section>
 
         {/* Banner de newsletter de ancho completo */}
-        <section className="w-full bg-lighter-gray py-12 flex items-center justify-center">
+        <section className="w-full bg-[#E8F1F8] py-12 flex items-center justify-center">
           <form className="bg-white rounded-xl shadow-lg p-8 flex flex-col md:flex-row items-center gap-4 w-full max-w-2xl mx-auto">
             <label htmlFor="newsletter-email" className="sr-only">Correo electrónico</label>
             <input
@@ -152,11 +168,11 @@ export default function MensajeriaPage() {
               id="newsletter-email"
               required
               placeholder="Tu correo electrónico"
-              className="flex-1 px-4 py-3 rounded-md border border-light-gray focus:outline-none focus:ring-2 focus:ring-dark text-black bg-lighter-gray"
+              className="flex-1 px-4 py-3 rounded-md border border-[#2B4C7E] focus:outline-none focus:ring-2 focus:ring-[#4A90E2] text-[#2C3E50] bg-white"
             />
             <button
               type="submit"
-              className="bg-white text-black font-bold px-8 py-3 rounded-md border border-dark shadow hover:bg-light-gray hover:shadow-xl transition-all duration-200"
+              className="bg-[#2B4C7E] text-white font-bold px-8 py-3 rounded-md shadow hover:bg-[#1A365D] hover:shadow-xl transition-all duration-200"
             >
               Suscribirme
             </button>
@@ -164,27 +180,27 @@ export default function MensajeriaPage() {
         </section>
 
         {/* Nueva Sección de Alerta */}
-        <section className="w-full min-h-[700px] bg-[#e78c24] py-16 flex items-center">
+        <section className="w-full min-h-[700px] bg-[#2B4C7E] py-16 flex items-center">
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto text-center flex flex-col justify-center h-full">
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-8">
-              ¡Alerta PYME! Cada Empleado te Cuesta $1,945 USD Anuales en Tareas Repetitivas
-            </h1>
+                ¡Optimiza tu Práctica Médica! Cada Minuto Cuenta en la Atención a Pacientes
+              </h1>
               <p className="text-xl text-white mb-8">
-                ¿Sabías que tu equipo pierde más de 2 horas al día en correos, WhatsApp y búsquedas ineficientes? Nuestro Sistema de Mensajería Objetivo con IA te devuelve ese tiempo y multiplica tus ganancias.
+                ¿Sabías que tu equipo pierde más de 2 horas al día en correos, WhatsApp y búsquedas ineficientes? Nuestro Sistema de Mensajería Objetivo con IA te devuelve ese tiempo para dedicarlo a tus pacientes.
               </p>
               <a
                 href="#cta-final"
-                className="inline-flex items-center justify-center bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 hover:from-pink-600 hover:via-red-600 hover:to-yellow-600 text-white font-bold text-lg py-4 px-10 rounded-lg shadow-2xl transform hover:scale-110 transition-all duration-200 ease-in-out border-4 border-white mb-8 ring-4 ring-pink-200/40 animate-pulse"
+                className="inline-flex items-center justify-center bg-[#4A90E2] hover:bg-[#1A365D] text-white font-bold text-lg py-4 px-10 rounded-lg shadow-2xl transform hover:scale-110 transition-all duration-200 ease-in-out border-4 border-white mb-8 ring-4 ring-[#E8F1F8]/40"
                 style={{ minWidth: '320px' }}
               >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 mr-3 text-[#e78c24]">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 mr-3">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.82m5.84-2.56a12.028 12.028 0 00-5.84 7.38H6.18M15.59 14.37A12.021 12.021 0 0118 10.18H9.98M15.59 14.37A6 6 0 0018 10.18v-4.82m-2.41 9.01L18 10.18M3.75 3.75L18 10.18m-14.25 0A12.015 12.015 0 0118 10.18M3.75 3.75c0-1.02.738-1.875 1.75-1.875h12.75c1.013 0 1.75.855 1.75 1.875v10.5A12.02 12.02 0 0118 10.18M3.75 3.75H2.25m15.75 0H18m-2.41 9.01L18 10.18m0 0A12.015 12.015 0 013.75 3.75m14.25 0c0 .26-.02.516-.057.764L3.75 3.75m14.25 0L3.75 3.75" />
                 </svg>
                 <span className="flex-1 text-center">Agenda una Llamada de Demostración Gratuita</span>
               </a>
               <p className="text-white text-lg">
-                Descubre en 15 minutos cómo convertir tiempo perdido en ventas concretas.
+                Descubre en 15 minutos cómo optimizar la comunicación con tus pacientes.
               </p>
             </div>
           </div>
@@ -381,7 +397,7 @@ export default function MensajeriaPage() {
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-purple-600">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.746 3.746 0 013.296-1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.746 3.746 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.746 3.746 0 013.296-1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
                     </svg>
                   </div>
                   <h4 className="text-xl font-semibold text-gray-800">Satisfacción del Cliente</h4>
@@ -446,6 +462,22 @@ export default function MensajeriaPage() {
               </a>
             </div>
           </div>
+        </section>
+
+        {/* Video Section */}
+        <section className="relative w-full h-screen overflow-hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/videos/Sistema de Mensajería Objetivo.mp4" type="video/mp4" media="(min-width: 768px)" />
+            <source src="/videos/mensajería vertical.mp4" type="video/mp4" media="(max-width: 767px)" />
+            Tu navegador no soporta el elemento de video.
+          </video>
+          <div className="absolute inset-0 bg-[#2B4C7E]/30 z-10"></div>
         </section>
 
         {/* Cómo Funciona Section */}

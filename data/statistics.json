@@ -1,57 +1,57 @@
 {
-  "totalVisitas": 424,
-  "visitasHoy": 424,
+  "totalVisitas": 440,
+  "visitasHoy": 440,
   "articulosPublicados": 0,
   "suscriptoresNewsletter": 0,
   "ultimasVisitas": [
     {
+      "fecha": "2025-06-09",
+      "pagina": "/mensajeria/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-06-09",
+      "pagina": "/mensajeria/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-06-09",
+      "pagina": "/mensajeria/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-06-09",
+      "pagina": "/mensajeria/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-06-09",
+      "pagina": "/mensajeria/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-06-09",
+      "pagina": "/mensajeria/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-06-09",
+      "pagina": "/mensajeria/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-06-08",
+      "pagina": "/mensajeria/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-06-08",
+      "pagina": "/maspacientes/",
+      "visitas": 1
+    },
+    {
       "fecha": "2025-06-08",
       "pagina": "/blog/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-06-08",
-      "pagina": "/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-06-08",
-      "pagina": "/blog/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-06-08",
-      "pagina": "/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-06-08",
-      "pagina": "/blog/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-06-08",
-      "pagina": "/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-06-08",
-      "pagina": "/blog/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-06-08",
-      "pagina": "/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-06-08",
-      "pagina": "/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-06-08",
-      "pagina": "/",
       "visitas": 1
     }
   ],
@@ -66,7 +66,8 @@
     "2025-06-03": 9,
     "2025-06-04": 3,
     "2025-06-05": 21,
-    "2025-06-08": 23
+    "2025-06-08": 32,
+    "2025-06-09": 7
   },
   "aperturasEmail": {}
 }
