@@ -140,14 +140,14 @@ export default function MensajeriaPage() {
         </section>
 
         {/* Hero Section */}
-        <section id="hero" className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#2B4C7E]">
+        <section id="hero" className="relative h-[400px] w-full overflow-hidden flex items-center justify-center bg-[#2B4C7E]">
           <img
             src="/images/portada_cesarbn.jpg"
             alt="César Reyes portada"
             className="absolute inset-0 w-full h-full object-cover z-0"
             style={{ minHeight: '300px', height: '100%', width: '100%' }}
           />
-          <div className="absolute inset-0 bg-[#2B4C7E]/80 z-10"></div>
+          <div className="absolute inset-0 bg-black/80 z-10"></div>
           <div className="relative z-20 flex flex-col items-center justify-center text-center w-full px-4">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">Sistema de Mensajería Objetivo</h1>
             <p className="text-xl md:text-2xl text-white mb-8 max-w-2xl mx-auto drop-shadow">
@@ -159,32 +159,27 @@ export default function MensajeriaPage() {
           </div>
         </section>
 
-        {/* Banner de newsletter de ancho completo */}
-        <section className="w-full bg-[#E8F1F8] py-12 flex items-center justify-center">
-          <form className="bg-white rounded-xl shadow-lg p-8 flex flex-col md:flex-row items-center gap-4 w-full max-w-2xl mx-auto">
-            <label htmlFor="newsletter-email" className="sr-only">Correo electrónico</label>
-            <input
-              type="email"
-              id="newsletter-email"
-              required
-              placeholder="Tu correo electrónico"
-              className="flex-1 px-4 py-3 rounded-md border border-[#2B4C7E] focus:outline-none focus:ring-2 focus:ring-[#4A90E2] text-[#2C3E50] bg-white"
-            />
-            <button
-              type="submit"
-              className="bg-[#2B4C7E] text-white font-bold px-8 py-3 rounded-md shadow hover:bg-[#1A365D] hover:shadow-xl transition-all duration-200"
-            >
-              Suscribirme
-            </button>
-          </form>
-        </section>
+
 
         {/* Nueva Sección de Alerta */}
-        <section className="w-full min-h-[700px] bg-[#2B4C7E] py-16 flex items-center">
+        <section className="w-full h-screen relative flex items-center">
+          {/* Background Image with Overlay */}
+          <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 bg-dark opacity-20 z-10"></div>
+            <img 
+              src="/images/hero-mensajeria.webp" 
+              alt="Background" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </section>
+
+        {/* Nueva Sección de Texto */}
+        <section className="w-full h-[400px] bg-dark py-16 flex items-center">
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto text-center flex flex-col justify-center h-full">
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-8">
-                ¡Optimiza tu Práctica Médica! Cada Minuto Cuenta en la Atención a Pacientes
+                ¡Optimizar tu mensajería podría ahorrarte un 20% de tu presupuesto anual!
               </h1>
               <p className="text-xl text-white mb-8">
                 ¿Sabías que tu equipo pierde más de 2 horas al día en correos, WhatsApp y búsquedas ineficientes? Nuestro Sistema de Mensajería Objetivo con IA te devuelve ese tiempo para dedicarlo a tus pacientes.
@@ -205,6 +200,7 @@ export default function MensajeriaPage() {
             </div>
           </div>
         </section>
+
 
         {/* Nueva sección H1 y cards */}
         <section className="py-16 md:py-24 bg-white">

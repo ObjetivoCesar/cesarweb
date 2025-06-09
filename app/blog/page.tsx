@@ -60,7 +60,7 @@ export default function BlogPage() {
   return (
     <>
       {/* Hero principal */}
-      <section className="relative w-full h-screen flex items-center justify-center mb-8">
+      <section className="relative w-full h-screen flex items-center justify-center mb-8 bg-dark">
         <Image
           src="/images/blog_cesar_bn.webp"
           alt="Blog Hero"
@@ -106,6 +106,20 @@ export default function BlogPage() {
           )}
         </main>
       </div>
+      {/* Newsletter minimalista horizontal */}
+      <section className="w-full bg-dark py-10 border-t border-dark-gray">
+        <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+          <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-0">Suscríbete a mi Newsletter</h3>
+          <form className="flex flex-col md:flex-row items-center gap-3 w-full md:w-auto">
+            <input type="email" required placeholder="Tu correo electrónico" className="px-4 py-2 rounded bg-dark-gray text-white border border-dark-gray focus:outline-none focus:ring-2 focus:ring-[#4A90E2] placeholder-light-gray w-full md:w-64" />
+            <div className="flex items-center gap-2">
+              <input type="checkbox" id="privacidad" required className="accent-[#4A90E2]" />
+              <label htmlFor="privacidad" className="text-xs text-light-gray">Acepto la política de privacidad</label>
+            </div>
+            <button type="submit" className="px-6 py-2 bg-[#4A90E2] text-white rounded-full font-semibold hover:bg-[#1A365D] transition text-sm">Suscribirme</button>
+          </form>
+        </div>
+      </section>
     </>
   );
 }

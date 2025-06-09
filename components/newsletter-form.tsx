@@ -48,7 +48,7 @@ export default function NewsletterForm() {
   }
 
   return (
-    <div className="bg-secondary text-white p-8 rounded-lg">
+    <div className="text-white p-8 rounded-lg">
       <h2 className="text-2xl font-bold mb-4">Suscríbete a mi Newsletter</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
