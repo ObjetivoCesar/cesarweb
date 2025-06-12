@@ -1,57 +1,57 @@
 {
-  "totalVisitas": 455,
-  "visitasHoy": 455,
+  "totalVisitas": 466,
+  "visitasHoy": 466,
   "articulosPublicados": 0,
   "suscriptoresNewsletter": 0,
   "ultimasVisitas": [
     {
-      "fecha": "2025-06-09",
+      "fecha": "2025-06-12",
       "pagina": "/mensajeria/",
       "visitas": 1
     },
     {
-      "fecha": "2025-06-09",
+      "fecha": "2025-06-12",
       "pagina": "/mensajeria/",
       "visitas": 1
     },
     {
-      "fecha": "2025-06-09",
+      "fecha": "2025-06-12",
+      "pagina": "/mensajeria/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-06-12",
+      "pagina": "/mensajeria/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-06-12",
+      "pagina": "/mensajeria/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-06-11",
+      "pagina": "/mensajeria/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-06-11",
+      "pagina": "/mensajeria/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-06-11",
+      "pagina": "/mensajeria/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-06-11",
       "pagina": "/",
       "visitas": 1
     },
     {
-      "fecha": "2025-06-09",
+      "fecha": "2025-06-11",
       "pagina": "/mensajeria/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-06-09",
-      "pagina": "/mensajeria/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-06-09",
-      "pagina": "/maspacientes/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-06-09",
-      "pagina": "/mensajeria/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-06-09",
-      "pagina": "/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-06-09",
-      "pagina": "/mensajeria/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-06-09",
-      "pagina": "/blog/",
       "visitas": 1
     }
   ],
@@ -67,7 +67,9 @@
     "2025-06-04": 3,
     "2025-06-05": 21,
     "2025-06-08": 32,
-    "2025-06-09": 22
+    "2025-06-09": 22,
+    "2025-06-11": 6,
+    "2025-06-12": 5
   },
   "aperturasEmail": {}
 }
