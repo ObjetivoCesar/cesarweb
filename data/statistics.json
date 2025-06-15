@@ -1,9 +1,24 @@
 {
-  "totalVisitas": 470,
-  "visitasHoy": 470,
+  "totalVisitas": 493,
+  "visitasHoy": 493,
   "articulosPublicados": 0,
   "suscriptoresNewsletter": 0,
   "ultimasVisitas": [
+    {
+      "fecha": "2025-06-15",
+      "pagina": "/mensajeria/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-06-15",
+      "pagina": "/mensajeria/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-06-15",
+      "pagina": "/mensajeria/",
+      "visitas": 1
+    },
     {
       "fecha": "2025-06-15",
       "pagina": "/maspacientes/",
@@ -11,46 +26,31 @@
     },
     {
       "fecha": "2025-06-15",
+      "pagina": "/mensajeria/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-06-15",
+      "pagina": "/mensajeria/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-06-15",
+      "pagina": "/mensajeria/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-06-15",
       "pagina": "/",
       "visitas": 1
     },
     {
-      "fecha": "2025-06-12",
+      "fecha": "2025-06-15",
       "pagina": "/mensajeria/",
       "visitas": 1
     },
     {
-      "fecha": "2025-06-12",
-      "pagina": "/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-06-12",
-      "pagina": "/mensajeria/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-06-12",
-      "pagina": "/mensajeria/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-06-12",
-      "pagina": "/mensajeria/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-06-12",
-      "pagina": "/mensajeria/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-06-12",
-      "pagina": "/mensajeria/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-06-11",
+      "fecha": "2025-06-15",
       "pagina": "/mensajeria/",
       "visitas": 1
     }
@@ -70,7 +70,7 @@
     "2025-06-09": 22,
     "2025-06-11": 6,
     "2025-06-12": 7,
-    "2025-06-15": 2
+    "2025-06-15": 25
   },
   "aperturasEmail": {}
 }

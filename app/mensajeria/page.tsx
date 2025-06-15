@@ -177,20 +177,30 @@ export default function MensajeriaPage() {
       `}</style>
 
       <main className="bg-gray-50 font-sans text-gray-800">
-        {/* Video Section */}
-        <section className="relative w-full h-screen overflow-hidden">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source src="/videos/Sistema de Mensajería Objetivo.mp4" type="video/mp4" media="(min-width: 768px)" />
-            <source src="/videos/mensajería vertical.mp4" type="video/mp4" media="(max-width: 767px)" />
-            Tu navegador no soporta el elemento de video.
-          </video>
-          <div className="absolute inset-0 bg-[#2B4C7E]/30 z-10"></div>
+        {/* Video Section - Horizontal (Desktop) */}
+        <section className="relative w-full h-screen overflow-hidden items-center justify-center bg-black hidden md:flex">
+          <div style={{ position: 'relative', paddingTop: '56.25%', width: '100%', height: '100%' }}>
+            <iframe
+              src="https://iframe.mediadelivery.net/embed/455329/9d4dc6d4-034c-4bf8-8477-138ffc896ab2?autoplay=true&loop=true&muted=true&preload=true&responsive=true"
+              loading="lazy"
+              style={{ border: 'none', position: 'absolute', top: 0, height: '100%', width: '100%' }}
+              allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </section>
+
+        {/* Video Section - Vertical (Mobile) */}
+        <section className="relative w-full h-screen overflow-hidden flex items-center justify-center bg-black md:hidden">
+          <div style={{ position: 'relative', paddingTop: '56.25%', width: '100%', height: '100%' }}>
+            <iframe
+              src="https://iframe.mediadelivery.net/embed/455329/173fe675-1369-4c2f-8cce-410c3eb4a0d6?autoplay=true&loop=true&muted=true&preload=true&responsive=true"
+              loading="lazy"
+              style={{ border: 'none', position: 'absolute', top: 0, height: '100%', width: '100%' }}
+              allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+              allowFullScreen
+            ></iframe>
+          </div>
         </section>
 
         {/* Hero Section */}
@@ -222,7 +232,7 @@ export default function MensajeriaPage() {
         </section>
 
         {/* Nueva Sección de Texto */}
-        <section className="w-full h-[500px] bg-dark py-16 flex items-center">
+        <section className="w-full min-h-[700px] md:h-[500px] bg-black py-16 flex items-center">
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto text-center flex flex-col justify-center h-full">
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-8">
@@ -233,7 +243,7 @@ export default function MensajeriaPage() {
               </p>
               <a
                 href="#cta-final"
-                className="inline-flex items-center justify-center bg-gradient-to-br from-gray-700 to-gray-900 hover:from-gray-900 hover:to-gray-700 text-white font-bold text-lg py-4 px-10 rounded-lg shadow-2xl transform hover:scale-110 transition-all duration-200 ease-in-out border-4 border-white mb-8 ring-4 ring-[#E8F1F8]/40"
+                className="inline-flex items-center justify-center bg-gradient-to-br from-gray-700 to-gray-900 hover:from-gray-900 hover:to-gray-700 text-white font-bold text-lg py-4 px-10 rounded-lg shadow-2xl transform hover:scale-110 transition-all duration-200 ease-in-out border-4 border-white mb-8 ring-4 ring-white/40"
                 style={{ minWidth: '320px' }}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 mr-3">
@@ -246,22 +256,6 @@ export default function MensajeriaPage() {
               </p>
             </div>
           </div>
-        </section>
-
-        {/* Video Section (Duplicate) */}
-        <section className="relative w-full h-screen overflow-hidden">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source src="/videos/2 video mensajeria.mp4" type="video/mp4" media="(min-width: 768px)" />
-            <source src="/videos/mensajería vertical.mp4" type="video/mp4" media="(max-width: 767px)" />
-            Tu navegador no soporta el elemento de video.
-          </video>
-          <div className="absolute inset-0 bg-[#2B4C7E]/30 z-10"></div>
         </section>
 
         {/* Nueva Sección de Reducción de Costos */}
@@ -397,7 +391,9 @@ export default function MensajeriaPage() {
               </div>
               {/* Card 2 */}
               <div className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col h-full">
-                <img src="/images/mensajeria/información.webp" alt="Búsqueda de información" className="w-full h-40 object-cover" />
+                <div className="relative w-full mb-4">
+                  <img src="/images/mensajeria/informacion.webp" alt="Búsqueda de información" className="w-full h-40 object-cover" />
+                </div>
                 <div className="p-6 flex flex-col flex-1">
                   <h4 className="text-xl font-semibold text-gray-800 mb-2">Búsqueda constante de información</h4>
                   <p className="text-gray-600 flex-1">Archivos, datos de clientes, historial de pedidos... ¿Cuánto tiempo pierdes localizando información que debería estar al alcance de un clic?</p>
@@ -424,6 +420,19 @@ export default function MensajeriaPage() {
         </section>
 
         <PropuestaForm />
+
+        {/* Nuevo Video - Segunda Sección */}
+        <section className="relative w-full h-[50vh] md:h-screen overflow-hidden flex items-center justify-center bg-black">
+          <div style={{ position: 'relative', paddingTop: '56.25%', width: '100%', height: '100%' }}>
+            <iframe
+              src="https://iframe.mediadelivery.net/embed/455329/360c8ec6-43c5-4f71-838b-a1323ee0350d?autoplay=true&loop=true&muted=true&preload=true&responsive=true"
+              loading="lazy"
+              style={{ border: 'none', position: 'absolute', top: 0, height: '100%', width: '100%' }}
+              allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </section>
 
         {/* CTA Final Section */}
         <section id="cta-final" className="py-16 md:py-24 bg-gradient-to-br from-gray-700 to-gray-900 text-white">

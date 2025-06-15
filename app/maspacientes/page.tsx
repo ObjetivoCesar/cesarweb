@@ -704,6 +704,19 @@ export default function MasPacientesPage() {
           </div>
         </div>
       </section>
+
+      {/* Aquí puedes insertar el video de Bunny Stream */}
+      <section className="py-10 bg-white flex justify-center items-center">
+        <div style={{ position: 'relative', paddingTop: '56.25%', width: '80%' }}>
+          <iframe
+            src="https://iframe.mediadelivery.net/embed/759/f763ff17-bb08-41ea-8236-4b86923ab173?autoplay=true&loop=true&muted=true&playsinline=true"
+            loading="lazy"
+            style={{ border: 'none', position: 'absolute', top: 0, height: '100%', width: '100%' }}
+            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+            allowFullScreen
+          ></iframe>
+        </div>
+      </section>
     </div>
   );
 } 
