@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  --primary-color: #2563eb;
-  --primary-hover: #1d4ed8;
-  --primary-light: #dbeafe;
-  --primary-dark: #eff6ff;
+  --primary-color: #e5993b;
+  --primary-hover: #d88a2a;
+  --primary-light: #fdf2e9;
+  --primary-dark: #faf5f0;
 }
 
 /* Estilos globales */
@@ -184,7 +184,7 @@ body {
 }
 
 .slider-dot.active {
-    background: #e5993b;
+    background: var(--primary-color);
 }
 
 @media (min-width: 1024px) {
