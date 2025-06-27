@@ -2,7 +2,7 @@
 import { useState, useRef, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { getAllArticles } from "@/lib/utils";
+// import { getAllArticles } from "@/lib/utils";
 
 const tabs = [
   { id: "imagenes", label: "Imágenes" },
@@ -61,26 +61,26 @@ function ImagenUploader() {
         accept="image/*"
         ref={inputRef}
         onChange={handleFileChange}
-        className="block w-full text-sm text-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#4a3b33] file:text-white hover:file:bg-[#5a463a]"
+        className="block w-full text-sm text-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#111111] file:text-white hover:file:bg-black"
       />
       <input
         type="text"
         placeholder="Texto alternativo (alt)"
         value={alt}
         onChange={e => setAlt(e.target.value)}
-        className="px-4 py-2 rounded bg-[#2d2420] border border-[#4a3b33] text-white focus:outline-none"
+        className="px-4 py-2 rounded bg-[#111111] border border-[#111111] text-white focus:outline-none"
       />
       <input
         type="text"
         placeholder="Título de la imagen"
         value={title}
         onChange={e => setTitle(e.target.value)}
-        className="px-4 py-2 rounded bg-[#2d2420] border border-[#4a3b33] text-white focus:outline-none"
+        className="px-4 py-2 rounded bg-[#111111] border border-[#111111] text-white focus:outline-none"
       />
       <button
         onClick={handleUpload}
         disabled={!file}
-        className="bg-white text-[#3a2f29] font-bold py-2 rounded-full mt-2 hover:bg-[#e5e5e5] transition-colors disabled:opacity-50"
+        className="bg-white text-[#111111] font-bold py-2 rounded-full mt-2 hover:bg-[#e5e5e5] transition-colors disabled:opacity-50"
       >
         Subir imagen
       </button>
@@ -92,9 +92,9 @@ function ImagenUploader() {
               type="text"
               value={url}
               readOnly
-              className="px-2 py-1 rounded bg-[#2d2420] border border-[#4a3b33] text-white w-full"
+              className="px-2 py-1 rounded bg-[#111111] border border-[#111111] text-white w-full"
             />
-            <button onClick={handleCopy} className="bg-[#4a3b33] px-3 py-1 rounded text-white font-semibold hover:bg-[#5a463a]">
+            <button onClick={handleCopy} className="bg-[#111111] px-3 py-1 rounded text-white font-semibold hover:bg-black">
               {copied ? "Copiado" : "Copiar"}
             </button>
           </div>
@@ -177,12 +177,12 @@ function VideoUploader() {
         accept="video/*"
         ref={inputRef}
         onChange={handleFileChange}
-        className="block w-full text-sm text-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#4a3b33] file:text-white hover:file:bg-[#5a463a]"
+        className="block w-full text-sm text-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#111111] file:text-white hover:file:bg-black"
       />
       <button
         onClick={handleUpload}
         disabled={!file}
-        className="bg-white text-[#3a2f29] font-bold py-2 rounded-full mt-2 hover:bg-[#e5e5e5] transition-colors disabled:opacity-50"
+        className="bg-white text-[#111111] font-bold py-2 rounded-full mt-2 hover:bg-[#e5e5e5] transition-colors disabled:opacity-50"
       >
         Subir video
       </button>
@@ -192,12 +192,12 @@ function VideoUploader() {
         placeholder="https://www.youtube.com/watch?v=..."
         value={youtube}
         onChange={e => setYoutube(e.target.value)}
-        className="px-4 py-2 rounded bg-[#2d2420] border border-[#4a3b33] text-white focus:outline-none"
+        className="px-4 py-2 rounded bg-[#111111] border border-[#111111] text-white focus:outline-none"
       />
       <button
         onClick={handleYoutube}
         disabled={!youtube}
-        className="bg-white text-[#3a2f29] font-bold py-2 rounded-full mt-2 hover:bg-[#e5e5e5] transition-colors disabled:opacity-50"
+        className="bg-white text-[#111111] font-bold py-2 rounded-full mt-2 hover:bg-[#e5e5e5] transition-colors disabled:opacity-50"
       >
         Generar embed
       </button>
@@ -207,9 +207,9 @@ function VideoUploader() {
           <textarea
             value={embed || url}
             readOnly
-            className="px-2 py-1 rounded bg-[#2d2420] border border-[#4a3b33] text-white w-full min-h-[80px]"
+            className="px-2 py-1 rounded bg-[#111111] border border-[#111111] text-white w-full min-h-[80px]"
           />
-          <button onClick={handleCopy} className="bg-[#4a3b33] px-3 py-1 rounded text-white font-semibold hover:bg-[#5a463a]">
+          <button onClick={handleCopy} className="bg-[#111111] px-3 py-1 rounded text-white font-semibold hover:bg-black">
             {copied ? "Copiado" : "Copiar"}
           </button>
         </div>
@@ -258,17 +258,17 @@ function ImageSearch() {
         placeholder="Buscar por título o alt..."
         value={query}
         onChange={e => setQuery(e.target.value)}
-        className="px-4 py-2 rounded bg-[#2d2420] border border-[#4a3b33] text-white focus:outline-none w-full mb-4"
+        className="px-4 py-2 rounded bg-[#111111] border border-[#111111] text-white focus:outline-none w-full mb-4"
       />
       {results.length > 0 && (
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {results.map((img, idx) => (
-            <div key={idx} className="bg-[#3a2f29] rounded-lg p-2 flex flex-col items-center">
+            <div key={idx} className="bg-[#111111] rounded-lg p-2 flex flex-col items-center">
               <img src={img.url} alt={img.alt} className="w-full h-32 object-contain mb-2" />
               <div className="text-xs text-gray-300 mb-1">{img.title}</div>
               <button
                 onClick={() => handleCopy(img)}
-                className="bg-[#4a3b33] px-2 py-1 rounded text-white text-xs font-semibold hover:bg-[#5a463a]"
+                className="bg-[#111111] px-2 py-1 rounded text-white text-xs font-semibold hover:bg-black"
               >
                 {copiedUrl === img.url ? "Copiado" : "Copiar URL"}
               </button>
@@ -281,22 +281,26 @@ function ImageSearch() {
 }
 
 function ArticleEditor() {
-  const [markdown, setMarkdown] = useState("");
+  const [yaml, setYaml] = useState('---\ntitle: ""\ndate: ""\nauthor: ""\ntags: []\nexcerpt: ""\nimage: ""\n---');
+  const [content, setContent] = useState("");
   const [saved, setSaved] = useState(false);
   const [copied, setCopied] = useState(false);
   const [error, setError] = useState("");
   const [successUrl, setSuccessUrl] = useState("");
 
-  // Guardar y recuperar el artículo de localStorage
   useEffect(() => {
-    const saved = localStorage.getItem("admin-article-draft");
-    if (saved) setMarkdown(saved);
+    const savedYaml = localStorage.getItem("admin-article-yaml");
+    const savedContent = localStorage.getItem("admin-article-content");
+    if (savedYaml) setYaml(savedYaml);
+    if (savedContent) setContent(savedContent);
   }, []);
   useEffect(() => {
-    localStorage.setItem("admin-article-draft", markdown);
-  }, [markdown]);
+    localStorage.setItem("admin-article-yaml", yaml);
+    localStorage.setItem("admin-article-content", content);
+  }, [yaml, content]);
 
   const handleCopy = () => {
+    const markdown = `${yaml}\n\n${content}`;
     if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(markdown);
       setCopied(true);
@@ -307,6 +311,7 @@ function ArticleEditor() {
   const handleSave = async () => {
     setError("");
     setSuccessUrl("");
+    const markdown = `${yaml}\n\n${content}`;
     const res = await fetch("/api/save-article", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -326,17 +331,25 @@ function ArticleEditor() {
     <div className="flex flex-col md:flex-row gap-8">
       <div className="flex-1 flex flex-col gap-4 min-w-[400px] max-w-[700px]">
         <ImageSearch />
+        <label className="font-semibold">Encabezado YAML (metadatos)</label>
         <textarea
-          value={markdown}
-          onChange={e => setMarkdown(e.target.value)}
-          placeholder="Pega aquí tu artículo en Markdown (incluye el encabezado YAML)"
-          className="w-full min-h-[500px] px-4 py-2 rounded bg-[#2d2420] border border-[#4a3b33] text-white focus:outline-none text-lg"
+          value={yaml}
+          onChange={e => setYaml(e.target.value)}
+          placeholder="Pega aquí el bloque YAML (metadatos)"
+          className="w-full min-h-[140px] px-4 py-2 rounded bg-[#111111] border border-[#111111] text-white focus:outline-none text-lg"
+        />
+        <label className="font-semibold">Contenido del artículo (Markdown)</label>
+        <textarea
+          value={content}
+          onChange={e => setContent(e.target.value)}
+          placeholder="Pega aquí el contenido del artículo en Markdown"
+          className="w-full min-h-[350px] px-4 py-2 rounded bg-[#111111] border border-[#111111] text-white focus:outline-none text-lg"
         />
         <div className="flex gap-2 flex-wrap">
-          <button onClick={handleCopy} className="bg-[#4a3b33] px-3 py-1 rounded text-white font-semibold hover:bg-[#5a463a]">
+          <button onClick={handleCopy} className="bg-[#111111] px-3 py-1 rounded text-white font-semibold hover:bg-black">
             {copied ? "Copiado" : "Copiar Markdown"}
           </button>
-          <button onClick={handleSave} className="bg-white text-[#3a2f29] font-bold py-1 px-4 rounded-full hover:bg-[#e5e5e5] transition-colors">
+          <button onClick={handleSave} className="bg-white text-[#111111] font-bold py-1 px-4 rounded-full hover:bg-[#e5e5e5] transition-colors">
             Guardar y publicar
           </button>
           {saved && <span className="text-green-400 ml-2">¡Artículo guardado!</span>}
@@ -345,38 +358,38 @@ function ArticleEditor() {
           )}
           {error && <span className="text-red-400 ml-2">{error}</span>}
         </div>
-        {validateYAML(markdown).length > 0 && (
+        {validateYAML(yaml).length > 0 && (
           <ul className="text-red-400 text-sm mt-2">
-            {validateYAML(markdown).map((err, idx) => (
+            {validateYAML(yaml).map((err, idx) => (
               <li key={idx}>• {err}</li>
             ))}
           </ul>
         )}
       </div>
-      <div className="flex-1 bg-[#2d2420] rounded-lg p-4 border border-[#4a3b33] overflow-auto min-w-[400px] max-w-[700px]">
+      <div className="flex-1 bg-[#111111] rounded-lg p-4 border border-[#111111] overflow-auto min-w-[400px] max-w-[700px]">
         <h3 className="text-lg font-bold mb-2">Previsualización</h3>
         <div className="prose prose-invert max-w-none text-lg">
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{`${yaml}\n\n${content}`}</ReactMarkdown>
         </div>
       </div>
     </div>
   );
 }
 
-function validateYAML(markdown: string) {
+function validateYAML(yaml: string) {
   const errors: string[] = [];
-  const match = markdown.match(/^---([\s\S]*?)---/);
+  const match = yaml.match(/^---([\s\S]*?)---/);
   if (!match) {
     errors.push("Falta el bloque de encabezado YAML (debe comenzar y terminar con ---)");
     return errors;
   }
-  const yaml = match[1];
-  if (!/title:/.test(yaml)) errors.push("Falta el campo 'title' en el encabezado YAML");
-  if (!/date:/.test(yaml)) errors.push("Falta el campo 'date' en el encabezado YAML");
-  if (!/category:/.test(yaml)) errors.push("Falta el campo 'category' en el encabezado YAML");
-  if (!/author:/.test(yaml)) errors.push("Falta el campo 'author' en el encabezado YAML");
-  if (!/image:/.test(yaml)) errors.push("Falta el campo 'image' en el encabezado YAML");
-  if (!/excerpt:/.test(yaml)) errors.push("Falta el campo 'excerpt' en el encabezado YAML");
+  const y = match[1];
+  if (!/title:/.test(y)) errors.push("Falta el campo 'title' en el encabezado YAML");
+  if (!/date:/.test(y)) errors.push("Falta el campo 'date' en el encabezado YAML");
+  if (!/author:/.test(y)) errors.push("Falta el campo 'author' en el encabezado YAML");
+  if (!/image:/.test(y)) errors.push("Falta el campo 'image' en el encabezado YAML");
+  if (!/excerpt:/.test(y)) errors.push("Falta el campo 'excerpt' en el encabezado YAML");
+  if (!/tags:/.test(y)) errors.push("Falta el campo 'tags' en el encabezado YAML");
   return errors;
 }
 
@@ -454,7 +467,7 @@ function ArticleManager() {
       {newsletterStatus && <div className="mb-4 text-center font-bold text-lg" style={{color: newsletterStatus.startsWith("✅") ? '#27ae60' : '#e74c3c'}}>{newsletterStatus}</div>}
       <table className="min-w-full text-sm">
         <thead>
-          <tr className="bg-[#3a2f29]">
+          <tr className="bg-[#111111]">
             <th className="p-2 text-left">Título</th>
             <th className="p-2 text-left">Categoría</th>
             <th className="p-2 text-left">Fecha</th>
@@ -655,7 +668,7 @@ export default function AdminPanel() {
               placeholder="Usuario"
               value={user}
               onChange={e => setUser(e.target.value)}
-              className="px-4 py-2 rounded bg-[#2d2420] border border-[#4a3b33] text-white focus:outline-none"
+              className="px-4 py-2 rounded bg-[#111111] border border-[#111111] text-white focus:outline-none"
               autoFocus
             />
             <input
@@ -663,10 +676,10 @@ export default function AdminPanel() {
               placeholder="Contraseña"
               value={pass}
               onChange={e => setPass(e.target.value)}
-              className="px-4 py-2 rounded bg-[#2d2420] border border-[#4a3b33] text-white focus:outline-none"
+              className="px-4 py-2 rounded bg-[#111111] border border-[#111111] text-white focus:outline-none"
             />
             {error && <div className="text-red-400 text-sm text-center">{error}</div>}
-            <button type="submit" className="bg-white text-[#3a2f29] font-bold py-2 rounded-full mt-2 hover:bg-[#e5e5e5] transition-colors">Entrar</button>
+            <button type="submit" className="bg-white text-[#111111] font-bold py-2 rounded-full mt-2 hover:bg-[#e5e5e5] transition-colors">Entrar</button>
           </form>
         </div>
       </div>
@@ -681,14 +694,14 @@ export default function AdminPanel() {
           {tabs.map((tab) => (
             <button
               key={tab.id}
-              className={`px-4 py-2 rounded-full font-semibold transition-colors duration-200 ${activeTab === tab.id ? "bg-white text-[#3a2f29]" : "bg-[#2d2420] text-white hover:bg-[#4a3b33]"}`}
+              className={`px-4 py-2 rounded-full font-semibold transition-colors duration-200 ${activeTab === tab.id ? "bg-white text-[#111111]" : "bg-[#2d2420] text-white hover:bg-[#4a3b33]"}`}
               onClick={() => setActiveTab(tab.id)}
             >
               {tab.label}
             </button>
           ))}
         </div>
-        <div className="bg-[#2d2420] rounded-lg p-6 min-h-[300px]">
+        <div className="bg-[#111111] rounded-lg p-6 min-h-[300px]">
           {activeTab === "imagenes" && (
             <div>
               <h2 className="text-2xl font-bold mb-4">Gestión de Imágenes</h2>
@@ -728,4 +741,4 @@ export default function AdminPanel() {
       </div>
     </div>
   );
-} 
+}

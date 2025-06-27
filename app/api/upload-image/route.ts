@@ -15,16 +15,19 @@ export async function POST(req: NextRequest) {
   const bytes = await file.arrayBuffer();
   const buffer = Buffer.from(bytes);
   const fileName = `${Date.now()}-${file.name.replace(/[^a-zA-Z0-9.\-_]/g, "_")}`;
-  const uploadDir = path.join(process.cwd(), "public", "uploads");
+  // Cambiar la ruta de subida
+  const uploadDir = path.join(process.cwd(), "public", "images", "articulos");
   const filePath = path.join(uploadDir, fileName);
 
+  // Crear el directorio si no existe
+  await fs.mkdir(uploadDir, { recursive: true });
   await fs.writeFile(filePath, buffer);
 
   // La URL interna para usar en los artículos
-  const url = `/uploads/${fileName}`;
+  const url = `/images/articulos/${fileName}`;
 
-  // Guardar metadatos en un archivo JSON
-  const metaPath = path.join(process.cwd(), "public", "uploads", "images-meta.json");
+  // Guardar metadatos en un archivo JSON en la nueva ruta
+  const metaPath = path.join(uploadDir, "images-meta.json");
   let metaArr = [];
   try {
     const metaRaw = await fs.readFile(metaPath, "utf-8");
@@ -34,4 +37,4 @@ export async function POST(req: NextRequest) {
   await fs.writeFile(metaPath, JSON.stringify(metaArr, null, 2), "utf-8");
 
   return NextResponse.json({ url, alt, title });
-} 
+}

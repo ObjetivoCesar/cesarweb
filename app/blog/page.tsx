@@ -1,125 +1,219 @@
-import { getAllArticles } from "@/lib/utils-node";
-import Link from "next/link";
+import Link from "next/link"
 import BlogCard from "@/components/blog-card"
-import Image from "next/image";
+import Image from "next/image"
 
 export const metadata = {
   title: "Blog - César Reyes Jaramillo",
   description:
-    "Artículos sobre IA y negocios en LATAM, pensamiento estratégico, propósito y liderazgo, productividad y crecimiento empresarial.",
+    "Artículos sobre automatización, diseño web, SEO, asesoría de negocios y planificación estratégica para ayudarte a impulsar tu empresa.",
 }
 
-// Datos de categorías actualizados
+// Datos de categorías
 const categories = [
   {
-    id: "ia-y-negocios-en-latam",
-    title: "IA y Negocios en LATAM",
+    id: "automatizacion-para-tu-empresa",
+    title: "Automatización para tu Empresa",
     description:
-      "Explora cómo la Inteligencia Artificial está transformando los negocios en América Latina. Descubre casos de éxito, tendencias y estrategias para implementar IA en tu empresa.",
-    link: "/blog/ia-y-negocios-en-latam",
+      "La categoría de Automatización reúne artículos y guías sobre cómo optimizar y automatizar procesos empresariales. Descubre cómo nuestras soluciones de automatización pueden transformar tu negocio.",
+    link: "/blog/automatizacion-para-tu-empresa",
   },
   {
-    id: "pensamiento-estrategico-y-adaptacion",
-    title: "Pensamiento Estratégico y Adaptación",
+    id: "diseno-web-para-empresas",
+    title: "Diseño Web para Empresas",
     description:
-      "Aprende sobre estrategias de adaptación y pensamiento estratégico para mantener tu negocio competitivo en un entorno cambiante. Descubre cómo anticipar cambios y tomar decisiones efectivas.",
-    link: "/blog/pensamiento-estrategico-y-adaptacion",
+      "La categoría de Diseño Web para tu Negocio recopila artículos y guías sobre cómo crear páginas web efectivas. Aprende sobre diseño web y desarrollo.",
+    link: "/blog/diseno-web-para-empresas",
   },
   {
-    id: "proposito-autoconocimiento-liderazgo",
-    title: "Propósito, Autoconocimiento y Liderazgo",
+    id: "seo-y-campanas-de-marketing",
+    title: "SEO y Campañas de Marketing",
     description:
-      "Profundiza en el desarrollo personal y profesional. Explora temas de liderazgo, autoconocimiento y cómo encontrar tu propósito para impulsar el éxito en tu carrera y negocio.",
-    link: "/blog/proposito-autoconocimiento-liderazgo",
+      "La categoría de SEO y Campañas recoge artículos y guías sobre cómo mejorar la visibilidad online de tu negocio. Aprende sobre SEO y marketing digital.",
+    link: "/blog/seo-y-campanas-de-marketing",
   },
   {
-    id: "productividad",
-    title: "Productividad",
+    id: "asesoria-de-negocios",
+    title: "Asesoría de Negocios",
     description:
-      "Descubre técnicas, herramientas y estrategias para maximizar tu productividad personal y empresarial. Aprende a optimizar procesos y alcanzar más con menos esfuerzo.",
-    link: "/blog/productividad",
+      "La categoría de Asesoría de Negocios tiene como objetivo acumular artículos y guías sobre cómo mejorar tu negocio con nuestras soluciones de asesoría. Descubre las mejores prácticas y tendencias.",
+    link: "/blog/asesoria-de-negocios",
   },
   {
-    id: "crecimiento-en-latam",
-    title: "Crecimiento en LATAM",
+    id: "planificacion-estrategica-para-empresas",
+    title: "Planificación estratégica para empresas",
     description:
-      "Analiza las oportunidades y desafíos del crecimiento empresarial en América Latina. Conoce estrategias efectivas para expandir tu negocio en la región.",
-    link: "/blog/crecimiento-en-latam",
+      "La categoría de Planificación Estratégica reúne artículos y guías que te ayudarán a diseñar y ejecutar estrategias efectivas para el crecimiento de tu negocio. Explora prácticas recomendadas y estudios de caso.",
+    link: "/blog/planificacion-estrategica-para-empresas",
   },
 ]
 
-// Limitar descripciones a 15 palabras
-const shortCategories = categories.map(cat => ({
-  ...cat,
-  shortDescription: cat.description.split(" ").slice(0, 15).join(" ") + (cat.description.split(" ").length > 15 ? "..." : "")
-}));
+// Datos de artículos del blog
+const blogPosts = [
+  {
+    title: "Cómo la automatización puede transformar tu negocio",
+    excerpt: "Descubre las ventajas competitivas que la automatización de procesos puede aportar a tu empresa.",
+    category: "Automatización",
+    categoryId: "automatizacion-para-tu-empresa",
+    date: "15 Abr 2023",
+    slug: "como-la-automatizacion-puede-transformar-tu-negocio",
+    image: "/placeholder.svg?height=300&width=500",
+  },
+  {
+    title: "Tendencias de diseño web para 2023",
+    excerpt: "Conoce las últimas tendencias en diseño web que deberías implementar en tu sitio este año.",
+    category: "Diseño Web",
+    categoryId: "diseno-web-para-empresas",
+    date: "28 Mar 2023",
+    slug: "tendencias-de-diseno-web-para-2023",
+    image: "/placeholder.svg?height=300&width=500",
+  },
+  {
+    title: "Estrategias de SEO efectivas para pequeñas empresas",
+    excerpt: "Aprende cómo implementar estrategias de SEO que funcionen para negocios con presupuestos limitados.",
+    category: "SEO",
+    categoryId: "seo-y-campanas-de-marketing",
+    date: "10 Mar 2023",
+    slug: "estrategias-de-seo-efectivas-para-pequenas-empresas",
+    image: "/placeholder.svg?height=300&width=500",
+  },
+  {
+    title: "Cómo desarrollar un plan de negocios efectivo",
+    excerpt: "Guía paso a paso para crear un plan de negocios que impulse el crecimiento de tu empresa.",
+    category: "Asesoría de Negocios",
+    categoryId: "asesoria-de-negocios",
+    date: "5 Mar 2023",
+    slug: "como-desarrollar-un-plan-de-negocios-efectivo",
+    image: "/placeholder.svg?height=300&width=500",
+  },
+  {
+    title: "Planificación estratégica: clave para el éxito empresarial",
+    excerpt:
+      "Descubre por qué la planificación estratégica es fundamental para el crecimiento sostenible de tu negocio.",
+    category: "Planificación Estratégica",
+    categoryId: "planificacion-estrategica-para-empresas",
+    date: "20 Feb 2023",
+    slug: "planificacion-estrategica-clave-para-el-exito-empresarial",
+    image: "/placeholder.svg?height=300&width=500",
+  },
+  {
+    title: "Herramientas de automatización para mejorar la productividad",
+    excerpt:
+      "Conoce las mejores herramientas de automatización que pueden ayudarte a optimizar tus procesos empresariales.",
+    category: "Automatización",
+    categoryId: "automatizacion-para-tu-empresa",
+    date: "15 Feb 2023",
+    slug: "herramientas-de-automatizacion-para-mejorar-la-productividad",
+    image: "/placeholder.svg?height=300&width=500",
+  },
+]
 
 export default function BlogPage() {
-  const articles = getAllArticles();
-
   return (
     <>
-      {/* Hero principal */}
-      <section className="relative w-full h-screen flex items-center justify-center mb-8 bg-dark">
-        <Image
-          src="/images/blog_cesar_bn.webp"
-          alt="Blog Hero"
-          fill
-          sizes="100vw"
-          className="object-cover object-center z-0"
-          priority
-          quality={100}
-          unoptimized
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/10 z-10" />
-        <div className="relative z-20 text-white text-center max-w-3xl mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">Blog</h1>
-          <p className="text-xl drop-shadow-lg">Artículos sobre IA, negocios, estrategia, liderazgo, productividad y crecimiento en LATAM.</p>
+      {/* Hero Section */}
+      <section className="relative w-full min-h-[calc(100vh-100px)] md:min-h-screen">
+        {/* Background Images */}
+        <div className="absolute inset-0">
+          {/* Desktop Image */}
+          <div className="relative w-full h-full hidden md:block">
+            <Image
+              src="/images/pensamiento.webp"
+              alt="Blog hero background desktop"
+              fill
+              priority
+              quality={100}
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
+          {/* Mobile Image */}
+          <div className="relative w-full h-full block md:hidden">
+            <Image
+              src="/images/sentado.webp"
+              alt="Blog hero background mobile"
+              fill
+              priority
+              quality={100}
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
+        </div>
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/40 z-10"></div>
+
+        {/* Content */}
+        <div className="relative z-20 container mx-auto px-4 h-full flex items-end md:items-center pb-16 md:pb-0">
+          <div className="text-white w-full">
+            {/* Mobile: Nuevo h1 y h2 */}
+            <div className="md:hidden text-left">
+              <h1 className="text-3xl font-bold mb-2">
+                Blog
+              </h1>
+              <h2 className="text-2xl font-semibold mb-4">
+                Estrategias y consejos
+              </h2>
+            </div>
+            
+            {/* Desktop: original h1 y h2 */}
+            <div className="hidden md:block text-center">
+              <h1 className="text-5xl font-bold mb-4">
+                Blog
+              </h1>
+              <h2 className="text-3xl font-semibold mb-4">
+                Estrategias y consejos
+              </h2>
+              <p className="text-xl mb-8">
+                Descubre las mejores prácticas para hacer crecer tu negocio
+              </p>
+            </div>
+            
+            <div className="text-left md:text-center">
+              <a 
+                href="https://wa.me/593963410409" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-orange-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors"
+              >
+                📱 ¿Qué temas te gustaría que publicara?
+              </a>
+            </div>
+          </div>
         </div>
       </section>
-      <div className="container mx-auto flex flex-col md:flex-row gap-8 py-12">
-        {/* Sidebar de categorías */}
-        <aside className="md:w-1/4 w-full mb-8 md:mb-0">
-          <h2 className="text-xl font-bold mb-4">Categorías</h2>
-          <ul className="space-y-4">
-            {shortCategories.map((cat) => (
-              <li key={cat.id} className="border-b border-gray-200 pb-4">
-                <Link href={cat.link} className="block">
-                  <h3 className="text-primary hover:underline font-medium mb-2">{cat.title}</h3>
-                  <p className="text-sm text-gray-600">{cat.shortDescription}</p>
+
+      <section className="py-16 bg-white">
+        <div className="container">
+          <h2 className="text-3xl font-bold mb-8">Categorías</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {categories.map((category) => (
+              <div key={category.id} className="bg-light p-6 rounded-lg">
+                <h3 className="text-xl font-bold mb-2">{category.title}</h3>
+                <p className="text-gray-600 mb-4">{category.description}</p>
+                <Link href={category.link} className="text-primary font-medium hover:underline">
+                  Ver artículos →
                 </Link>
-              </li>
+              </div>
             ))}
-          </ul>
-        </aside>
-        {/* Listado de artículos */}
-        <main className="flex-1">
-          <h1 className="text-3xl font-bold mb-6">Últimas Entradas</h1>
-          {articles.length === 0 ? (
-            <p className="text-gray-500">No hay artículos disponibles aún.</p>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {articles.map((post, idx) => (
-                <BlogCard key={idx} {...post} />
-              ))}
-            </div>
-          )}
-        </main>
-      </div>
-      {/* Newsletter minimalista horizontal */}
-      <section className="w-full bg-dark py-10 border-t border-dark-gray">
-        <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-0">Suscríbete a mi Newsletter</h3>
-          <form className="flex flex-col md:flex-row items-center gap-3 w-full md:w-auto">
-            <input type="email" required placeholder="Tu correo electrónico" className="px-4 py-2 rounded bg-dark-gray text-white border border-dark-gray focus:outline-none focus:ring-2 focus:ring-[#4A90E2] placeholder-light-gray w-full md:w-64" />
-            <div className="flex items-center gap-2">
-              <input type="checkbox" id="privacidad" required className="accent-[#4A90E2]" />
-              <label htmlFor="privacidad" className="text-xs text-light-gray">Acepto la política de privacidad</label>
-            </div>
-            <button type="submit" className="px-6 py-2 bg-[#4A90E2] text-white rounded-full font-semibold hover:bg-[#1A365D] transition text-sm">Suscribirme</button>
-          </form>
+          </div>
+
+          <h2 className="text-3xl font-bold mb-8">Artículos Recientes</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {blogPosts.map((post, index) => (
+              <BlogCard
+                key={index}
+                title={post.title}
+                excerpt={post.excerpt}
+                category={post.category}
+                date={post.date}
+                slug={`${post.categoryId}/${post.slug}`}
+                image={post.image}
+              />
+            ))}
+          </div>
         </div>
       </section>
     </>
-  );
+  )
 }
