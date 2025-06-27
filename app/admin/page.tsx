@@ -307,6 +307,14 @@ function ArticleEditor() {
     <div className="flex flex-col md:flex-row gap-8">
       <div className="flex-1 flex flex-col gap-4 min-w-0">
         <ImageSearch />
+        <label className="font-semibold">Título</label>
+        <input
+          type="text"
+          value={title}
+          onChange={e => setTitle(e.target.value)}
+          placeholder="Título del artículo"
+          className="w-full px-4 py-2 rounded bg-[#111111] border border-[#111111] text-white focus:outline-none text-lg"
+        />
         <label className="font-semibold">Fecha</label>
         <input
           type="date"
