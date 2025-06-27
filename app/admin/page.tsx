@@ -104,120 +104,6 @@ function ImagenUploader() {
   );
 }
 
-function VideoUploader() {
-  const [file, setFile] = useState<File | null>(null);
-  const [url, setUrl] = useState("");
-  const [youtube, setYoutube] = useState("");
-  const [embed, setEmbed] = useState("");
-  const [copied, setCopied] = useState(false);
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setFile(e.target.files[0]);
-      setUrl("");
-      setEmbed("");
-      setCopied(false);
-    }
-  };
-
-  const handleUpload = async () => {
-    if (!file) return;
-    const formData = new FormData();
-    formData.append("file", file);
-    // Llamada a la API para subir el video
-    const res = await fetch("/api/upload-video", {
-      method: "POST",
-      body: formData,
-    });
-    const data = await res.json();
-    if (data.url) {
-      setUrl(data.url);
-      setEmbed(`<video controls src=\"${data.url}\" style=\"max-width:100%\"></video>`);
-      setCopied(false);
-    }
-  };
-
-  const handleYoutube = () => {
-    if (!youtube) return;
-    // Extraer el ID del video de YouTube
-    const match = youtube.match(/(?:youtu.be\/|youtube.com\/(?:watch\?v=|embed\/|v\/|shorts\/)?)([\w-]{11})/);
-    if (match && match[1]) {
-      const id = match[1];
-      const code = `<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/${id}\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>`;
-      setEmbed(code);
-      setUrl("");
-      setCopied(false);
-    } else {
-      setEmbed("");
-      setUrl("");
-      setCopied(false);
-    }
-  };
-
-  const handleCopy = () => {
-    if (embed) {
-      if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(embed);
-        setCopied(true);
-      }
-    } else if (url) {
-      if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(url);
-        setCopied(true);
-      }
-    }
-  };
-
-  return (
-    <div className="flex flex-col gap-4">
-      <label className="font-semibold">Subir archivo de video</label>
-      <input
-        type="file"
-        accept="video/*"
-        ref={inputRef}
-        onChange={handleFileChange}
-        className="block w-full text-sm text-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#111111] file:text-white hover:file:bg-black"
-      />
-      <button
-        onClick={handleUpload}
-        disabled={!file}
-        className="bg-white text-[#111111] font-bold py-2 rounded-full mt-2 hover:bg-[#e5e5e5] transition-colors disabled:opacity-50"
-      >
-        Subir video
-      </button>
-      <label className="font-semibold mt-4">O pegar enlace de YouTube</label>
-      <input
-        type="text"
-        placeholder="https://www.youtube.com/watch?v=..."
-        value={youtube}
-        onChange={e => setYoutube(e.target.value)}
-        className="px-4 py-2 rounded bg-[#111111] border border-[#111111] text-white focus:outline-none"
-      />
-      <button
-        onClick={handleYoutube}
-        disabled={!youtube}
-        className="bg-white text-[#111111] font-bold py-2 rounded-full mt-2 hover:bg-[#e5e5e5] transition-colors disabled:opacity-50"
-      >
-        Generar embed
-      </button>
-      {(embed || url) && (
-        <div className="mt-4 flex flex-col gap-2">
-          <span className="text-green-400">¡Código listo para usar!</span>
-          <textarea
-            value={embed || url}
-            readOnly
-            className="px-2 py-1 rounded bg-[#111111] border border-[#111111] text-white w-full min-h-[80px]"
-          />
-          <button onClick={handleCopy} className="bg-[#111111] px-3 py-1 rounded text-white font-semibold hover:bg-black">
-            {copied ? "Copiado" : "Copiar"}
-          </button>
-        </div>
-      )}
-    </div>
-  );
-}
-
 function ImageSearch() {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<any[]>([]);
@@ -281,26 +167,106 @@ function ImageSearch() {
 }
 
 function ArticleEditor() {
-  const [yaml, setYaml] = useState('---\ntitle: ""\ndate: ""\nauthor: ""\ntags: []\nexcerpt: ""\nimage: ""\n---');
+  const categories = [
+    { id: "planificacion-estrategica-para-empresas", label: "Planificación estratégica para empresas" },
+    { id: "asesoria-de-negocios", label: "Asesoría de Negocios" },
+    { id: "seo-y-campanas-de-marketing", label: "SEO y Campañas de Marketing" },
+    { id: "diseno-web-para-empresas", label: "Diseño Web para Empresas" },
+    { id: "automatizacion-para-tu-empresa", label: "Automatización para tu Empresa" },
+  ];
+  const [title, setTitle] = useState("");
+  const [date, setDate] = useState("");
+  const [author, setAuthor] = useState("César Reyes Jaramillo");
+  const [tags, setTags] = useState("");
+  const [excerpt, setExcerpt] = useState("");
+  const [metaDescription, setMetaDescription] = useState("");
+  const [keyword, setKeyword] = useState("");
+  const [slug, setSlug] = useState("");
+  const [image, setImage] = useState("");
+  const [category, setCategory] = useState(categories[0].id);
   const [content, setContent] = useState("");
   const [saved, setSaved] = useState(false);
   const [copied, setCopied] = useState(false);
   const [error, setError] = useState("");
   const [successUrl, setSuccessUrl] = useState("");
 
+  // Guardar y restaurar el borrador aunque cambies de pestaña
   useEffect(() => {
-    const savedYaml = localStorage.getItem("admin-article-yaml");
-    const savedContent = localStorage.getItem("admin-article-content");
-    if (savedYaml) setYaml(savedYaml);
-    if (savedContent) setContent(savedContent);
+    const savedData = localStorage.getItem("admin-article-form");
+    if (savedData) {
+      const parsed = JSON.parse(savedData);
+      setTitle(parsed.title || "");
+      setDate(parsed.date || "");
+      setAuthor("César Reyes Jaramillo");
+      setTags(parsed.tags || "");
+      setExcerpt(parsed.excerpt || "");
+      setImage(parsed.image || "");
+      setCategory(parsed.category || categories[0].id);
+      setContent(parsed.content || "");
+      setMetaDescription(parsed.metaDescription || "");
+      setKeyword(parsed.keyword || "");
+      setSlug(parsed.slug || "");
+    }
+    // Restaurar al volver a la pestaña
+    const onFocus = () => {
+      const data = localStorage.getItem("admin-article-form");
+      if (data) {
+        const parsed = JSON.parse(data);
+        setTitle(parsed.title || "");
+        setDate(parsed.date || "");
+        setAuthor("César Reyes Jaramillo");
+        setTags(parsed.tags || "");
+        setExcerpt(parsed.excerpt || "");
+        setImage(parsed.image || "");
+        setCategory(parsed.category || categories[0].id);
+        setContent(parsed.content || "");
+        setMetaDescription(parsed.metaDescription || "");
+        setKeyword(parsed.keyword || "");
+        setSlug(parsed.slug || "");
+      }
+    };
+    window.addEventListener("focus", onFocus);
+    return () => window.removeEventListener("focus", onFocus);
   }, []);
   useEffect(() => {
-    localStorage.setItem("admin-article-yaml", yaml);
-    localStorage.setItem("admin-article-content", content);
-  }, [yaml, content]);
+    localStorage.setItem("admin-article-form", JSON.stringify({ title, date, author: "César Reyes Jaramillo", tags, excerpt, image, category, content, metaDescription, keyword, slug }));
+  }, [title, date, tags, excerpt, image, category, content, metaDescription, keyword, slug]);
+
+  // Script para formatear URL de imagen Bunny.net a Markdown
+  const [bunnyUrl, setBunnyUrl] = useState("");
+  const [bunnyAlt, setBunnyAlt] = useState("");
+  const [bunnyTitle, setBunnyTitle] = useState("");
+  const [bunnyMarkdown, setBunnyMarkdown] = useState("");
+  const handleBunnyFormat = () => {
+    if (bunnyUrl) {
+      setBunnyMarkdown(`![${bunnyAlt || "Texto alternativo"}](${bunnyUrl} \"${bunnyTitle || "Título de la imagen"}\")`);
+    }
+  };
+  const handleBunnyCopy = () => {
+    if (bunnyMarkdown) {
+      navigator.clipboard.writeText(bunnyMarkdown);
+    }
+  };
+
+  const buildYAML = () => {
+    return (
+      `---\n` +
+      `title: "${title}"\n` +
+      `date: "${date}"\n` +
+      `author: "César Reyes Jaramillo"\n` +
+      `tags: [${tags.split(",").map(t => `"${t.trim()}"`).filter(Boolean).join(", ")}]\n` +
+      `excerpt: "${excerpt}"\n` +
+      `image: "${image}"\n` +
+      `category: "${category}"\n` +
+      `metaDescription: "${metaDescription}"\n` +
+      `keyword: "${keyword}"\n` +
+      `slug: "${slug}"\n` +
+      `---`
+    );
+  };
 
   const handleCopy = () => {
-    const markdown = `${yaml}\n\n${content}`;
+    const markdown = `${buildYAML()}\n\n${content}`;
     if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(markdown);
       setCopied(true);
@@ -311,33 +277,143 @@ function ArticleEditor() {
   const handleSave = async () => {
     setError("");
     setSuccessUrl("");
-    const markdown = `${yaml}\n\n${content}`;
-    const res = await fetch("/api/save-article", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ markdown }),
-    });
-    const data = await res.json();
-    if (res.ok && data.url) {
-      setSaved(true);
-      setSuccessUrl(data.url);
-      setTimeout(() => setSaved(false), 2000);
-    } else {
-      setError(data.error || "Error al guardar el artículo. Verifica el encabezado YAML.");
+    const markdown = `${buildYAML()}\n\n${content}`;
+    try {
+      const res = await fetch("/api/save-article", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ markdown }),
+      });
+      let data = null;
+      try {
+        data = await res.json();
+      } catch (jsonErr) {
+        setError("Error inesperado: la respuesta del servidor no es JSON válido.");
+        return;
+      }
+      if (res.ok && data && data.url) {
+        setSaved(true);
+        setSuccessUrl(data.url);
+        setTimeout(() => setSaved(false), 2000);
+      } else {
+        setError((data && data.error) || "Error al guardar el artículo. Verifica los campos obligatorios.");
+      }
+    } catch (err) {
+      setError("Error de red o del servidor. Intenta de nuevo.");
     }
   };
 
   return (
     <div className="flex flex-col md:flex-row gap-8">
-      <div className="flex-1 flex flex-col gap-4 min-w-[400px] max-w-[700px]">
+      <div className="flex-1 flex flex-col gap-4 min-w-0">
         <ImageSearch />
-        <label className="font-semibold">Encabezado YAML (metadatos)</label>
-        <textarea
-          value={yaml}
-          onChange={e => setYaml(e.target.value)}
-          placeholder="Pega aquí el bloque YAML (metadatos)"
-          className="w-full min-h-[140px] px-4 py-2 rounded bg-[#111111] border border-[#111111] text-white focus:outline-none text-lg"
+        <label className="font-semibold">Fecha</label>
+        <input
+          type="date"
+          value={date}
+          onChange={e => setDate(e.target.value)}
+          className="w-full px-4 py-2 rounded bg-[#111111] border border-[#111111] text-white focus:outline-none text-lg"
         />
+        <label className="font-semibold">Autor</label>
+        <input
+          type="text"
+          value={author}
+          onChange={e => setAuthor(e.target.value)}
+          className="w-full px-4 py-2 rounded bg-[#111111] border border-[#111111] text-white focus:outline-none text-lg"
+        />
+        <label className="font-semibold">Categoría</label>
+        <select
+          value={category}
+          onChange={e => setCategory(e.target.value)}
+          className="w-full px-4 py-2 rounded bg-[#111111] border border-[#111111] text-white focus:outline-none text-lg"
+        >
+          {categories.map(cat => (
+            <option key={cat.id} value={cat.id}>{cat.label}</option>
+          ))}
+        </select>
+        <label className="font-semibold">Tags (separados por coma)</label>
+        <input
+          type="text"
+          value={tags}
+          onChange={e => setTags(e.target.value)}
+          className="w-full px-4 py-2 rounded bg-[#111111] border border-[#111111] text-white focus:outline-none text-lg"
+        />
+        <label className="font-semibold">Extracto</label>
+        <textarea
+          value={excerpt}
+          onChange={e => setExcerpt(e.target.value)}
+          className="w-full min-h-[60px] px-4 py-2 rounded bg-[#111111] border border-[#111111] text-white focus:outline-none text-lg"
+        />
+        <label className="font-semibold">Meta descripción (SEO)</label>
+        <textarea
+          value={metaDescription}
+          onChange={e => setMetaDescription(e.target.value)}
+          className="w-full min-h-[40px] px-4 py-2 rounded bg-[#111111] border border-[#111111] text-white focus:outline-none text-lg"
+        />
+        <label className="font-semibold">Palabra clave principal (SEO)</label>
+        <input
+          type="text"
+          value={keyword}
+          onChange={e => setKeyword(e.target.value)}
+          className="w-full px-4 py-2 rounded bg-[#111111] border border-[#111111] text-white focus:outline-none text-lg"
+        />
+        <label className="font-semibold">Slug (URL personalizada)</label>
+        <input
+          type="text"
+          value={slug}
+          onChange={e => setSlug(e.target.value)}
+          className="w-full px-4 py-2 rounded bg-[#111111] border border-[#111111] text-white focus:outline-none text-lg"
+        />
+        <label className="font-semibold">Imagen principal (URL)</label>
+        <input
+          type="text"
+          value={image}
+          onChange={e => setImage(e.target.value)}
+          className="w-full px-4 py-2 rounded bg-[#111111] border border-[#111111] text-white focus:outline-none text-lg"
+        />
+        <div className="bg-[#222] p-3 rounded mb-2">
+          <div className="font-semibold mb-1">Formatear URL de imagen Bunny.net a Markdown</div>
+          <div className="flex flex-col md:flex-row gap-2 mb-2 items-stretch">
+            <div className="flex-1 flex gap-2 min-w-0">
+              <input
+                type="text"
+                placeholder="Pega aquí la URL de Bunny.net"
+                value={bunnyUrl}
+                onChange={e => setBunnyUrl(e.target.value)}
+                className="flex-1 px-2 py-1 rounded bg-[#111111] border border-[#333] text-white min-w-0"
+              />
+              <input
+                type="text"
+                placeholder="Texto alternativo"
+                value={bunnyAlt}
+                onChange={e => setBunnyAlt(e.target.value)}
+                className="flex-1 px-2 py-1 rounded bg-[#111111] border border-[#333] text-white min-w-0"
+              />
+              <input
+                type="text"
+                placeholder="Título de la imagen"
+                value={bunnyTitle}
+                onChange={e => setBunnyTitle(e.target.value)}
+                className="flex-1 px-2 py-1 rounded bg-[#111111] border border-[#333] text-white min-w-0"
+              />
+            </div>
+            <div className="flex items-stretch">
+              <button
+                onClick={handleBunnyFormat}
+                className="h-full px-4 py-1 rounded bg-white text-[#111111] font-bold hover:bg-[#e5e5e5] whitespace-nowrap"
+                style={{ minWidth: 120 }}
+              >
+                Formatear
+              </button>
+            </div>
+          </div>
+          {bunnyMarkdown && (
+            <div className="flex items-center gap-2">
+              <input type="text" value={bunnyMarkdown} readOnly className="flex-1 px-2 py-1 rounded bg-[#111111] border border-[#333] text-white" />
+              <button onClick={handleBunnyCopy} className="bg-[#111111] px-3 py-1 rounded text-white font-semibold hover:bg-black">Copiar</button>
+            </div>
+          )}
+        </div>
         <label className="font-semibold">Contenido del artículo (Markdown)</label>
         <textarea
           value={content}
@@ -358,22 +434,16 @@ function ArticleEditor() {
           )}
           {error && <span className="text-red-400 ml-2">{error}</span>}
         </div>
-        {validateYAML(yaml).length > 0 && (
-          <ul className="text-red-400 text-sm mt-2">
-            {validateYAML(yaml).map((err, idx) => (
-              <li key={idx}>• {err}</li>
-            ))}
-          </ul>
-        )}
       </div>
-      <div className="flex-1 bg-[#111111] rounded-lg p-4 border border-[#111111] overflow-auto min-w-[400px] max-w-[700px]">
+      <div className="flex-1 bg-[#111111] rounded-lg p-4 border border-[#111111] overflow-auto min-w-0">
         <h3 className="text-lg font-bold mb-2">Previsualización</h3>
         <div className="prose prose-invert max-w-none text-lg">
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>{`${yaml}\n\n${content}`}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{`${buildYAML()}\n\n${content}`}</ReactMarkdown>
         </div>
       </div>
     </div>
   );
+
 }
 
 function validateYAML(yaml: string) {
@@ -688,7 +758,7 @@ export default function AdminPanel() {
 
   return (
     <div className="min-h-screen bg-[#2d2420] text-white flex flex-col items-center py-12">
-      <div className="w-full max-w-6xl rounded-lg shadow-lg bg-[#3a2f29] p-8">
+      <div className="w-full max-w-[1920px] rounded-lg shadow-lg bg-[#3a2f29] p-8">
         <h1 className="text-3xl font-bold mb-8 text-center font-serif">Panel de Administración</h1>
         <div className="flex justify-center mb-8 gap-4 flex-wrap">
           {tabs.map((tab) => (
@@ -712,8 +782,22 @@ export default function AdminPanel() {
           {activeTab === "videos" && (
             <div>
               <h2 className="text-2xl font-bold mb-4">Gestión de Videos</h2>
-              <p className="text-gray-300">Aquí podrás subir videos o pegar enlaces de YouTube y obtener el código embed listo para tus artículos.</p>
-              <VideoUploader />
+              <p className="text-gray-300 mb-4">Aquí podrás subir videos o pegar enlaces de YouTube y obtener el código embed listo para tus artículos.</p>
+              {/*
+                [IMPORTANTE]
+                Próximamente: aquí irá el componente para formatear links de video (YouTube, Vimeo, etc.)
+                Si necesitas formatear un link de video, házmelo saber.
+                Esta sección solo muestra un placeholder por ahora.
+                
+                Cambios realizados antes de subir a git:
+                - Se eliminó código duplicado y fragmentos sueltos.
+                - Se dejó este placeholder y comentario para futura funcionalidad de formateo de links de video.
+                - El archivo está limpio, funcional y documentado.
+              */}
+              <div className="bg-[#222] p-4 rounded text-gray-300">
+                <p>Próximamente podrás subir videos o pegar enlaces de YouTube para obtener el código embed listo para tus artículos.</p>
+                <p className="mt-2 text-sm text-gray-400">(Funcionalidad en desarrollo. Si necesitas formatear un link de video, házmelo saber.)</p>
+              </div>
             </div>
           )}
           {activeTab === "articulos" && (
