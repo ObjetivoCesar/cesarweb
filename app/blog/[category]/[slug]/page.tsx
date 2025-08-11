@@ -277,7 +277,7 @@ export default async function ArticlePage(props: { params: { category: string; s
     <>
       <section className="py-16 bg-light">
         <div className="container">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <div className="mb-8">
               <Link href={`/blog/${params.category}`} className="text-primary font-medium hover:underline">
                 ← Volver a {category?.title || "Categoría"}
@@ -300,7 +300,7 @@ export default async function ArticlePage(props: { params: { category: string; s
                 <div className="flex items-center mb-8">
                   <div className="relative w-12 h-12 rounded-full overflow-hidden mr-4">
                     <Image
-                      src="/placeholder.svg?height=100&width=100"
+                      src="/reloj.webp"
                       alt={post.author || ""}
                       fill
                       className="object-cover"
@@ -312,7 +312,9 @@ export default async function ArticlePage(props: { params: { category: string; s
                   </div>
                 </div>
 
-                <div className="prose prose-lg max-w-none" dangerouslySetInnerHTML={{ __html: htmlContent }} />
+                <div className="prose prose-xl max-w-none !text-gray-800" style={{ fontSize: '1.375rem' /* 22px */ }}
+                  dangerouslySetInnerHTML={{ __html: htmlContent }}
+                />
 
                 <div className="mt-12 pt-8 border-t border-gray-200">
                   <h3 className="text-xl font-bold mb-4">Comparte este artículo</h3>

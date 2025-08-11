@@ -144,7 +144,7 @@ export default function BlogPage() {
         <div className="absolute inset-0 bg-black/40 z-10"></div>
 
         {/* Content */}
-        <div className="relative z-20 container mx-auto px-4 h-full flex items-end md:items-center pb-16 md:pb-0">
+        <div className="relative z-20 container mx-auto px-4 h-full flex items-center justify-center">
           <div className="text-white w-full">
             {/* Mobile: Nuevo h1 y h2 */}
             <div className="md:hidden text-left">

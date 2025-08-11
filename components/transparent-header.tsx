@@ -37,7 +37,7 @@ function TopBar() {
     >
       <div className="container mx-auto flex items-center justify-between px-4">
         <div className="flex-1 text-center">
-          Te ayudo a crear tu plan de acción
+          César Reyes Consultor para Pymes
         </div>
         
         {/* Buscador */}

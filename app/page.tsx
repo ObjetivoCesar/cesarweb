@@ -11,6 +11,11 @@ import React from "react"
 import TestimonialSlider from "@/components/testimonial-slider"
 import ContactPhotoSlider from "@/components/contact-photo-slider"
 import EmbeddedChat from '../embedded-chat-component/src/components/EmbeddedChat'
+import { LogoSlider } from "@/components/logo-slider"
+import BusinessSuccessQuiz from "@/components/BusinessSuccessQuiz"
+import ParallaxSection from "@/components/ParallaxSection"
+import StrategyTabs from "@/components/StrategyTabs"
+import PopularArticlesSlider from "@/components/PopularArticlesSlider"
 
 // Componente para el slider de cards móviles con dots
 function CardsMobileSlider() {
@@ -92,49 +97,7 @@ function CardsMobileSlider() {
 }
 
 export default function Home() {
-  // Imágenes del slide
-  const slideImages = [
-    { src: "/images/diagnostico_objetivo.webp", alt: "Diagnósitico Inicial" },
-    { src: "/images/investigacion_de_mercado_objetivo.webp", alt: "Estudio de Mercado" },
-    { src: "/images/recoleccion_de_informacion_objetivo.webp", alt: "Recolección de Información" },
-    { src: "/images/informes_resultados_objetivo.webp", alt: "Resultados" },
-    { src: "/images/posicionamiento_slide_seo_objetivo.webp", alt: "Posicionamiento_SEO" },
-  ];
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [lightboxIndex, setLightboxIndex] = useState(0);
-
-  const openLightbox = (idx: number) => {
-    setLightboxIndex(idx);
-    setLightboxOpen(true);
-  };
-  const closeLightbox = () => setLightboxOpen(false);
-  const nextLightbox = () => setLightboxIndex((prev) => (prev + 1) % slideImages.length);
-  const prevLightbox = () => setLightboxIndex((prev) => (prev - 1 + slideImages.length) % slideImages.length);
-
-  // Swipe para lightbox
-  let touchStartX: number | null = null;
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX = e.touches[0].clientX;
-  };
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    if (touchStartX === null) return;
-    const deltaX = e.changedTouches[0].clientX - touchStartX;
-    if (deltaX > 50) prevLightbox();
-    else if (deltaX < -50) nextLightbox();
-    touchStartX = null;
-  };
-  // Keyboard navigation
-  React.useEffect(() => {
-    if (!lightboxOpen) return;
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === "ArrowRight") nextLightbox();
-      if (e.key === "ArrowLeft") prevLightbox();
-      if (e.key === "Escape") closeLightbox();
-    };
-    window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
-  }, [lightboxOpen]);
-
+  // Estados y funciones del componente principal
   return (
     <>
       {/* Hero Section */}
@@ -169,132 +132,69 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Nueva sección de introducción tipo cita */}
-      <section className="w-full bg-white py-12 flex flex-col items-center justify-center min-h-[420px] md:min-h-[460px] flex items-center justify-center">
-        <blockquote className="max-w-4xl mx-auto text-center text-dark text-lg md:text-xl font-normal italic leading-relaxed px-4 md:px-8" style={{ fontFamily: 'var(--font-montserrat)' }}>
-          "Publicar sin un plan es caminar sin rumbo, y lo más grave, es poner en riesgo el sustento de tu familia y tu propio futuro. Mi misión en 'Objetivo' es eliminar ese riesgo, investigando a fondo tu competencia y los verdaderos deseos de tus clientes, descubriendo el punto exacto donde tu oferta y su demanda hablan el mismo idioma. Orquesto esa conexión en tu página web para que sea un espacio estratégico: un lugar donde tu negocio ofrece exactamente lo que tu cliente anhela, generando ventas y dándole sentido y seguridad a cada paso que das."
-        </blockquote>
-        <div className="w-full max-w-4xl mx-auto text-right mt-4 pr-4 md:pr-8 text-dark font-semibold" style={{ fontFamily: 'var(--font-montserrat)' }}>
-          César Reyes - Objetivo
+      {/* Sección de Logos de Clientes con Slider Infinito */}
+      <section className="relative w-full py-16 bg-white overflow-hidden">
+        {/* Fondo sutil */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white to-gray-50" />
+        
+        {/* Contenido */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-12">
+            <LogoSlider />
+          </div>
         </div>
       </section>
 
-      {/* Slide de testimonios antes de 'Empieza a Tomar Decisiones con Estrategia' */}
-      <section className="w-full bg-[#121212] py-24 mt-12">
+      {/* Sección del cuestionario de éxito empresarial */}
+      <section className="w-full bg-[#121212] py-20">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-white">¿Listo para llevar tu negocio al siguiente nivel?</h2>
+          <p className="text-xl text-center text-gray-300 mb-12 max-w-3xl mx-auto">Responde 4 preguntas rápidas y descubre cómo podemos ayudarte a crecer</p>
+          <div className="max-w-4xl mx-auto">
+            <BusinessSuccessQuiz 
+              title=""
+              submitButtonText="Enviar"
+              onSubmit={(data: { name: string; whatsapp: string; company: string; message: string }, answers: any) => {
+                console.log('Datos del formulario:', data);
+                console.log('Respuestas del quiz:', answers);
+                // Aquí puedes agregar la lógica para enviar los datos a tu backend
+                // Por ejemplo: sendFormDataToBackend({ ...data, answers });
+              }}
+              className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 shadow-2xl"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Sección con efecto parallax */}
+      <ParallaxSection />
+
+      {/* Nueva sección: Cómo cambiar la realidad de tu empresa */}
+      <section className="w-full bg-white py-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 text-gray-900">¿Cómo cambiar la realidad de tu empresa?</h2>
+            <p className="text-lg md:text-xl text-gray-700 leading-relaxed italic">
+              "Imagina lo siguiente: Dejar de publicar todos los días para concentrarte en cumplir un solo objetivo, posicionar una idea, un servicio, tu producto, dejar de invadir la privacidad de los demás y solamente atender a quienes te buscan."
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Sección de estrategia con pestañas */}
+      <StrategyTabs />
+
+      {/* Sección de Artículos Populares */}
+      <PopularArticlesSlider />
+
+      {/* Slide de testimonios */}
+      <section className="w-full bg-[#121212] py-24">
         <div className="container mx-auto">
           <TestimonialSlider />
         </div>
       </section>
 
-      {/* Nueva sección de entrada de mensaje tipo ChatGPT */}
-      <section className="section dark-section">
-        <div className="container">
-          {/* Mover estos textos antes del slider */}
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center text-white">!Esto haremos con mi equipo por ti!</h2>
-          <h3 className="text-xl md:text-2xl mb-8 text-center text-white">Cada desafío tiene su solución. Pero no a ciegas. Analicemos juntos lo que necesitas y diseñemos el camino perfecto para tí</h3>
-          {/* Slider de imágenes agregado */}
-          <div className="mb-8">
-            <MobileSlider>
-              {slideImages.map((img, idx) => (
-                <div
-                  key={img.src}
-                  onClick={() => {
-                    if (typeof window !== 'undefined' && window.innerWidth > 768) {
-                      openLightbox(idx);
-                    }
-                  }}
-                  className="cursor-pointer w-full h-full flex items-center justify-center"
-                >
-                  <Image 
-                    src={img.src} 
-                    alt={img.alt} 
-                    width={900} 
-                    height={900} 
-                    className="rounded-xl object-cover max-w-[80vw] md:max-w-[70%] w-full h-auto aspect-square shadow-[0_0_32px_8px_rgba(255,255,255,0.25)] transition-all duration-500 mx-auto" 
-                  />
-                </div>
-              ))}
-            </MobileSlider>
-            {/* Lightbox personalizado */}
-            {lightboxOpen && (
-              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90" onClick={closeLightbox}>
-                <button onClick={closeLightbox} className="absolute top-6 right-6 text-white text-4xl font-bold z-50 bg-black/60 rounded-full w-12 h-12 flex items-center justify-center hover:bg-black/90 transition-all" aria-label="Cerrar">×</button>
-                <button onClick={e => { e.stopPropagation(); prevLightbox(); }} className="absolute left-4 top-1/2 -translate-y-1/2 text-white text-4xl z-50 bg-black/60 rounded-full w-12 h-12 flex items-center justify-center hover:bg-black/90 transition-all" aria-label="Anterior">❮</button>
-                <button onClick={e => { e.stopPropagation(); nextLightbox(); }} className="absolute right-4 top-1/2 -translate-y-1/2 text-white text-4xl z-50 bg-black/60 rounded-full w-12 h-12 flex items-center justify-center hover:bg-black/90 transition-all" aria-label="Siguiente">❯</button>
-                <div className="max-w-full w-full flex items-center justify-center p-4 sm:p-8" onClick={e => e.stopPropagation()} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
-                  <div className="w-full max-w-2xl sm:max-w-3xl aspect-square flex items-center justify-center">
-                    <Image
-                      src={slideImages[lightboxIndex].src}
-                      alt={slideImages[lightboxIndex].alt}
-                      width={1200}
-                      height={1200}
-                      className="rounded-xl object-contain w-full h-full bg-black"
-                      style={{ maxHeight: '80vh', maxWidth: '100vw' }}
-                      onError={(e) => { e.currentTarget.src = '/images/fallback.webp'; }}
-                    />
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* Cards informativas antes del formulario de contacto */}
-      <section className="w-full bg-white py-8 mb-16">
-        <div className="container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-black mt-12">Es increíble de lo que nos perdemos por no leer</h2>
-          {/* Desktop grid */}
-          <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Card 1 */}
-            <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between h-full transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
-              <div>
-                <h3 className="text-xl font-bold mb-3 text-black">¿Tu Negocio en Riesgo? ¡75% Fracasan!</h3>
-                <p className="text-gray-700 mb-6">El 75% de las empresas cierran antes de los 2 años por no tener estrategias de ventas claras, ¡sin un estudio de mercado, estás jugando a la ruleta! No dejes que la intuición te cueste tu sueño. Un diagnóstico profundo te ahorra tiempo, dinero y muchísimos dolores de cabeza.</p>
-              </div>
-              <a href="#" className="text-primary font-semibold flex items-center gap-2 group hover:underline transition-colors">
-                Leer artículo <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
-              </a>
-            </div>
-            {/* Card 2 */}
-            <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between h-full transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
-              <div>
-                <h3 className="text-xl font-bold mb-3 text-black">El Secreto de los que Crecen</h3>
-                <p className="text-gray-700 mb-6">Las empresas que usan estudios de mercado crecen casi un 28% más y ¡son 8.9% más rentables! ¿Imaginas ese salto en tu negocio? Deja de adivinar y empieza a construir sobre bases sólidas y datos reales.</p>
-              </div>
-              <a href="#" className="text-primary font-semibold flex items-center gap-2 group hover:underline transition-colors">
-                Leer artículo <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
-              </a>
-            </div>
-            {/* Card 3 */}
-            <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between h-full transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
-              <div>
-                <h3 className="text-xl font-bold mb-3 text-black">¿Eres del 70.5% que Aún No Investiga?</h3>
-                <p className="text-gray-700 mb-6">En Guayaquil, más del 70% de las PYMES nunca hicieron un estudio de mercado, ¡pero el 98% cree que los datos mejoran la competitividad! No es solo una "gran empresa"; es una necesidad. Tus clientes están cambiando y ¡necesitas conocerlos para adelantarte!</p>
-              </div>
-              <a href="#" className="text-primary font-semibold flex items-center gap-2 group hover:underline transition-colors">
-                Leer artículo <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
-              </a>
-            </div>
-            {/* Card 4 */}
-            <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between h-full transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
-              <div>
-                <h3 className="text-xl font-bold mb-3 text-black">¿Qué Tienen en Común Coca-Cola y Marvel? ¡Datos!</h3>
-                <p className="text-gray-700 mb-6">Grandes como Coca-Cola y Marvel usan el análisis de datos para entender a sus clientes y ¡multiplicar sus ventas y éxitos! No necesitas ser un gigante para pensar como uno. Aprende de los mejores y adapta la inteligencia a tu escala.</p>
-              </div>
-              <a href="#" className="text-primary font-semibold flex items-center gap-2 group hover:underline transition-colors">
-                Leer artículo <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
-              </a>
-            </div>
-          </div>
-          {/* Mobile slider */}
-          <div className="md:hidden w-full overflow-x-auto py-2 relative">
-            <CardsMobileSlider />
-          </div>
-        </div>
-      </section>
-
-      {/* Nueva sección de contacto (Agenda una Llamada) con foto y chat */}
+      {/* Sección de contacto (Agenda una Llamada) con foto y chat */}
       <section className="w-full bg-[#121212] py-16 border-b border-light-gray">
         <div className="container mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold mb-2 text-white text-center">Agenda una Llamada</h2>
@@ -332,6 +232,8 @@ export default function Home() {
           </form>
         </div>
       </section>
+
+
     </>
   )
 }

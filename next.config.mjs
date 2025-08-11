@@ -8,7 +8,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    domains: ['cesarreyesjaramillo.com', 'topdentcuenca.com'],
+    domains: ['cesarreyesjaramillo.com', 'topdentcuenca.com', 'cesarweb.b-cdn.net'],
     remotePatterns: [
       {
         protocol: 'https',
@@ -28,6 +28,11 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'automatizotunegocio.net',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cesarweb.b-cdn.net',
         pathname: '/**',
       },
     ],

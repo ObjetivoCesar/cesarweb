@@ -19,6 +19,12 @@ Solución integral para restaurar márgenes, centrados y visibilidad del hero:
   h1, h2 {
     font-family: var(--font-poiret-one);
   }
+  h2 {
+    font-weight: 800 !important;
+    font-size: 2.1rem !important;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
   h3, p, span, a, button {
     font-family: var(--font-montserrat);
   }
