@@ -142,12 +142,48 @@ const BusinessSuccessQuiz = ({
     setIsSubmitting(true);
     
     try {
+      // Enviar datos al endpoint de la API
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          to: 'negocios@cesarreyesjaramillo.com',
+          subject: 'Nueva consulta desde el Test de Negocio',
+          html: `
+            <h2>Nueva consulta desde el Test de Negocio</h2>
+            <p><strong>Nombre:</strong> ${formData.name}</p>
+            <p><strong>WhatsApp:</strong> ${formData.whatsapp}</p>
+            <p><strong>Empresa:</strong> ${formData.company || 'No especificada'}</p>
+            <p><strong>Mensaje:</strong> ${formData.message || 'No especificado'}</p>
+            <h3>Respuestas del test:</h3>
+            <ul>
+              ${Object.entries(answers).map(([questionId, answer]) => {
+                const question = QUESTIONS.find(q => q.id === parseInt(questionId));
+                return question ? 
+                  `<li>${question.text}: <strong>${answer ? 'Sí' : 'No'}</strong> - ${answer ? question.yesFeedback : question.noFeedback}</li>` : '';
+              }).join('')}
+            </ul>
+          `,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Error al enviar el formulario');
+      }
+
+      // Si hay una función onSubmit personalizada, la ejecutamos
       if (onSubmit) {
         await onSubmit(formData, answers);
       }
+      
       setSubmitSuccess(true);
     } catch (error) {
       console.error('Error al enviar el formulario:', error);
+      // Aquí podrías agregar un estado para mostrar un mensaje de error al usuario
     } finally {
       setIsSubmitting(false);
     }

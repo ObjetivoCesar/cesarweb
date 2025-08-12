@@ -11,6 +11,7 @@ export interface ServiceDetail {
   description: string;
   benefits: ServiceBenefit[];
   videoUrl?: string;
+  examples?: string[];
 }
 
 export interface ServiceCategory {

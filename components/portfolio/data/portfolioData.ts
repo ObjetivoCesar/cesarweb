@@ -3,27 +3,27 @@ import { PortfolioData } from '../types';
 export const portfolioData: PortfolioData = {
   categories: [
     {
-      id: 'el-porque',
-      title: 'El Porqué – Análisis Estratégico y Estudios de Mercado',
-      description: 'El análisis profundo del mercado es la base de toda estrategia exitosa. Aquí identificamos oportunidades únicas, estudiamos a tu competencia y encontramos las palabras clave estratégicas que realmente importan. Todo con un objetivo: que tus decisiones estén respaldadas por datos y no por suposiciones.',
-      icon: '📊',
+      id: 'consultoria',
+      title: 'Consultoría',
+      description: 'Deja de adivinar, empieza a decidir con datos reales.',
+      icon: '📈',
     },
     {
-      id: 'el-donde',
-      title: 'El Dónde – Canales y Posicionamiento Digital',
-      description: 'Con el diagnóstico en mano, determinamos dónde y cómo debe estar tu mensaje. Seleccionamos los canales ideales y optimizamos tu presencia para que llegues a la audiencia correcta, en el momento preciso y con el mayor retorno posible.',
-      icon: '📍',
+      id: 'diseno-web',
+      title: 'Diseño Web',
+      description: 'No basta con publicar, hay que aparecer en el momento exacto.',
+      icon: '💻',
     },
     {
-      id: 'el-como',
-      title: 'El Cómo – Implementación, Automatización y Gestión Continua',
-      description: 'La estrategia se convierte en acción. Creamos sitios web, activamos campañas, posicionamos contenidos y automatizamos procesos para que tu negocio crezca de forma sostenible. Aquí la magia sucede: atraer, convertir y fidelizar clientes con la menor fricción posible.',
-      icon: '⚙️',
+      id: 'posicionamiento',
+      title: 'Posicionamiento',
+      description: 'Tu negocio, trabajando por ti, mientras tú duermes.',
+      icon: '🚀',
     },
   ],
   services: [
     {
-      id: 'el-porque',
+      id: 'consultoria',
       title: 'El Porqué – Análisis Estratégico y Estudios de Mercado',
       description: 'Análisis profundo para decisiones estratégicas basadas en datos',
       services: [
@@ -148,7 +148,7 @@ export const portfolioData: PortfolioData = {
       ],
     },
     {
-      id: 'el-donde',
+      id: 'diseno-web',
       title: 'El Dónde – Canales y Posicionamiento Digital',
       description: 'Presencia digital profesional en los canales correctos',
       services: [
@@ -177,6 +177,12 @@ export const portfolioData: PortfolioData = {
             { title: 'Optimización SEO', description: 'Configuración básica para buscadores' },
           ],
           videoUrl: 'https://www.youtube.com/embed/VPmwINpJ_qo',
+          examples: [
+            'https://topdentcuenca.com/',
+            'https://notariaoctavaloja.com/',
+            'https://energymloja.com/',
+            'https://www.mecanicaautomotrizloja.com/'
+          ],
         },
         {
           id: 'tienda-online',
@@ -190,6 +196,13 @@ export const portfolioData: PortfolioData = {
             { title: 'Fácil gestión', description: 'Panel de administración intuitivo' },
           ],
           videoUrl: 'https://www.youtube.com/embed/7q2l_6KsP6k',
+          examples: [
+            'https://ecommerce-carros.vercel.app/',
+            'https://ecommerce-granito.vercel.app/',
+            'https://aluvril.vercel.app/',
+            'https://ecommerce-motos.vercel.app/',
+            'https://muebleria-amber.vercel.app/'
+          ],
         },
         {
           id: 'tarjeta-digital',
@@ -203,6 +216,11 @@ export const portfolioData: PortfolioData = {
             { title: 'Siempre actualizado', description: 'Actualiza tu información en tiempo real' },
           ],
           videoUrl: 'https://www.youtube.com/embed/gsE4ztfG21M',
+          examples: [
+            'http://automatizotunegocio.net/pulmocor',
+            'https://automatizotunegocio.net/drvictorlomas/',
+            'https://automatizotunegocio.net/draanahiaguirre/'
+          ],
         },
         {
           id: 'pagina-go2025',
@@ -216,6 +234,12 @@ export const portfolioData: PortfolioData = {
             { title: 'Fácil de mantener', description: 'Estructura simple y funcional' },
           ],
           videoUrl: 'https://www.youtube.com/embed/kea2Z2bNyIw',
+          examples: [
+            'https://impermeabilisa.com/',
+            'https://drguidodiazortega.com/',
+            'https://metalcaec.com/',
+            'https://www.cajademedidordeluz.com/'
+          ],
         },
         {
           id: 'socio-crecer',
@@ -229,11 +253,15 @@ export const portfolioData: PortfolioData = {
             { title: 'Resultados garantizados', description: 'Creamos valor o no te cuesta' },
           ],
           videoUrl: '',
+          examples: [
+            'https://www.franksimbana.com/index.html',
+            'https://www.mecanicaautomotrizloja.com/'
+          ],
         },
       ],
     },
     {
-      id: 'el-como',
+      id: 'posicionamiento',
       title: 'El Cómo – Implementación y Automatización',
       description: 'Soluciones prácticas para hacer crecer tu negocio',
       services: [

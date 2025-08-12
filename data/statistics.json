@@ -1,16 +1,11 @@
 {
-  "totalVisitas": 599,
-  "visitasHoy": 599,
+  "totalVisitas": 614,
+  "visitasHoy": 614,
   "articulosPublicados": 0,
   "suscriptoresNewsletter": 0,
   "ultimasVisitas": [
     {
       "fecha": "2025-08-12",
-      "pagina": "/maspacientes/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-08-12",
       "pagina": "/",
       "visitas": 1
     },
@@ -35,22 +30,27 @@
       "visitas": 1
     },
     {
-      "fecha": "2025-08-11",
+      "fecha": "2025-08-12",
       "pagina": "/",
       "visitas": 1
     },
     {
-      "fecha": "2025-08-11",
+      "fecha": "2025-08-12",
       "pagina": "/",
       "visitas": 1
     },
     {
-      "fecha": "2025-08-11",
-      "pagina": "/mensajeria/",
+      "fecha": "2025-08-12",
+      "pagina": "/",
       "visitas": 1
     },
     {
-      "fecha": "2025-08-11",
+      "fecha": "2025-08-12",
+      "pagina": "/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-08-12",
       "pagina": "/",
       "visitas": 1
     }
@@ -75,7 +75,7 @@
     "2025-06-27": 56,
     "2025-08-10": 12,
     "2025-08-11": 25,
-    "2025-08-12": 6
+    "2025-08-12": 21
   },
   "aperturasEmail": {}
 }
