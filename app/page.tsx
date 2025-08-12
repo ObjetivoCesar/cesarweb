@@ -132,14 +132,14 @@ export default function Home() {
         <div className="relative z-20 container mx-auto px-4 flex flex-col items-center justify-center h-full">
           {/* ...eliminar el texto aquí... */}
         </div>
-        {/* Texto en la parte baja del hero */}
+        {/* Texto en la parte baja del hero - H1 principal */}
         <div className="absolute bottom-32 left-0 w-full flex flex-col items-center z-30 px-4">
           <h1 className="text-3xl md:text-5xl font-bold text-center text-white drop-shadow-lg mb-2" style={{ fontFamily: 'var(--font-poiret-one)', fontWeight: 900 }}>
               Cada venta que no cierras lo hace otro
-            </h1>
+          </h1>
           <p className="text-lg md:text-2xl text-white text-center max-w-2xl mx-auto font-normal drop-shadow-lg" style={{ fontFamily: 'var(--font-montserrat)' }}>
               El 50% de las ventas se las lleva quien responde primero a la consulta del cliente. (InsideSales.com)
-            </p>
+          </p>
         </div>
       </section>
 
