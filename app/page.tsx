@@ -16,6 +16,14 @@ import BusinessSuccessQuiz from "@/components/BusinessSuccessQuiz"
 import ParallaxSection from "@/components/ParallaxSection"
 import StrategyTabs from "@/components/StrategyTabs"
 import PopularArticlesSlider from "@/components/PopularArticlesSlider"
+import ChatModal from "@/components/ChatModal"
+import VideoModal from "@/components/VideoModal"
+import dynamic from 'next/dynamic';
+
+// Importación dinámica para el modal del portafolio
+const PortfolioModal = dynamic(() => import('@/components/PortfolioModal'), {
+  ssr: false,
+});
 
 // Componente para el slider de cards móviles con dots
 function CardsMobileSlider() {
@@ -98,6 +106,9 @@ function CardsMobileSlider() {
 
 export default function Home() {
   // Estados y funciones del componente principal
+  const [isChatModalOpen, setIsChatModalOpen] = useState(false);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [isPortfolioModalOpen, setIsPortfolioModalOpen] = useState(false);
   return (
     <>
       {/* Hero Section */}
@@ -184,6 +195,86 @@ export default function Home() {
       {/* Sección de estrategia con pestañas */}
       <StrategyTabs />
 
+      {/* Nueva sección de CTA */}
+      <section className="w-full bg-[#121212] py-20 relative overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-gradient-to-br from-blue-500/10 via-transparent to-transparent transform rotate-12"></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* CTA 1: Agendar Consultoría */}
+            <div className="group relative bg-gray-900/80 backdrop-blur-sm rounded-2xl p-8 border border-gray-800 hover:border-blue-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl overflow-hidden">
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-2xl opacity-0 group-hover:opacity-20 blur-lg transition-all duration-500"></div>
+              <div className="relative z-10">
+                <div className="w-16 h-16 rounded-xl bg-blue-900/30 border border-blue-800/50 flex items-center justify-center mb-6 group-hover:bg-blue-600/30 group-hover:border-blue-500/50 transition-colors">
+                  <svg className="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-3">Agendar una consultoría</h3>
+                <p className="text-gray-400 mb-6">Reserva una llamada personalizada para analizar las necesidades de tu negocio.</p>
+                <button 
+                  onClick={() => setIsChatModalOpen(true)}
+                  className="inline-flex items-center text-blue-400 font-medium group-hover:text-blue-300 transition-colors cursor-pointer"
+                >
+                  Agendar ahora
+                  <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            {/* CTA 2: Ver Portafolio */}
+            <div className="group relative bg-gray-900/80 backdrop-blur-sm rounded-2xl p-8 border border-gray-800 hover:border-blue-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl overflow-hidden">
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-2xl opacity-0 group-hover:opacity-20 blur-lg transition-all duration-500"></div>
+              <div className="relative z-10">
+                <div className="w-16 h-16 rounded-xl bg-blue-900/30 border border-blue-800/50 flex items-center justify-center mb-6 group-hover:bg-blue-600/30 group-hover:border-blue-500/50 transition-colors">
+                  <svg className="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-3">Ver Portafolio</h3>
+                <p className="text-gray-400 mb-6">Descubre los proyectos exitosos que hemos realizado para nuestros clientes.</p>
+                <button 
+                  onClick={() => setIsPortfolioModalOpen(true)}
+                  className="inline-flex items-center text-blue-400 font-medium group-hover:text-blue-300 transition-colors cursor-pointer"
+                >
+                  Ver proyectos
+                  <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            {/* CTA 3: Ver Video */}
+            <div className="group relative bg-gray-900/80 backdrop-blur-sm rounded-2xl p-8 border border-gray-800 hover:border-blue-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl overflow-hidden">
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-2xl opacity-0 group-hover:opacity-20 blur-lg transition-all duration-500"></div>
+              <div className="relative z-10">
+                <div className="w-16 h-16 rounded-xl bg-blue-900/30 border border-blue-800/50 flex items-center justify-center mb-6 group-hover:bg-blue-600/30 group-hover:border-blue-500/50 transition-colors">
+                  <svg className="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-3">Ver Video</h3>
+                <p className="text-gray-400 mb-6">Conoce más sobre nuestro enfoque y metodología en este video explicativo.</p>
+                <button 
+                  onClick={() => setIsVideoModalOpen(true)}
+                  className="inline-flex items-center text-blue-400 font-medium group-hover:text-blue-300 transition-colors cursor-pointer"
+                >
+                  Ver video
+                  <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Sección de Artículos Populares */}
       <PopularArticlesSlider />
 
@@ -194,29 +285,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Sección de contacto (Agenda una Llamada) con foto y chat */}
-      <section className="w-full bg-[#121212] py-16 border-b border-light-gray">
-        <div className="container mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold mb-2 text-white text-center">Agenda una Llamada</h2>
-          <p className="mb-10 text-lg text-gray-200 text-center">Cuéntame por email tu caso y me pondré en contacto pronto</p>
-          <div className="flex flex-col md:flex-row gap-12 items-center justify-center min-h-[600px]">
-            {/* Columna de la foto */}
-            <div className="flex-1 max-w-xl w-full flex items-center justify-center">
-              <Image 
-                src="/images/cesar_trabajando.png"
-                alt="César Reyes trabajando bn"
-                width={500}
-                height={600}
-                className="object-contain w-full h-auto max-h-[500px]"
-              />
-            </div>
-            {/* Columna del componente de chat */}
-            <div className="flex-1 max-w-xl space-y-6 flex flex-col justify-center">
-              <EmbeddedChat />
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Newsletter minimalista horizontal */}
       <section className="w-full bg-[#121212] py-10 border-t border-neutral-800">
@@ -233,7 +301,17 @@ export default function Home() {
         </div>
       </section>
 
-
+      {/* Chat Modal */}
+      <ChatModal 
+        isOpen={isChatModalOpen}
+        onClose={() => setIsChatModalOpen(false)}
+      />
+      <VideoModal
+        isOpen={isVideoModalOpen}
+        onClose={() => setIsVideoModalOpen(false)}
+        videoUrl="https://iframe.mediadelivery.net/embed/455329/9d4dc6d4-034c-4bf8-8477-138ffc896ab2?autoplay=true&loop=true&muted=true&preload=true&responsive=true"
+      />
+      <PortfolioModal isOpen={isPortfolioModalOpen} onClose={() => setIsPortfolioModalOpen(false)} />
     </>
   )
 }
