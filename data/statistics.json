@@ -1,31 +1,31 @@
 {
-  "totalVisitas": 614,
-  "visitasHoy": 614,
+  "totalVisitas": 619,
+  "visitasHoy": 619,
   "articulosPublicados": 0,
   "suscriptoresNewsletter": 0,
   "ultimasVisitas": [
     {
-      "fecha": "2025-08-12",
+      "fecha": "2025-08-13",
+      "pagina": "/blog/diseno-web-para-empresas/6-claves/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-08-13",
+      "pagina": "/admin/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-08-13",
       "pagina": "/",
       "visitas": 1
     },
     {
-      "fecha": "2025-08-12",
+      "fecha": "2025-08-13",
       "pagina": "/",
       "visitas": 1
     },
     {
-      "fecha": "2025-08-12",
-      "pagina": "/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-08-12",
-      "pagina": "/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-08-12",
+      "fecha": "2025-08-13",
       "pagina": "/",
       "visitas": 1
     },
@@ -75,7 +75,8 @@
     "2025-06-27": 56,
     "2025-08-10": 12,
     "2025-08-11": 25,
-    "2025-08-12": 21
+    "2025-08-12": 21,
+    "2025-08-13": 5
   },
   "aperturasEmail": {}
 }

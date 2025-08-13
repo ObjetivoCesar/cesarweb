@@ -21,7 +21,7 @@ export default function ParallaxSection() {
   return (
     <section 
       ref={parallaxRef}
-      className="relative h-[700px] w-full overflow-hidden bg-fixed bg-cover bg-center"
+      className="relative w-full overflow-hidden bg-fixed bg-cover bg-center h-[400px] md:h-[700px]"
       style={{
         backgroundImage: 'url("/images/caos.webp")',
       }}

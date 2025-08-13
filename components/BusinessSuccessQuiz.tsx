@@ -90,12 +90,7 @@ const BusinessSuccessQuiz = ({
     setIsClient(true);
   }, []);
 
-  // Efecto para manejar el scroll al cambiar de pregunta
-  useEffect(() => {
-    if (isClient && containerRef.current) {
-      containerRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-  }, [currentQuestion, showResults, isClient]);
+  // Eliminado el efecto de scroll automático para evitar saltos no deseados
 
   const handleAnswer = (answer: boolean) => {
     setCurrentAnswer(answer);

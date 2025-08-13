@@ -3,6 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import MobileSlider from "@/components/mobile-slider"
+import { useEffect } from "react"
 import ExpandableCard from "@/components/expandable-card"
 import NewsletterForm from "@/components/newsletter-form"
 import { Dialog, DialogTrigger, DialogContent, DialogTitle } from "@/components/ui/dialog"
@@ -105,6 +106,17 @@ function CardsMobileSlider() {
 }
 
 export default function Home() {
+  // Efecto para asegurar que la página comience desde arriba al cargar
+  useEffect(() => {
+    // Desplazar al inicio de la página cuando el componente se monte
+    window.scrollTo(0, 0);
+    
+    // También manejamos el evento de carga para navegadores antiguos
+    window.onload = function() {
+      window.scrollTo(0, 0);
+    };
+  }, []);
+
   // Estados y funciones del componente principal
   const [isChatModalOpen, setIsChatModalOpen] = useState(false);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
