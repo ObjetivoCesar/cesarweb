@@ -4,31 +4,35 @@ import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
-const StrategyTabs = () => {
+interface StrategyTabsProps {
+  isEmotionalView?: boolean;
+}
+
+const StrategyTabs = ({ isEmotionalView = false }: StrategyTabsProps) => {
   const [activeTab, setActiveTab] = useState('porque');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  // Definir las imágenes para cada pestaña
+  // Definir las imágenes para cada pestaña con sus dimensiones
   const tabImages = {
     porque: [
-      '/images/tabs/César Reyes.webp',
-      '/images/tabs/Estadísticas_César Reyes.webp',
-      '/images/tabs/Dr. Guido Díaz.webp',
-      '/images/tabs/Estadísticas_ Dr. Guido Díaz.webp',
-      '/images/tabs/Impermeabiisa.webp',
-      '/images/tabs/Estadísticas_Impermeabiisa.webp'
+      { src: '/images/tabs/César Reyes.webp', width: 800, height: 1000 },
+      { src: '/images/tabs/Estadísticas_César Reyes.webp', width: 800, height: 1000 },
+      { src: '/images/tabs/Dr. Guido Díaz.webp', width: 800, height: 1000 },
+      { src: '/images/tabs/Estadísticas_ Dr. Guido Díaz.webp', width: 800, height: 1000 },
+      { src: '/images/tabs/Impermeabiisa.webp', width: 800, height: 1000 },
+      { src: '/images/tabs/Estadísticas_Impermeabiisa.webp', width: 800, height: 1000 }
     ],
     donde: [
-      '/images/efecto_parallax/proteger-lo_que_has_construido_color.webp',
-      '/images/blog_cesar_bn.webp',
-      '/images/informes_resultados_objetivo.webp',
-      '/images/posicionamiento_web.webp'
+      { src: '/images/efecto_parallax/proteger-lo_que_has_construido_color.webp', width: 800, height: 1000 },
+      { src: '/images/blog_cesar_bn.webp', width: 800, height: 1000 },
+      { src: '/images/informes_resultados_objetivo.webp', width: 800, height: 1000 },
+      { src: '/images/posicionamiento_web.webp', width: 800, height: 1000 }
     ],
     como: [
-      '/images/tabs/Publicaciones_sin-Objetivo1.webp',
-      '/images/tabs/Publicaciones_con_Objetivo1.webp',
-      '/images/tabs/Publicidad_con_un_Objetivo.webp',
-      '/images/tabs/Publicidad_con_un_Objetivo2.webp'
+      { src: '/images/tabs/Publicaciones_sin-Objetivo1.webp', width: 800, height: 1000 },
+      { src: '/images/tabs/Publicaciones_con_Objetivo1.webp', width: 800, height: 1000 },
+      { src: '/images/tabs/Publicidad_con_un_Objetivo.webp', width: 800, height: 1000 },
+      { src: '/images/tabs/Publicidad_con_un_Objetivo2.webp', width: 800, height: 1000 }
     ]
   };
 
@@ -51,16 +55,32 @@ const StrategyTabs = () => {
     {
       id: 'porque',
       title: '¿El Porqué?',
-      content: (
+      content: (isEmotional: boolean) => (
         <div className="space-y-4">
-          <p>Tus clientes están en internet, buscándote ahora mismo… pero si no te encuentran, están comprando en otro lado. Trabajamos con empresas que invierten en redes, en anuncios y en diseños bonitos… sin lograr clientes reales.</p>
-          <p className="font-medium">Por ejemplo:</p>
-          <ul className="list-disc pl-6 space-y-2">
-            <li>Publican a diario, pero no aparecen en Google.</li>
-            <li>Pagan publicidad sin saber si hay mercado para su producto.</li>
-            <li>No tienen claro qué busca su cliente ni cómo decide comprar.</li>
-          </ul>
-          <p>Nosotros cambiamos eso. Analizamos tu sector, detectamos oportunidades y usamos palabras clave que sí generan negocio. Cada acción se basa en datos reales, no en suposiciones. Así dejamos de adivinar y empezamos a ganar.</p>
+          {isEmotional ? (
+            <>
+              <p>Tus clientes están ahí afuera, solo necesitan encontrarte.</p>
+              <p className="font-medium">Muchos emprendedores viven esto:</p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Publican, pero nadie pregunta por sus productos.</li>
+                <li>Gastan en anuncios sin resultados.</li>
+                <li>Sienten que el esfuerzo no se refleja en ventas.</li>
+              </ul>
+              <p>👉 Nosotros te ayudamos a conectar con las personas correctas y a que cada acción tenga sentido y resultados.</p>
+            </>
+          ) : (
+            <>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Tus clientes te buscan, pero no te encuentran.</h3>
+              <ul className="list-disc pl-6 space-y-2 text-gray-700">
+                <li>Publican diario en redes, pero no aparecen en Google (85% ventas Ecuador 2025 son digitales).</li>
+                <li>Gastan en ads sin validar mercado real.</li>
+                <li>No saben qué busca el cliente ni cómo decide.</li>
+              </ul>
+              <p className="mt-4 font-medium text-gray-900">
+                👉 Mi consultoría analiza tus datos, encuentra oportunidades y transforma esfuerzos en ventas medibles (+20% visibilidad ROI).
+              </p>
+            </>
+          )}
         </div>
       ),
       images: tabImages.porque
@@ -68,15 +88,32 @@ const StrategyTabs = () => {
     {
       id: 'donde',
       title: '¿El Dónde?',
-      content: (
+      content: (isEmotional: boolean) => (
         <div className="space-y-4">
-          <p>En 2025, el problema es asumir que conocemos el mercado y que, con métodos tradicionales, vamos a seguir en la normalidad. La realidad es otra, y es tan abismal que, si no cambiamos AHORA, simplemente vendrá alguien más y nos reemplazará.</p>
-          <p className="font-medium">Considera esto:</p>
-          <ul className="list-disc pl-6 space-y-2">
-            <li>Diariamente se crean 4,000 posts nuevos en redes sociales; imagina la suerte que deberás tener para que alguien vea los tuyos.</li>
-            <li>Ustedes son expertos en vender sus productos, pero adaptarse a nuevos conceptos como página web o e-commerce se convierte en un reto.</li>
-            <li>Aplicar una planificación estratégica basada en estadísticas siempre será mejor que actuar por impulso.</li>
-          </ul>
+          {isEmotional ? (
+            <>
+              <p>El mundo cambió, y tu negocio puede crecer con él.</p>
+              <p className="font-medium">Hoy el reto es grande, pero posible:</p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Tus redes no te traen clientes nuevos.</li>
+                <li>Todo se mueve tan rápido que cuesta adaptarse.</li>
+                <li>Sientes que trabajas mucho, pero avanzas poco.</li>
+              </ul>
+              <p>👉 Te acompañamos paso a paso para que tu negocio se adapte y crezca sin perder su esencia.</p>
+            </>
+          ) : (
+            <>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">El mercado cambió, y las reglas también.</h3>
+              <ul className="list-disc pl-6 space-y-2 text-gray-700">
+                <li>Publicas en redes, pero nadie te ve en búsquedas locales Loja.</li>
+                <li>Competencia vende online mientras esperas llamadas.</li>
+                <li>Crees conocer tu mercado, pero ya evolucionó (83% empresas pierden por estrategias mal enfocadas).</li>
+              </ul>
+              <p className="mt-4 font-medium text-gray-900">
+                👉 Con planificación basada en estadísticas, mi consultoría te pone a competir en igualdad – posicionamiento web Ecuador probado.
+              </p>
+            </>
+          )}
         </div>
       ),
       images: tabImages.donde
@@ -84,15 +121,32 @@ const StrategyTabs = () => {
     {
       id: 'como',
       title: '¿El Cómo?',
-      content: (
+      content: (isEmotional: boolean) => (
         <div className="space-y-4">
-          <p>Una empresa que toma decisiones en base a estudios va por buen camino. Adaptarse al nuevo entorno para competir en igualdad de condiciones complementa su estrategia, pero el éxito está en la ejecución; está en el personal que ejecutará esta planificación.</p>
-          <p className="font-medium">Nuestro enfoque:</p>
-          <ul className="list-disc pl-6 space-y-2">
-            <li>La expresión "zapatero a tu zapato" es la forma más simple de entender por qué es importante asociarse con personas con experiencia y conocimientos reales.</li>
-            <li>Usemos la inteligencia artificial personalizada para realizar ciertas acciones repetitivas, convirtiendo a la empresa en eficiente y reduciendo costos.</li>
-            <li>Capacitarse y automatizar procesos para centrarnos en lo que realmente da valor a nuestros servicios y productos.</li>
-          </ul>
+          {isEmotional ? (
+            <>
+              <p>No se trata de adivinar, se trata de hacerlo bien.</p>
+              <p className="font-medium">Muchos emprendedores sienten que:</p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Hacen todo, pero no ven resultados.</li>
+                <li>No saben por dónde empezar a mejorar.</li>
+                <li>Les falta alguien que les guíe y les dé claridad.</li>
+              </ul>
+              <p>👉 Te ayudamos a organizar tu negocio, usar la tecnología a tu favor y enfocarte en lo que más valor tiene: tus clientes.</p>
+            </>
+          ) : (
+            <>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Decidir con datos es avanzar con seguridad.</h3>
+              <ul className="list-disc pl-6 space-y-2 text-gray-700">
+                <li>Deciden sin info real, estancados en intuición.</li>
+                <li>No miden resultados ni saben qué funciona.</li>
+                <li>Ignoran herramientas que ahorran tiempo/dinero.</li>
+              </ul>
+              <p className="mt-4 font-medium text-gray-900">
+                👉 Mi consultoría usa IA y planificación profesional para ejecutar con método – resultados reales en 6 meses, como +15% crecimiento semestral.
+              </p>
+            </>
+          )}
         </div>
       ),
       images: tabImages.como
@@ -164,7 +218,7 @@ const StrategyTabs = () => {
                       {tabs.find(tab => tab.id === activeTab)?.title}
                     </h3>
                     <div className="text-gray-600 leading-relaxed space-y-4">
-                      {tabs.find(tab => tab.id === activeTab)?.content}
+                      {tabs.find(tab => tab.id === activeTab)?.content(isEmotionalView)}
                     </div>
                     <a 
                       href="https://wa.me/593963410409?text=Hola%20César,%20estoy%20interesado%20en%20una%20consultoría%20personalizada"
@@ -219,16 +273,44 @@ const StrategyTabs = () => {
                     >
                       {(() => {
                         const currentTab = tabs.find(tab => tab.id === activeTab);
-                        const imageSrc = currentTab?.images?.[currentImageIndex];
+                        const imageItem = currentTab?.images?.[currentImageIndex];
                         
-                        if (!imageSrc) return null;
+                        if (!imageItem) return (
+                          <div className="flex flex-col items-center justify-center">
+                            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                              Quiero Contratar Una Consultoría
+                            </h3>
+                            <a 
+                              href="https://wa.me/593963410409?text=Hola%20César,%20estoy%20interesado%20en%20una%20consultoría%20personalizada"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center bg-green-600 hover:bg-green-700 text-white font-semibold text-base px-6 py-2.5 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl mt-6"
+                            >
+                              <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                              </svg>
+                              Quiero Contratar Una Consultoría
+                            </a>
+                          </div>
+                        );
+                        
+                        // Si la imagen no existe, mostrar un placeholder
+                        if (!imageItem.src) {
+                          return (
+                            <div className="w-full h-full flex items-center justify-center bg-gray-100 rounded-lg">
+                              <span className="text-gray-400">Imagen no disponible</span>
+                            </div>
+                          );
+                        }
                         
                         return (
                           <Image
-                            src={imageSrc}
+                            src={imageItem.src}
                             alt={`${currentTab?.title || 'Imagen'} ${currentImageIndex + 1}`}
-                            fill
-                            className="object-contain"
+                            width={imageItem.width}
+                            height={imageItem.height}
+                            className="object-contain w-full h-full"
                             sizes="(max-width: 768px) 100vw, 30vw"
                             priority={currentImageIndex === 0}
                           />

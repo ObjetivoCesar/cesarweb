@@ -13,6 +13,24 @@ Landing page profesional para la solución de Mensajería Objetivo con IA, dise�
 - Instalación de dependencias y configuración inicial documentada.
 
 ### 2. **Secciones Principales**
+
+- **Sección 'No es Para Todos'**:
+  - Rediseñada para mostrar contenido dinámico basado en el perfil del usuario (lógico o emocional).
+  - Implementación del componente `StrategyTabs` con pestañas interactivas.
+  - Contenido personalizado para cada perfil con mensajes adaptados a diferentes estilos de toma de decisiones.
+  - Diseño responsivo con transiciones suaves entre pestañas.
+  - Incluye imágenes ilustrativas para cada sección.
+  - Integración con el estado global para mantener la consistencia del perfil seleccionado.
+
+  **Estructura de las pestañas**:
+  - **¿El Porqué?**: Explica la importancia de una estrategia personalizada.
+  - **¿El Dónde?**: Muestra dónde se encuentran las oportunidades de mejora.
+  - **¿El Cómo?**: Detalla el enfoque metodológico propuesto.
+
+  **Versiones por perfil**:
+  - **Perfil Lógico**: Enfocado en datos, resultados y métricas.
+  - **Perfil Emocional**: Centrado en la experiencia, sentimientos y crecimiento personal.
+- **Home Personalizada (A/B Test)**: Implementación de una página de inicio en `/home-test` con dos versiones de contenido (lógica y emocional) servidas desde el servidor para una máxima compatibilidad con SEO. La selección se realiza mediante un parámetro en la URL. (Ver `docs/funcionalidad-home-test.md` para detalles técnicos).
 - **Hero con video embebido** (YouTube, autoplay, sin controles), con imagen de fondo y texto sobrepuesto ajustado.
 - **Nueva sección de introducción tipo cita**: Cita testimonial de César Reyes.
 - **Slide de testimonios**: Carrousel de testimonios antes de "Empieza a Tomar Decisiones con Estrategia".
@@ -31,7 +49,17 @@ Landing page profesional para la solución de Mensajería Objetivo con IA, dise�
 - **Footer rediseñado**: Con enlaces a páginas, categorías del blog, contactos, redes sociales (íconos SVG con enlaces que abren en nueva pestaña) y copyright.
 - **CTA final**: llamado a la acción destacado.
 
-### 3. **Responsividad y UX**
+### 3. **Componentes Principales**
+
+- **StrategyTabs**:
+  - Componente reutilizable para mostrar contenido en pestañas.
+  - Soporta contenido dinámico basado en el perfil del usuario.
+  - Incluye transiciones animadas entre pestañas.
+  - Manejo de imágenes asociadas a cada sección.
+  - Diseño responsivo que se adapta a dispositivos móviles y escritorio.
+  - Integración con el sistema de temas de la aplicación.
+
+### 4. **Responsividad y UX**
 - **Carrousel horizontal** en todas las secciones de cards para móvil (scroll-x + snap) con navegación por puntos (dots).
 - **Grid** en desktop para máxima claridad visual.
 - Experiencia touch-friendly y moderna.

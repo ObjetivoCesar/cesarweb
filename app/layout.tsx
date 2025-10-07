@@ -115,7 +115,7 @@ export default function RootLayout({
         <meta name="twitter:description" content="Tu Socio Estratégico para el Éxito Empresarial. Servicios de consultoría en automatización, diseño web, SEO y asesoría de negocios." />
         <meta name="twitter:image" content="/images/banb.webp" />
       </Head>
-      <body className={`${inter.variable} ${poiretOne.variable} ${montserrat.variable} font-sans`}>
+      <body className={`${inter.variable} ${poiretOne.variable} ${montserrat.variable} font-sans overflow-x-hidden`}>
         <VisitTracker />
         <TransparentHeader />
         <main>{children}</main>

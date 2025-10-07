@@ -20,52 +20,63 @@ import { Progress } from '@/components/ui/progress';
 import { Question, QuizAnswers, FormData, BusinessSuccessQuizProps } from '@/types/quiz.types';
 
 // Definición de preguntas
-const QUESTIONS: Question[] = [
+interface QuizQuestion extends Omit<Question, 'yesFeedbackDetail' | 'noFeedbackDetail'> {
+  yesOption: string;
+  noOption: string;
+  image: string;
+  imageDescription: string;
+}
+
+const QUESTIONS: QuizQuestion[] = [
   {
     id: 1,
-    text: "Si buscas ahora mismo en Google tu principal servicio o producto + tu ciudad… ¿apareces en la primera página?",
+    text: "¿Cuando alguien busca en Google lo que tú vendes en Loja, apareces?",
     icon: 'Search' as const,
-    yesFeedback: "¡Excelente! Tener visibilidad en la primera página de Google es crucial para atraer más clientes.",
-    noFeedback: "Si no apareces, tus clientes están viendo a tu competencia. El 90% de los clics se quedan en la primera página de resultados. Nuestra estrategia combina investigación de mercado, SEO y redes sociales para que no seas invisible.",
-    yesFeedbackDetail: "¡Perfecto! Mantener tu visibilidad en la primera página es clave. Seguimos optimizando para que te mantengas por delante de la competencia.",
-    noFeedbackDetail: "Si no apareces, tus clientes están viendo a tu competencia. El 90% de los clics se quedan en la primera página de resultados. Nuestra estrategia combina investigación de mercado, SEO y redes sociales para que no seas invisible.",
-    imageDescription: "Buscador de Google en pantalla de laptop con tu servicio escrito, mostrando resultados con tu empresa destacada en primer lugar. Estilo hiperrealista, vista a 45°, iluminación natural."
+    yesOption: "Sí aparezco",
+    noOption: "No aparezco",
+    yesFeedback: "Bien, pero ¿en qué posición? Estar en la página 2 de Google es como no existir. El 90% de los clics van a los primeros 3 resultados. Si no estás en el TOP 3, sigues perdiendo clientes.",
+    noFeedback: "Cada día sin aparecer = clientes perdidos. Mientras tú no estás visible, tus competidores reciben TUS clientes. En Loja, 7 de cada 10 personas buscan en Google antes de comprar.",
+    image: "/images/google.webp",
+    imageDescription: "Imagen de una pantalla de Google con resultados de búsqueda"
   },
   {
     id: 2,
-    text: "¿Sabes cuántas veces al mes se busca en internet lo que vendes?",
+    text: "¿Sabes exactamente cuántas veces al mes buscan en Google lo que tú vendes?",
     icon: 'BarChart' as const,
-    yesFeedback: "¡Buen trabajo! Conocer el volumen de búsquedas te ayuda a medir el potencial de tu mercado.",
-    noFeedback: "No adivines, decide con datos. Analizamos las palabras clave que realmente usan tus clientes para encontrarte y creamos una estrategia enfocada en esas búsquedas.",
-    yesFeedbackDetail: "Excelente que ya midas esto. Podemos ayudarte a profundizar en los datos para identificar nuevas oportunidades de crecimiento.",
-    noFeedbackDetail: "No adivines, decide con datos. Analizamos las palabras clave que realmente usan tus clientes para encontrarte y creamos una estrategia enfocada en esas búsquedas.",
-    imageDescription: "Pantalla con gráficos de barras y líneas mostrando crecimiento en búsquedas, estilo minimalista en paleta negro/blanco/gris."
+    yesOption: "Más o menos sé",
+    noOption: "No tengo idea",
+    yesFeedback: "'Más o menos' no genera ventas. Necesitas números exactos: cuántas búsquedas, qué competencia, qué oportunidades. Las decisiones basadas en datos siempre superan a las corazonadas.",
+    noFeedback: "Estás disparando a ciegas. Sin datos reales de búsquedas, desperdicias tiempo y dinero en estrategias que no funcionan. Analizamos las palabras exactas que usan tus clientes para encontrarte.",
+    image: "/images/busquedas_mensuales.webp",
+    imageDescription: "Gráfico mostrando volumen de búsquedas mensuales en Google"
   },
   {
     id: 3,
-    text: "Si un cliente potencial visita tu web hoy… ¿sabría en 5 segundos por qué elegirte?",
+    text: "Si un cliente potencial entra a tu sitio web hoy, ¿sabría en 5 segundos por qué elegirte a ti y no a la competencia?",
     icon: 'Eye' as const,
-    yesFeedback: "¡Perfecto! Una propuesta de valor clara es clave para convertir visitantes en clientes.",
-    noFeedback: "Tu sitio debe transmitir confianza, diferenciarte y guiar al cliente hacia la compra. Diseñamos webs con estrategia, no solo con diseño bonito.",
-    yesFeedbackDetail: "¡Excelente! Una propuesta de valor clara es lo que diferencia a los negocios exitosos. Podemos ayudarte a potenciarla aún más.",
-    noFeedbackDetail: "Tu sitio debe transmitir confianza, diferenciarte y guiar al cliente hacia la compra. Diseñamos webs con estrategia, no solo con diseño bonito.",
-    imageDescription: "Persona navegando en una web desde una tablet, con expresión de interés. Fondo desenfocado, luz cálida."
+    yesOption: "Sí es obvio",
+    noOption: "No está claro",
+    yesFeedback: "Probémoslo. Si es tan obvio, ¿por qué no tienes más clientes nuevos cada mes? A veces lo que es claro para nosotros, no lo es para el cliente. Una auditoría te lo confirma.",
+    noFeedback: "5 segundos para convencer o perder. Tu web debe gritar tu ventaja competitiva inmediatamente. Si el visitante no entiende tu valor único, se va donde la competencia.",
+    image: "/images/palabras_claves.webp",
+    imageDescription: "Imagen mostrando palabras clave relevantes para tu negocio"
   },
   {
     id: 4,
-    text: "¿Tus redes sociales generan clientes o solo likes?",
+    text: "¿Estás obteniendo al menos 5 clientes nuevos al mes gracias a tu presencia en internet?",
     icon: 'ThumbsUp' as const,
-    yesFeedback: "¡Fenomenal! Aprovechar las redes sociales para generar negocio es una ventaja competitiva.",
-    noFeedback: "No basta con estar activo. El contenido debe responder a una estrategia clara. Así atraes clientes listos para comprar, no solo seguidores.",
-    yesFeedbackDetail: "¡Excelente! Las redes sociales son una poderosa herramienta de conversión cuando se usan estratégicamente. Podemos ayudarte a optimizar aún más tus resultados.",
-    noFeedbackDetail: "No basta con estar activo. El contenido debe responder a una estrategia clara. Así atraes clientes listos para comprar, no solo seguidores.",
-    imageDescription: "Pantalla dividida: en un lado 'likes' sin conversión, en el otro notificaciones de ventas y mensajes de clientes. Colores contrastados."
-  }
+    yesOption: "Sí, los tengo",
+    noOption: "No, me cuesta",
+    yesFeedback: "Excelente! Imagina duplicar o triplicar esa cifra. Con estrategias probadas, podemos convertir tu negocio en el referente de tu sector en Loja.",
+    noFeedback: "No estás solo. El 80% de los negocios en Loja no saben cómo atraer clientes por internet. La buena noticia: con el enfoque correcto, puedes destacar y crecer rápidamente.",
+    image: "/images/google.webp",
+    imageDescription: "Imagen de una pantalla de Google con resultados de búsqueda"
+  },
 ];
 
 const BusinessSuccessQuiz = ({
-  title = "¿Tu negocio está listo para crecer?",
-  submitButtonText = "Quiero agendar mi cita",
+  title = "¿Listo para cumplir tus metas?",
+  submitButtonText = "Agenda una Llamada",
   onSubmit,
   className = ""
 }: BusinessSuccessQuizProps) => {
@@ -157,7 +168,7 @@ const BusinessSuccessQuiz = ({
               ${Object.entries(answers).map(([questionId, answer]) => {
                 const question = QUESTIONS.find(q => q.id === parseInt(questionId));
                 return question ? 
-                  `<li>${question.text}: <strong>${answer ? 'Sí' : 'No'}</strong> - ${answer ? question.yesFeedback : question.noFeedback}</li>` : '';
+                  `<li>${question.text}: <strong>${answer ? question.yesOption : question.noOption}</strong> - ${answer ? question.yesFeedback : question.noFeedback}</li>` : '';
               }).join('')}
             </ul>
           `,
@@ -225,30 +236,35 @@ const BusinessSuccessQuiz = ({
     );
   }
 
+  const currentQuestionData = QUESTIONS[currentQuestion];
+  const progressPercentage = Math.round((currentQuestion / QUESTIONS.length) * 100);
+
   return (
     <div 
       ref={containerRef}
-      className={`w-full max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-[0_0_32px_8px_rgba(255,255,255,0.18)] transition-all duration-500 ${className}`}
-      style={{
-        backgroundColor: '#121212', // Forzando el color de fondo con estilo en línea
-        backgroundImage: 'none' // Asegurando que no haya gradientes que lo sobrescriban
-      }}
+      className={`w-full max-w-5xl mx-auto rounded-2xl overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800 shadow-2xl transition-all duration-500 ${className}`}
     >
-      {/* Barra de progreso */}
-      <div className="h-2 bg-gray-800 w-full">
+      {/* Barra de progreso mejorada */}
+      <div className="h-3 bg-gray-800 w-full relative">
         <motion.div 
-          className="h-full bg-gradient-to-r from-blue-600 to-blue-800"
+          className="h-full bg-gradient-to-r from-blue-500 to-blue-600"
           initial={{ width: '0%' }}
           animate={{ width: `${progress}%` }}
-          transition={{ duration: 0.5, ease: 'easeInOut' }}
+          transition={{ duration: 0.7, ease: 'easeInOut' }}
         />
+        <div className="absolute top-0 right-0 h-full flex items-center pr-4 text-xs font-medium text-gray-300">
+          {progressPercentage}%
+        </div>
       </div>
 
-      <div className="p-6 md:p-8">
-        {/* Título */}
-        <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 text-center">
-          {title}
-        </h2>
+      <div className="p-6 md:p-10">
+        {/* Título con gradiente */}
+        <div className="text-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300 mb-3">
+            {title}
+          </h2>
+          <div className="h-1 w-20 bg-gradient-to-r from-blue-500 to-cyan-400 mx-auto rounded-full"></div>
+        </div>
 
         <AnimatePresence mode="wait">
           {!showResults ? (
@@ -261,40 +277,74 @@ const BusinessSuccessQuiz = ({
               className="space-y-8"
             >
               {!showFeedback ? (
-                <>
-                  {/* Pregunta actual */}
-                  <div className="flex flex-col items-center space-y-4">
-                    <div className="p-3 bg-blue-600/20 rounded-full">
-                      {(() => {
-                        const Icon = iconComponents[QUESTIONS[currentQuestion].icon];
-                        return <Icon className="w-8 h-8 text-blue-400" />;
-                      })()}
+                <div className="grid md:grid-cols-2 gap-8 items-center">
+                  {/* Imagen de la pregunta */}
+                  <motion.div 
+                    key={`image-${currentQuestion}`}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    className="relative h-64 md:h-80 rounded-xl overflow-hidden border-2 border-gray-700/50 hover:border-blue-500/50 transition-all duration-300"
+                  >
+                    <img 
+                      src={currentQuestionData.image} 
+                      alt={`Paso ${currentQuestion + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                      <div className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-600 text-white font-bold mb-2 mx-auto">
+                        {currentQuestion + 1}
+                      </div>
                     </div>
-                    <p className="text-lg md:text-xl text-center text-gray-200">
-                      {QUESTIONS[currentQuestion].text}
-                    </p>
-                  </div>
+                  </motion.div>
 
-                  {/* Controles de navegación */}
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button
-                      type="button"
-                      variant="outline"
-                      className="flex-1 max-w-xs mx-auto sm:mx-0 bg-transparent hover:bg-white/20 border-white text-white hover:text-white h-14 text-base"
-                      onClick={() => handleAnswer(false)}
-                    >
-                      <X className="mr-2 h-5 w-5" /> No
-                    </Button>
-                    
-                    <Button
-                      type="button"
-                      className="flex-1 max-w-xs mx-auto sm:mx-0 bg-gradient-to-r from-white to-gray-200 hover:from-gray-100 hover:to-gray-300 text-gray-900 h-14 text-base"
-                      onClick={() => handleAnswer(true)}
-                    >
-                      <Check className="mr-2 h-5 w-5" /> Sí
-                    </Button>
+                  {/* Contenido de la pregunta */}
+                  <div className="space-y-6">
+                    {/* Pregunta actual */}
+                    <div className="flex flex-col items-start space-y-4">
+                      <div className="p-3 bg-blue-600/20 rounded-lg inline-flex items-center">
+                        {(() => {
+                          const Icon = iconComponents[currentQuestionData.icon];
+                          return <Icon className="w-6 h-6 text-blue-400" />; 
+                        })()}
+                        <span className="ml-2 text-sm font-medium text-blue-300">
+                          Pregunta {currentQuestion + 1} de {QUESTIONS.length}
+                        </span>
+                      </div>
+                      <h3 className="text-xl md:text-2xl font-bold text-white leading-tight">
+                        {currentQuestionData.text}
+                      </h3>
+                      <p className="text-gray-400 text-sm">
+                        Selecciona la opción que mejor describa tu situación actual
+                      </p>
+                    </div>
+
+                    {/* Controles de navegación */}
+                    <div className="flex flex-col space-y-3">
+                      <Button
+                        type="button"
+                        className="group w-full justify-start px-6 py-6 text-lg bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
+                        onClick={() => handleAnswer(true)}
+                      >
+                        <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center mr-3 group-hover:bg-white/30 transition-colors">
+                          <Check className="h-5 w-5" />
+                        </div>
+                        {currentQuestionData.yesOption}
+                      </Button>
+                      
+                      <Button
+                        type="button"
+                        variant="outline"
+                        className="group w-full justify-start px-6 py-6 text-lg border-gray-600 hover:bg-gray-800/50 hover:border-gray-500 text-gray-200 transition-all duration-300"
+                        onClick={() => handleAnswer(false)}
+                      >
+                        <div className="w-8 h-8 rounded-full bg-gray-700/50 flex items-center justify-center mr-3 group-hover:bg-gray-600/50 transition-colors">
+                          <X className="h-5 w-5" />
+                        </div>
+                        {currentQuestionData.noOption}
+                      </Button>
+                    </div>
                   </div>
-                </>
+                </div>
               ) : (
                 /* Feedback después de responder */
                 <motion.div 
@@ -303,10 +353,7 @@ const BusinessSuccessQuiz = ({
                   className="bg-gray-800/50 p-6 rounded-lg border border-gray-700 space-y-6"
                 >
                   <div className="text-center">
-                    <h3 className="text-xl font-semibold text-white mb-3">
-                      {currentAnswer ? '✅ Correcto' : '💡 Importante'}
-                    </h3>
-                    <p className="text-gray-300">
+                    <p className="text-gray-300 text-lg">
                       {currentAnswer 
                         ? QUESTIONS[currentQuestion].yesFeedback 
                         : QUESTIONS[currentQuestion].noFeedback}
@@ -341,8 +388,17 @@ const BusinessSuccessQuiz = ({
               )}
 
               {!showFeedback && (
-                <div className="text-center text-sm text-gray-400 mt-2">
-                  Pregunta {currentQuestion + 1} de {QUESTIONS.length}
+                <div className="flex justify-center space-x-2 mt-6">
+                  {QUESTIONS.map((_, index) => (
+                    <div 
+                      key={index}
+                      className={`h-2 rounded-full transition-all duration-300 ${
+                        index <= currentQuestion 
+                          ? 'bg-blue-500 w-6' 
+                          : 'bg-gray-700 w-2'
+                      }`}
+                    />
+                  ))}
                 </div>
               )}
             </motion.div>

@@ -1,5 +1,7 @@
 'use client';
 
+'use client';
+
 import { useEffect } from 'react';
 
 interface VideoModalProps {
@@ -30,45 +32,51 @@ export default function VideoModal({ isOpen, onClose, videoUrl }: VideoModalProp
 
   if (!isOpen) return null;
 
+  // Asegurarse de que la URL del video tenga los parámetros correctos
+  const getVideoUrl = () => {
+    try {
+      const url = new URL(videoUrl);
+      url.searchParams.set('autoplay', '1');
+      url.searchParams.set('loop', '1');
+      url.searchParams.set('muted', '1');
+      url.searchParams.set('controls', '1');
+      url.searchParams.set('rel', '0');
+      return url.toString();
+    } catch (e) {
+      return videoUrl;
+    }
+  };
+
   return (
     <div 
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm transition-opacity duration-300"
+      className="fixed inset-0 z-[9999] bg-black/90 flex items-center justify-center p-4"
       onClick={onClose}
     >
-      <div 
-        className="relative w-full max-w-4xl mx-auto bg-black rounded-xl overflow-hidden shadow-2xl transform transition-all duration-300 scale-95 hover:scale-100"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* Botón de cerrar */}
-        <button
-          onClick={onClose}
-          className="absolute -top-10 right-0 text-white hover:text-gray-300 transition-colors z-10"
-          aria-label="Cerrar reproductor de video"
-        >
-          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
+      <div className="w-full max-w-4xl mx-auto">
+        <div className="text-center mb-8">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Mira nuestro video</h2>
+          <p className="text-lg text-gray-300">Conoce más sobre nuestro enfoque y cómo podemos ayudarte a hacer crecer tu negocio</p>
+        </div>
         
-        {/* Contenedor del video */}
-        <div className="relative w-full" style={{ height: '80vh' }}>
-          <div style={{ position: 'relative', paddingTop: '56.25%', width: '100%', height: '100%' }}>
-            <iframe
-              src={`${videoUrl}?autoplay=1&loop=1&muted=0&preload=1&responsive=1`}
-              loading="lazy"
-              style={{ 
-                border: 'none', 
-                position: 'absolute', 
-                top: 0, 
-                left: 0, 
-                width: '100%', 
-                height: '100%' 
-              }}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              title="Video explicativo"
-            />
-          </div>
+        <div className="relative aspect-video bg-black rounded-xl overflow-hidden shadow-2xl">
+          <button
+            onClick={onClose}
+            className="absolute -top-12 right-0 z-50 p-2 text-white hover:text-gray-300 transition-colors"
+            aria-label="Cerrar reproductor de video"
+          >
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          
+          <iframe
+            className="w-full h-full"
+            src={getVideoUrl()}
+            title="Video de presentación"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            style={{ border: 'none' }}
+          />
         </div>
       </div>
     </div>

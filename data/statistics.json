@@ -1,56 +1,56 @@
 {
-  "totalVisitas": 619,
-  "visitasHoy": 619,
+  "totalVisitas": 759,
+  "visitasHoy": 759,
   "articulosPublicados": 0,
   "suscriptoresNewsletter": 0,
   "ultimasVisitas": [
     {
-      "fecha": "2025-08-13",
-      "pagina": "/blog/diseno-web-para-empresas/6-claves/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-08-13",
-      "pagina": "/admin/",
-      "visitas": 1
-    },
-    {
-      "fecha": "2025-08-13",
+      "fecha": "2025-10-07",
       "pagina": "/",
       "visitas": 1
     },
     {
-      "fecha": "2025-08-13",
+      "fecha": "2025-10-07",
       "pagina": "/",
       "visitas": 1
     },
     {
-      "fecha": "2025-08-13",
+      "fecha": "2025-10-07",
       "pagina": "/",
       "visitas": 1
     },
     {
-      "fecha": "2025-08-12",
+      "fecha": "2025-10-07",
       "pagina": "/",
       "visitas": 1
     },
     {
-      "fecha": "2025-08-12",
+      "fecha": "2025-10-07",
       "pagina": "/",
       "visitas": 1
     },
     {
-      "fecha": "2025-08-12",
+      "fecha": "2025-10-07",
       "pagina": "/",
       "visitas": 1
     },
     {
-      "fecha": "2025-08-12",
+      "fecha": "2025-10-07",
       "pagina": "/",
       "visitas": 1
     },
     {
-      "fecha": "2025-08-12",
+      "fecha": "2025-10-07",
+      "pagina": "/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-10-07",
+      "pagina": "/",
+      "visitas": 1
+    },
+    {
+      "fecha": "2025-10-07",
       "pagina": "/",
       "visitas": 1
     }
@@ -76,7 +76,18 @@
     "2025-08-10": 12,
     "2025-08-11": 25,
     "2025-08-12": 21,
-    "2025-08-13": 5
+    "2025-08-13": 5,
+    "2025-09-10": 2,
+    "2025-09-11": 1,
+    "2025-09-25": 4,
+    "2025-09-26": 8,
+    "2025-09-28": 10,
+    "2025-09-29": 19,
+    "2025-10-03": 19,
+    "2025-10-04": 20,
+    "2025-10-05": 37,
+    "2025-10-06": 3,
+    "2025-10-07": 17
   },
   "aperturasEmail": {}
 }
