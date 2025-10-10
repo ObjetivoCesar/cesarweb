@@ -255,10 +255,10 @@ export async function generateMetadata(props: { params: Promise<{ category: stri
   // Asegurar que los campos sean strings
   const title = typeof post.title === "string" ? post.title : String(post.title);
   const excerpt = typeof post.excerpt === "string" ? post.excerpt : String(post.excerpt || "");
-  const category = typeof post.category === "string" ? post.category : String(post.category || "");
+  const postCategory = typeof post.category === "string" ? post.category : String(post.category || "");
   return {
     title: `${title} - Blog de César Reyes Jaramillo`,
-    description: excerpt || `Artículo sobre ${category} por César Reyes Jaramillo`,
+    description: excerpt || `Artículo sobre ${postCategory} por César Reyes Jaramillo`,
   };
 }
 
