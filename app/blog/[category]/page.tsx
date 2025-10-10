@@ -85,10 +85,11 @@ export function generateStaticParams() {
   }))
 }
 
-export function generateMetadata({ params }: { params: { category: string } }) {
-  const category = categories.find((cat) => cat.id === params.category)
+export async function generateMetadata(props: { params: Promise<{ category: string }> }) {
+  const { category } = await props.params;
+  const categoryObj = categories.find((cat) => cat.id === category)
 
-  if (!category) {
+  if (!categoryObj) {
     return {
       title: "Categoría no encontrada",
       description: "La categoría que estás buscando no existe.",
@@ -96,21 +97,21 @@ export function generateMetadata({ params }: { params: { category: string } }) {
   }
 
   return {
-    title: `${category.title} - Blog de César Reyes Jaramillo`,
-    description: category.description,
+    title: `${categoryObj.title} - Blog de César Reyes Jaramillo`,
+    description: categoryObj.description,
   }
 }
 
-export default function CategoryPage({ params, searchParams }: { params: { category: string }, searchParams: { search?: string } }) {
-  const categoryId = params?.category;
-  const search = searchParams?.search || "";
-  const category = categories.find((cat) => cat.id === categoryId);
+export default async function CategoryPage(props: { params: Promise<{ category: string }>, searchParams: { search?: string } }) {
+  const { category } = await props.params;
+  const search = props.searchParams?.search || "";
+  const categoryObj = categories.find((cat) => cat.id === category);
 
-  if (!category) {
+  if (!categoryObj) {
     notFound();
   }
 
-  const categoryPosts = getArticlesByCategory(categoryId);
+  const categoryPosts = getArticlesByCategory(category);
   const filteredPosts = search
     ? categoryPosts.filter(post =>
         post.title.toLowerCase().includes(search.toLowerCase()) ||
@@ -118,7 +119,7 @@ export default function CategoryPage({ params, searchParams }: { params: { categ
       )
     : categoryPosts;
 
-  const heroImage = categoryImages[categoryId as keyof typeof categoryImages] || "/images/portada2.webp";
+  const heroImage = categoryImages[category as keyof typeof categoryImages] || "/images/portada2.webp";
 
   return (
     <>
@@ -126,7 +127,7 @@ export default function CategoryPage({ params, searchParams }: { params: { categ
       <section className="relative w-full min-h-[calc(100vh-100px)] md:h-[400px] flex items-center justify-center mb-8">
         <Image
           src={heroImage}
-          alt={category.title}
+          alt={categoryObj.title}
           fill
           sizes="100vw"
           className="object-cover object-center z-0"
@@ -136,8 +137,8 @@ export default function CategoryPage({ params, searchParams }: { params: { categ
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/10 z-10" />
         <div className="relative z-20 text-white text-center max-w-3xl mx-auto px-4">
-          <h1 className="text-3xl md:text-5xl font-bold mb-4 drop-shadow-lg">{category.title}</h1>
-          <p className="text-lg md:text-xl drop-shadow-lg">{category.description}</p>
+          <h1 className="text-3xl md:text-5xl font-bold mb-4 drop-shadow-lg">{categoryObj.title}</h1>
+          <p className="text-lg md:text-xl drop-shadow-lg">{categoryObj.description}</p>
         </div>
       </section>
 
@@ -148,14 +149,14 @@ export default function CategoryPage({ params, searchParams }: { params: { categ
               ← Volver al Blog
             </Link>
             <div className="w-full md:w-96">
-              <SearchBar category={params.category} />
+              <SearchBar category={category} />
             </div>
           </div>
 
-          {searchParams.search && (
+          {search && (
             <div className="mb-8">
               <p className="text-gray-600">
-                Resultados de búsqueda para: <span className="font-semibold">{searchParams.search}</span>
+                Resultados de búsqueda para: <span className="font-semibold">{search}</span>
               </p>
             </div>
           )}
@@ -177,7 +178,7 @@ export default function CategoryPage({ params, searchParams }: { params: { categ
           ) : (
             <div className="text-center py-12">
               <p className="text-xl">
-                {searchParams.search
+                {search
                   ? "No se encontraron artículos que coincidan con tu búsqueda."
                   : "No hay artículos en esta categoría todavía."}
               </p>
