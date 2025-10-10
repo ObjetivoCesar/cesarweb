@@ -102,9 +102,9 @@ export async function generateMetadata(props: { params: Promise<{ category: stri
   }
 }
 
-export default async function CategoryPage(props: { params: Promise<{ category: string }>, searchParams: { search?: string } }) {
+export default async function CategoryPage(props: { params: Promise<{ category: string }>, searchParams: Promise<{ search?: string }> }) {
   const { category } = await props.params;
-  const search = props.searchParams?.search || "";
+  const { search = "" } = await props.searchParams;
   const categoryObj = categories.find((cat) => cat.id === category);
 
   if (!categoryObj) {
