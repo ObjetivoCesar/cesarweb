@@ -39,7 +39,7 @@ const iconMap: { [key: string]: React.ElementType } = {
   Users
 };
 
-export default function HomeTestClient({ content, isEmotionalView }: { content: typeof pageContent.logico, isEmotionalView: boolean }) {
+export default function HomeTestClient({ content, isEmotionalView }: { content: typeof pageContent.logico | typeof pageContent.emocional, isEmotionalView: boolean }) {
 
   const router = useRouter();
   const [choiceMade, setChoiceMade] = useState(false);
