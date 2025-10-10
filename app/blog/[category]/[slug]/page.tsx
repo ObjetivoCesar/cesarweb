@@ -243,9 +243,9 @@ export function generateStaticParams() {
   }))
 }
 
-export async function generateMetadata(props: { params: { category: string; slug: string } }) {
-  const params = await props.params;
-  const post = await getArticle(params.category, params.slug);
+export async function generateMetadata(props: { params: Promise<{ category: string; slug: string }> }) {
+  const { category, slug } = await props.params;
+  const post = await getArticle(category, slug);
   if (!post) {
     return {
       title: "Artículo no encontrado",
@@ -262,15 +262,15 @@ export async function generateMetadata(props: { params: { category: string; slug
   };
 }
 
-export default async function ArticlePage(props: { params: { category: string; slug: string } }) {
-  const params = await props.params;
-  const post = await getArticle(params.category, params.slug);
+export default async function ArticlePage(props: { params: Promise<{ category: string; slug: string }> }) {
+  const { category, slug } = await props.params;
+  const post = await getArticle(category, slug);
 
   if (!post) {
     notFound();
   }
 
-  const category = categories.find((cat) => cat.id === params.category);
+  const categoryObj = categories.find((cat) => cat.id === category);
   const htmlContent = marked.parse(post.content || "");
 
   return (
@@ -279,8 +279,8 @@ export default async function ArticlePage(props: { params: { category: string; s
         <div className="container">
           <div className="max-w-5xl mx-auto">
             <div className="mb-8">
-              <Link href={`/blog/${params.category}`} className="text-primary font-medium hover:underline">
-                ← Volver a {category?.title || "Categoría"}
+              <Link href={`/blog/${category}`} className="text-primary font-medium hover:underline">
+                ← Volver a {categoryObj?.title || "Categoría"}
               </Link>
             </div>
 
