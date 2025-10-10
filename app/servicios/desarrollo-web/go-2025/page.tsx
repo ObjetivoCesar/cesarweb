@@ -6,120 +6,88 @@ import { ArrowLeft, Check, BarChart, Target, Search, BookOpen, ChevronLeft, Chev
 import { useState } from 'react';
 import Image from 'next/image';
 
-export default function EstrategiaGanarClientes() {
+export default function Go2025() {
   const [activeTab, setActiveTab] = useState(0);
   
   const tabs = [
     {
       id: 0,
-      title: 'Análisis de Mercado',
-      subtitle: 'Análisis Exhaustivo de Mercado y Competencia',
-      image: '/images/categorias/analisis-estrategico/estudio-mercado.webp',
+      title: 'Diseño Intuitivo UX/UI',
+      subtitle: 'Eleva Tu Marca con Diseño UX/UI',
+      image: '/images/web.webp',
       content: {
-        intro: '¿Sabías que el 60% de las empresas fracasan por no conocer realmente a su competencia y mercado?',
-        description: 'No puedes ganar una batalla si no conoces el terreno. Por eso, antes de lanzar cualquier estrategia, necesitas entender profundamente tu mercado: quiénes son tus competidores reales (no solo los obvios), qué están haciendo bien, dónde están fallando y, lo más importante, qué oportunidades están dejando pasar que tú puedes aprovechar.',
-        subtitle2: '¿Por qué es fundamental conocer a tu competencia?',
-        description2: 'Imagina tener acceso a una radiografía completa de las estrategias digitales de tus competidores: sus palabras clave más rentables, el tipo de contenido que publican, cómo interactúan en redes sociales, y cuáles son sus puntos débiles. Esta información te permite dejar de adivinar y empezar a actuar con datos concretos.',
-        question: '¿Te imaginas tomar decisiones de marketing sabiendo exactamente qué funciona en tu industria y qué no?',
-        listTitle: 'Nuestro análisis incluye:',
+        intro: '¿Sabías lo vital de un diseño intuitivo que capte clientes desde el primer vistazo sin frustraciones?',
+        description: 'Un desarrollo web código enfocado en UX/UI crea una plataforma estática atractiva para pymes y artesanos, reflejando tu identidad mientras resuelve objeciones de simplicidad. Esto optimiza para búsquedas como "cómo mostrar mis productos", retiene visitantes con navegación fluida y convierte exploraciones en leads, superando tarjetas digitales al ofrecer una presencia profesional sólida sin mantenimiento complejo ni costos ocultos.',
+        listTitle: 'Beneficios Clave del Diseño Intuitivo',
         items: [
-          'Investigación profunda de tendencias, necesidades y oportunidades de tu mercado objetivo',
-          'Análisis FODA completo de tu empresa para identificar fortalezas, debilidades, oportunidades y amenazas',
-          'Estudio detallado de la presencia online de tus competidores principales',
-          'Identificación de palabras clave que utilizan tus competidores',
-          'Análisis de sus estrategias de contenido y redes sociales',
-          'Mapeo de oportunidades donde tu negocio puede destacar'
+          'Experiencia usuario que guía hacia productos y reduce abandonos.',
+          'Diseño visual único que genera confianza inmediata en tu marca.',
+          'Adaptación a necesidades para un sitio que vende automáticamente.',
+          'Simplicidad que acelera cargas y mejora retención de leads.'
         ],
-        conclusion: 'Con este análisis en tus manos, dejarás de desperdiciar recursos en tácticas que no funcionan y te enfocarás únicamente en las estrategias probadas que atraen clientes reales a negocios como el tuyo.',
-        ctaTitle: '¿Listo para conocer tu mercado a fondo?',
-        ctaDescription: 'Obtén claridad estratégica y ventaja competitiva desde el primer día',
-        cta: 'Quiero Mi Análisis de Mercado'
+        ctaTitle: '¿Listo para un diseño que convierte?',
+        ctaDescription: 'Crea una experiencia visual atractiva que destaca tus productos',
+        cta: 'Quiero Mi Diseño UX/UI'
       }
     },
     {
       id: 1,
-      title: 'Propuesta de Valor',
-      subtitle: 'Definición de tu Propuesta de Valor Única (USP)',
-      image: '/images/categorias/analisis-estrategico/propuesta-valor.webp',
+      title: 'Cabecera Fija con Botones',
+      subtitle: 'Conecta Rápido con Cabecera Fija',
+      image: '/images/categorias/desarrollo-web/go-2025-cabecera.webp',
       content: {
-        intro: '¿Alguna vez te has preguntado por qué los clientes deberían elegirte a ti y no a tu competencia?',
-        description: 'La verdad es cruda pero necesaria: si no puedes explicar en 30 segundos por qué alguien debería comprarte a ti, perderás al cliente. Tu propuesta de valor única es esa razón poderosa, ese "algo especial" que hace que los clientes digan "esto es exactamente lo que necesito".',
-        subtitle2: '¿Por qué necesitas una Propuesta de Valor clara?',
-        description2: 'En un mercado saturado, donde tus competidores ofrecen productos o servicios similares, tu propuesta de valor es el diferenciador que convierte. No se trata de ser "mejor" genéricamente, sino de ser la opción perfecta para un tipo específico de cliente.',
-        question: '¿Sabías que las empresas con una propuesta de valor clara convierten hasta 3 veces más que aquellas con mensajes genéricos?',
-        listTitle: 'Nuestro proceso colaborativo incluye:',
+        intro: '¿Imaginas interacciones instantáneas que conviertan prospectos en clientes sin demoras?',
+        description: 'La cabecera fija con logo y botones WhatsApp/Compartir facilita comunicaciones directas para independientes y pymes, resolviendo "cómo ganar clientes" al impulsar shares y consultas rápidas. Esto dinamiza networking, atrae tráfico orgánico y genera leads constantes, ofreciendo una ventaja sobre tarjetas digitales al integrar herramientas sociales en un sitio estático seguro con SSL para protección de datos sin inversiones extras iniciales.',
+        listTitle: 'Ventajas de la Cabecera Estratégica',
         items: [
-          'Entrevistas profundas para descubrir los elementos únicos de tu negocio',
-          'Análisis de feedback de tus clientes actuales para identificar qué valoran realmente',
-          'Comparación estratégica con tu competencia para encontrar tu espacio único',
-          'Creación de un mensaje claro, conciso y memorable que comunique tu USP',
-          'Desarrollo de argumentos de venta basados en tu propuesta de valor',
-          'Guía para comunicar tu diferenciación en todos tus canales'
+          'Botones WhatsApp para respuestas inmediatas y ventas directas.',
+          'Función Compartir que expande alcance en redes sociales.',
+          'Logo fijo que refuerza identidad de marca en toda navegación.',
+          'Integración simple que soporta crecimiento sin rediseños costosos.'
         ],
-        conclusion: 'Al final del proceso, tendrás un mensaje cristalino que no solo explica qué haces, sino por qué los clientes te necesitan específicamente a ti. Este mensaje se convertirá en el corazón de toda tu comunicación: web, redes sociales, publicidad y conversaciones de venta.',
-        ctaTitle: '¿Quieres dejar de parecer "uno más del montón"?',
-        ctaDescription: 'Define tu propuesta de valor y atrae a los clientes ideales que buscan exactamente lo que ofreces',
-        cta: 'Descubre Mi Ventaja Competitiva'
+        ctaTitle: '¿Quieres comunicación instantánea con clientes?',
+        ctaDescription: 'Facilita interacciones directas con botones estratégicos',
+        cta: 'Quiero Mi Cabecera Interactiva'
       }
     },
     {
       id: 2,
-      title: 'SEO Local',
-      subtitle: 'Estrategia de Posicionamiento Local (SEO)',
-      image: '/images/posicionamiento_slide_seo_objetivo.webp',
+      title: 'Tres Secciones Estratégicas',
+      subtitle: 'Estructura con Tres Secciones Clave',
+      image: '/images/web.webp',
       content: {
-        intro: '¿De qué sirve tener el mejor producto o servicio si nadie te encuentra cuando te buscan en Google?',
-        description: 'Cada día, miles de personas en tu zona buscan en Google exactamente lo que tú ofreces. Pero si no apareces en la primera página, es como si no existieras. El 75% de los usuarios nunca pasa de la primera página de resultados. Por eso, el posicionamiento SEO no es un lujo, es una necesidad para sobrevivir en el mercado digital.',
-        subtitle2: '¿Por qué el SEO local es vital para tu negocio?',
-        description2: 'Piénsalo: cuando alguien busca "artesano en [tu ciudad]" o "servicio de [lo que ofreces] cerca de mí", está listo para comprar. Tiene una necesidad inmediata y está buscando activamente una solución. Si apareces primero, el cliente es tuyo.',
-        question: '¿Sabías que el 46% de todas las búsquedas en Google tienen intención local?',
-        listTitle: 'Nuestra estrategia de posicionamiento incluye:',
+        intro: '¿Qué si tu web muestra productos y contactos de forma clara, atrayendo clientes en minutos?',
+        description: 'Incluye Portada, Servicios/Productos y Contactos para organizar contenido esencial en pymes e independientes, optimizando para "planificación para conseguir más clientes" con presentaciones atractivas. Esto resuelve sobrecargas informativas, facilita mostrar ofertas con detalles relevantes y captura leads directos, elevando visibilidad sobre opciones básicas como tarjetas digitales sin requerir mantenimiento ni complicaciones técnicas abrumadoras.',
+        listTitle: 'Impacto de las Secciones Estratégicas',
         items: [
-          'Análisis de hasta 2000 palabras clave relevantes para tu nicho y ubicación geográfica',
-          'Identificación de palabras clave con alta intención de compra',
-          'Estudio de la intención de búsqueda para crear contenido que responda exactamente lo que buscan',
-          'Estrategia completa de creación de contenido optimizado (artículos, posts, videos)',
-          'Plan de artículos cluster y pilares para dominar tu nicho',
-          'Calendario editorial con temas específicos listos para implementar',
-          'Guía de optimización on-page (títulos, meta descripciones, encabezados)',
-          'Técnicas de redacción SEO persuasiva que convierte visitas en clientes'
+          'Portada atractiva que capta atención y presenta tu esencia.',
+          'Sección productos que destaca características y reseñas clave.',
+          'Contactos optimizados para consultas rápidas y seguras.',
+          'Estructura escalable que atrae tráfico orgánico sostenido.'
         ],
-        conclusion: 'No estamos hablando de aparecer en Google "algún día". Estamos hablando de crear una máquina de atracción de clientes que trabaja para ti 24/7, posicionándote como la autoridad en tu sector y trayendo tráfico cualificado que se convierte en ventas reales.',
-        question2: '¿Estás listo para que tus clientes ideales te encuentren antes que a tu competencia?',
-        ctaTitle: '¿Quieres aparecer cuando tus clientes te buscan?',
-        ctaDescription: 'Domina Google en tu zona y convierte búsquedas en clientes reales',
-        cta: 'Quiero Posicionarme en Google'
+        ctaTitle: '¿Quieres una estructura que vende?',
+        ctaDescription: 'Organiza tu contenido para máxima conversión',
+        cta: 'Quiero Mi Estructura Web'
       }
     },
     {
       id: 3,
-      title: 'Contenido y Promoción',
-      subtitle: 'Plan de Acción para Promoción y Publicidad',
-      image: '/images/ads.webp',
+      title: 'SEO Básico y Dominio/Hosting',
+      subtitle: 'Posiciona con SEO y Seguridad',
+      image: '/images/posicionamiento_slide_seo_objetivo.webp',
       content: {
-        intro: '¿Cuántas veces te has sentado frente a tu computadora sin saber qué publicar en redes sociales o en tu blog?',
-        description: 'La falta de un plan de contenidos es una de las principales razones por las que los negocios abandonan sus esfuerzos de marketing digital. Publican sin estrategia, sin consistencia, y terminan frustrados porque "las redes no funcionan". La realidad es que las redes SÍ funcionan, pero solo cuando sabes qué publicar, cuándo publicarlo y cómo hacerlo de manera que conecte con tu audiencia.',
-        subtitle2: '¿Por qué necesitas un plan de contenidos estructurado?',
-        description2: 'El contenido es el puente entre tu negocio y tus clientes. Es lo que construye confianza, demuestra tu experiencia y convence a las personas de que eres la solución que necesitan. Pero crear contenido efectivo no es publicar lo primero que se te ocurra, es una ciencia que combina estrategia, psicología y datos.',
-        question: '¿Sabías que las empresas con estrategia de contenido documentada obtienen 6 veces más conversiones que las que improvisan?',
-        listTitle: 'Tu plan de contenido personalizado incluye:',
+        intro: '¿Estás listo para que tu dominio propio aparezca en Google y proteja datos de clientes?',
+        description: 'Configura palabra clave principal y tres relacionadas con dominio/hosting primer año y SSL para artesanos y pymes, impulsando visibilidad en búsquedas como "cómo ganar clientes". Esto construye confianza, mejora indexación orgánica y atrae leads cualificados, superando tarjetas digitales al ofrecer una plataforma sólida sin costos recurrentes ni riesgos, permitiendo decisiones informadas para crecimiento digital inicial.',
+        listTitle: 'Elementos para Visibilidad Segura',
         items: [
-          'Calendario editorial completo con temas específicos para cada semana',
-          'Ideas concretas de contenido adaptadas a tu negocio y audiencia',
-          'Optimización completa de tus perfiles en redes sociales',
-          'Guía detallada de redacción persuasiva y storytelling',
-          'Estructura de posts con "copy" que convierte',
-          'Formatos de contenido variados (texto, imágenes, video, historias)',
-          'Estrategia de contenido multimedia para máximo engagement',
-          'Tips de diseño y elementos visuales que captan atención',
-          'Plantillas y ejemplos listos para adaptar'
+          'SEO básico que posiciona en resultados relevantes rápidamente.',
+          'Dominio propio que eleva profesionalismo y memorabilidad.',
+          'Hosting incluido para lanzamiento sin demoras extras.',
+          'SSL que protege interacciones y genera lealtad de usuarios.'
         ],
-        conclusion: 'Ya no tendrás que preguntarte "¿qué publico hoy?". Tendrás un sistema claro y probado que te dice exactamente qué contenido crear, cómo presentarlo y cuándo compartirlo para maximizar el alcance y las conversiones.',
-        question2: '¿Listo para crear contenido que realmente vende?',
-        extraNote: 'Además, incluimos asesoramiento personalizado en cada fase: desde la conceptualización hasta la ejecución. No te dejamos solo con un documento, te guiamos para que implementes cada elemento de forma efectiva.',
-        ctaTitle: '¿Cansado de publicar sin resultados?',
-        ctaDescription: 'Obtén un plan de contenidos profesional que atrae, educa y convierte',
-        cta: 'Dame Mi Estrategia de Contenido'
+        ctaTitle: '¿Quieres aparecer en Google con seguridad?',
+        ctaDescription: 'Posiciona tu negocio con SEO y protección SSL',
+        cta: 'Quiero Mi SEO y Dominio'
       }
     }
   ];
@@ -130,7 +98,7 @@ export default function EstrategiaGanarClientes() {
         {/* Imagen de fondo */}
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/images/efecto_parallax/proteger-lo_que_has_construido_color.webp')" }}
+          style={{ backgroundImage: "url('/images/categorias/desarrollo-web/go-2025-hero.webp')" }}
           aria-hidden="true"
         />
         {/* Overlay para contraste */}
@@ -139,17 +107,17 @@ export default function EstrategiaGanarClientes() {
         <div className="relative z-10 w-full">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto text-center py-16 md:py-24">
-              <Link href="/servicios/analisis-estrategico" className="inline-flex items-center text-blue-200 hover:text-white mb-6 transition-colors">
-                <ArrowLeft className="w-4 h-4 mr-2" /> Volver a Análisis Estratégico
+              <Link href="/servicios/desarrollo-web" className="inline-flex items-center text-blue-200 hover:text-white mb-6 transition-colors">
+                <ArrowLeft className="w-4 h-4 mr-2" /> Volver a Desarrollo Web
               </Link>
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">Atrae Clientes de Calidad Sin Depender de la Suerte</h1>
-              <p className="text-base md:text-lg lg:text-xl text-blue-100 mb-8 max-w-4xl mx-auto px-4">Deja de perder tiempo y dinero en estrategias que no funcionan. Obtén un plan de marketing probado que convierte visitantes en clientes reales, diseñado específicamente para artesanos, profesionales independientes y PYMEs.</p>
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">Tu Primera Web Profesional Sin Mantenimiento Alto</h1>
+              <p className="text-base md:text-lg lg:text-xl text-blue-100 mb-8 max-w-4xl mx-auto px-4">Inicia tu presencia digital con una página estática que posiciona tu marca y atrae clientes sin costos recurrentes. Por solo 250 USD único, obtén un sitio intuitivo con dominio propio, botones WhatsApp y SEO básica, mejor que una tarjeta digital para mostrar productos y ganar leads orgánicos.</p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 px-4">
                 <Button className="bg-white text-blue-700 hover:bg-blue-50 px-6 md:px-8 py-4 md:py-6 text-base md:text-lg font-semibold w-full sm:w-auto">
-                  <span className="hidden sm:inline">Agenda tu Llamada Estratégica</span>
+                  <span className="hidden sm:inline">Agenda Tu Llamada Gratuita Ahora</span>
                   <span className="sm:hidden">Agenda tu Llamada</span>
                 </Button>
-                <span className="text-base md:text-lg text-blue-100">Inversión única: <strong className="text-white">$1,550</strong></span>
+                <span className="text-base md:text-lg text-blue-100">Inversión única: <strong className="text-white">$250</strong></span>
               </div>
             </div>
           </div>
@@ -160,14 +128,14 @@ export default function EstrategiaGanarClientes() {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">¿Cómo Crear la Estrategia para Ganar Clientes?</h2>
-            <p className="text-gray-700 mb-4 text-center">Ganar clientes no es cuestión de suerte ni de publicar contenido al azar. Se trata de entender profundamente a tu audiencia, conocer qué hace tu competencia, posicionarte estratégicamente en los buscadores y comunicar tu valor de forma clara y convincente.</p>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">Cómo Crear la Estrategia para Ganar Clientes con Tu Primera Web</h2>
+            <p className="text-gray-700 mb-4 text-center">Para artesanos, independientes y pymes, ganar clientes empieza con una web simple que muestre productos, facilite contactos y posicione en búsquedas, capturando leads sin complicaciones diarias.</p>
 
             <details className="group">
               <summary className="cursor-pointer select-none text-blue-700 hover:text-blue-800 font-semibold text-center mb-4">Seguir leyendo</summary>
               <div className="mt-2">
-                <p className="text-gray-700 mb-4">La estrategia efectiva para conseguir más clientes se construye sobre cuatro pilares fundamentales: conocer tu mercado y competencia, definir qué te hace único, aparecer donde tus clientes te buscan, y crear contenido que conecte y convierta.</p>
-                <p className="text-gray-700">A continuación, descubre los componentes esenciales que incluye nuestra Estrategia Ganar Clientes y cómo cada uno trabaja para atraer a las personas correctas hacia tu negocio:</p>
+                <p className="text-gray-700 mb-4 font-bold">La clave es un sitio estático que convierte visitas en clientes mediante diseño UX intuitivo, secciones clave para ofertas y optimizaciones SEO para términos como "cómo ganar clientes" o "mostrar mis productos".</p>
+                <p className="text-gray-700">Desglosiémoslo en cuatro pasos esenciales de nuestro paquete "GO 2025", para que implementes una estrategia efectiva y veas resultados rápidos en visibilidad y conversiones digitales.</p>
               </div>
             </details>
           </div>
@@ -178,8 +146,8 @@ export default function EstrategiaGanarClientes() {
       <section className="py-16 bg-gradient-to-b from-gray-900 to-gray-800 overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">No imites, sigue un plan con fundamentos</h2>
-            <p className="text-base md:text-lg text-gray-300 mt-4">Las decisiones importantes no se toman por intuición, sino con datos reales, análisis y el apoyo de profesionales que saben cómo llevar tu negocio al siguiente nivel.</p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">Descubre los 4 Pilares de GO 2025</h2>
+            <p className="text-base md:text-lg text-gray-300 mt-4">Cada elemento de tu primera web está diseñado para convertir visitantes en clientes, sin complicaciones técnicas ni costos recurrentes.</p>
           </div>
 
           <div className="w-full max-w-6xl mx-auto">
@@ -214,17 +182,6 @@ export default function EstrategiaGanarClientes() {
                     <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4 break-words">{activeTab + 1}. {tabs[activeTab].subtitle}</h3>
                     <p className="text-blue-400 font-medium mb-3 italic">{tabs[activeTab].content.intro}</p>
                     <p className="text-gray-300 mb-4">{tabs[activeTab].content.description}</p>
-                    
-                    {tabs[activeTab].content.subtitle2 && (
-                      <>
-                        <h4 className="text-xl font-semibold text-white mt-6 mb-3">{tabs[activeTab].content.subtitle2}</h4>
-                        <p className="text-gray-300 mb-3">{tabs[activeTab].content.description2}</p>
-                      </>
-                    )}
-                    
-                    {tabs[activeTab].content.question && (
-                      <p className="text-blue-400 font-medium mb-4 italic">{tabs[activeTab].content.question}</p>
-                    )}
                   </div>
 
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 items-start">
@@ -255,19 +212,6 @@ export default function EstrategiaGanarClientes() {
                       </ul>
                     </div>
                   </div>
-
-                  {/* Conclusión y preguntas adicionales */}
-                  {tabs[activeTab].content.conclusion && (
-                    <p className="text-gray-300 mt-6 mb-4">{tabs[activeTab].content.conclusion}</p>
-                  )}
-                  
-                  {tabs[activeTab].content.question2 && (
-                    <p className="text-blue-400 font-medium mb-4 italic">{tabs[activeTab].content.question2}</p>
-                  )}
-                  
-                  {tabs[activeTab].content.extraNote && (
-                    <p className="text-gray-300 mb-6">{tabs[activeTab].content.extraNote}</p>
-                  )}
 
                   {/* CTA Box */}
                   <div className="bg-blue-600/20 border border-blue-500/30 rounded-xl p-6 mt-6">
@@ -330,9 +274,10 @@ export default function EstrategiaGanarClientes() {
 
           {/* CTA inferior */}
           <div className="max-w-3xl mx-auto text-center mt-16 px-4">
-            <p className="text-lg md:text-xl italic text-gray-300">Imagina tu empresa creciendo según las proyecciones, combinando datos reales y proyecciones para monitorear el cumplimiento de metas</p>
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">¿Listo para Lanzar Tu Primera Web?</h3>
+            <p className="text-lg md:text-xl italic text-gray-300">No esperes más para posicionar tu marca y ganar clientes. Agenda una llamada y adaptemos "GO 2025" a ti.</p>
             <Button className="mt-8 font-bold bg-blue-600 hover:bg-blue-700 text-white px-6 md:px-8 py-3 md:py-4 w-full sm:w-auto text-sm md:text-base">
-              Agenda una llamada - Haz clic aquí
+              Agenda Tu Llamada Gratuita
             </Button>
           </div>
         </div>
@@ -342,8 +287,8 @@ export default function EstrategiaGanarClientes() {
       <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Transforma tu Presencia Digital y Atrae Clientes Reales</h2>
-            <p className="text-lg text-gray-700 mb-12">No más intentos a ciegas. No más tiempo perdido. Obtén el plan completo que necesitas para destacar, posicionarte y crecer.</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Inicia "GO 2025" y Atrae Clientes Hoy</h2>
+            <p className="text-lg text-gray-700 mb-12">Por 250 USD único, obtén una web estática premium con diseño UX, botones interactivos, secciones clave y SEO para pymes e independientes. Muestra productos, comunica rápido y posiciona tu dominio para leads constantes y crecimiento sólido.</p>
             
             {/* Cards con iconos y halos - Slider en móvil, Grid en desktop */}
             <div className="relative mb-12">
@@ -464,13 +409,24 @@ export default function EstrategiaGanarClientes() {
 
             {/* Pricing y CTA */}
             <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-6 md:p-8 text-white shadow-2xl">
-              <div className="text-2xl md:text-3xl font-bold mb-2">Inversión Única: $1,550</div>
-              <div className="text-sm md:text-base text-blue-100 mb-6">Incluye: 3 Sesiones de Consultoría + Análisis Completo + Plan de Acción + Seguimiento a 3 Meses</div>
+              <h3 className="text-xl md:text-2xl font-bold mb-4">Beneficios Principales</h3>
+              <div className="grid md:grid-cols-3 gap-4 mb-6">
+                <div className="text-center">
+                  <p className="font-semibold">Plataforma profesional sólida</p>
+                </div>
+                <div className="text-center">
+                  <p className="font-semibold">Visibilidad SEO optimizada</p>
+                </div>
+                <div className="text-center">
+                  <p className="font-semibold">Comunicación WhatsApp rápida</p>
+                </div>
+              </div>
+              <div className="text-2xl md:text-3xl font-bold mb-2">Inversión Única: $250</div>
+              <div className="text-sm md:text-base text-blue-100 mb-6">Dominio/hosting primer año. Seguridad SSL incluida para confianza.</div>
               <Button className="bg-white text-blue-700 hover:bg-gray-100 px-4 md:px-8 py-4 md:py-6 text-base md:text-lg font-bold shadow-lg w-full sm:w-auto">
-                <span className="hidden sm:inline">Agenda tu Llamada Estratégica Ahora</span>
-                <span className="sm:hidden">Agenda tu Llamada Ahora</span>
+                <span className="hidden sm:inline">Comenzar Mi Proyecto GO 2025</span>
+                <span className="sm:hidden">Comenzar GO 2025</span>
               </Button>
-              <div className="text-xs md:text-sm text-blue-100 mt-4">Garantía de satisfacción | Sesión de seguimiento incluida | Soporte continuo</div>
             </div>
           </div>
         </div>

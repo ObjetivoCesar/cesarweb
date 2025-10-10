@@ -14,7 +14,7 @@ export default function AnalisisCompetencia() {
       id: 0,
       title: 'Radiografía del Mercado',
       subtitle: 'Radiografía Completa del Mercado Digital',
-      image: '/images/efecto_parallax/radiografia-mercado.webp',
+      image: '/images/categorias/analisis-estrategico/radiografia-mercado.webp',
       content: {
         intro: '¿Sabías que el 70% de los negocios que fracasan nunca entendieron realmente su mercado digital?',
         description: 'No puedes competir en un mercado que no entiendes. Mientras tú publicas contenido esperando resultados, tus competidores están aprovechando tendencias específicas, hablándole directamente a nichos segmentados y capturando clientes con precisión quirúrgica.',
@@ -44,7 +44,7 @@ export default function AnalisisCompetencia() {
       id: 1,
       title: 'Espionaje Estratégico',
       subtitle: 'Espionaje Estratégico de tus Competidores Digitales',
-      image: '/images/efecto_parallax/espionaje-competencia.webp',
+      image: '/images/categorias/analisis-estrategico/espionaje-competencia.webp',
       content: {
         intro: '¿Te has preguntado por qué algunos de tus competidores tienen tantos seguidores, tanto tráfico y tantos clientes?',
         description: 'La respuesta está en sus estrategias digitales. Y la buena noticia es que no son secretas, solo necesitas saber dónde buscar y qué analizar. Mientras tú intentas reinventar la rueda, tus competidores ya descubrieron qué funciona y lo están usando para capturar clientes todos los días.',
@@ -76,7 +76,7 @@ export default function AnalisisCompetencia() {
       id: 2,
       title: 'Benchmarking',
       subtitle: 'Benchmarking Digital: ¿Dónde Estás Parado Frente a tu Competencia?',
-      image: '/images/efecto_parallax/benchmarking-digital.webp',
+      image: '/images/categorias/analisis-estrategico/benchmarking-digital.webp',
       content: {
         intro: '¿Cómo puedes mejorar si no sabes en qué estás fallando?',
         description: 'El benchmarking es como un espejo brutal pero necesario. Te muestra exactamente dónde estás ganando y dónde estás perdiendo frente a tu competencia. Y la realidad puede sorprenderte: a veces crees que estás bien cuando en realidad estás años luz atrás. Otras veces, estás mucho mejor de lo que piensas pero no lo estás aprovechando.',
@@ -110,7 +110,7 @@ export default function AnalisisCompetencia() {
       id: 3,
       title: 'Plan de Acción',
       subtitle: 'Plan de Acción Claro: Recomendaciones Específicas para Superarlos',
-      image: '/images/efecto_parallax/plan-accion.webp',
+      image: '/images/categorias/analisis-estrategico/plan-accion.webp',
       content: {
         intro: '¿De qué sirve toda esta información si no sabes qué hacer con ella?',
         description: 'Aquí es donde la mayoría de los análisis de competencia fallan. Te dan 50 páginas de datos, gráficos y comparaciones, pero al final te dejan con una pregunta: "¿Y ahora qué hago?". Nosotros no hacemos eso. Te damos un plan de acción específico, priorizado y listo para implementar.',
@@ -181,7 +181,7 @@ export default function AnalisisCompetencia() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/efecto_parallax/analisis-competencia-hero.webp"
+            src="/images/categorias/analisis-estrategico/analisis-competencia-hero.webp"
             alt="Análisis de Competencia"
             fill
             className="object-cover"

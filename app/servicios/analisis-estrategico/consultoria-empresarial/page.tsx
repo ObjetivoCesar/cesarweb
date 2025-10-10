@@ -14,7 +14,7 @@ export default function ConsultoriaEmpresarial() {
       id: 0,
       title: 'Sesión de Descubrimiento',
       subtitle: 'Sesión de Descubrimiento: La Base de Todo Negocio Exitoso',
-      image: '/images/efecto_parallax/sesion-descubrimiento.webp',
+      image: '/images/categorias/analisis-estrategico/sesion-descubrimiento.webp',
       content: {
         intro: '¿Sabías que el 42% de los negocios fracasan porque no hay demanda real para lo que ofrecen?',
         description: 'Antes de invertir un solo peso, necesitas saber si tu idea es viable, quién es realmente tu cliente ideal, qué competencia enfrentas y cuáles son tus verdaderas fortalezas. Sin esta claridad, estás construyendo sobre arena. Con ella, construyes sobre roca.',
@@ -48,7 +48,7 @@ export default function ConsultoriaEmpresarial() {
       id: 1,
       title: 'Misión y Visión',
       subtitle: 'Definición de Misión y Visión: El Alma de tu Negocio',
-      image: '/images/efecto_parallax/mision-vision.webp',
+      image: '/images/categorias/analisis-estrategico/mision-vision.webp',
       content: {
         intro: '¿Alguna vez te has preguntado por qué algunos negocios inspiran lealtad mientras otros solo compiten por precio?',
         description: 'La diferencia está en el propósito. Los negocios con misión y visión claras no solo venden productos o servicios, venden una causa, una creencia, una forma de ver el mundo. Y las personas no compran productos, compran identidad y pertenencia.',

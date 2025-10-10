@@ -14,7 +14,7 @@ export default function EstudioFactibilidad() {
       id: 0,
       title: 'Estudio de Mercado',
       subtitle: 'Estudio Profundo de Mercado y Competencia',
-      image: '/images/efecto_parallax/estudio-mercado.webp',
+      image: '/images/categorias/analisis-estrategico/estudio-mercado.webp',
       content: {
         intro: '¿Sabías que el 20% de los negocios fracasan en su primer año, y el 50% antes del quinto año?',
         description: 'La principal razón no es falta de capital o mala suerte. Es falta de conocimiento del mercado. Inician negocios en mercados saturados, sin diferenciación clara, sin entender a su competencia, o peor aún, sin validar que existe demanda real para lo que quieren vender.',

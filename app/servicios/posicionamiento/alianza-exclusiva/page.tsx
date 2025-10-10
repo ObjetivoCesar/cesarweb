@@ -6,120 +6,88 @@ import { ArrowLeft, Check, BarChart, Target, Search, BookOpen, ChevronLeft, Chev
 import { useState } from 'react';
 import Image from 'next/image';
 
-export default function EstrategiaGanarClientes() {
+export default function AlianzaExclusiva() {
   const [activeTab, setActiveTab] = useState(0);
   
   const tabs = [
     {
       id: 0,
-      title: 'Análisis de Mercado',
-      subtitle: 'Análisis Exhaustivo de Mercado y Competencia',
-      image: '/images/categorias/analisis-estrategico/estudio-mercado.webp',
+      title: 'Inversión Inicial Cero',
+      subtitle: 'Elimina Barreras con Inversión Inicial Cero',
+      image: '/images/categorias/posicionamiento/inversion-cero.webp',
       content: {
-        intro: '¿Sabías que el 60% de las empresas fracasan por no conocer realmente a su competencia y mercado?',
-        description: 'No puedes ganar una batalla si no conoces el terreno. Por eso, antes de lanzar cualquier estrategia, necesitas entender profundamente tu mercado: quiénes son tus competidores reales (no solo los obvios), qué están haciendo bien, dónde están fallando y, lo más importante, qué oportunidades están dejando pasar que tú puedes aprovechar.',
-        subtitle2: '¿Por qué es fundamental conocer a tu competencia?',
-        description2: 'Imagina tener acceso a una radiografía completa de las estrategias digitales de tus competidores: sus palabras clave más rentables, el tipo de contenido que publican, cómo interactúan en redes sociales, y cuáles son sus puntos débiles. Esta información te permite dejar de adivinar y empezar a actuar con datos concretos.',
-        question: '¿Te imaginas tomar decisiones de marketing sabiendo exactamente qué funciona en tu industria y qué no?',
-        listTitle: 'Nuestro análisis incluye:',
+        intro: '¿Sabías lo liberador de lanzar un ecommerce profesional sin costos iniciales?',
+        description: 'Asumimos desarrollo de sitio ecommerce 30 productos, dominio, hosting 24 meses, fotos profesionales y estudio mercado valorado desde 1550 USD para pymes, resolviendo objeciones financieras mientras optimizas para "mostrar productos". Esto incluye recursos para inventario, atrayendo leads orgánicos con plataforma sólida que genera confianza y convierte visitantes en ventas sin riesgos upfront.',
+        listTitle: 'Beneficios Clave Inversión Inicial Cero',
         items: [
-          'Investigación profunda de tendencias, necesidades y oportunidades de tu mercado objetivo',
-          'Análisis FODA completo de tu empresa para identificar fortalezas, debilidades, oportunidades y amenazas',
-          'Estudio detallado de la presencia online de tus competidores principales',
-          'Identificación de palabras clave que utilizan tus competidores',
-          'Análisis de sus estrategias de contenido y redes sociales',
-          'Mapeo de oportunidades donde tu negocio puede destacar'
+          'Lanzamiento rápido con ecommerce listo para 30 productos y fotos profesionales incluidas.',
+          'Acceso a herramientas premium que diferencian tu marca inmediatamente en el mercado.',
+          'Enfoque total en ventas sin preocupaciones por costos iniciales elevados o inversiones extras.',
+          'Alianza que alinea incentivos mutuos para resultados sostenibles, escalables y medibles constantemente.'
         ],
-        conclusion: 'Con este análisis en tus manos, dejarás de desperdiciar recursos en tácticas que no funcionan y te enfocarás únicamente en las estrategias probadas que atraen clientes reales a negocios como el tuyo.',
-        ctaTitle: '¿Listo para conocer tu mercado a fondo?',
-        ctaDescription: 'Obtén claridad estratégica y ventaja competitiva desde el primer día',
-        cta: 'Quiero Mi Análisis de Mercado'
+        ctaTitle: '¿Listo para lanzar sin inversión inicial?',
+        ctaDescription: 'Elimina barreras financieras y comienza a vender',
+        cta: 'Quiero Mi Ecommerce Sin Inversión'
       }
     },
     {
       id: 1,
-      title: 'Propuesta de Valor',
-      subtitle: 'Definición de tu Propuesta de Valor Única (USP)',
-      image: '/images/categorias/analisis-estrategico/propuesta-valor.webp',
+      title: 'Plan Estratégico Marketing',
+      subtitle: 'Diferénciate con Plan Estratégico Exclusivo',
+      image: '/images/categorias/posicionamiento/plan-estrategico.webp',
       content: {
-        intro: '¿Alguna vez te has preguntado por qué los clientes deberían elegirte a ti y no a tu competencia?',
-        description: 'La verdad es cruda pero necesaria: si no puedes explicar en 30 segundos por qué alguien debería comprarte a ti, perderás al cliente. Tu propuesta de valor única es esa razón poderosa, ese "algo especial" que hace que los clientes digan "esto es exactamente lo que necesito".',
-        subtitle2: '¿Por qué necesitas una Propuesta de Valor clara?',
-        description2: 'En un mercado saturado, donde tus competidores ofrecen productos o servicios similares, tu propuesta de valor es el diferenciador que convierte. No se trata de ser "mejor" genéricamente, sino de ser la opción perfecta para un tipo específico de cliente.',
-        question: '¿Sabías que las empresas con una propuesta de valor clara convierten hasta 3 veces más que aquellas con mensajes genéricos?',
-        listTitle: 'Nuestro proceso colaborativo incluye:',
+        intro: '¿Imaginas usar insights de competidores para captar más clientes sin reinventar estrategias?',
+        description: 'Garantizamos no trabajar con rivales en tu zona, desarrollando plan estratégico con estudio competencia, encuestas, FODA, palabras clave y posicionamiento para pymes, resolviendo "planificación para clientes" al identificar gaps y oportunidades. Esto optimiza marketing estacional, genera leads cualificados y atrae tráfico orgánico, asegurando que tu ecommerce destaque en búsquedas relevantes sin complejidades.',
+        listTitle: 'Ventajas Plan Estratégico y Equipo Exclusivo',
         items: [
-          'Entrevistas profundas para descubrir los elementos únicos de tu negocio',
-          'Análisis de feedback de tus clientes actuales para identificar qué valoran realmente',
-          'Comparación estratégica con tu competencia para encontrar tu espacio único',
-          'Creación de un mensaje claro, conciso y memorable que comunique tu USP',
-          'Desarrollo de argumentos de venta basados en tu propuesta de valor',
-          'Guía para comunicar tu diferenciación en todos tus canales'
+          'Análisis FODA que revela fortalezas únicas para posicionar productos diferenciados efectivamente.',
+          'Estudio palabras clave que impulsa apariciones orgánicas en Google rápidamente y sostenidamente.',
+          'Estrategias personalizadas que captan mercados locales y priorizan tu éxito sin competencia directa.',
+          'Protección contractual contra dilución de esfuerzos con soporte dedicado y confianza en alianza ética.'
         ],
-        conclusion: 'Al final del proceso, tendrás un mensaje cristalino que no solo explica qué haces, sino por qué los clientes te necesitan específicamente a ti. Este mensaje se convertirá en el corazón de toda tu comunicación: web, redes sociales, publicidad y conversaciones de venta.',
-        ctaTitle: '¿Quieres dejar de parecer "uno más del montón"?',
-        ctaDescription: 'Define tu propuesta de valor y atrae a los clientes ideales que buscan exactamente lo que ofreces',
-        cta: 'Descubre Mi Ventaja Competitiva'
+        ctaTitle: '¿Quieres una estrategia exclusiva?',
+        ctaDescription: 'Obtén un plan personalizado sin competencia directa',
+        cta: 'Quiero Mi Plan Estratégico'
       }
     },
     {
       id: 2,
-      title: 'SEO Local',
-      subtitle: 'Estrategia de Posicionamiento Local (SEO)',
+      title: 'Posicionamiento Digital 24 Meses',
+      subtitle: 'Avanza con Posicionamiento Digital Medible',
       image: '/images/posicionamiento_slide_seo_objetivo.webp',
       content: {
-        intro: '¿De qué sirve tener el mejor producto o servicio si nadie te encuentra cuando te buscan en Google?',
-        description: 'Cada día, miles de personas en tu zona buscan en Google exactamente lo que tú ofreces. Pero si no apareces en la primera página, es como si no existieras. El 75% de los usuarios nunca pasa de la primera página de resultados. Por eso, el posicionamiento SEO no es un lujo, es una necesidad para sobrevivir en el mercado digital.',
-        subtitle2: '¿Por qué el SEO local es vital para tu negocio?',
-        description2: 'Piénsalo: cuando alguien busca "artesano en [tu ciudad]" o "servicio de [lo que ofreces] cerca de mí", está listo para comprar. Tiene una necesidad inmediata y está buscando activamente una solución. Si apareces primero, el cliente es tuyo.',
-        question: '¿Sabías que el 46% de todas las búsquedas en Google tienen intención local?',
-        listTitle: 'Nuestra estrategia de posicionamiento incluye:',
+        intro: '¿Qué si contenido mensual y SEO optimizado atraen clientes constantes sin esfuerzos diarios?',
+        description: 'Ofrecemos 5 artículos sobre tendencias, 20 posts en Facebook/Instagram, página por producto nuevo, optimización SEO, informes mensuales, mantenimiento y 1 campaña publicitaria mensual para pymes. Esto resuelve "ganar clientes" al posicionar en búsquedas orgánicas, genera interacciones en redes enfocadas en branding y mide tráfico/oportunidades, asegurando crecimiento medible sin costos variables inesperados.',
+        listTitle: 'Impacto Posicionamiento Continuo 24 Meses',
         items: [
-          'Análisis de hasta 2000 palabras clave relevantes para tu nicho y ubicación geográfica',
-          'Identificación de palabras clave con alta intención de compra',
-          'Estudio de la intención de búsqueda para crear contenido que responda exactamente lo que buscan',
-          'Estrategia completa de creación de contenido optimizado (artículos, posts, videos)',
-          'Plan de artículos cluster y pilares para dominar tu nicho',
-          'Calendario editorial con temas específicos listos para implementar',
-          'Guía de optimización on-page (títulos, meta descripciones, encabezados)',
-          'Técnicas de redacción SEO persuasiva que convierte visitas en clientes'
+          'Artículos mensuales que educan audiencia y elevan autoridad en Google atrayendo tráfico cualificado.',
+          'Posts optimizados que impulsan engagement auténtico y tráfico sostenido hacia tu sitio web.',
+          'Optimización SEO continua que mejora posiciones en búsquedas, conversiones reales y resultados medibles.',
+          'Informes detallados que validan tu inversión, demuestran ROI transparente y ajustan tácticas efectivas.'
         ],
-        conclusion: 'No estamos hablando de aparecer en Google "algún día". Estamos hablando de crear una máquina de atracción de clientes que trabaja para ti 24/7, posicionándote como la autoridad en tu sector y trayendo tráfico cualificado que se convierte en ventas reales.',
-        question2: '¿Estás listo para que tus clientes ideales te encuentren antes que a tu competencia?',
-        ctaTitle: '¿Quieres aparecer cuando tus clientes te buscan?',
-        ctaDescription: 'Domina Google en tu zona y convierte búsquedas en clientes reales',
-        cta: 'Quiero Posicionarme en Google'
+        ctaTitle: '¿Quieres posicionamiento continuo?',
+        ctaDescription: 'Atrae clientes mes a mes con contenido y SEO optimizado',
+        cta: 'Quiero Posicionamiento Digital'
       }
     },
     {
       id: 3,
-      title: 'Contenido y Promoción',
-      subtitle: 'Plan de Acción para Promoción y Publicidad',
-      image: '/images/ads.webp',
+      title: 'Propiedad Total Garantizada',
+      subtitle: 'Asegura Futuro con Propiedad Total',
+      image: '/images/web.webp',
       content: {
-        intro: '¿Cuántas veces te has sentado frente a tu computadora sin saber qué publicar en redes sociales o en tu blog?',
-        description: 'La falta de un plan de contenidos es una de las principales razones por las que los negocios abandonan sus esfuerzos de marketing digital. Publican sin estrategia, sin consistencia, y terminan frustrados porque "las redes no funcionan". La realidad es que las redes SÍ funcionan, pero solo cuando sabes qué publicar, cuándo publicarlo y cómo hacerlo de manera que conecte con tu audiencia.',
-        subtitle2: '¿Por qué necesitas un plan de contenidos estructurado?',
-        description2: 'El contenido es el puente entre tu negocio y tus clientes. Es lo que construye confianza, demuestra tu experiencia y convence a las personas de que eres la solución que necesitan. Pero crear contenido efectivo no es publicar lo primero que se te ocurra, es una ciencia que combina estrategia, psicología y datos.',
-        question: '¿Sabías que las empresas con estrategia de contenido documentada obtienen 6 veces más conversiones que las que improvisan?',
-        listTitle: 'Tu plan de contenido personalizado incluye:',
+        intro: '¿Estás listo para propiedad completa de tu ecosistema digital tras alianza exitosa?',
+        description: 'Al finalizar 24 meses, transfiere 100% del sitio, dominio y contenido sin restricciones para pymes, con opción continuar posicionamiento o auto-gestión, más renovación hosting económica. Esto impulsa "mostrar productos" con exclusividad sectorial, genera lealtad evitando competencia interna y asegura planificación financiera predecible, permitiendo escalabilidad sin dependencias ni sorpresas post-contrato mientras integras todo el ecosistema llave en mano.',
+        listTitle: 'Elementos Asociación Sostenible y Solución Integral',
         items: [
-          'Calendario editorial completo con temas específicos para cada semana',
-          'Ideas concretas de contenido adaptadas a tu negocio y audiencia',
-          'Optimización completa de tus perfiles en redes sociales',
-          'Guía detallada de redacción persuasiva y storytelling',
-          'Estructura de posts con "copy" que convierte',
-          'Formatos de contenido variados (texto, imágenes, video, historias)',
-          'Estrategia de contenido multimedia para máximo engagement',
-          'Tips de diseño y elementos visuales que captan atención',
-          'Plantillas y ejemplos listos para adaptar'
+          'Propiedad total sin restricciones que empodera control independiente absoluto y flexibilidad estratégica completa.',
+          'Exclusividad zonal contractual que protege tu mercado de dilución estratégica y garantiza enfoque dedicado.',
+          'Gestión completa que cubre desarrollo web, contenido blog SEO, marketing redes y mantenimiento técnico.',
+          'Renovación hosting económica post-alianza con opción extender servicios basados en resultados probados concretos.'
         ],
-        conclusion: 'Ya no tendrás que preguntarte "¿qué publico hoy?". Tendrás un sistema claro y probado que te dice exactamente qué contenido crear, cómo presentarlo y cuándo compartirlo para maximizar el alcance y las conversiones.',
-        question2: '¿Listo para crear contenido que realmente vende?',
-        extraNote: 'Además, incluimos asesoramiento personalizado en cada fase: desde la conceptualización hasta la ejecución. No te dejamos solo con un documento, te guiamos para que implementes cada elemento de forma efectiva.',
-        ctaTitle: '¿Cansado de publicar sin resultados?',
-        ctaDescription: 'Obtén un plan de contenidos profesional que atrae, educa y convierte',
-        cta: 'Dame Mi Estrategia de Contenido'
+        ctaTitle: '¿Quieres propiedad total al finalizar?',
+        ctaDescription: 'Asegura tu ecosistema digital completo sin dependencias',
+        cta: 'Quiero Mi Propiedad Total'
       }
     }
   ];
@@ -130,7 +98,7 @@ export default function EstrategiaGanarClientes() {
         {/* Imagen de fondo */}
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/images/efecto_parallax/proteger-lo_que_has_construido_color.webp')" }}
+          style={{ backgroundImage: "url('/images/categorias/posicionamiento/alianza-exclusiva-hero.webp')" }}
           aria-hidden="true"
         />
         {/* Overlay para contraste */}
@@ -139,17 +107,17 @@ export default function EstrategiaGanarClientes() {
         <div className="relative z-10 w-full">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto text-center py-16 md:py-24">
-              <Link href="/servicios/analisis-estrategico" className="inline-flex items-center text-blue-200 hover:text-white mb-6 transition-colors">
-                <ArrowLeft className="w-4 h-4 mr-2" /> Volver a Análisis Estratégico
+              <Link href="/servicios/posicionamiento" className="inline-flex items-center text-blue-200 hover:text-white mb-6 transition-colors">
+                <ArrowLeft className="w-4 h-4 mr-2" /> Volver a Posicionamiento
               </Link>
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">Atrae Clientes de Calidad Sin Depender de la Suerte</h1>
-              <p className="text-base md:text-lg lg:text-xl text-blue-100 mb-8 max-w-4xl mx-auto px-4">Deja de perder tiempo y dinero en estrategias que no funcionan. Obtén un plan de marketing probado que convierte visitantes en clientes reales, diseñado específicamente para artesanos, profesionales independientes y PYMEs.</p>
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">Tu Alianza Exclusiva para Crecer Sin Inversión Inicial</h1>
+              <p className="text-base md:text-lg lg:text-xl text-blue-100 mb-8 max-w-4xl mx-auto px-4">Forma una sociedad estratégica que construye tu ecommerce y posiciona tu marca en Google, eliminando barreras financieras upfront. Desde 500 USD mensual por 24 meses, asumimos desarrollo valorado desde 1550 USD con SEO continuo, convirtiendo tráfico en ventas para pymes mientras diriges tu negocio.</p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 px-4">
                 <Button className="bg-white text-blue-700 hover:bg-blue-50 px-6 md:px-8 py-4 md:py-6 text-base md:text-lg font-semibold w-full sm:w-auto">
-                  <span className="hidden sm:inline">Agenda tu Llamada Estratégica</span>
+                  <span className="hidden sm:inline">Agenda Tu Llamada Gratuita Ahora</span>
                   <span className="sm:hidden">Agenda tu Llamada</span>
                 </Button>
-                <span className="text-base md:text-lg text-blue-100">Inversión única: <strong className="text-white">$1,550</strong></span>
+                <span className="text-base md:text-lg text-blue-100">Desde: <strong className="text-white">$500/mes</strong> (24 meses)</span>
               </div>
             </div>
           </div>
@@ -160,14 +128,14 @@ export default function EstrategiaGanarClientes() {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">¿Cómo Crear la Estrategia para Ganar Clientes?</h2>
-            <p className="text-gray-700 mb-4 text-center">Ganar clientes no es cuestión de suerte ni de publicar contenido al azar. Se trata de entender profundamente a tu audiencia, conocer qué hace tu competencia, posicionarte estratégicamente en los buscadores y comunicar tu valor de forma clara y convincente.</p>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">Cómo Ganar Clientes con un Socio Digital Exclusivo</h2>
+            <p className="text-gray-700 mb-4 text-center">Para artesanos, independientes y pymes, ganar clientes requiere una alianza que elimine barreras financieras, construyendo ecommerce profesional que muestre productos y genere leads sostenibles mediante SEO enfocado.</p>
 
             <details className="group">
               <summary className="cursor-pointer select-none text-blue-700 hover:text-blue-800 font-semibold text-center mb-4">Seguir leyendo</summary>
               <div className="mt-2">
-                <p className="text-gray-700 mb-4">La estrategia efectiva para conseguir más clientes se construye sobre cuatro pilares fundamentales: conocer tu mercado y competencia, definir qué te hace único, aparecer donde tus clientes te buscan, y crear contenido que conecte y convierta.</p>
-                <p className="text-gray-700">A continuación, descubre los componentes esenciales que incluye nuestra Estrategia Ganar Clientes y cómo cada uno trabaja para atraer a las personas correctas hacia tu negocio:</p>
+                <p className="text-gray-700 mb-4 font-bold">La clave es un socio que asume inversiones, optimizando para búsquedas como "cómo ganar clientes" o "cómo mostrar productos", convirtiendo visibilidad en ventas medibles y escalables.</p>
+                <p className="text-gray-700">Desglosiémoslo en cuatro pasos de nuestra "Alianza Exclusiva", para implementar una estrategia digital y observar aumentos rápidos en tráfico orgánico y clientes cualificados.</p>
               </div>
             </details>
           </div>
@@ -178,8 +146,8 @@ export default function EstrategiaGanarClientes() {
       <section className="py-16 bg-gradient-to-b from-gray-900 to-gray-800 overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">No imites, sigue un plan con fundamentos</h2>
-            <p className="text-base md:text-lg text-gray-300 mt-4">Las decisiones importantes no se toman por intuición, sino con datos reales, análisis y el apoyo de profesionales que saben cómo llevar tu negocio al siguiente nivel.</p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">Descubre los 4 Pilares de la Alianza Exclusiva</h2>
+            <p className="text-base md:text-lg text-gray-300 mt-4">Una asociación estratégica que elimina barreras financieras y construye tu presencia digital completa, sin riesgos iniciales.</p>
           </div>
 
           <div className="w-full max-w-6xl mx-auto">
@@ -214,17 +182,6 @@ export default function EstrategiaGanarClientes() {
                     <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4 break-words">{activeTab + 1}. {tabs[activeTab].subtitle}</h3>
                     <p className="text-blue-400 font-medium mb-3 italic">{tabs[activeTab].content.intro}</p>
                     <p className="text-gray-300 mb-4">{tabs[activeTab].content.description}</p>
-                    
-                    {tabs[activeTab].content.subtitle2 && (
-                      <>
-                        <h4 className="text-xl font-semibold text-white mt-6 mb-3">{tabs[activeTab].content.subtitle2}</h4>
-                        <p className="text-gray-300 mb-3">{tabs[activeTab].content.description2}</p>
-                      </>
-                    )}
-                    
-                    {tabs[activeTab].content.question && (
-                      <p className="text-blue-400 font-medium mb-4 italic">{tabs[activeTab].content.question}</p>
-                    )}
                   </div>
 
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 items-start">
@@ -255,19 +212,6 @@ export default function EstrategiaGanarClientes() {
                       </ul>
                     </div>
                   </div>
-
-                  {/* Conclusión y preguntas adicionales */}
-                  {tabs[activeTab].content.conclusion && (
-                    <p className="text-gray-300 mt-6 mb-4">{tabs[activeTab].content.conclusion}</p>
-                  )}
-                  
-                  {tabs[activeTab].content.question2 && (
-                    <p className="text-blue-400 font-medium mb-4 italic">{tabs[activeTab].content.question2}</p>
-                  )}
-                  
-                  {tabs[activeTab].content.extraNote && (
-                    <p className="text-gray-300 mb-6">{tabs[activeTab].content.extraNote}</p>
-                  )}
 
                   {/* CTA Box */}
                   <div className="bg-blue-600/20 border border-blue-500/30 rounded-xl p-6 mt-6">
@@ -330,9 +274,10 @@ export default function EstrategiaGanarClientes() {
 
           {/* CTA inferior */}
           <div className="max-w-3xl mx-auto text-center mt-16 px-4">
-            <p className="text-lg md:text-xl italic text-gray-300">Imagina tu empresa creciendo según las proyecciones, combinando datos reales y proyecciones para monitorear el cumplimiento de metas</p>
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">¿Listo para Aliarte y Multiplicar Clientes?</h3>
+            <p className="text-lg md:text-xl italic text-gray-300">Elimina barreras financieras y gana leads con una asociación exclusiva dedicada. Agenda ahora y adaptemos esta estrategia.</p>
             <Button className="mt-8 font-bold bg-blue-600 hover:bg-blue-700 text-white px-6 md:px-8 py-3 md:py-4 w-full sm:w-auto text-sm md:text-base">
-              Agenda una llamada - Haz clic aquí
+              Agenda Tu Llamada Gratuita
             </Button>
           </div>
         </div>
@@ -342,8 +287,8 @@ export default function EstrategiaGanarClientes() {
       <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Transforma tu Presencia Digital y Atrae Clientes Reales</h2>
-            <p className="text-lg text-gray-700 mb-12">No más intentos a ciegas. No más tiempo perdido. Obtén el plan completo que necesitas para destacar, posicionarte y crecer.</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Forma Alianza Exclusiva y Crece Tu Negocio Hoy</h2>
+            <p className="text-lg text-gray-700 mb-12">Desde 500 USD mensual por 24 meses, accede a desarrollo ecommerce, plan marketing estratégico y posicionamiento continuo con inversión inicial cero para pymes. Muestra productos, atrae tráfico orgánico y mide resultados para ventas sostenidas.</p>
             
             {/* Cards con iconos y halos - Slider en móvil, Grid en desktop */}
             <div className="relative mb-12">
@@ -464,13 +409,24 @@ export default function EstrategiaGanarClientes() {
 
             {/* Pricing y CTA */}
             <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-6 md:p-8 text-white shadow-2xl">
-              <div className="text-2xl md:text-3xl font-bold mb-2">Inversión Única: $1,550</div>
-              <div className="text-sm md:text-base text-blue-100 mb-6">Incluye: 3 Sesiones de Consultoría + Análisis Completo + Plan de Acción + Seguimiento a 3 Meses</div>
+              <h3 className="text-xl md:text-2xl font-bold mb-4">Beneficios Principales Alianza</h3>
+              <div className="grid md:grid-cols-3 gap-4 mb-6">
+                <div className="text-center">
+                  <p className="font-semibold">Crecimiento sin upfront</p>
+                </div>
+                <div className="text-center">
+                  <p className="font-semibold">Estrategia exclusiva medible</p>
+                </div>
+                <div className="text-center">
+                  <p className="font-semibold">Propiedad total asegurada</p>
+                </div>
+              </div>
+              <div className="text-2xl md:text-3xl font-bold mb-2">Desde $500/mes por 24 meses</div>
+              <div className="text-sm md:text-base text-blue-100 mb-6">Alianza 24 meses flexible. Ecosistema completo llave en mano.</div>
               <Button className="bg-white text-blue-700 hover:bg-gray-100 px-4 md:px-8 py-4 md:py-6 text-base md:text-lg font-bold shadow-lg w-full sm:w-auto">
-                <span className="hidden sm:inline">Agenda tu Llamada Estratégica Ahora</span>
-                <span className="sm:hidden">Agenda tu Llamada Ahora</span>
+                <span className="hidden sm:inline">Iniciar Mi Alianza Digital</span>
+                <span className="sm:hidden">Iniciar Alianza</span>
               </Button>
-              <div className="text-xs md:text-sm text-blue-100 mt-4">Garantía de satisfacción | Sesión de seguimiento incluida | Soporte continuo</div>
             </div>
           </div>
         </div>

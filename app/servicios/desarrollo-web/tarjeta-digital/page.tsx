@@ -14,7 +14,7 @@ export default function TarjetaDigital() {
       id: 0,
       title: 'Info de Contacto',
       subtitle: 'Impacta con Info de Contacto Básica',
-      image: '/images/web.webp',
+      image: '/images/categorias/desarrollo-web/tarjeta-digital-contacto.webp',
       content: {
         intro: '¿Sabías lo esencial de datos claros que faciliten conexiones inmediatas sin abrumar a prospectos?',
         description: 'La información de contacto básica proporciona elementos clave como teléfono y email en un diseño profesional adaptable a móviles para independientes y pymes, resolviendo objeciones de accesibilidad. Esto optimiza para búsquedas como "cómo ganar clientes", genera confianza rápida y convierte presentaciones en leads, evitando sobrecargas mientras facilita networking simple y efectivo sin costos recurrentes ni complicaciones técnicas.',
@@ -34,7 +34,7 @@ export default function TarjetaDigital() {
       id: 1,
       title: 'Enlaces a Redes',
       subtitle: 'Conecta con Enlaces a Redes',
-      image: '/images/web.webp',
+      image: '/images/categorias/desarrollo-web/tarjeta-digital-redes.webp',
       content: {
         intro: '¿Imaginas expandir tu red social directamente desde un contacto inicial sin esfuerzos extras?',
         description: 'Los enlaces a redes sociales integran perfiles clave en una tarjeta simple y funcional para artesanos y pymes, dinamizando interacciones mientras resuelve "presentar mi negocio" con accesos inmediatos. Esto atrae leads orgánicos, optimiza experiencias móviles y fortalece presencia digital, ideal para ganar clientes al facilitar follows y shares sin mantenimiento complejo ni sobrecargas informativas.',
@@ -54,7 +54,7 @@ export default function TarjetaDigital() {
       id: 2,
       title: 'Botón de Guardar',
       subtitle: 'Simplifica con Botón de Guardar',
-      image: '/images/web.webp',
+      image: '/images/categorias/desarrollo-web/tarjeta-digital-guardar.webp',
       content: {
         intro: '¿Qué si tus prospectos guardan tu info en segundos, asegurando recordatorios constantes?',
         description: 'El botón de guardar contacto permite almacenamiento rápido en dispositivos para independientes y pymes, resolviendo memorabilidad en networking mientras optimiza para "cómo ganar clientes" con usabilidad intuitiva. Esto genera leads persistentes, adapta a móviles y evita pérdidas de oportunidades, ofreciendo una solución profesional sin costos extras ni requerimientos de mantenimiento avanzado.',
@@ -74,7 +74,7 @@ export default function TarjetaDigital() {
       id: 3,
       title: 'Formulario y Dominio',
       subtitle: 'Personaliza con Formulario y Dominio',
-      image: '/images/posicionamiento_slide_seo_objetivo.webp',
+      image: '/images/categorias/desarrollo-web/tarjeta-digital-dominio.webp',
       content: {
         intro: '¿Estás listo para un dominio propio que haga único y accesible tu primer contacto?',
         description: 'Incluye formulario directo y dominio personalizado como www.mitarjetadigital.me/tunombre para artesanos y pymes, impulsando profesionalismo sin sobrecargas. Esto resuelve "presentar mi negocio", optimiza SEO básico para visibilidad, captura leads seguros y facilita lanzamientos rápidos, asegurando una presencia digital simple y efectiva sin mantenimiento ni inversiones recurrentes ocultas.',
@@ -98,7 +98,7 @@ export default function TarjetaDigital() {
       <section className="relative min-h-screen flex items-center text-white">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/images/efecto_parallax/proteger-lo_que_has_construido_color.webp')" }}
+          style={{ backgroundImage: "url('/images/categorias/desarrollo-web/tarjeta-digital-hero.webp')" }}
           aria-hidden="true"
         />
         <div className="absolute inset-0 bg-black/50" aria-hidden="true" />

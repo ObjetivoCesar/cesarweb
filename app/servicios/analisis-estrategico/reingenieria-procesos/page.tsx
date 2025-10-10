@@ -14,7 +14,7 @@ export default function ReingenieriaProcesos() {
       id: 0,
       title: 'Mapeo de Procesos',
       subtitle: 'Mapeo Completo: Entendiendo Qué Está Pasando Realmente',
-      image: '/images/efecto_parallax/mapeo-procesos.webp',
+      image: '/images/categorias/analisis-estrategico/mapeo-procesos.webp',
       content: {
         intro: '¿Sabías que el 30% del tiempo de trabajo se desperdicia en tareas que no agregan valor?',
         description: 'El problema es que nadie se da cuenta. Los procesos ineficientes se vuelven "la forma en que siempre se ha hecho" y nadie los cuestiona. Mientras tanto, tu equipo trabaja el doble para producir la mitad, tus costos operativos se disparan, y tu rentabilidad se desangra lentamente.',

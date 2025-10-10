@@ -14,7 +14,7 @@ export default function PlanSalirGoogle() {
       id: 0,
       title: 'Análisis de Palabras Clave',
       subtitle: 'Análisis Exhaustivo de Palabras Clave',
-      image: '/images/efecto_parallax/palabras-clave.webp',
+      image: '/images/categorias/analisis-estrategico/palabras-clave.webp',
       content: {
         intro: '¿Sabías que el 93% de las experiencias online comienzan con un motor de búsqueda?',
         description: 'Cada segundo, miles de personas escriben en Google exactamente lo que necesitan. Pero aquí está el problema: si no estás usando las palabras correctas en tu sitio web, esas personas nunca te encontrarán. Es como tener la mejor tienda del mundo, pero en un idioma que tus clientes no hablan.',
@@ -43,7 +43,7 @@ export default function PlanSalirGoogle() {
       id: 1,
       title: 'Análisis de Competencia',
       subtitle: 'Análisis Específico de la Competencia',
-      image: '/images/efecto_parallax/analisis-competencia-seo.webp',
+      image: '/images/categorias/analisis-estrategico/analisis-competencia-seo.webp',
       content: {
         intro: '¿Te has preguntado por qué tu competencia aparece en Google y tú no?',
         description: 'La respuesta está en las palabras clave que ellos están usando y que tú estás perdiendo. Mientras tu competencia domina ciertas búsquedas, tú estás dejando dinero sobre la mesa simplemente por no saber qué términos optimizar.',
