@@ -1,0 +1,99 @@
+{
+  "categorias": [
+    {
+      "id": "posicionamiento",
+      "titulo": "Posicionamiento de Marca",
+      "descripcionCorta": "Estrategias para destacar tu marca en línea",
+      "slug": "posicionamiento",
+      "imagen": "/images/web.webp",
+      "servicios": [
+        {
+          "id": "estrategia-ganar-clientes",
+          "titulo": "Estrategia para Ganar Clientes",
+          "descripcionCorta": "Plan de Marketing Digital para Microempresas",
+          "precio": 1550,
+          "slug": "estrategia-ganar-clientes",
+          "imagen": "/images/negocio_resultados.webp",
+          "palabrasClave": [
+            "plan marketing digital microempresas Ecuador",
+            "estrategia ganar clientes Loja",
+            "análisis FODA competencia"
+          ],
+          "componentes": [
+            "Análisis de mercado y competencia",
+            "Definición de propuesta de valor única",
+            "Estrategia de contenido para redes sociales"
+          ]
+        },
+        {
+          "id": "plan-salir-google",
+          "titulo": "Plan para Salir en Google",
+          "descripcionCorta": "Posicionamiento SEO para tu negocio",
+          "precio": 1300,
+          "slug": "plan-salir-google",
+          "imagen": "/images/posicionamiento_slide_seo_objetivo.webp",
+          "palabrasClave": [
+            "posicionamiento SEO Ecuador",
+            "aparecer en Google Loja",
+            "estrategia SEO local"
+          ],
+          "componentes": [
+            "Investigación de palabras clave",
+            "Optimización On-Page",
+            "Estrategia de enlaces"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "desarrollo-web",
+      "titulo": "Desarrollo Web",
+      "descripcionCorta": "Sitios web profesionales para tu negocio",
+      "slug": "desarrollo-web",
+      "imagen": "/images/web.webp",
+      "servicios": [
+        {
+          "id": "landing-page",
+          "titulo": "Landing Page",
+          "descripcionCorta": "Página de aterrizaje para conversiones",
+          "precio": 800,
+          "slug": "landing-page",
+          "imagen": "/images/web.webp"
+        },
+        {
+          "id": "sitio-web-completo",
+          "titulo": "Sitio Web Completo",
+          "descripcionCorta": "Página web completa con múltiples secciones",
+          "precio": 1500,
+          "slug": "sitio-web-completo",
+          "imagen": "/images/web.webp"
+        }
+      ]
+    },
+    {
+      "id": "analisis-estrategico",
+      "titulo": "Análisis Estratégico Inicial",
+      "descripcionCorta": "Evaluación completa de tu presencia digital",
+      "slug": "analisis-estrategico",
+      "imagen": "/images/recoleccion_de_informacion_objetivo.webp",
+      "servicios": [
+        {
+          "id": "analisis-competencia",
+          "titulo": "Análisis de Competencia",
+          "descripcionCorta": "Para Negocios en Loja",
+          "precio": 600,
+          "slug": "analisis-competencia",
+          "imagen": "/images/recoleccion_de_informacion_objetivo.webp"
+        },
+        {
+          "id": "estudio-factibilidad",
+          "titulo": "Estudio de Factibilidad",
+          "descripcionCorta": "Para Startups y Negocios en Ecuador",
+          "precio": 3500,
+          "slug": "estudio-factibilidad",
+          "imagen": "/images/recoleccion_de_informacion_objetivo.webp"
+        }
+      ]
+    }
+  ]
+}

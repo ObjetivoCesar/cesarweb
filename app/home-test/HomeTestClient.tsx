@@ -115,7 +115,17 @@ export default function HomeTestClient({ content, isEmotionalView }: { content: 
     <>
       {/* Hero Section */}
       <section className="relative w-full h-screen min-h-[600px] flex items-center justify-center text-center">
-        <div className="absolute inset-0"><Image src="/images/portada_cesarbn.webp" alt="César Reyes fondo" fill priority quality={100} sizes="100vw" className="object-cover object-center"/></div>
+        <div className="absolute inset-0">
+          <Image 
+            src="/images/portada_cesarbn.webp" 
+            alt="César Reyes fondo" 
+            fill 
+            priority
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+            className="object-cover object-center"
+            quality={75}
+          />
+        </div>
         <div className="absolute inset-0 bg-black/60 z-10"></div>
         <div className="relative z-20 container mx-auto px-4 flex flex-col items-center justify-center h-full">
             {/* Versión Desktop */}

@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Menu, X, Search } from "lucide-react"
+import { Menu, X, Search, ChevronDown } from "lucide-react"
 import { usePathname } from "next/navigation"
+import MegaMenu from "@/components/mega-menu/MegaMenu"
 
 // Componente separado para la barra superior
 function TopBar() {
@@ -76,12 +77,72 @@ function TopBar() {
   )
 }
 
-// Componente separado para el header de navegación
+// Componente para el menú de navegación
 function NavigationHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isServicesOpen, setIsServicesOpen] = useState(false)
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
   const pathname = usePathname()
+  const [isHovering, setIsHovering] = useState(false)
+  const [closeTimeout, setCloseTimeout] = useState<NodeJS.Timeout | null>(null)
+
+  // Importamos las categorías a través del MegaMenu
+
+  // Limpiar timeouts al desmontar
+  useEffect(() => {
+    return () => {
+      if (closeTimeout) clearTimeout(closeTimeout)
+    }
+  }, [closeTimeout])
+
+  // Limpiar estados al cambiar de ruta
+  useEffect(() => {
+    setIsServicesOpen(false)
+    setIsHovering(false)
+    setIsMobileServicesOpen(false)
+    if (closeTimeout) {
+      clearTimeout(closeTimeout)
+      setCloseTimeout(null)
+    }
+  }, [pathname])
+
+  const handleMouseEnter = () => {
+    if (closeTimeout) {
+      clearTimeout(closeTimeout)
+      setCloseTimeout(null)
+    }
+    setIsHovering(true)
+    setIsServicesOpen(true)
+  }
+
+  const handleMouseLeave = () => {
+    const timeout = setTimeout(() => {
+      if (!isHovering) {
+        setIsServicesOpen(false)
+      }
+    }, 300) // 300ms de retraso antes de cerrar
+    setCloseTimeout(timeout)
+  }
+
+  const handleMenuMouseEnter = () => {
+    if (closeTimeout) {
+      clearTimeout(closeTimeout)
+      setCloseTimeout(null)
+    }
+    setIsHovering(true)
+  }
+
+  const handleMenuMouseLeave = () => {
+    const timeout = setTimeout(() => {
+      if (!isHovering) {
+        setIsServicesOpen(false)
+      }
+    }, 300) // 300ms de retraso antes de cerrar
+    setCloseTimeout(timeout)
+    setIsHovering(false)
+  }
 
   useEffect(() => {
     const controlNavbar = () => {
@@ -116,19 +177,23 @@ function NavigationHeader() {
 
         {/* Navegación de escritorio */}
         <div className="hidden md:flex items-center space-x-8">
-          <nav className="flex space-x-8">
+          <nav className="flex items-center space-x-8">
             {pathname !== '/' && (
               <Link href="/" className="font-medium text-white hover:text-gray-200">
                 Inicio
               </Link>
             )}
+            <MegaMenu />
             <Link href="/blog" className="font-medium text-white hover:text-gray-200">
               Blog
+            </Link>
+            <Link href="/contacto" className="font-medium text-white hover:text-gray-200">
+              Contacto
             </Link>
           </nav>
         </div>
 
-        {/* Versión móvil: menú */}
+        {/* Versión móvil: botón del menú */}
         <div className="md:hidden">
           <button 
             className="text-white" 
@@ -141,28 +206,89 @@ function NavigationHeader() {
       </div>
 
       {/* Menú móvil */}
-      <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'}`}>
-        <nav className="bg-white/95 backdrop-blur-sm border-t py-4">
-          <div className="container space-y-4">
+      {isMenuOpen && (
+        <div className="md:hidden bg-white shadow-lg absolute top-full left-0 right-0 z-50">
+          <div className="container mx-auto px-4 py-4 space-y-4">
             {pathname !== '/' && (
               <Link 
                 href="/" 
-                className="block font-medium hover:text-primary text-center"
+                className="block py-2 text-gray-800 hover:bg-gray-100 px-4 rounded"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Inicio
               </Link>
             )}
+            <div>
+              <button
+                onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
+                className="flex items-center justify-between w-full py-2 text-gray-800 hover:bg-gray-100 px-4 rounded"
+              >
+                <span>Servicios</span>
+                <ChevronDown className={`h-4 w-4 transition-transform ${isMobileServicesOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {isMobileServicesOpen && (
+                <div className="ml-4 mt-1 space-y-1 border-l-2 border-gray-200 pl-4 py-1">
+                  {categorias.map((categoria) => (
+                    <div key={categoria.id} className="mb-2">
+                      <Link
+                        href={`/servicios/${categoria.slug}`}
+                        className="block py-2 text-gray-700 hover:text-blue-600 font-medium"
+                        onClick={() => {
+                          setIsMenuOpen(false)
+                          setIsMobileServicesOpen(false)
+                        }}
+                      >
+                        {categoria.name}
+                      </Link>
+                      {categoria.servicios.length > 0 && (
+                        <div className="ml-3 mt-1 space-y-1 border-l border-gray-200 pl-3">
+                          {categoria.servicios.map((servicio) => (
+                            <Link
+                              key={servicio.id}
+                              href={`/servicios/${categoria.slug}/${servicio.slug}`}
+                              className="block py-1.5 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50 -mx-2 px-2 rounded"
+                              onClick={() => {
+                                setIsMenuOpen(false)
+                                setIsMobileServicesOpen(false)
+                              }}
+                            >
+                              {servicio.name}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                  <Link
+                    href="/servicios"
+                    className="block py-2 text-blue-600 font-medium hover:bg-blue-50 -mx-3 px-3 rounded text-sm mt-2"
+                    onClick={() => {
+                      setIsMenuOpen(false)
+                      setIsMobileServicesOpen(false)
+                    }}
+                  >
+                    Ver todos los servicios →
+                  </Link>
+                </div>
+              )}
+            </div>
             <Link 
               href="/blog" 
-              className="block font-medium hover:text-primary text-center"
+              className="block py-2 text-gray-800 hover:bg-gray-100 px-4 rounded"
               onClick={() => setIsMenuOpen(false)}
             >
               Blog
             </Link>
+            <Link 
+              href="/contacto" 
+              className="block py-2 text-gray-800 hover:bg-gray-100 px-4 rounded"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Contacto
+            </Link>
           </div>
-        </nav>
-      </div>
+        </div>
+      )}
     </header>
   )
 }
@@ -175,4 +301,4 @@ export default function TransparentHeader() {
       <NavigationHeader />
     </>
   )
-} 
+}

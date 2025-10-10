@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 import HomeClientWrapper from './components/HomeClientWrapper';
+import ClientHeader from "@/components/ClientHeader";
 
 export default function HomePage({
   searchParams,
