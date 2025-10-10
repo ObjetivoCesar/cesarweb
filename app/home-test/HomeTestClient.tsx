@@ -79,7 +79,7 @@ function CardItem({ card }: { card: any }) {
   );
 }
 
-export default function HomeTestClient({ content, isEmotionalView }: { content: typeof pageContent.logico, isEmotionalView: boolean }) {
+export default function HomeTestClient({ content, isEmotionalView }: { content: typeof pageContent.logico | typeof pageContent.emocional, isEmotionalView: boolean }) {
   const [choiceMade, setChoiceMade] = useState(false);
   const [activeStep, setActiveStep] = useState(1);
   const router = useRouter();
