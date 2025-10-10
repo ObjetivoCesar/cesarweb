@@ -14,7 +14,7 @@ type ServiceCard = {
   description: string;
 };
 
-export default function HomeClient({ content, isEmotionalView }: { content: typeof pageContent.logico, isEmotionalView: boolean }) {
+export default function HomeClient({ content, isEmotionalView }: { content: typeof pageContent.logico | typeof pageContent.emocional, isEmotionalView: boolean }) {
   const [isChatModalOpen, setIsChatModalOpen] = useState(false);
   const router = useRouter();
 

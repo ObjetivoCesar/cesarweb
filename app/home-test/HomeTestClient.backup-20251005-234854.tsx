@@ -21,7 +21,6 @@ import ChatModal from "@/components/ChatModal";
 import VideoModal from "@/components/VideoModal";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import PortfolioModal from "@/components/PortfolioModal";
 import { Card, CardContent, CardHeader, CardFooter, CardTitle } from "@/components/ui/card";
 import { 
   Carousel, 

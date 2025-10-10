@@ -252,20 +252,26 @@ export default function HomeTestClient({ content, isEmotionalView }: { content: 
                   </ul>
                 </div>
                 <div className="w-full max-w-md mx-auto">
-                  <h4 className="text-lg font-semibold text-center mb-4 text-gray-800">{content.commitmentSection.carousel.title}</h4>
+  	                <h4 className="text-lg font-semibold text-center mb-4 text-gray-800">{content.commitmentSection.carousel.title}</h4>
                   <Carousel opts={{ loop: true }} className="w-full">
                     <CarouselContent>
                       {content.commitmentSection.carousel.cards.map((card, index) => {
-                        const Icon = card.icon ? iconMap[card.icon] : null;
+                        // Estrechamiento de tipo para uniones { text, icon } | { text, image }
+                        const Icon = ('icon' in card && card.icon) ? (iconMap[card.icon] ?? null) : null;
+                        const imgSrc = ('image' in card && card.image) ? card.image : null;
                         return (
                           <CarouselItem key={index}>
                             <div className="p-1">
                               <Card>
                                 <CardContent className="flex flex-col items-center justify-center p-6 gap-4 aspect-video">
                                   {isEmotionalView ? (
-                                    <Image src={card.image} alt={card.text} width={150} height={80} className="rounded-lg object-cover"/>
+                                    imgSrc ? (
+                                      <Image src={imgSrc} alt={card.text} width={150} height={80} className="rounded-lg object-cover"/>
+                                    ) : null
                                   ) : (
-                                    Icon && <Icon className={`w-12 h-12 ${isEmotionalView ? 'text-orange-500' : 'text-blue-500'}`} />
+                                    Icon ? (
+                                      <Icon className={`w-12 h-12 ${isEmotionalView ? 'text-orange-500' : 'text-blue-500'}`} />
+                                    ) : null
                                   )}
                                   <p className="text-center text-gray-700 font-medium">{card.text}</p>
                                 </CardContent>
@@ -307,7 +313,7 @@ export default function HomeTestClient({ content, isEmotionalView }: { content: 
           <section className="w-full bg-white py-20">
             <div className="container mx-auto px-4 text-center max-w-4xl">
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900">{content.closing.h2}</h2>
-              <p className="text-lg text-gray-600 mt-6 leading-relaxed">{content.closing.p}</p>
+              <p className="text-lg text-gray-600 mt-6 leading-relaxed">{'p' in content.closing ? content.closing.p : ('description' in content.closing ? content.closing.description : '')}</p>
               <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" className={`${primaryActionClasses} font-bold`}>{content.closing.main_cta}</Button>
                 <Button size="lg" variant="outline">{content.closing.secondary_cta}</Button>

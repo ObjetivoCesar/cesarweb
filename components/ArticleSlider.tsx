@@ -114,7 +114,7 @@ const ArticleSlider = () => {
                 {articles.map((article, index) => (
                   <motion.div
                     key={article.id}
-                    ref={(el) => (cardRefs.current[index] = el)}
+                    ref={(el) => { cardRefs.current[index] = el; }}
                     initial={{ opacity: 0, x: index > currentIndex ? 100 : -100 }}
                     animate={{ 
                       opacity: index === currentIndex ? 1 : 0.5,

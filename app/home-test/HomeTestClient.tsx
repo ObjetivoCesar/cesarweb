@@ -21,7 +21,6 @@ import ChatModal from "@/components/ChatModal";
 import VideoModal from "@/components/VideoModal";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import PortfolioModal from "@/components/PortfolioModal";
 import { Card, CardContent, CardHeader, CardFooter, CardTitle } from "@/components/ui/card";
 import { 
   Carousel, 
@@ -667,15 +666,17 @@ export default function HomeTestClient({ content, isEmotionalView }: { content: 
               <div className="max-w-5xl mx-auto text-center mb-12">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">Datos que No Puedes Ignorar Sobre Tu Mercado en Ecuador</h2>
                 <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto px-4">
-                  {content.closing.description}
+                  {'description' in content.closing ? content.closing.description : ('p' in content.closing ? content.closing.p : '')}
                 </p>
               </div>
               
               {/* Versión de escritorio - Grid */}
               <div className="hidden md:grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-12">
-                {content.closing.cards.map((card, index) => (
-                  <CardItem key={`desktop-${index}`} card={card} />
-                ))}
+                {'cards' in content.closing ? (
+                  content.closing.cards.map((card, index) => (
+                    <CardItem key={`desktop-${index}`} card={card} />
+                  ))
+                ) : null}
               </div>
               
               {/* Versión móvil - Carrusel */}
@@ -688,11 +689,13 @@ export default function HomeTestClient({ content, isEmotionalView }: { content: 
                   className="w-full"
                 >
                   <CarouselContent>
-                    {content.closing.cards.map((card, index) => (
-                      <CarouselItem key={`mobile-${index}`} className="md:basis-1/2 lg:basis-1/3 px-2">
-                        <CardItem card={card} />
-                      </CarouselItem>
-                    ))}
+                    {'cards' in content.closing ? (
+                      content.closing.cards.map((card, index) => (
+                        <CarouselItem key={`mobile-${index}`} className="md:basis-1/2 lg:basis-1/3 px-2">
+                          <CardItem card={card} />
+                        </CarouselItem>
+                      ))
+                    ) : null}
                   </CarouselContent>
                   <div className="flex justify-center mt-4 space-x-2">
                     <CarouselPrevious className="relative left-0 top-0 -translate-y-0" />

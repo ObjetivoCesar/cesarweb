@@ -3,16 +3,16 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Check, BarChart, Search, Target, TrendingUp, Zap, ArrowLeft } from 'lucide-react';
 import serviciosData from '@/data/servicios.json';
-import Image from 'next/image';
 
-type Params = {
-  params: {
+type PageProps = {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
-export async function generateMetadata({ params }: Params): Promise<Metadata> {
-  const servicio = serviciosData.categorias.find(s => s.slug === params.slug);
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const servicio = serviciosData.categorias.find(s => s.slug === slug);
   
   if (!servicio) {
     return {
@@ -23,13 +23,14 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
   return {
     title: `${servicio.titulo} | ${servicio.descripcionCorta} | César Reyes Jaramillo`,
-    description: servicio.componentes?.join(' ') || servicio.descripcionCorta,
-    keywords: servicio.palabrasClave?.join(', ')
+    description: ('componentes' in servicio && Array.isArray(servicio.componentes)) ? servicio.componentes.join(' ') : servicio.descripcionCorta,
+    keywords: ('palabrasClave' in servicio && Array.isArray(servicio.palabrasClave)) ? servicio.palabrasClave.join(', ') : undefined
   };
 }
 
-export default function ServicioPage({ params }: Params) {
-  const servicio = serviciosData.categorias.find(s => s.slug === params.slug);
+export default async function ServicioPage({ params }: PageProps) {
+  const { slug } = await params;
+  const servicio = serviciosData.categorias.find(s => s.slug === slug);
 
   if (!servicio) {
     return (
@@ -72,14 +73,16 @@ export default function ServicioPage({ params }: Params) {
             </Link>
             <h1 className="text-4xl md:text-5xl font-bold mb-4">{servicio.titulo}</h1>
             <p className="text-xl text-blue-100 mb-8">{servicio.descripcionCorta}</p>
-            <div className="flex flex-wrap gap-4">
-              <span className="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium">
-                Inversión: ${servicio.precio.toLocaleString()}
-              </span>
-              <span className="bg-blue-600/80 text-white px-4 py-2 rounded-full text-sm font-medium">
-                Tiempo: Variable según proyecto
-              </span>
-            </div>
+            {'precio' in servicio && typeof servicio.precio === 'number' && (
+              <div className="flex flex-wrap gap-4">
+                <span className="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium">
+                  Inversión: ${servicio.precio.toLocaleString()}
+                </span>
+                <span className="bg-blue-600/80 text-white px-4 py-2 rounded-full text-sm font-medium">
+                  Tiempo: Variable según proyecto
+                </span>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -95,7 +98,7 @@ export default function ServicioPage({ params }: Params) {
                 ¿Qué Incluye Este Servicio?
               </h2>
               <div className="space-y-4">
-                {servicio.componentes?.map((item, index) => (
+                {'componentes' in servicio && Array.isArray(servicio.componentes) && servicio.componentes.map((item: string, index: number) => (
                   <div key={index} className="flex items-start">
                     <div className="bg-blue-100 p-1.5 rounded-full mr-4 mt-1 flex-shrink-0">
                       <Check className="h-5 w-5 text-blue-600" />
@@ -107,28 +110,30 @@ export default function ServicioPage({ params }: Params) {
             </section>
 
             {/* Sección de Beneficios */}
-            <section>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Beneficios para Tu Negocio
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {servicio.beneficios.map((beneficio, index) => (
-                  <div key={index} className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                    <div className="flex items-center mb-3">
-                      <div className="bg-blue-100 p-2 rounded-full mr-3">
-                        {getServiceIcon(servicio.titulo)}
+            {'beneficios' in servicio && Array.isArray(servicio.beneficios) && (
+              <section>
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                  Beneficios para Tu Negocio
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {servicio.beneficios.map((beneficio: string, index: number) => (
+                    <div key={index} className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                      <div className="flex items-center mb-3">
+                        <div className="bg-blue-100 p-2 rounded-full mr-3">
+                          {getServiceIcon(servicio.titulo)}
+                        </div>
+                        <h3 className="text-lg font-semibold text-gray-900">
+                          {beneficio.split(':')[0]}
+                        </h3>
                       </div>
-                      <h3 className="text-lg font-semibold text-gray-900">
-                        {beneficio.split(':')[0]}
-                      </h3>
+                      <p className="text-gray-600">
+                        {beneficio.split(':')[1] || beneficio}
+                      </p>
                     </div>
-                    <p className="text-gray-600">
-                      {beneficio.split(':')[1] || beneficio}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </section>
+                  ))}
+                </div>
+              </section>
+            )}
 
             {/* Sección de Proceso */}
             <section>

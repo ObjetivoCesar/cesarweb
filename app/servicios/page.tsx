@@ -74,34 +74,40 @@ export default function ServiciosPage() {
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-4">
                     <h3 className="text-xl font-bold text-gray-900">{servicio.descripcionCorta}</h3>
-                    <span className="bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full">
-                      ${servicio.precio.toLocaleString()}
-                    </span>
+                    {'precio' in servicio && typeof servicio.precio === 'number' && (
+                      <span className="bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full">
+                        ${servicio.precio.toLocaleString()}
+                      </span>
+                    )}
                   </div>
                   
-                  <ul className="space-y-3 mb-6">
-                    {servicio.componentes?.slice(0, 4).map((item, index) => (
-                      <li key={index} className="flex items-start">
-                        <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-700">{item.split(':')[0]}:</span>
-                      </li>
-                    ))}
-                    {servicio.componentes?.length > 4 && (
-                      <li className="text-sm text-blue-600 font-medium">+{servicio.componentes.length - 4} componentes más</li>
-                    )}
-                  </ul>
-                  
-                  <div className="space-y-3 mb-6">
-                    <h4 className="font-semibold text-gray-900">Beneficios:</h4>
-                    <ul className="space-y-2">
-                      {servicio.beneficios.map((beneficio, i) => (
-                        <li key={i} className="flex items-start">
-                          <div className="h-1.5 w-1.5 rounded-full bg-blue-600 mt-2 mr-2"></div>
-                          <span className="text-gray-600">{beneficio}</span>
+                  {'componentes' in servicio && Array.isArray(servicio.componentes) && (
+                    <ul className="space-y-3 mb-6">
+                      {servicio.componentes.slice(0, 4).map((item: string, index: number) => (
+                        <li key={index} className="flex items-start">
+                          <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                          <span className="text-gray-700">{item.split(':')[0]}:</span>
                         </li>
                       ))}
+                      {servicio.componentes.length > 4 && (
+                        <li className="text-sm text-blue-600 font-medium">+{servicio.componentes.length - 4} componentes más</li>
+                      )}
                     </ul>
-                  </div>
+                  )}
+                  
+                  {'beneficios' in servicio && Array.isArray(servicio.beneficios) && (
+                    <div className="space-y-3 mb-6">
+                      <h4 className="font-semibold text-gray-900">Beneficios:</h4>
+                      <ul className="space-y-2">
+                        {servicio.beneficios.map((beneficio: string, i: number) => (
+                          <li key={i} className="flex items-start">
+                            <div className="h-1.5 w-1.5 rounded-full bg-blue-600 mt-2 mr-2"></div>
+                            <span className="text-gray-600">{beneficio}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                   
                   <Link href={`/servicios/${servicio.slug}`} className="block">
                     <Button className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 transition-all">

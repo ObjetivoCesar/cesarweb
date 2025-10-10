@@ -1,5 +1,5 @@
 import React from 'react';
-import { EmbeddedChat } from './components/EmbeddedChat';
+import EmbeddedChat from './components/EmbeddedChat';
 
 export default function ChatPage() {
   return (

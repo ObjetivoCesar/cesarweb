@@ -5,6 +5,9 @@ import Link from "next/link"
 import { Menu, X, Search, ChevronDown } from "lucide-react"
 import { usePathname } from "next/navigation"
 import MegaMenu from "@/components/mega-menu/MegaMenu"
+import serviciosData from "@/data/servicios.json"
+
+const categorias = serviciosData.categorias
 
 // Componente separado para la barra superior
 function TopBar() {
@@ -238,7 +241,7 @@ function NavigationHeader() {
                           setIsMobileServicesOpen(false)
                         }}
                       >
-                        {categoria.name}
+                        {categoria.titulo}
                       </Link>
                       {categoria.servicios.length > 0 && (
                         <div className="ml-3 mt-1 space-y-1 border-l border-gray-200 pl-3">
@@ -252,7 +255,7 @@ function NavigationHeader() {
                                 setIsMobileServicesOpen(false)
                               }}
                             >
-                              {servicio.name}
+                              {servicio.titulo}
                             </Link>
                           ))}
                         </div>
