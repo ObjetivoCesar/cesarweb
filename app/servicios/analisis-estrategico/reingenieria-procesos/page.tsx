@@ -49,7 +49,7 @@ export default function ReingenieriaProcesos() {
       id: 1,
       title: 'Banderas Rojas',
       subtitle: 'Identificación de Cuellos de Botella y Desperdicios',
-      image: '/images/efecto_parallax/banderas-rojas.webp',
+      image: '/images/categorias/analisis-estrategico/banderas-rojas.webp',
       content: {
         intro: '¿Cuánto dinero estás perdiendo cada mes en ineficiencias que ni siquiera sabes que existen?',
         description: 'Esta es la parte que duele pero que más valor genera. Aquí es donde identificamos las "banderas rojas": esos procesos, pasos o prácticas que están matando tu productividad, inflando tus costos y frustrando a tu equipo. Y créeme, siempre hay más de las que imaginas.',
@@ -84,7 +84,7 @@ export default function ReingenieriaProcesos() {
       id: 2,
       title: 'Procesos Optimizados',
       subtitle: 'Diseño de Procesos Optimizados con Automatización Estratégica',
-      image: '/images/efecto_parallax/procesos-optimizados.webp',
+      image: '/images/categorias/analisis-estrategico/optimizacion.webp',
       content: {
         intro: '¿Y si pudieras hacer lo mismo que haces hoy pero en la mitad del tiempo y con menos errores?',
         description: 'Aquí es donde la magia sucede. No solo te decimos qué está mal, te diseñamos exactamente cómo debe ser. Rediseñamos tus procesos desde cero, eliminando pasos innecesarios, automatizando lo automatizable, simplificando lo complejo y acelerando lo lento.',
@@ -120,7 +120,7 @@ export default function ReingenieriaProcesos() {
       id: 3,
       title: 'Fundamentos Empresariales',
       subtitle: 'Fundamentos y Estrategia Empresarial',
-      image: '/images/efecto_parallax/fundamentos-empresariales.webp',
+      image: '/images/categorias/analisis-estrategico/fundamentos-empresariales.webp',
       content: {
         intro: '¿Cómo le explicas a un banco o inversionista por qué tu negocio merece financiamiento?',
         description: 'Aquí es donde todo se une en un documento coherente y profesional. No basta con tener buenos números o una idea interesante. Necesitas articular claramente tu propósito, tu visión, tu estrategia y tu modelo de negocio de forma que inspire confianza y demuestre que sabes lo que estás haciendo.',
@@ -193,10 +193,11 @@ export default function ReingenieriaProcesos() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/efecto_parallax/analisis-competencia-hero.webp"
-            alt="Análisis de Competencia"
+            src="/images/categorias/analisis-estrategico/reingenieria-procesos-hero.webp"
+            alt="Reingeniería de Procesos"
             fill
-            className="object-cover"
+            className="object-cover object-center"
+            style={{ objectPosition: 'center top' }}
             priority
           />
           <div className="absolute inset-0 bg-black/60 z-10"></div>

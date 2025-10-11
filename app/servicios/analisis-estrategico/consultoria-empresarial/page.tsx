@@ -79,7 +79,7 @@ export default function ConsultoriaEmpresarial() {
       id: 2,
       title: 'Propuesta de Valor',
       subtitle: 'Desarrollo de tu Propuesta de Valor Única (PVU)',
-      image: '/images/efecto_parallax/propuesta-valor.webp',
+      image: '/images/categorias/analisis-estrategico/propuesta-valor.webp',
       content: {
         intro: '¿Puedes explicar en 10 segundos por qué alguien debería comprarte a ti y no a tu competencia?',
         description: 'Si dudaste, estás en problemas. Tu propuesta de valor única es la respuesta cristalina a esa pregunta. No es un eslogan bonito ni palabras vacías. Es la razón específica, tangible y convincente por la que los clientes te eligen a ti.',
@@ -112,7 +112,7 @@ export default function ConsultoriaEmpresarial() {
       id: 3,
       title: 'Estrategia Digital',
       subtitle: 'Estrategia de Marketing Digital y Análisis de ROI',
-      image: '/images/efecto_parallax/estrategia-digital.webp',
+      image: '/images/categorias/analisis-estrategico/estrategia-digital.webp',
       content: {
         intro: '¿De qué sirve tener un gran negocio si nadie sabe que existes?',
         description: 'Aquí es donde muchos emprendedores se estrellan. Tienen el producto perfecto, la misión clara, la propuesta única... pero cero clientes porque no saben cómo atraerlos. O peor, gastan miles en marketing sin estrategia y sin resultados.',
@@ -185,8 +185,8 @@ export default function ConsultoriaEmpresarial() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/efecto_parallax/analisis-competencia-hero.webp"
-            alt="Análisis de Competencia"
+            src="/images/categorias/analisis-estrategico/consultoria-empresarial-hero.webp"
+            alt="Consultoría Empresarial"
             fill
             className="object-cover"
             priority

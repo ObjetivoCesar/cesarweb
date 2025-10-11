@@ -49,7 +49,7 @@ export default function EstudioFactibilidad() {
       id: 1,
       title: 'Demanda Digital',
       subtitle: 'Investigación de Demanda Digital (Palabras Clave)',
-      image: '/images/efecto_parallax/demanda-digital.webp',
+      image: '/images/categorias/analisis-estrategico/demanda-digital.webp',
       content: {
         intro: '¿Cómo sabes si las personas realmente buscan tu producto o servicio online?',
         description: 'En 2025, si la gente no te busca en Google, es una señal de alarma. La investigación de palabras clave no solo te dice cuántas personas buscan lo que ofreces, te dice QUÉ están buscando exactamente, CÓMO lo buscan, y si están en modo de investigación o listas para comprar.',
@@ -83,7 +83,7 @@ export default function EstudioFactibilidad() {
       id: 2,
       title: 'Análisis Financiero',
       subtitle: 'Análisis Financiero Completo y Proyecciones Realistas',
-      image: '/images/efecto_parallax/analisis-financiero.webp',
+      image: '/images/categorias/analisis-estrategico/analisis-financiero.webp',
       content: {
         intro: '¿Sabes exactamente cuánto dinero necesitas para iniciar y cuándo empezarás a ver ganancias?',
         description: 'Esta es la parte que separa los soñadores de los emprendedores reales. Las buenas intenciones no pagan las cuentas. Necesitas números concretos: cuánto necesitas invertir, cuánto gastarás mensualmente, cuánto venderás, qué márgenes tendrás, y cuándo llegarás al punto de equilibrio.',
@@ -118,7 +118,7 @@ export default function EstudioFactibilidad() {
       id: 3,
       title: 'Fundamentos Empresariales',
       subtitle: 'Fundamentos y Estrategia Empresarial',
-      image: '/images/efecto_parallax/fundamentos-empresariales.webp',
+      image: '/images/categorias/analisis-estrategico/fundamentos-empresariales.webp',
       content: {
         intro: '¿Cómo le explicas a un banco o inversionista por qué tu negocio merece financiamiento?',
         description: 'Aquí es donde todo se une en un documento coherente y profesional. No basta con tener buenos números o una idea interesante. Necesitas articular claramente tu propósito, tu visión, tu estrategia y tu modelo de negocio de forma que inspire confianza y demuestre que sabes lo que estás haciendo.',
@@ -191,8 +191,8 @@ export default function EstudioFactibilidad() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/efecto_parallax/analisis-competencia-hero.webp"
-            alt="Análisis de Competencia"
+            src="/images/categorias/analisis-estrategico/estudio-factibilidad-hero.webp"
+            alt="Estudio de Factibilidad"
             fill
             className="object-cover"
             priority

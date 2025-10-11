@@ -72,7 +72,7 @@ export default function PlanSalirGoogle() {
       id: 2,
       title: 'Lista Organizada',
       subtitle: 'Lista Organizada y Estratégica de Palabras Clave',
-      image: '/images/efecto_parallax/lista-palabras-clave.webp',
+      image: '/images/categorias/analisis-estrategico/lista-palabras-clave.webp',
       content: {
         intro: '¿De qué sirve tener miles de palabras clave si no sabes cuáles usar primero?',
         description: 'Aquí es donde la mayoría de las empresas fallan. Tienen datos, pero no saben cómo usarlos. Terminan abrumados con información sin estructura y nunca implementan nada. Por eso, no solo te damos las palabras clave, te las entregamos organizadas, priorizadas y listas para usar.',
@@ -103,7 +103,7 @@ export default function PlanSalirGoogle() {
       id: 3,
       title: 'Guía de Contenido',
       subtitle: 'Guía para Crear Contenido Optimizado y Estrategia de Posicionamiento',
-      image: '/images/efecto_parallax/guia-contenido.webp',
+      image: '/images/categorias/analisis-estrategico/guia-contenido.webp',
       content: {
         intro: '¿Tienes las palabras clave, pero no sabes cómo usarlas en tu contenido?',
         description: 'Esta es la parte donde todo cobra sentido. Tener las palabras clave correctas es solo el 50% del trabajo. La otra mitad es saber cómo integrarlas naturalmente en tu contenido para que Google te entienda y te posicione, pero sin que tu texto suene robótico o forzado.',
@@ -179,7 +179,7 @@ export default function PlanSalirGoogle() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/efecto_parallax/analisis-competencia-hero.webp"
+            src="/images/categorias/analisis-estrategico/analisis-competencia-hero.webp"
             alt="Análisis de Competencia"
             fill
             className="object-cover"

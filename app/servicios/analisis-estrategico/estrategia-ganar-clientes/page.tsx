@@ -66,7 +66,7 @@ export default function EstrategiaGanarClientes() {
       id: 2,
       title: 'SEO Local',
       subtitle: 'Estrategia de Posicionamiento Local (SEO)',
-      image: '/images/posicionamiento_slide_seo_objetivo.webp',
+      image: '/images/categorias/analisis-estrategico/posicionamiento_slide_seo_objetivo.webp',
       content: {
         intro: '¿De qué sirve tener el mejor producto o servicio si nadie te encuentra cuando te buscan en Google?',
         description: 'Cada día, miles de personas en tu zona buscan en Google exactamente lo que tú ofreces. Pero si no apareces en la primera página, es como si no existieras. El 75% de los usuarios nunca pasa de la primera página de resultados. Por eso, el posicionamiento SEO no es un lujo, es una necesidad para sobrevivir en el mercado digital.',
@@ -95,7 +95,7 @@ export default function EstrategiaGanarClientes() {
       id: 3,
       title: 'Contenido y Promoción',
       subtitle: 'Plan de Acción para Promoción y Publicidad',
-      image: '/images/ads.webp',
+      image: '/images/categorias/analisis-estrategico/contenido-promocion.webp',
       content: {
         intro: '¿Cuántas veces te has sentado frente a tu computadora sin saber qué publicar en redes sociales o en tu blog?',
         description: 'La falta de un plan de contenidos es una de las principales razones por las que los negocios abandonan sus esfuerzos de marketing digital. Publican sin estrategia, sin consistencia, y terminan frustrados porque "las redes no funcionan". La realidad es que las redes SÍ funcionan, pero solo cuando sabes qué publicar, cuándo publicarlo y cómo hacerlo de manera que conecte con tu audiencia.',
@@ -130,7 +130,7 @@ export default function EstrategiaGanarClientes() {
         {/* Imagen de fondo */}
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/images/efecto_parallax/proteger-lo_que_has_construido_color.webp')" }}
+          style={{ backgroundImage: "url('/images/categorias/analisis-estrategico/estrategia-ganar-clientes-hero.webp')" }}
           aria-hidden="true"
         />
         {/* Overlay para contraste */}
