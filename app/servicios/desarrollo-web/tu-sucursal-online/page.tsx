@@ -14,7 +14,7 @@ export default function TuSucursalOnline() {
       id: 0,
       title: 'Diseño Premium UX',
       subtitle: 'Impulsa Ventas con Diseño UX Premium',
-      image: '/images/web.webp',
+      image: '/images/categorias/desarrollo-web/sucursal-online-carrito.webp',
       content: {
         intro: '¿Sabías lo vital de un diseño que haga fluida la navegación y destaque tus productos para captar clientes inmediatamente?',
         description: 'Un desarrollo web premium basado en UX crea una tienda intuitiva y atractiva para pymes y artesanos, resolviendo accesibilidad en dispositivos mientras optimiza para búsquedas como "cómo mostrar mis productos". Esto retiene usuarios, integra galería de alta calidad y formularios anti-SPAM, convirtiendo exploraciones en compras al mejorar la percepción profesional y facilitar interacciones sin frustraciones.',
@@ -34,7 +34,7 @@ export default function TuSucursalOnline() {
       id: 1,
       title: 'Tienda con Productos',
       subtitle: 'Expande con Tienda Multilingüe y Productos',
-      image: '/images/web.webp',
+      image: '/images/categorias/desarrollo-web/sucursal-online-pagos.webp',
       content: {
         intro: '¿Imaginas llegar a clientes mundiales con páginas dedicadas a cada producto en dos idiomas, sin barreras lingüísticas?',
         description: 'Con hasta 7 secciones como Tienda (40 productos con reseñas y características individuales), Blog y Políticas, plus multilingüe ES/ENG y buscador real-time, tu e-commerce escala para independientes y pymes. Esto resuelve expansión global, optimiza para "cómo ganar clientes" al destacar ofertas detalladas y mapa geolocalización, atrayendo tráfico orgánico sin limitaciones de idioma o ubicación.',
@@ -54,7 +54,7 @@ export default function TuSucursalOnline() {
       id: 2,
       title: 'Integraciones de Pago',
       subtitle: 'Automatiza con Integraciones de Pago',
-      image: '/images/web.webp',
+      image: '/images/categorias/desarrollo-web/sucursal-online-pedidos.webp',
       content: {
         intro: '¿Qué si tu sitio maneja pagos seguros y capacita para gestión, liberándote para enfocarte en crecer clientes?',
         description: 'Integra carrito optimizado, botones de pago (tarjetas/PayPal), capacitación personalizada, WhatsApp flotante, redes sociales, Pixel Facebook y Analytics para pymes e independientes. Esto dinamiza ventas, resuelve "planificación para conseguir más clientes" al automatizar interacciones y rastrear campañas, generando leads constantes mientras mantienes inventario eficiente y comunicación directa sin interrupciones.',
@@ -74,7 +74,7 @@ export default function TuSucursalOnline() {
       id: 3,
       title: 'Seguridad y Rendimiento',
       subtitle: 'Protege y Optimiza para Visibilidad',
-      image: '/images/posicionamiento_slide_seo_objetivo.webp',
+      image: '/images/categorias/desarrollo-web/sucursal-online-soporte.webp',
       content: {
         intro: '¿Estás listo para una tienda segura que carga rápido y aparece en Google, atrayendo clientes constantes?',
         description: 'Incluye SSL, medidas anti-hacking/spam, SEO básico para indexación, optimización de rendimiento (caching, velocidad) y monitoreo avanzado. Para artesanos y pymes, esto genera confianza, mejora posiciones en búsquedas como "cómo mostrar mis productos" y permite análisis continuo, asegurando crecimiento sostenido sin riesgos ni costos ocultos iniciales en tu sucursal online.',
@@ -98,7 +98,7 @@ export default function TuSucursalOnline() {
       <section className="relative min-h-screen flex items-center text-white">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/images/efecto_parallax/proteger-lo_que_has_construido_color.webp')" }}
+          style={{ backgroundImage: "url('/images/categorias/desarrollo-web/sucursal-online-hero.webp')" }}
           aria-hidden="true"
         />
         <div className="absolute inset-0 bg-black/50" aria-hidden="true" />

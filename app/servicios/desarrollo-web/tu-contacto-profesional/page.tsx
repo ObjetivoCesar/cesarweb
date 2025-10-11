@@ -14,7 +14,7 @@ export default function TuContactoProfesional() {
       id: 0,
       title: 'Diseño Minimalista',
       subtitle: 'Impulsa Imagen con Diseño Minimalista',
-      image: '/images/web.webp',
+      image: '/images/categorias/desarrollo-web/contacto-profesional-perfil.webp',
       content: {
         intro: '¿Sabías lo crucial de un diseño simple que capte atención sin abrumar en el primer contacto?',
         description: 'Una página web minimalista profesional crea una experiencia intuitiva y adaptable a móviles para independientes y pymes, transmitiendo tu marca de forma clara. Esto resuelve objeciones de complejidad, optimiza para búsquedas como "cómo presentar mi negocio" y genera confianza inmediata, facilitando networking y leads iniciales sin necesidad de mantenimiento constante ni sobrecargas informativas.',
@@ -34,7 +34,7 @@ export default function TuContactoProfesional() {
       id: 1,
       title: 'Info de Contacto',
       subtitle: 'Facilita Acceso con Info de Contacto',
-      image: '/images/web.webp',
+      image: '/images/categorias/desarrollo-web/contacto-profesional-galeria.webp',
       content: {
         intro: '¿Imaginas compartir datos básicos que conviertan prospectos en clientes sin complicaciones?',
         description: 'Incluye información de contacto esencial como email y teléfono en un formato claro para artesanos y pymes, evitando sobrecargas mientras resuelve "cómo ganar clientes" al proporcionar accesos directos. Esto fortalece presentaciones digitales, genera leads orgánicos y asegura que tu audiencia reciba lo necesario para conectar, todo en un sitio rápido y efectivo sin costos extras.',
@@ -54,7 +54,7 @@ export default function TuContactoProfesional() {
       id: 2,
       title: 'Enlaces y Formulario',
       subtitle: 'Conecta con Enlaces y Formulario',
-      image: '/images/web.webp',
+      image: '/images/categorias/desarrollo-web/contacto-profesional-testimonios.webp',
       content: {
         intro: '¿Qué si tu tarjeta digital interactúa directamente, capturando leads en el momento?',
         description: 'Agrega enlaces a redes sociales y formulario de contacto para interacciones inmediatas en pymes e independientes, dinamizando presentaciones y resolviendo "cómo presentar mi negocio" con herramientas anti-SPAM. Esto mantiene audiencia engageda, genera contactos valiosos y optimiza experiencias sin mantenimiento complejo, ideal para expandir red sin esfuerzos manuales.',
@@ -74,7 +74,7 @@ export default function TuContactoProfesional() {
       id: 3,
       title: 'Botón y Dominio',
       subtitle: 'Personaliza con Botón y Dominio',
-      image: '/images/posicionamiento_slide_seo_objetivo.webp',
+      image: '/images/categorias/desarrollo-web/contacto-profesional-blog.webp',
       content: {
         intro: '¿Estás listo para un dominio propio que haga memorable tu contacto profesional?',
         description: 'Incluye botón de guardar contacto y dominio personalizado como www.tunombre.com para accesibilidad inmediata en artesanos y pymes, impulsando visibilidad sin costos recurrentes. Esto resuelve memorabilidad, optimiza para búsquedas como "ganar clientes" y permite presentaciones únicas, asegurando que tu marca destaque en networking con una solución rápida y sin complicaciones.',
@@ -98,7 +98,7 @@ export default function TuContactoProfesional() {
       <section className="relative min-h-screen flex items-center text-white">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/images/efecto_parallax/proteger-lo_que_has_construido_color.webp')" }}
+          style={{ backgroundImage: "url('/images/categorias/desarrollo-web/contacto-profesional-hero.webp')" }}
           aria-hidden="true"
         />
         <div className="absolute inset-0 bg-black/50" aria-hidden="true" />

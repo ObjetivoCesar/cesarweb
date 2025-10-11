@@ -54,7 +54,7 @@ export default function AlianzaExclusiva() {
       id: 2,
       title: 'Posicionamiento Digital 24 Meses',
       subtitle: 'Avanza con Posicionamiento Digital Medible',
-      image: '/images/posicionamiento_slide_seo_objetivo.webp',
+      image: '/images/categorias/posicionamiento/crecimiento-sostenible.webp',
       content: {
         intro: '¿Qué si contenido mensual y SEO optimizado atraen clientes constantes sin esfuerzos diarios?',
         description: 'Ofrecemos 5 artículos sobre tendencias, 20 posts en Facebook/Instagram, página por producto nuevo, optimización SEO, informes mensuales, mantenimiento y 1 campaña publicitaria mensual para pymes. Esto resuelve "ganar clientes" al posicionar en búsquedas orgánicas, genera interacciones en redes enfocadas en branding y mide tráfico/oportunidades, asegurando crecimiento medible sin costos variables inesperados.',
@@ -74,7 +74,7 @@ export default function AlianzaExclusiva() {
       id: 3,
       title: 'Propiedad Total Garantizada',
       subtitle: 'Asegura Futuro con Propiedad Total',
-      image: '/images/web.webp',
+      image: '/images/categorias/posicionamiento/soporte-continuo.webp',
       content: {
         intro: '¿Estás listo para propiedad completa de tu ecosistema digital tras alianza exitosa?',
         description: 'Al finalizar 24 meses, transfiere 100% del sitio, dominio y contenido sin restricciones para pymes, con opción continuar posicionamiento o auto-gestión, más renovación hosting económica. Esto impulsa "mostrar productos" con exclusividad sectorial, genera lealtad evitando competencia interna y asegura planificación financiera predecible, permitiendo escalabilidad sin dependencias ni sorpresas post-contrato mientras integras todo el ecosistema llave en mano.',

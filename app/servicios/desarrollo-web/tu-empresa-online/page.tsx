@@ -14,7 +14,7 @@ export default function TuEmpresaOnline() {
       id: 0,
       title: 'Diseño Corporativo',
       subtitle: 'Eleva Tu Imagen con Diseño Corporativo y UX/UI',
-      image: '/images/web.webp',
+      image: '/images/categorias/desarrollo-web/empresa-online-informativa.webp',
       content: {
         intro: '¿Sabías lo crucial de un diseño que capture la esencia corporativa y haga que los clientes naveguen sin esfuerzo?',
         description: 'Un desarrollo web premium enfocado en UX/UI crea una plataforma intuitiva y atractiva para pymes y independientes, reflejando tu misión mientras resuelve objeciones de profesionalismo. Esto retiene visitantes, facilita mostrar productos con reseñas y características, y convierte exploraciones en ventas al mejorar la percepción de tu negocio en búsquedas como "cómo ganar clientes".',
@@ -34,7 +34,7 @@ export default function TuEmpresaOnline() {
       id: 1,
       title: 'Páginas Estratégicas',
       subtitle: 'Expande con Páginas Estratégicas Multilingüe',
-      image: '/images/web.webp',
+      image: '/images/categorias/desarrollo-web/empresa-online-blog.webp',
       content: {
         intro: '¿Imaginas llegar a más clientes con páginas detalladas en dos idiomas que muestren cada producto individualmente?',
         description: 'Con hasta 20 páginas como Servicios con reseñas, Blog y sección de equipo/valores, plus multilingüe ES/ENG, tu web escala para pymes y artesanos. Esto resuelve accesibilidad global, optimiza para búsquedas como "cómo mostrar mis productos" y atrae leads al destacar misión, políticas y ofertas detalladas sin limitaciones de idioma o dispositivo.',
@@ -54,7 +54,7 @@ export default function TuEmpresaOnline() {
       id: 2,
       title: 'Integraciones Empresariales',
       subtitle: 'Automatiza con Integraciones y Contenido Dinámico',
-      image: '/images/web.webp',
+      image: '/images/categorias/desarrollo-web/empresa-online-formularios.webp',
       content: {
         intro: '¿Qué si tu web interactúa en tiempo real, capturando leads con herramientas como chatbot y actualizaciones constantes?',
         description: 'Integra formulario anti-SPAM personalizado, blog corporativo, Google Maps/Analytics/CRM, redes sociales y botón WhatsApp opcional para pymes e independientes. Esto dinamiza interacciones, mantiene audiencia informada, resuelve consultas instantáneas y genera tráfico orgánico, ideal para estrategias de "ganar clientes" al automatizar ventas y mostrar productos de forma engaging.',
@@ -74,7 +74,7 @@ export default function TuEmpresaOnline() {
       id: 3,
       title: 'Seguridad y SEO Avanzado',
       subtitle: 'Fortalece con Seguridad y Optimización SEO',
-      image: '/images/posicionamiento_slide_seo_objetivo.webp',
+      image: '/images/categorias/desarrollo-web/empresa-online-seo.webp',
       content: {
         intro: '¿Estás preparado para que tu sitio sea seguro, visible en Google y analice datos para decisiones estratégicas?',
         description: 'Incluye SSL para protección, SEO avanzado con palabras clave e indexación, diseño responsive y dominio/hosting primer año. Para artesanos y pymes, esto construye confianza, mejora posiciones en búsquedas como "planificación para conseguir más clientes" y permite medir tráfico, asegurando un crecimiento sostenido sin riesgos ni costos ocultos iniciales.',
@@ -98,7 +98,7 @@ export default function TuEmpresaOnline() {
       <section className="relative min-h-screen flex items-center text-white">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/images/efecto_parallax/proteger-lo_que_has_construido_color.webp')" }}
+          style={{ backgroundImage: "url('/images/categorias/desarrollo-web/empresa-online-hero.webp')" }}
           aria-hidden="true"
         />
         <div className="absolute inset-0 bg-black/50" aria-hidden="true" />

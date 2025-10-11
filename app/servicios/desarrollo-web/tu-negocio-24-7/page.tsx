@@ -14,7 +14,7 @@ export default function TuNegocio247() {
       id: 0,
       title: 'Diseño Premium',
       subtitle: 'Potencia Tu Marca con Diseño Premium y UX',
-      image: '/images/web.webp',
+      image: '/images/categorias/desarrollo-web/negocio-24-7-diseno-premium.webp',
       content: {
         intro: '¿Sabías lo importante de un diseño que capte la esencia de tu negocio y haga que los clientes se queden?',
         description: 'Un diseño web premium enfocado en UX asegura que tu sitio sea intuitivo y atractivo, reflejando tu identidad como artesano o pyme. Esto no solo diferenciarte de la competencia, sino que mejora la retención de visitantes, convirtiéndolos en clientes leales al facilitar la exploración de tus productos y servicios sin frustraciones.',
@@ -34,7 +34,7 @@ export default function TuNegocio247() {
       id: 1,
       title: 'Secciones Personalizadas',
       subtitle: 'Personaliza Tu Sitio con Secciones Adaptables',
-      image: '/images/web.webp',
+      image: '/images/categorias/desarrollo-web/negocio-24-7-secciones-adaptables.webp',
       content: {
         intro: '¿Imaginas mostrar tus productos en un sitio que se ve perfecto en cualquier dispositivo, sin perder oportunidades?',
         description: 'Con hasta 5 secciones personalizadas como Inicio, Nosotros, Servicios, Galería y Contacto, tu web se adapta a móviles, tablets y desktops. Esto asegura una experiencia óptima, captando clientes en cualquier momento y lugar, mientras resuelves la objeción de accesibilidad para pymes y artesanos que buscan expandir su alcance digital.',
@@ -54,7 +54,7 @@ export default function TuNegocio247() {
       id: 2,
       title: 'Integraciones Dinámicas',
       subtitle: 'Conecta y Actualiza con Integraciones Dinámicas',
-      image: '/images/web.webp',
+      image: '/images/categorias/desarrollo-web/negocio-24-7-integraciones.webp',
       content: {
         intro: '¿Qué pasaría si tu web no solo muestra, sino que interactúa y atrae tráfico constante con contenido fresco?',
         description: 'Integra redes sociales con botones interactivos, una galería de imágenes optimizada y un blog para noticias. Esto facilita la interacción con seguidores, evita SPAM en formularios de contacto y genera actualizaciones que mantienen informada a tu audiencia, atrayendo leads orgánicos y resolviendo cómo mostrar productos de manera efectiva para independientes y pymes.',
@@ -74,7 +74,7 @@ export default function TuNegocio247() {
       id: 3,
       title: 'Seguridad y SEO',
       subtitle: 'Asegura Visibilidad con Seguridad y Optimización',
-      image: '/images/posicionamiento_slide_seo_objetivo.webp',
+      image: '/images/categorias/desarrollo-web/negocio-24-7-seguridad-seo.webp',
       content: {
         intro: '¿Estás listo para que tu sitio aparezca en Google y proteja a tus clientes, mientras analizas qué funciona?',
         description: 'Incluye certificado SSL para seguridad, optimización SEO básica para indexación en buscadores, y Google Analytics para rastrear tráfico. Con dominio y hosting el primer año, establishes una base sólida que mejora visibilidad, protege datos y permite decisiones informadas, ideal para artesanos y pymes que buscan ganar clientes sin inversiones extras iniciales.',
@@ -98,7 +98,7 @@ export default function TuNegocio247() {
       <section className="relative min-h-screen flex items-center text-white">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/images/efecto_parallax/proteger-lo_que_has_construido_color.webp')" }}
+          style={{ backgroundImage: "url('/images/categorias/desarrollo-web/negocio-24-7-hero.webp')" }}
           aria-hidden="true"
         />
         <div className="absolute inset-0 bg-black/50" aria-hidden="true" />

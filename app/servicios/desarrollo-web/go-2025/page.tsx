@@ -14,7 +14,7 @@ export default function Go2025() {
       id: 0,
       title: 'Diseño Intuitivo UX/UI',
       subtitle: 'Eleva Tu Marca con Diseño UX/UI',
-      image: '/images/web.webp',
+      image: '/images/categorias/desarrollo-web/go-2025-diseno-intuitivo.webp',
       content: {
         intro: '¿Sabías lo vital de un diseño intuitivo que capte clientes desde el primer vistazo sin frustraciones?',
         description: 'Un desarrollo web código enfocado en UX/UI crea una plataforma estática atractiva para pymes y artesanos, reflejando tu identidad mientras resuelve objeciones de simplicidad. Esto optimiza para búsquedas como "cómo mostrar mis productos", retiene visitantes con navegación fluida y convierte exploraciones en leads, superando tarjetas digitales al ofrecer una presencia profesional sólida sin mantenimiento complejo ni costos ocultos.',
@@ -54,7 +54,7 @@ export default function Go2025() {
       id: 2,
       title: 'Tres Secciones Estratégicas',
       subtitle: 'Estructura con Tres Secciones Clave',
-      image: '/images/web.webp',
+      image: '/images/categorias/desarrollo-web/go-2025-secciones-clave.webp',
       content: {
         intro: '¿Qué si tu web muestra productos y contactos de forma clara, atrayendo clientes en minutos?',
         description: 'Incluye Portada, Servicios/Productos y Contactos para organizar contenido esencial en pymes e independientes, optimizando para "planificación para conseguir más clientes" con presentaciones atractivas. Esto resuelve sobrecargas informativas, facilita mostrar ofertas con detalles relevantes y captura leads directos, elevando visibilidad sobre opciones básicas como tarjetas digitales sin requerir mantenimiento ni complicaciones técnicas abrumadoras.',
@@ -74,7 +74,7 @@ export default function Go2025() {
       id: 3,
       title: 'SEO Básico y Dominio/Hosting',
       subtitle: 'Posiciona con SEO y Seguridad',
-      image: '/images/posicionamiento_slide_seo_objetivo.webp',
+      image: '/images/categorias/desarrollo-web/go-2025-seo-seguridad.webp',
       content: {
         intro: '¿Estás listo para que tu dominio propio aparezca en Google y proteja datos de clientes?',
         description: 'Configura palabra clave principal y tres relacionadas con dominio/hosting primer año y SSL para artesanos y pymes, impulsando visibilidad en búsquedas como "cómo ganar clientes". Esto construye confianza, mejora indexación orgánica y atrae leads cualificados, superando tarjetas digitales al ofrecer una plataforma sólida sin costos recurrentes ni riesgos, permitiendo decisiones informadas para crecimiento digital inicial.',
