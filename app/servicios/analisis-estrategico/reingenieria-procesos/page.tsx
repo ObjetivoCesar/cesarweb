@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowLeft, Check, BarChart, Target, Search, BookOpen, ChevronLeft, ChevronRight, Eye, Zap, Users, TrendingUp, Rocket, LineChart, Lightbulb, Compass, Award, DollarSign, FileText, TrendingDown, ListChecks, PenTool, ShieldCheck, Calculator, Building2, ClipboardCheck, Settings, AlertTriangle, Workflow, GraduationCap } from 'lucide-react';
 import { useState } from 'react';
 import Image from 'next/image';
+import { ExpandableText } from '@/components/ui/expandable-text';
 
 export default function ReingenieriaProcesos() {
   const [activeTab, setActiveTab] = useState(0);
@@ -206,9 +207,11 @@ export default function ReingenieriaProcesos() {
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
             Deja de Perder Dinero en Procesos Lentos <span className="text-blue-400">que Matan tu Rentabilidad</span>
           </h1>
-          <p className="text-lg md:text-xl max-w-4xl mx-auto mb-8">
-            ¿Tus empleados se quejan de procesos complicados que les quitan tiempo? ¿Sientes que tu empresa podría producir más con los mismos recursos? Los procesos ineficientes son el costo oculto que nadie ve pero todos pagan. Nuestra Reingeniería de Procesos mapea cada paso de tu operación, identifica cuellos de botella y te muestra exactamente dónde automatizar, optimizar y ahorrar para multiplicar tu rentabilidad.
-          </p>
+          <ExpandableText 
+            className="text-lg md:text-xl max-w-4xl mx-auto mb-8"
+            fullText="¿Tus empleados se quejan de procesos complicados que les quitan tiempo? ¿Sientes que tu empresa podría producir más con los mismos recursos? Los procesos ineficientes son el costo oculto que nadie ve pero todos pagan. Nuestra Reingeniería de Procesos mapea cada paso de tu operación, identifica cuellos de botella y te muestra exactamente dónde automatizar, optimizar y ahorrar para multiplicar tu rentabilidad."
+            shortText="¿Tus empleados se quejan de procesos complicados que les quitan tiempo?"
+          />
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="#contacto" className="w-full sm:w-auto">
               <Button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 md:px-8 rounded-lg text-base md:text-lg transition-all duration-300 transform hover:scale-105 w-full sm:w-auto">
@@ -230,19 +233,11 @@ export default function ReingenieriaProcesos() {
               ¿Cómo Hacer que tu Empresa Produzca Más Gastando Menos?
             </h2>
             <div className="prose prose-lg text-gray-700">
-              <p className="mb-6">
-                <strong>Optimizar procesos no es trabajar más duro, es trabajar más inteligente.</strong> Se trata de identificar exactamente dónde se está perdiendo tiempo, dinero y recursos, eliminar pasos innecesarios, automatizar tareas repetitivas y rediseñar flujos de trabajo para que tu equipo produzca el doble en la mitad del tiempo.
-              </p>
-              <details className="mb-6">
-                <summary className="cursor-pointer text-blue-600 font-semibold hover:text-blue-800 transition-colors">
-                  Seguir leyendo...
-                </summary>
-                <div className="mt-4 space-y-4">
-                  <p>
-                    La reingeniería efectiva de procesos se construye sobre cuatro pilares fundamentales: mapeo completo de procesos actuales para entender qué está pasando realmente, identificación de cuellos de botella y desperdicios de recursos, diseño de procesos optimizados con automatización estratégica, y plan de implementación con capacitación para asegurar adopción exitosa.
-                  </p>
-                </div>
-              </details>
+              <ExpandableText
+                className="mb-6"
+                shortText="<strong>Optimizar procesos no es trabajar más duro, es trabajar más inteligente.</strong> Se trata de identificar exactamente dónde se está perdiendo tiempo, dinero y recursos, eliminar pasos innecesarios, automatizar tareas repetitivas y rediseñar flujos de trabajo para que tu equipo produzca el doble en la mitad del tiempo."
+                fullText="<strong>Optimizar procesos no es trabajar más duro, es trabajar más inteligente.</strong> Se trata de identificar exactamente dónde se está perdiendo tiempo, dinero y recursos, eliminar pasos innecesarios, automatizar tareas repetitivas y rediseñar flujos de trabajo para que tu equipo produzca el doble en la mitad del tiempo. La reingeniería efectiva de procesos se construye sobre cuatro pilares fundamentales: mapeo completo de procesos actuales para entender qué está pasando realmente, identificación de cuellos de botella y desperdicios de recursos, diseño de procesos optimizados con automatización estratégica, y plan de implementación con capacitación para asegurar adopción exitosa."
+              />
               <p className="text-lg font-semibold text-center text-gray-800 mt-10 mb-2">
                 A continuación, descubre los componentes de nuestra Reingeniería de Procesos y cómo cada uno transforma operaciones caóticas en máquinas eficientes de productividad:
               </p>
