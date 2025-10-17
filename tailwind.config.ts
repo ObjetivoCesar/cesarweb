@@ -98,6 +98,9 @@ const config = {
       },
       fontFamily: {
         sans: ["var(--font-inter)", "sans-serif"],
+        poppins: ["Poppins", "sans-serif"],
+        montserrat: ["Montserrat", "sans-serif"],
+        playfair: ["Playfair Display", "serif"],
       },
     },
   },

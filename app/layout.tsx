@@ -1,9 +1,9 @@
 import type React from "react"
 import "./globals.css"
-import { Inter, Poiret_One, Montserrat } from "next/font/google"
+import { Inter, Poiret_One, Montserrat, Poppins, Playfair_Display } from "next/font/google"
 import Footer from "@/components/footer"
 import VisitTracker from '@/components/VisitTracker'
-import ClientHeader from '@/components/ClientHeader'
+import TransparentHeader from '@/components/transparent-header'
 
 // Importar metadata desde el archivo separado
 export { metadata, viewport } from './metadata'
@@ -23,9 +23,23 @@ const poiretOne = Poiret_One({
 })
 
 const montserrat = Montserrat({
-  weight: '400',
+  weight: ['400', '500', '700'],
   subsets: ["latin"],
   variable: "--font-montserrat",
+  display: 'swap',
+})
+
+const poppins = Poppins({
+  weight: ['700'],
+  subsets: ["latin"],
+  variable: "--font-poppins",
+  display: 'swap',
+})
+
+const playfairDisplay = Playfair_Display({
+  weight: ['700'],
+  subsets: ["latin"],
+  variable: "--font-playfair-display",
   display: 'swap',
 })
 
@@ -38,8 +52,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`${inter.variable} ${poiretOne.variable} ${montserrat.variable} font-sans antialiased`}>
-        <ClientHeader />
+      <body className={`${inter.variable} ${poiretOne.variable} ${montserrat.variable} ${poppins.variable} ${playfairDisplay.variable} font-sans antialiased`}>
+        <TransparentHeader />
         <main>{children}</main>
         <Footer />
       </body>
