@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import HomeClientWrapper from './components/HomeClientWrapper';
-import ClientHeader from "@/components/ClientHeader";
+import TransparentHeader from "@/components/transparent-header";
 
 export default async function HomePage({
   searchParams,
