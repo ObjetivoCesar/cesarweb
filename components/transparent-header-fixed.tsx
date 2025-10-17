@@ -9,8 +9,79 @@ import serviciosData from "@/data/servicios.json"
 
 const categorias = serviciosData.categorias
 
-// ... (resto del código del archivo original hasta la línea 230)
+// Componente principal
+const TransparentHeaderFixed = () => {
+  const pathname = usePathname()
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [expandedMenus, setExpandedMenus] = useState<{[key: string]: boolean}>({
+    servicios: false
+  })
 
+  const toggleMenu = (menu: string) => {
+    setExpandedMenus(prev => ({
+      ...prev,
+      [menu]: !prev[menu]
+    }))
+  }
+
+  // Cerrar el menú cuando se hace clic fuera de él
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement
+      if (isMenuOpen && !target.closest('#mobile-menu') && !target.closest('#mobile-menu-button')) {
+        setIsMenuOpen(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isMenuOpen])
+
+  return (
+    <header className="fixed w-full z-50 bg-white/80 backdrop-blur-sm shadow-sm">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-16">
+          <div className="flex items-center">
+            <Link href="/" className="flex-shrink-0 flex items-center">
+              <span className="text-2xl font-bold text-gray-900">TuLogo</span>
+            </Link>
+          </div>
+
+          {/* Menú de escritorio */}
+          <div className="hidden md:flex items-center space-x-8">
+            {pathname !== '/' && (
+              <Link href="/" className="text-gray-700 hover:text-gray-900">Inicio</Link>
+            )}
+            <div className="relative group">
+              <button className="flex items-center text-gray-700 hover:text-gray-900">
+                <span>Servicios</span>
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </button>
+              <MegaMenu categorias={categorias} />
+            </div>
+            <Link href="/blog" className="text-gray-700 hover:text-gray-900">Blog</Link>
+            <Link href="/contacto" className="text-gray-700 hover:text-gray-900">Contacto</Link>
+          </div>
+
+          {/* Botón de menú móvil */}
+          <div className="flex items-center md:hidden">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              id="mobile-menu-button"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none"
+            >
+              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Menú móvil */}
+      {isMenuOpen && (
+        <div id="mobile-menu" className="md:hidden bg-white shadow-lg rounded-b-lg">
+          <div className="pt-2 pb-3 space-y-1">
             {pathname !== '/' && (
               <Link 
                 href="/" 
