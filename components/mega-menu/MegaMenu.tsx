@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Link from "next/link";
-import { useRef } from "react";
 
 interface Servicio {
   id: string;
@@ -19,38 +18,35 @@ interface Categoria {
   servicios: Servicio[];
 }
 
-import servicesData from "@/data/servicios.json";
+interface MegaMenuProps {
+  categorias: Categoria[];
+}
 
-const categorias: Categoria[] = servicesData.categorias;
-
-export default function MegaMenu() {
-  const [activeCategory, setActiveCategory] = useState<Categoria | null>(categorias[0]);
+export default function MegaMenu({ categorias = [] }: MegaMenuProps) {
+  const [activeCategory, setActiveCategory] = useState<Categoria | null>(null);
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const safeCategorias = Array.isArray(categorias) ? categorias : [];
 
   const handleMouseLeave = (e: React.MouseEvent) => {
-    // Solo cerrar si el mouse realmente sale del área total del menú
     if (menuRef.current && !menuRef.current.contains(e.relatedTarget as Node)) {
       setIsOpen(false);
+      setActiveCategory(null);
     }
   };
 
   const handleBlur = (e: React.FocusEvent<HTMLButtonElement>) => {
     if (menuRef.current && !menuRef.current.contains(e.relatedTarget as Node)) {
       setIsOpen(false);
+      setActiveCategory(null);
     }
   };
 
   return (
-    <div
-      className="relative"
-      ref={menuRef}
-      onMouseLeave={handleMouseLeave}
-    >
-      <div
-        className="flex items-center h-full"
-        onMouseEnter={() => setIsOpen(true)}
-      >
+    <div className="relative" ref={menuRef} onMouseLeave={handleMouseLeave}>
+      <div className="flex items-center h-full" onMouseEnter={() => setIsOpen(true)}>
         <button
           className="font-medium text-white px-4 py-2 hover:text-blue-400 transition-colors"
           onFocus={() => setIsOpen(true)}
@@ -60,96 +56,102 @@ export default function MegaMenu() {
           Servicios
         </button>
       </div>
-      {/* MegaMenu Content */}
+
       {isOpen && (
         <div
           className="absolute left-1/2 top-full z-50 transition-all duration-200"
           style={{ transform: 'translateX(-50%)', boxShadow: '0 8px 24px rgba(0,0,0,0.12)' }}
-          onMouseEnter={() => setIsOpen(true)}
-          onMouseLeave={() => setTimeout(() => setIsOpen(false), 600)}
-      >
-        <div
-        className="bg-white rounded-xl shadow-2xl overflow-visible grid border border-gray-200"
-        style={{
-          gridTemplateColumns: '1fr 1fr 1.5fr',
-          width: '90vw',
-          maxWidth: '1400px',
-          margin: '24px auto',
-          padding: '40px 32px',
-          boxShadow: '0 12px 32px rgba(0,0,0,0.18)',
-          gap: '0',
-          alignItems: 'stretch',
-        }}
-      >
-        {/* Sub-column: servicios (izquierda) */}
-        <div className="col-span-1 px-6 py-4 border-r border-gray-200">
-          {activeCategory ? (
-            <>
-              <div className="flex flex-col gap-2">
-                {activeCategory.servicios.map((serv) => (
-                  <Link
-                    key={serv.id}
-                    href={`/servicios/${activeCategory.slug}/${serv.slug}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block text-gray-700 rounded-md px-3 py-2 transition-colors hover:bg-blue-600 hover:text-white"
+          onMouseEnter={() => {
+            if (timeoutRef.current) clearTimeout(timeoutRef.current);
+            setIsOpen(true);
+          }}
+          onMouseLeave={() => {
+            timeoutRef.current = setTimeout(() => setIsOpen(false), 300);
+          }}
+        >
+          <div 
+            className="bg-white rounded-xl shadow-2xl overflow-hidden grid border border-gray-200"
+            style={{
+              gridTemplateColumns: '1fr 1fr 1.5fr',
+              width: '90vw',
+              maxWidth: '1400px',
+              margin: '24px auto',
+              padding: '40px 32px',
+              gap: '0',
+              alignItems: 'stretch',
+            }}
+          >
+            {/* Categorías */}
+            <div className="col-span-1 px-6 py-4 border-r border-gray-200">
+              <h3 className="text-lg font-semibold mb-4 text-gray-800">Categorías</h3>
+              <div className="space-y-2">
+                {safeCategorias.map((categoria) => (
+                  <button
+                    key={categoria.id}
+                    className={`w-full text-left px-4 py-2 rounded-md transition-colors ${
+                      activeCategory?.id === categoria.id
+                        ? 'bg-blue-100 text-blue-700'
+                        : 'text-gray-700 hover:bg-gray-100'
+                    }`}
+                    onMouseEnter={() => setActiveCategory(categoria)}
+                    onClick={() => {
+                      window.location.href = `/servicios/${categoria.slug}`;
+                    }}
                   >
-                    <div className="font-medium">{serv.titulo}</div>
-                  </Link>
+                    {categoria.titulo}
+                  </button>
                 ))}
               </div>
-            </>
-          ) : (
-            <div className="text-gray-400 flex items-center justify-center h-full">
-              Selecciona una categoría
             </div>
-          )}
-        </div>
-        {/* Main column: categories (centro) */}
-        <div className="col-span-1 flex flex-col items-center justify-center">
-          {categorias.map((cat) => (
-            <Link key={cat.id} href={`/servicios/${cat.slug}`} passHref legacyBehavior>
-              <a className={`px-6 py-4 cursor-pointer transition-colors flex items-center justify-between w-full rounded-md ${
-                  activeCategory?.id === cat.id
-                    ? "bg-blue-600 text-white font-bold shadow-md"
-                    : "text-gray-800 hover:bg-blue-50 hover:text-blue-600"
-                }`}
-                onMouseEnter={() => setActiveCategory(cat)}
-                tabIndex={0}
-              >
-                {cat.titulo}
-                <span className="ml-2">←</span>
-              </a>
-            </Link>
-          ))}
-        </div>
-        {/* Visual column: image (derecha) */}
-        <div className="col-span-1 flex items-center justify-center bg-gray-50 relative">
-          {activeCategory && (
-            <img
-              src={activeCategory.imagen}
-              alt={activeCategory.titulo}
-              className="object-cover rounded-lg shadow-lg max-h-60 w-full h-auto transition-all duration-200"
-              style={{ maxWidth: 320 }}
-            />
-          )}
-        </div>
-      </div>
-      <style jsx>{`
-        @media (max-width: 900px) {
-          .grid-cols-3 {
-            grid-template-columns: 1fr 1fr;
-          }
-        }
-        @media (max-width: 600px) {
-          .grid-cols-3 {
-            grid-template-columns: 1fr;
-          }
-        }
-      `}</style>
+
+            {/* Servicios */}
+            <div className="col-span-1 px-6 py-4 border-r border-gray-200">
+              <h3 className="text-lg font-semibold mb-4 text-gray-800">
+                {activeCategory ? activeCategory.titulo : 'Selecciona una categoría'}
+              </h3>
+              {activeCategory ? (
+                <div className="space-y-2">
+                  {activeCategory.servicios.map((servicio) => (
+                    <Link
+                      key={servicio.id}
+                      href={`/servicios/${activeCategory.slug}/${servicio.slug}`}
+                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {servicio.titulo}
+                    </Link>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-gray-500">Selecciona una categoría para ver los servicios</p>
+              )}
+            </div>
+
+            {/* Vista previa */}
+            <div className="col-span-1 flex items-center justify-center bg-gray-50 p-6">
+              {activeCategory?.imagen ? (
+                <div className="relative w-full h-64 rounded-lg overflow-hidden">
+                  <img
+                    src={activeCategory.imagen}
+                    alt={activeCategory.titulo}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+                    <div>
+                      <h3 className="text-white text-xl font-semibold">{activeCategory.titulo}</h3>
+                      <p className="text-white/80 text-sm mt-1">{activeCategory.descripcionCorta}</p>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="text-center text-gray-400">
+                  <p>Selecciona una categoría para ver más detalles</p>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       )}
     </div>
   );
 }
-
