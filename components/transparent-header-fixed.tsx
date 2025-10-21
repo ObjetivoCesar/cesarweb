@@ -6,6 +6,8 @@ import { Menu, X, Search, ChevronDown } from "lucide-react"
 import { usePathname } from "next/navigation"
 import MegaMenu from "@/components/mega-menu/MegaMenu"
 import serviciosData from "@/data/servicios.json"
+import TopBar from "./TopBar"
+import NavigationHeader from "./NavigationHeader"
 
 const categorias = serviciosData.categorias
 
