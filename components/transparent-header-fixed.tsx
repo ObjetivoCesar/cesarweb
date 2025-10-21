@@ -62,7 +62,7 @@ const TransparentHeaderFixed = () => {
               <MegaMenu categorias={categorias} />
             </div>
             <Link href="/blog" className="text-gray-700 hover:text-gray-900">Blog</Link>
-            <Link href="/contacto" className="text-gray-700 hover:text-gray-900">Contacto</Link>
+            <Link href="/menuobjetivo" className="text-gray-700 hover:text-gray-900">Menu Objetivo</Link>
           </div>
 
           {/* Botón de menú móvil */}
@@ -153,11 +153,11 @@ const TransparentHeaderFixed = () => {
               Blog
             </Link>
             <Link 
-              href="/contacto" 
+              href="/menuobjetivo" 
               className="block py-2 text-gray-800 hover:bg-gray-100 px-4 rounded"
               onClick={() => setIsMenuOpen(false)}
             >
-              Contacto
+              Menu Objetivo
             </Link>
           </div>
         </div>

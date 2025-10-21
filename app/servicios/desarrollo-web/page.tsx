@@ -224,9 +224,11 @@ export default function DesarrolloWebPage() {
             <div className="max-w-3xl">
                 <p className="text-sm font-bold tracking-wider uppercase text-gray-300">Inicio &gt; Servicios &gt; Desarrollo Web</p>
                 <h1 className="text-4xl md:text-5xl font-bold mt-4 leading-tight shadow-text">Tu Página Web Profesional con Inversión Única, Sin Mensualidades.</h1>
-                <p className="mt-6 text-lg md:text-xl max-w-2xl text-gray-200 leading-relaxed">
-                    ¿Tu competencia vende más online? Es porque tienen una web que genera confianza. Deja de perder clientes por no tener una presencia digital sólida y obtén un sitio web profesional que te pertenece para siempre.
-                </p>
+                <ExpandableText 
+                    className="mt-6 text-lg md:text-xl max-w-2xl text-gray-200 leading-relaxed"
+                    fullText="¿Tu competencia vende más online? Es porque tienen una web que genera confianza. Deja de perder clientes por no tener una presencia digital sólida y obtén un sitio web profesional que te pertenece para siempre."
+                    shortText="¿Tu competencia vende más online? Es porque tienen una web que genera confianza..."
+                />
                 <a href="#servicios" className="mt-8 inline-block bg-blue-600 text-white font-bold py-4 px-10 rounded-lg text-xl hover:bg-blue-700 transition-transform transform hover:scale-105">
                     Ver Soluciones Web
                 </a>

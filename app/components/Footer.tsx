@@ -27,8 +27,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/contacto" className="text-gray-500 hover:text-gray-900">
-                  Contacto
+                <Link href="/menuobjetivo" className="text-gray-500 hover:text-gray-900">
+                  Menu Objetivo
                 </Link>
               </li>
             </ul>

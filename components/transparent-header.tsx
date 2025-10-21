@@ -1,35 +1,35 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import { Menu, X, Search, ChevronDown } from "lucide-react"
-import { usePathname, useRouter } from "next/navigation"
-import MegaMenu from "@/components/mega-menu/MegaMenu"
-import serviciosData from "@/data/servicios.json"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { Menu, X, Search } from "lucide-react";
+import { usePathname } from "next/navigation";
+import MegaMenu from "@/components/mega-menu/MegaMenu";
+import MobileMenu from "./MobileMenu"; // Import the new component
+import serviciosData from "@/data/servicios.json";
 
-const categorias = serviciosData.categorias
+const categorias = serviciosData.categorias;
 
 // Componente separado para la barra superior
 function TopBar() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isSearchOpen, setIsSearchOpen] = useState(false)
-  const [searchQuery, setSearchQuery] = useState("")
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY
-      setIsScrolled(scrollPosition > 0)
-    }
+      const scrollPosition = window.scrollY;
+      setIsScrolled(scrollPosition > 0);
+    };
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Aquí implementaremos la lógica de búsqueda
-    console.log("Buscando:", searchQuery)
-  }
+    e.preventDefault();
+    console.log("Buscando:", searchQuery);
+  };
 
   return (
     <div 
@@ -44,7 +44,6 @@ function TopBar() {
           César Reyes Consultor para Pymes
         </div>
         
-        {/* Buscador */}
         <div className="relative">
           <button 
             onClick={() => setIsSearchOpen(!isSearchOpen)}
@@ -54,7 +53,6 @@ function TopBar() {
             <Search size={20} />
           </button>
           
-          {/* Panel de búsqueda */}
           {isSearchOpen && (
             <div className="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-lg p-4">
               <form onSubmit={handleSearch} className="flex flex-col gap-2">
@@ -77,110 +75,36 @@ function TopBar() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-// Componente para el menú de navegación
+// Componente para el menú de navegación (ahora simplificado)
 function NavigationHeader() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isServicesOpen, setIsServicesOpen] = useState(false)
-  const [expandedMenus, setExpandedMenus] = useState<Record<string, boolean>>({})
-  const [isVisible, setIsVisible] = useState(true)
-  const [lastScrollY, setLastScrollY] = useState(0)
-  const pathname = usePathname()
-  const router = useRouter()
-  const [isHovering, setIsHovering] = useState(false)
-  const [closeTimeout, setCloseTimeout] = useState<NodeJS.Timeout | null>(null)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const pathname = usePathname();
 
-  const handleCategoryClick = (catId: string, catSlug: string) => {
-    if (expandedMenus[catId]) {
-      router.push(`/servicios/${catSlug}`)
-      setIsMenuOpen(false)
-    } else {
-      const newExpandedState: Record<string, boolean> = { 'servicios': true }
-      newExpandedState[catId] = true
-      setExpandedMenus(newExpandedState)
-    }
-  }
-
-  const toggleServicesMenu = () => {
-    setExpandedMenus(prev => ({ ...prev, servicios: !prev.servicios }))
-  }
-
-  // Limpiar timeouts al desmontar
   useEffect(() => {
-    return () => {
-      if (closeTimeout) clearTimeout(closeTimeout)
-    }
-  }, [closeTimeout])
-
-  // Limpiar estados al cambiar de ruta
-  useEffect(() => {
-    setIsServicesOpen(false)
-    setIsHovering(false)
-    setExpandedMenus({})
-    if (closeTimeout) {
-      clearTimeout(closeTimeout)
-      setCloseTimeout(null)
-    }
-    // Cerrar el menú móvil al cambiar de ruta
     setIsMenuOpen(false);
-  }, [pathname])
-
-  const handleMouseEnter = () => {
-    if (closeTimeout) {
-      clearTimeout(closeTimeout)
-      setCloseTimeout(null)
-    }
-    setIsHovering(true)
-    setIsServicesOpen(true)
-  }
-
-  const handleMouseLeave = () => {
-    const timeout = setTimeout(() => {
-      if (!isHovering) {
-        setIsServicesOpen(false)
-      }
-    }, 300) // 300ms de retraso antes de cerrar
-    setCloseTimeout(timeout)
-  }
-
-  const handleMenuMouseEnter = () => {
-    if (closeTimeout) {
-      clearTimeout(closeTimeout)
-      setCloseTimeout(null)
-    }
-    setIsHovering(true)
-  }
-
-  const handleMenuMouseLeave = () => {
-    const timeout = setTimeout(() => {
-      if (!isHovering) {
-        setIsServicesOpen(false)
-      }
-    }, 300) // 300ms de retraso antes de cerrar
-    setCloseTimeout(timeout)
-    setIsHovering(false)
-  }
+  }, [pathname]);
 
   useEffect(() => {
     const controlNavbar = () => {
-      const currentScrollY = window.scrollY
-      
+      const currentScrollY = window.scrollY;
       if (currentScrollY > lastScrollY) {
-        setIsVisible(false)
+        setIsVisible(false);
       } else {
-        setIsVisible(true)
+        setIsVisible(true);
       }
-      
-      setLastScrollY(currentScrollY)
-    }
+      setLastScrollY(currentScrollY);
+    };
 
-    window.addEventListener('scroll', controlNavbar)
+    window.addEventListener('scroll', controlNavbar);
     return () => {
-      window.removeEventListener('scroll', controlNavbar)
-    }
-  }, [lastScrollY])
+      window.removeEventListener('scroll', controlNavbar);
+    };
+  }, [lastScrollY]);
 
   return (
     <header 
@@ -189,7 +113,6 @@ function NavigationHeader() {
       }`}
     >
       <div className="container py-4 flex justify-between items-center">
-        {/* Logo y nombre: César Reyes */}
         <Link href="/" className="text-2xl font-bold flex items-center">
           <span className="text-white">César Reyes</span>
         </Link>
@@ -202,17 +125,17 @@ function NavigationHeader() {
                 Inicio
               </Link>
             )}
-            <MegaMenu />
+            <MegaMenu categorias={categorias} />
             <Link href="/blog" className="font-medium text-white hover:text-gray-200">
               Blog
             </Link>
-            <Link href="/contacto" className="font-medium text-white hover:text-gray-200">
-              Contacto
+            <Link href="/menuobjetivo" className="font-medium text-white hover:text-gray-200">
+              Menu Objetivo
             </Link>
           </nav>
         </div>
 
-        {/* Versión móvil: botón del menú */}
+        {/* Botón del menú móvil */}
         <div className="md:hidden">
           <button 
             className="text-white" 
@@ -224,86 +147,10 @@ function NavigationHeader() {
         </div>
       </div>
 
-      {/* Menú móvil */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg absolute top-full left-0 right-0 z-50">
-          <div className="container mx-auto px-4 py-4 space-y-4">
-            {pathname !== '/' && (
-              <Link 
-                href="/" 
-                className="block py-2 text-gray-800 hover:bg-gray-100 px-4 rounded"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Inicio
-              </Link>
-            )}
-            <div>
-              <button
-                onClick={toggleServicesMenu}
-                className="flex items-center justify-between w-full py-2 text-gray-800 hover:bg-gray-100 px-4 rounded"
-              >
-                <span>Servicios</span>
-                <ChevronDown className={`h-4 w-4 transition-transform ${expandedMenus['servicios'] ? 'rotate-180' : ''}`} />
-              </button>
-              {expandedMenus['servicios'] && (
-                <div className="ml-4 mt-1 space-y-1 border-l-2 border-gray-200 pl-4 py-1">
-                  {categorias.map((categoria) => (
-                    <div key={categoria.id} className="mb-2">
-                      <button
-                        onClick={() => handleCategoryClick(categoria.slug, categoria.id)}
-                        className={`flex items-center justify-between w-full py-2 text-left font-medium rounded-md px-2 ${expandedMenus[categoria.id] ? 'bg-blue-600 text-white' : 'text-gray-700 hover:bg-gray-100'}`}>
-                        <span>{categoria.titulo}</span>
-                        <ChevronDown className={`h-4 w-4 transition-transform ${expandedMenus[categoria.id] ? 'rotate-180' : ''}`} />
-                      </button>
-                      {expandedMenus[categoria.id] && (
-                        <div className="ml-3 mt-1 space-y-1 border-l border-gray-200 pl-3">
-                          {categoria.servicios.map((servicio) => (
-                            <Link
-                              key={servicio.id}
-                              href={`/servicios/${categoria.slug}/${servicio.slug}`}
-                              className="block py-1.5 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50 -mx-2 px-2 rounded"
-                              onClick={() => {
-                                setIsMenuOpen(false)
-                              }}
-                            >
-                              {servicio.titulo}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                  <Link
-                    href="/servicios"
-                    className="block py-2 text-blue-600 font-medium hover:bg-blue-50 -mx-3 px-3 rounded text-sm mt-2"
-                    onClick={() => {
-                      setIsMenuOpen(false)
-                    }}
-                  >
-                    Ver todos los servicios →
-                  </Link>
-                </div>
-              )}
-            </div>
-            <Link 
-              href="/blog" 
-              className="block py-2 text-gray-800 hover:bg-gray-100 px-4 rounded"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Blog
-            </Link>
-            <Link 
-              href="/contacto" 
-              className="block py-2 text-gray-800 hover:bg-gray-100 px-4 rounded"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Contacto
-            </Link>
-          </div>
-        </div>
-      )}
+      {/* Renderiza el nuevo componente de menú móvil */}
+      {isMenuOpen && <MobileMenu categorias={categorias} onClose={() => setIsMenuOpen(false)} />}
     </header>
-  )
+  );
 }
 
 // Componente principal que combina ambos elementos
@@ -313,5 +160,5 @@ export default function TransparentHeader() {
       <TopBar />
       <NavigationHeader />
     </>
-  )
+  );
 }

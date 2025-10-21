@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { CheckCircle, Map, Telescope, Compass, Route, Lightbulb, DollarSign, TrendingUp, BarChart } from 'lucide-react';
+import { ExpandableText } from '@/components/ui/expandable-text';
 
 // --- DATA --- //
 const heroImages = [
@@ -168,9 +169,11 @@ export default function AnalisisEstrategicoPage() {
             <div className="max-w-3xl">
                 <p className="text-sm font-bold tracking-wider uppercase text-gray-300">Inicio &gt; Servicios &gt; Análisis Estratégico</p>
                 <h1 className="text-4xl md:text-5xl font-bold mt-4 leading-tight shadow-text">Toma Decisiones Inteligentes: El Análisis Estratégico que Tu Pyme Necesita.</h1>
-                <p className="mt-6 text-lg md:text-xl max-w-2xl text-gray-200 leading-relaxed">
-                    Deja de adivinar el siguiente paso. Con nuestro análisis estratégico, obtendrás una hoja de ruta clara y basada en datos para identificar oportunidades, superar a tu competencia y lograr un crecimiento sostenible en el mercado ecuatoriano.
-                </p>
+                <ExpandableText
+                    className="mt-6 text-lg md:text-xl max-w-2xl text-gray-200 leading-relaxed"
+                    fullText="Deja de adivinar el siguiente paso. Con nuestro análisis estratégico, obtendrás una hoja de ruta clara y basada en datos para identificar oportunidades, superar a tu competencia y lograr un crecimiento sostenible en el mercado ecuatoriano."
+                    shortText="Deja de adivinar el siguiente paso. Con nuestro análisis estratégico, obtendrás..."
+                />
                 <a href="#contacto" className="mt-8 inline-block bg-blue-600 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-blue-700 transition-transform transform hover:scale-105">
                     Agenda tu Diagnóstico Gratuito
                 </a>

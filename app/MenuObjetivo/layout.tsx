@@ -1,6 +1,6 @@
 
 import React from 'react';
 
-export default function MeuObjetivoLayout({ children }: { children: React.ReactNode }) {
+export default function MenuObjetivoLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

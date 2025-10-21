@@ -1,3 +1,44 @@
+## Historial de Sesión de Debugging (2025-10-19)
+
+Se realizó una sesión intensiva de debugging para solucionar una serie de errores críticos que impedían la compilación y el correcto funcionamiento visual del sitio.
+
+### Resumen del Problema Original
+
+El proyecto se encontraba en un estado inconsistente debido a una actualización/downgrade de dependencias fallida. Principalmente, se intentó cambiar de **Next.js 15/React 19** a **Next.js 14/React 18**, lo que resultó en:
+1.  Errores de compilación de TypeScript (`Cannot find type definition file...`).
+2.  Errores de caché de Webpack (`ENOENT: no such file or directory`).
+3.  Errores 404 en archivos internos de Next.js.
+4.  Inconsistencias visuales graves en todo el sitio.
+
+### Pasos de la Solución
+
+1.  **Diagnóstico y Reparación de Build:**
+    *   Se corrigió `tsconfig.json` añadiendo la propiedad `typeRoots` para que TypeScript encontrara las definiciones de tipos correctas.
+    *   Se eliminó la caché de Next.js (`.next/`) que estaba corrupta por el cambio de versión.
+    *   Se corrigió `next.config.mjs` eliminando las propiedades `typescript.ignoreBuildErrors` y `trailingSlash` que estaban ocultando errores y causando conflictos.
+
+2.  **Restauración del Estado Funcional:**
+    *   Tras confirmar que los problemas visuales persistían por cambios no guardados, se tomó la decisión de realizar un reseteo completo.
+    *   Se ejecutó `git reset --hard HEAD` para descartar todos los cambios no guardados y devolver el proyecto al último commit funcional (`79bb85a`).
+    *   Se ejecutó `pnpm install` para reinstalar las dependencias correctas correspondientes a ese commit.
+
+3.  **Reparación del MegaMenu:**
+    *   Se diagnosticó que el menú de escritorio no recibía los datos (`props`). Se corrigió la llamada en `transparent-header.tsx`.
+    *   Se diagnosticó que el menú móvil tenía una lógica obsoleta y rota.
+    *   **Solución Arquitectónica:** Se refactorizó el menú móvil, extrayéndolo a un nuevo componente aislado (`components/MobileMenu.tsx`) con una lógica de estado y eventos limpia y correcta, incluyendo la funcionalidad solicitada de **un clic (abrir/cerrar submenú) y doble clic (navegar)**.
+
+4.  **Limpieza Final:**
+    *   Se eliminó un enlace obsoleto ("Ver todos los servicios") del nuevo componente `MobileMenu.tsx`.
+
+### Trabajo Pendiente (Próxima Sesión)
+
+*   **Re-implementar `ExpandableText`:** Aplicar el componente `ExpandableText` en el párrafo del "hero" de las páginas de categoría de servicios.
+    *   **Completado:** `app/servicios/desarrollo-web/page.tsx`.
+    *   **Completado:** `app/servicios/analisis-estrategico/page.tsx`.
+    *   **PENDIENTE:** `app/servicios/posicionamiento/page.tsx`.
+
+---
+
 # Landing Mensajería Objetivo – César Reyes
 
 ## Descripción
@@ -270,4 +311,4 @@ Asegúrate de ajustar los estilos según sea necesario para que se adapte al dis
 
 El componente ha sido actualizado para manejar de forma más eficiente los mensajes de estado del backend (ej. "Conectado y esperando respuesta..."). Ahora, en lugar de añadir mensajes repetitivos, el componente actualiza el mensaje de estado existente en la interfaz del chat, evitando la acumulación de mensajes duplicados y mejorando la experiencia del usuario.
 
---- 
+---

@@ -240,6 +240,10 @@ export default function Header() {
       ]
     },
     { 
+      name: 'Menu Objetivo', 
+      href: '/menuobjetivo'
+    },
+    { 
       name: 'Mensajería', 
       href: '/mensajeria',
       submenu: [
@@ -360,12 +364,7 @@ export default function Header() {
         </div>
         
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link 
-            href="/contacto" 
-            className="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600 transition-colors"
-          >
-            Contacto <span aria-hidden="true">&rarr;</span>
-          </Link>
+
         </div>
       </nav>
 
@@ -528,15 +527,7 @@ export default function Header() {
                 ))}
               </div>
               
-              <div className="py-6">
-                <Link
-                  href="/contacto"
-                  className="-mx-3 block rounded-lg bg-blue-600 px-3 py-2.5 text-center text-base font-semibold leading-7 text-white hover:bg-blue-700 transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Contacto
-                </Link>
-              </div>
+
             </div>
           </div>
         </Dialog.Panel>
