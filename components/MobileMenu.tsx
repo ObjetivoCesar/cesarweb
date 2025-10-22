@@ -123,7 +123,7 @@ export default function MobileMenu({ categorias, onClose }: MobileMenuProps) {
         <Link href="/blog" className="block py-2 text-gray-800 hover:bg-gray-100 px-4 rounded" onClick={onClose}>
           Blog
         </Link>
-        <Link href="/menuobjetivo" className="block bg-[#FF6B00] text-white font-bold py-2 px-4 rounded hover:bg-[#E66000] transition-colors text-center" onClick={onClose}>
+        <Link href="/MenuObjetivo" className="block bg-[#FF6B00] text-white font-bold py-2 px-4 rounded hover:bg-[#E66000] transition-colors text-center" onClick={onClose}>
           Menú Objetivo
         </Link>
       </div>

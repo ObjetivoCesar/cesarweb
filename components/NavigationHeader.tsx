@@ -60,7 +60,7 @@ export default function NavigationHeader() {
             <Link href="/blog" className="font-medium text-white hover:text-gray-200">
               Blog
             </Link>
-            <Link href="/menuobjetivo" className="bg-[#FF6B00] text-white px-3 py-2 rounded-md text-sm font-semibold hover:bg-[#E66000] transition-colors">
+            <Link href="/MenuObjetivo" className="bg-[#FF6B00] text-white px-3 py-2 rounded-md text-sm font-semibold hover:bg-[#E66000] transition-colors">
               Menú Objetivo
             </Link>
           </nav>
