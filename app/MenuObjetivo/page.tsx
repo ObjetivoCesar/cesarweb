@@ -11,7 +11,18 @@ import { CardSlider } from "@/components/ui/card-slider";
 const MenuObjetivoPage = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalVideoUrl, setModalVideoUrl] = useState('');
   const [searchQuery, setSearchQuery] = useState('comprar lasaña en Loja');
+
+  const openModal = (url: string) => {
+    setModalVideoUrl(url);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setModalVideoUrl('');
+  };
 
   const faqData = {
     h2: "Las preguntas que todos hacen (y sus respuestas):",
@@ -47,13 +58,13 @@ const MenuObjetivoPage = () => {
     <div className="bg-white">
       <VideoModal 
         isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-        videoUrl="/videos/proceso-contratacion.mp4" 
+        onClose={closeModal} 
+        videoUrl={modalVideoUrl} 
       />
 
       {/* Section 1: Hero */}
       <section className="relative h-screen flex items-center justify-center text-white overflow-hidden">
-        <img src="/images/MenuObjetivo/hero_menuobjetivo.webp" alt="Menú digital para restaurantes" className="absolute z-0 w-full h-full object-cover" />
+        <img src="/images/MenuObjetivo/menu-digital-restaurantes-hero.webp" alt="Menú digital para restaurantes" className="absolute z-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="relative z-10 text-center px-4">
           <h1 className="text-4xl md:text-6xl font-extrabold text-white" style={{ fontFamily: 'var(--font-poiret-one)' }}>
@@ -67,7 +78,7 @@ const MenuObjetivoPage = () => {
             />
           </div>
           <button
-            onClick={() => setIsModalOpen(true)}
+            onClick={() => openModal('https://www.youtube.com/watch?v=4hot82GQezI')}
             className="mt-8 inline-block bg-[#FF6B00] text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:bg-[#E66000] transition-colors text-lg"
           >
             <PlayCircle className="inline-block mr-2" />
@@ -184,7 +195,7 @@ const MenuObjetivoPage = () => {
         <div className="mt-16 max-w-6xl mx-auto px-4">
           <CardSlider>
             <div className="relative aspect-[9/16] bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col p-8 overflow-hidden">
-              <img src="/images/MenuObjetivo/problema-1.webp" alt="La Hora Perdida" className="absolute inset-0 w-full h-full object-cover z-0" />
+              <img src="/images/MenuObjetivo/problema-tiempo-diseno-menu-restaurante.webp" alt="La Hora Perdida" className="absolute inset-0 w-full h-full object-cover z-0" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
               <div className="relative z-20 text-white flex flex-col h-full justify-center">
                 <h3 className="font-bold text-3xl font-playfair [text-shadow:0_0_2px_#000,0_0_5px_#000]">La "Hora Perdida"</h3>
@@ -197,7 +208,7 @@ const MenuObjetivoPage = () => {
               </div>
             </div>
             <div className="relative aspect-[9/16] bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col p-8 overflow-hidden">
-              <img src="/images/MenuObjetivo/problema-2.webp" alt="La Batalla Contra el Algoritmo" className="absolute inset-0 w-full h-full object-cover z-0" />
+              <img src="/images/MenuObjetivo/problema-visibilidad-google-restaurantes.webp" alt="La Batalla Contra el Algoritmo" className="absolute inset-0 w-full h-full object-cover z-0" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
               <div className="relative z-20 text-white flex flex-col h-full justify-center">
                 <h3 className="font-bold text-3xl font-playfair [text-shadow:0_0_2px_#000,0_0_5px_#000]">La Batalla Contra el Algoritmo</h3>
@@ -210,7 +221,7 @@ const MenuObjetivoPage = () => {
               </div>
             </div>
             <div className="relative aspect-[9/16] bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col p-8 overflow-hidden">
-              <img src="/images/MenuObjetivo/problema-3.webp" alt="El Costo de la Foto por WhatsApp" className="absolute inset-0 w-full h-full object-cover z-0" />
+              <img src="/images/MenuObjetivo/problema-enviar-menu-whatsapp-clientes.webp" alt="El Costo de la Foto por WhatsApp" className="absolute inset-0 w-full h-full object-cover z-0" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
               <div className="relative z-20 text-white flex flex-col h-full justify-center">
                 <h3 className="font-bold text-3xl font-playfair [text-shadow:0_0_2px_#000,0_0_5px_#000]">El Costo de la "Foto por WhatsApp"</h3>
@@ -267,7 +278,7 @@ const MenuObjetivoPage = () => {
         <div className="mt-16 max-w-6xl mx-auto px-4">
           <CardSlider>
             <div className="relative aspect-[9/16] bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col p-8 overflow-hidden">
-              <img src="/images/MenuObjetivo/solucion-1.webp" alt="Control Total en 1 Minuto" className="absolute inset-0 w-full h-full object-cover z-0" />
+              <img src="/images/MenuObjetivo/solucion-actualizar-menu-digital-facil.webp" alt="Control Total en 1 Minuto" className="absolute inset-0 w-full h-full object-cover z-0" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
               <div className="relative z-20 text-white flex flex-col h-full justify-center">
                 <h3 className="font-bold text-3xl font-playfair [text-shadow:0_0_2px_#000,0_0_5px_#000]">Control Total en 1 Minuto</h3>
@@ -280,7 +291,7 @@ const MenuObjetivoPage = () => {
               </div>
             </div>
             <div className="relative aspect-[9/16] bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col p-8 overflow-hidden">
-              <img src="/images/MenuObjetivo/solucion-2.webp" alt="Visible Cuando Te Buscan" className="absolute inset-0 w-full h-full object-cover z-0" />
+              <img src="/images/MenuObjetivo/solucion-posicionamiento-google-restaurantes.webp" alt="Visible Cuando Te Buscan" className="absolute inset-0 w-full h-full object-cover z-0" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
               <div className="relative z-20 text-white flex flex-col h-full justify-center">
                 <h3 className="font-bold text-3xl font-playfair [text-shadow:0_0_2px_#000,0_0_5px_#000]">Visible Cuando Te Buscan</h3>
@@ -293,7 +304,7 @@ const MenuObjetivoPage = () => {
               </div>
             </div>
             <div className="relative aspect-[9/16] bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col p-8 overflow-hidden">
-              <img src="/images/MenuObjetivo/solucion-3.webp" alt="Tu Marca, Tu Dominio" className="absolute inset-0 w-full h-full object-cover z-0" />
+              <img src="/images/MenuObjetivo/solucion-enlace-menu-digital-whatsapp.webp" alt="El Poder del Menú Digital" className="absolute inset-0 w-full h-full object-cover z-0" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
               <div className="relative z-20 text-white flex flex-col h-full justify-center">
                 <h3 className="font-bold text-3xl font-playfair [text-shadow:0_0_2px_#000,0_0_5px_#000]">El Poder del Menú Digital</h3>
@@ -323,18 +334,13 @@ const MenuObjetivoPage = () => {
         <div className="mt-12 max-w-4xl mx-auto">
           <div 
             className="w-full h-[400px] rounded-xl shadow-xl overflow-hidden bg-black/20 flex items-center justify-center cursor-pointer hover:opacity-90 transition-opacity"
-            onClick={() => setIsModalOpen(true)}
+            onClick={() => openModal('https://www.youtube.com/watch?v=oPySzkvDjDk')}
           >
             <div className="text-center">
               <PlayCircle className="w-16 h-16 text-white mx-auto mb-2" />
               <p className="text-white font-medium">Ver video explicativo</p>
             </div>
           </div>
-            <VideoModal 
-              isOpen={isModalOpen} 
-              onClose={() => setIsModalOpen(false)}
-              videoUrl="/videos/proceso-contratacion.mp4"
-            />
           <div className="mt-8 text-center">
             <a 
               href="https://wa.me/593999999999?text=Hola%2C%20vi%20la%20demo%20en%20la%20landing%20y%20me%20interesa%20ver%20c%C3%B3mo%20funciona%20para%20mi%20restaurante.%20%C2%BFPueden%20agendar%20una%20demo%20personalizada%3F"

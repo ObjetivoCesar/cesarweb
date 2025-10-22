@@ -27,8 +27,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/menuobjetivo" className="text-gray-500 hover:text-gray-900">
-                  Menu Objetivo
+                <Link href="/menuobjetivo" className="bg-[#FF6B00] text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-[#E66000] transition-colors">
+                  Menú Objetivo
                 </Link>
               </li>
             </ul>
